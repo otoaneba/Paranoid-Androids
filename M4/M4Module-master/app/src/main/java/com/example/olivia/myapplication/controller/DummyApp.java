@@ -18,6 +18,7 @@ public class DummyApp extends AppCompatActivity {
 
     private Button logoutButton;
     private Button profileButton;
+    private Button reportButton;
     private User user;
 
     @Override
@@ -35,10 +36,21 @@ public class DummyApp extends AppCompatActivity {
 
         logoutButton = (Button) findViewById(R.id.logout_button);
         profileButton = (Button) findViewById(R.id.profile_button);
+        reportButton = (Button) findViewById(R.id.report_button);
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DummyApp.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        reportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DummyApp.this, ReportActivity.class);
                 startActivity(intent);
                 finish();
             }
