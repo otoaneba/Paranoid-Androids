@@ -63,6 +63,7 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
     public boolean handleLoginRequest(String id, String pass) {
         u = findUserById(id);//Modified by Rayna
         return u!=null && u.checkPassword(pass);
+        //return true;
     }
 
     /**

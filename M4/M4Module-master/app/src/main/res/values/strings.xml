@@ -20,4 +20,10 @@
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
     <string name="title_activity_register">Sign up</string>
     <string name="title_activity_firebase_login">Sign in</string>
+    <string name="title_activity_report">ReportActivity</string>
+	<string name="water_report">Water Purity Reports</string>
+	<string name="create_button">Create New Report</string>
+	<string name="title_activity_show_report">ShowReportActivity</string>
+	<string name="report_date">Date of Report</string>
+	<string name="textview">TextView</string>
 </resources>

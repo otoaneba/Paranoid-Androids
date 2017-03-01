@@ -8,8 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logout_button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="135dp" />
 
     <TextView
         android:text="@string/water_app"
@@ -17,15 +18,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textSize="24sp"
-        android:layout_above="@+id/logout_button"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="47dp" />
+        android:layout_marginTop="11dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/report_button"
+        android:layout_below="@+id/profile_button"
+        android:layout_centerHorizontal="true"
+        android:text="Water Purity Reports" />
 
     <Button
         android:text="Profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/profile_button"
+        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/logout_button"
         android:layout_alignStart="@+id/logout_button" />
 
