@@ -18,7 +18,7 @@ import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.userType;
 
 public class createReport extends AppCompatActivity {
-private static ReportManager reports = new ReportManager();
+private  ReportManager reports = new ReportManager();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
