@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by zsp32 on 3/1/2017.
+ * Created by Shuopeng Zhou on 3/1/2017.
+ * Database for stroing report
  */
 
 public class ReportManager {
-    Report u;// Modified by Rayna to enable accessing the user from LoginActivity
+    Report u;// Modified by Shuopeng Zhou to enable accessing the report from ReportActivity
 
     private List<Report> reports = new ArrayList<Report>();
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by Shuopeng Zhou on 3/1/2017.
+ * Create a new report contains time, reportNumber,location, virusPPM and combinationPPM
  */
 
 public class Report implements Serializable {
