@@ -15,17 +15,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.olivia.myapplication.model.ReportManager;
-import com.example.olivia.myapplication.model.userType;
+import com.example.olivia.myapplication.model.waterQuality;
 
 public class createReport extends AppCompatActivity {
-private  ReportManager reports = new ReportManager();
+private ReportManager reports = new ReportManager();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
 
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, userType.values());
+        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
