@@ -60,12 +60,12 @@ private ReportManager reports = new ReportManager();
                 }
             }
         });
-//cancel button that takes a user back to the welcome screen
+//cancel button that takes a user back to the ReportActivity
         final Button cancelButton = (Button) findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),DummyApp.class));
+                startActivity(new Intent(getApplicationContext(),ReportActivity.class));
             }
         });
     }
