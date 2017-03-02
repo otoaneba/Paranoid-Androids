@@ -53,29 +53,26 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Profile_Screen" />
+
         <!-- <activity -->
         <!-- android:name=".FirebaseLoginActivity" -->
         <!-- android:label="@string/title_activity_firebase_login"></activity> -->
-        <!-- <activity android:name=".ReportActivity" android:label="CS2340 Water App"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
 
+        <activity android:name=".ReportActivity" android:label="CS2340 Water App">
+         </activity>
 
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
-        <!-- <activity android:name=".ShowReportActivity" android:label="CS2340 Water App"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <activity android:name=".ShowReportActivity" android:label="CS2340 Water App"/>
+         <!--<intent-filter>-->
+         <!--<action android:name="android.intent.action.MAIN" />-->
+         <!--<category android:name="android.intent.category.LAUNCHER" />-->
+         <!--</intent-filter>-->
+         <!--</activity>-->
 
-
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
         <activity
             android:name=".createReport"
-            android:label="@string/title_activity_create_report"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_create_report">
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
+    </activity>
     </application>
 
 </manifest>
