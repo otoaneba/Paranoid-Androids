@@ -73,7 +73,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="User Type"
+        android:text="Water Quality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/etConditionSpinner"
@@ -97,8 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/registerButton"
-        android:onClick="showAlert"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="70dp"
         android:layout_below="@+id/etConditionType"
         android:layout_toRightOf="@+id/etConditionType"
         android:layout_toEndOf="@+id/etConditionType" />
