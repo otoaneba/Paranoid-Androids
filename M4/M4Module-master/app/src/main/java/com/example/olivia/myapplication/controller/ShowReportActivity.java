@@ -1,8 +1,11 @@
 package com.example.olivia.myapplication.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 //import com.example.olivia.myapplication.R;
@@ -21,7 +24,7 @@ public class ShowReportActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 
 
-
+        Button cancelButton = (Button) findViewById(R.id.cancel_button);
         Report report2 = (Report) getIntent().getSerializableExtra("selectedReport");
         //PurityReport report2 = new PurityReport("Feb 14", "8:00", 39393, "Joe", "GA", "Aight", 400);
 
@@ -43,6 +46,13 @@ public class ShowReportActivity extends AppCompatActivity {
         virusPpm.setText("Virus PPM: " + report2.getVirusPPM());
         contaminationPpm.setText("Contamination PPM: " + report2.getCombinationPPM());
 
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShowReportActivity.this, ReportActivity.class));
+            }
+        });
 
 
     }
