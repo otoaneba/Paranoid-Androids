@@ -47,14 +47,14 @@ public class DummyApp extends AppCompatActivity {
             }
         });
 
-//        reportButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(DummyApp.this, ReportActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        reportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DummyApp.this, ReportActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
