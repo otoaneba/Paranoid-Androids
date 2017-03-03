@@ -51,6 +51,7 @@ public class DummyApp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DummyApp.this, ReportActivity.class);
+                //intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
             }
@@ -61,7 +62,6 @@ public class DummyApp extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DummyApp.this, Profile_Screen.class);
                 intent.putExtra("user", user);
-                //.putExtra
                 startActivity(intent);
 
                 finish();

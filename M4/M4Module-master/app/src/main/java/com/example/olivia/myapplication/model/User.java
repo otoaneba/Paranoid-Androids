@@ -18,6 +18,8 @@ public class User implements Serializable{
     private String address;
     private String userType;
 
+    private static User currentUser;
+
     /**
      * constructor for the user that takes in 6 String parameters and creates a new User object
      * when initialized
@@ -110,6 +112,18 @@ public class User implements Serializable{
      */
     public boolean checkPassword(String pass) {
         return password.equals(pass);
+    }
+
+    public String toString() {
+        return name;
+    }
+
+    public static void setCurrentUser(User u) {
+        currentUser = u;
+    }
+
+    public static User getCurrentUser() {
+        return currentUser;
     }
 
 }
