@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 //import com.example.olivia.myapplication.R;
 import com.example.olivia.myapplication.model.PurityReport;
+import com.example.olivia.myapplication.model.Report;
+
+import org.w3c.dom.Text;
 
 public class ShowReportActivity extends AppCompatActivity {
 
@@ -17,8 +20,10 @@ public class ShowReportActivity extends AppCompatActivity {
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        //PurityReport report2 = (PurityReport) getIntent().getExtras().getParcelable("selectedReport");
-        PurityReport report2 = new PurityReport("Feb 14", "8:00", 39393, "Joe", "GA", "Aight", 400);
+
+
+        Report report2 = (Report) getIntent().getSerializableExtra("selectedReport");
+        //PurityReport report2 = new PurityReport("Feb 14", "8:00", 39393, "Joe", "GA", "Aight", 400);
 
         TextView title = (TextView) findViewById(R.id.Title);
         TextView time = (TextView) findViewById(R.id.time);
@@ -26,15 +31,17 @@ public class ShowReportActivity extends AppCompatActivity {
         TextView worker = (TextView) findViewById(R.id.worker);
         TextView location = (TextView) findViewById(R.id.location);
         TextView condition = (TextView) findViewById(R.id.condition);
-        TextView ppm = (TextView) findViewById(R.id.PPM);
+        TextView contaminationPpm = (TextView) findViewById(R.id.contamination);
+        TextView virusPpm = (TextView) findViewById(R.id.PPM);
 
         title.setText(report2.getDate());
-        time.setText("Time of Report: " + report2.getDate());
+        time.setText("Time of Report: " + report2.getTime());
         reportNumber.setText("Report Number: " + report2.getReportNumber());
-        worker.setText("Worker Name: " + report2.getWorkerName());
+        worker.setText("Worker Name: " + report2.getCreator());
         location.setText("Location: " + report2.getLocation());
         condition.setText("Water Condition: " + report2.getCondition());
-        ppm.setText("Concentration PPM: " + report2.getVirusPPM());
+        virusPpm.setText("Virus PPM: " + report2.getVirusPPM());
+        contaminationPpm.setText("Contamination PPM: " + report2.getCombinationPPM());
 
 
 
