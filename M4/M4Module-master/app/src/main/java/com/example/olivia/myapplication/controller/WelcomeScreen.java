@@ -19,6 +19,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     Button login;
     Button register;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,18 @@ public class WelcomeScreen extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("button clicked");
                 startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+            }
+        });
+
+        button = (Button)findViewById(R.id.map_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("button clicked");
+                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+                finish();
             }
         });
     }
