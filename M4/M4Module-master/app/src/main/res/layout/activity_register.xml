@@ -10,18 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.olivia.myapplication.controller.RegisterActivity">
 
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cancelButton"
-        android:layout_alignBaseline="@+id/registerButton"
-        android:layout_alignBottom="@+id/registerButton"
-        android:layout_toRightOf="@+id/registerButton"
-        android:layout_toEndOf="@+id/registerButton"
-        android:layout_marginLeft="44dp"
-        android:layout_marginStart="44dp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,16 +93,42 @@
         android:layout_alignParentStart="true"
         android:id="@+id/etUserType" />
 
-    <Button
-        android:text="Register"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/registerButton"
-        android:onClick="showAlert"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/etUserType"
-        android:layout_toRightOf="@+id/etUserType"
-        android:layout_toEndOf="@+id/etUserType" />
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/userTypeSpinner"
+        android:layout_marginTop="51dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etUserType"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@+id/etUserType"
+            android:layout_toRightOf="@+id/etUserType"
+            android:layout_weight="0.38"
+            android:onClick="showAlert"
+            android:text="Register"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignEnd="@+id/linearLayout2"
+            android:layout_alignRight="@+id/linearLayout2"
+            android:layout_alignTop="@+id/linearLayout2"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="Cancel" />
+
+    </LinearLayout>
 
 </RelativeLayout>

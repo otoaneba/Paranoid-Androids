@@ -10,7 +10,7 @@ import java.io.Serializable;
  * setters.
  */
 
-public class User implements Serializable{
+public class User implements Serializable {
     private String id;
     private String name;
     private String password;
@@ -60,7 +60,7 @@ public class User implements Serializable{
      * accessor for password
      * @return returns a password for this user object
      */
-    public String PasswordGetter() {return password;}
+    public String PasswordGetter() { return password; }
 
     /**
      * accessor for user email

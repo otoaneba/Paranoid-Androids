@@ -26,7 +26,7 @@ import static com.example.olivia.myapplication.controller.R.id.user;
 
 
 public class ReportActivity extends AppCompatActivity {
-    private Button createButton;
+    private Button createButton, cancelButton;
     private ReportManager manager = new ReportManager();
 
 
@@ -47,6 +47,7 @@ public class ReportActivity extends AppCompatActivity {
         ListAdapter adapter = new ArrayAdapter<Report>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.report_list);
         createButton = (Button) findViewById(R.id.create_report);
+        cancelButton = (Button) findViewById(R.id.cancel_report);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){
@@ -71,6 +72,15 @@ public class ReportActivity extends AppCompatActivity {
             }
         });
 
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReportActivity.this, DummyApp.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }

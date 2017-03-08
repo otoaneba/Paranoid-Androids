@@ -22,11 +22,20 @@
         android:textSize="30sp" />
 
     <Button
-        android:text="@string/create_button"
+        android:id="@+id/create_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/create_report"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="75dp"
+        android:text="@string/create_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/cancel_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp"
+        android:text="Cancel" />
 </RelativeLayout>
