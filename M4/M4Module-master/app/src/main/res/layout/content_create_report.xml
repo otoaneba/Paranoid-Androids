@@ -69,16 +69,40 @@
         android:layout_alignParentStart="true"
         android:id="@+id/etConditionType" />
 
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cancelButton"
-        android:layout_alignBaseline="@+id/registerButton"
-        android:layout_alignBottom="@+id/registerButton"
-        android:layout_toLeftOf="@+id/etConditionSpinner"
-        android:layout_toStartOf="@+id/etConditionSpinner" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etConditionSpinner"
+        android:layout_marginTop="73dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:text="Create"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/registerButton"
+            android:layout_alignBottom="@+id/registerButton"
+            android:layout_toLeftOf="@+id/etConditionSpinner"
+            android:layout_toStartOf="@+id/etConditionSpinner"
+            android:layout_weight="1"
+            android:text="Cancel" />
+
+    </LinearLayout>
+
+<<<<<<< HEAD
     <Button
         android:text="Create"
         android:textAllCaps="false"
@@ -101,4 +125,6 @@
         android:layout_below="@+id/registerButton"
         android:layout_toRightOf="@+id/registerButton"
         android:layout_toEndOf="@+id/registerButton" />
+=======
+>>>>>>> d82ba393cf34963d7605d73fe36e188876f47ed1
 </RelativeLayout>

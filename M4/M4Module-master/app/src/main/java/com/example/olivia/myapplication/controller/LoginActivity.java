@@ -363,7 +363,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 Intent intent = new Intent(LoginActivity.this, DummyApp.class);
-//                intent.putExtra("user", user);
+                intent.putExtra("user", user);
                 User.setCurrentUser(user);
                 startActivity(intent);
                 finish();
