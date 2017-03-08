@@ -43,15 +43,7 @@ public class WelcomeScreen extends AppCompatActivity {
             }
         });
 
-        button = (Button)findViewById(R.id.map_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("button clicked");
-                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
-                finish();
-            }
-        });
+
     }
 
 }

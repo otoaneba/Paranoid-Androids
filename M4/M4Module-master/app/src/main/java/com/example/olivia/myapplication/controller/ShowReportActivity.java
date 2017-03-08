@@ -54,11 +54,5 @@ public class ShowReportActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
-
-
-
-
 }

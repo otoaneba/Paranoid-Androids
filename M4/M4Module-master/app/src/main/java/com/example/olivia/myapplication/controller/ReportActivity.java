@@ -27,6 +27,7 @@ import static com.example.olivia.myapplication.controller.R.id.user;
 
 public class ReportActivity extends AppCompatActivity {
     private Button createButton;
+    private Button mapButton;
     private ReportManager manager = new ReportManager();
 
 
@@ -70,8 +71,15 @@ public class ReportActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
+//
+//        mapButton = (Button) findViewById(R.id.location_button);
+//        mapButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+//                finish();
+//            }
+//        });
 
     }
 
