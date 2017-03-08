@@ -44,9 +44,9 @@ public class createReport extends AppCompatActivity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
+        final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
         final EditText etLocation = (EditText) findViewById(R.id.etLocation);
-
         final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
         final EditText etCombinationPPM = (EditText) findViewById(R.id.etCombinationPPM);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
@@ -91,6 +91,16 @@ public class createReport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),DummyApp.class));
+            }
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(createReport.this, MapsActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
             }
         });
     }
