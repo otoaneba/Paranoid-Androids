@@ -43,8 +43,6 @@ public class ReportActivity extends AppCompatActivity {
         final List<Report> reports = manager.getList();
 
 
-
-
         ListAdapter adapter = new ArrayAdapter<Report>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.report_list);
         createButton = (Button) findViewById(R.id.create_report);
@@ -84,5 +82,4 @@ public class ReportActivity extends AppCompatActivity {
         });
 
     }
-
 }
