@@ -16,7 +16,14 @@ import com.example.olivia.myapplication.model.User;
 
 import java.util.List;
 
+import static com.example.olivia.myapplication.controller.R.id.cancelButton;
+import static com.example.olivia.myapplication.controller.R.id.user;
 
+/**
+ * This is the page that shows a list of reports. You
+ * Have the option to either create reports or show
+ * details for individual reports.
+ */
 public class ViewReportActivity extends AppCompatActivity {
     private Button createButton, cancelButton;
 
@@ -27,18 +34,18 @@ public class ViewReportActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.report_layout);
-        final User user = (User) getIntent().getSerializableExtra("user");
-        //This is a sample report
-        //final PurityReport report1 = new PurityReport("Feb17", "8:00", 1234, "John Smith", "GA", "BAD", 300);
+        //Get current user
+        final User user = User.getCurrentUser();
+        //Initializes buttons on page
+        createButton = (Button) findViewById(R.id.create_report);
+        cancelButton = (Button) findViewById(R.id.cancel_report);
 
         //The reports need to be added to an array to be shown
         final List<Report> reports = manager.getList();
 
-
+        //Sets up list of reports
         ListAdapter adapter = new ArrayAdapter<Report>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.report_list);
-        createButton = (Button) findViewById(R.id.create_report);
-        cancelButton = (Button) findViewById(R.id.cancel_report);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){
@@ -52,17 +59,17 @@ public class ViewReportActivity extends AppCompatActivity {
                     }
                 }
         );
-
+        //Create button goes to create report page
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewReportActivity.this, ReportActivity.class);
+                Intent intent = new Intent(ViewReportActivity.this, createReport.class);
                 //intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
             }
         });
-
+        //Cancel button returns to Main Screen Activity
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
