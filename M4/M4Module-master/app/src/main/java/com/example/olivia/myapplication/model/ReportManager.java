@@ -13,7 +13,7 @@ import java.util.Map;
  */
 
 public class ReportManager {
-    Report u;// Modified by Shuopeng Zhou to enable accessing the report from ReportActivity
+    Report u;// Modified by Shuopeng Zhou to enable accessing the report from ViewReportActivity
 
     private static List<Report> reports = new ArrayList<Report>();
 

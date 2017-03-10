@@ -66,7 +66,7 @@
         <!-- android:label="@string/title_activity_firebase_login"></activity> -->
 
         <activity
-            android:name=".ReportActivity"
+            android:name=".ViewReportActivity"
             android:label="CS2340 Water App"></activity>
         <activity
             android:name=".ShowReportActivity"
@@ -78,7 +78,7 @@
         <!-- </activity> -->
 
         <activity
-            android:name=".createReport"
+            android:name=".ReportActivity"
             android:label="@string/title_activity_create_report">
 
             <!-- android:theme="@style/AppTheme.NoActionBar"> -->
