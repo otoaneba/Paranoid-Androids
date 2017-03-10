@@ -72,6 +72,5 @@ public class ReportActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

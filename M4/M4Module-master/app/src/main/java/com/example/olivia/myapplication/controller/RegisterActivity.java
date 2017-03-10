@@ -15,7 +15,6 @@ import com.example.olivia.myapplication.model.UserManager;
 import com.example.olivia.myapplication.model.userType;
 //import com.example.olivia.myapplication.model.User;
 //import com.example.olivia.myapplication.model.UserManager;
-
 //import static com.example.olivia.myapplication.model.UserManager.*;
 
 /**

@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * Created by Shuopeng Zhou on 3/1/2017.
- * Database for stroing report
+ * ArrayList that stores user reports
  */
 
 public class ReportManager {

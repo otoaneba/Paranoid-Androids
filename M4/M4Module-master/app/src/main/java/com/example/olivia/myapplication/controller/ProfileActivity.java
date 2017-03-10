@@ -29,10 +29,8 @@ public class ProfileActivity extends AppCompatActivity {
     private Button cancelButton;
     private UserManager manager = new UserManager();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         try {
             super.onCreate(savedInstanceState);
