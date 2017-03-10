@@ -79,6 +79,7 @@ public class Profile_Screen extends AppCompatActivity {
                     manager.deleteUser(user.getId());
                     user = new User(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
                     manager.addUser(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
+                    User.setCurrentUser(user);
                     startActivity(new Intent(getApplicationContext(), DummyApp.class));
                     finish();
                 }

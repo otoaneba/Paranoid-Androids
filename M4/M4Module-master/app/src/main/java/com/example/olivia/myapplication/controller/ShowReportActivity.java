@@ -14,20 +14,23 @@ import com.example.olivia.myapplication.model.Report;
 
 import org.w3c.dom.Text;
 
+/**
+ * This page shows the details for an individual report.
+ * You can return to the list of reports by clicking the
+ * cancel button.
+ */
 public class ShowReportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_show_report);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-
+        //Initializes cancel button
         Button cancelButton = (Button) findViewById(R.id.cancel_button);
-        Report report2 = (Report) getIntent().getSerializableExtra("selectedReport");
-        //PurityReport report2 = new PurityReport("Feb 14", "8:00", 39393, "Joe", "GA", "Aight", 400);
+        //Gets report passed in from the Report Activity
+        Report selectedReport = (Report) getIntent().getSerializableExtra("selectedReport");
 
+        //Initializes widgets from the XML
         TextView title = (TextView) findViewById(R.id.Title);
         TextView time = (TextView) findViewById(R.id.time);
         TextView reportNumber = (TextView) findViewById(R.id.report_number);
@@ -37,16 +40,17 @@ public class ShowReportActivity extends AppCompatActivity {
         TextView contaminationPpm = (TextView) findViewById(R.id.contamination);
         TextView virusPpm = (TextView) findViewById(R.id.PPM);
 
-        title.setText(report2.getDate());
-        time.setText("Time of Report: " + report2.getTime());
-        reportNumber.setText("Report Number: " + report2.getReportNumber());
-        worker.setText("Worker Name: " + report2.getCreator());
-        location.setText("Location: " + report2.getLocation());
-        condition.setText("Water Condition: " + report2.getCondition());
-        virusPpm.setText("Virus PPM: " + report2.getVirusPPM());
-        contaminationPpm.setText("Contamination PPM: " + report2.getCombinationPPM());
+        //Sets values from selected report
+        title.setText(selectedReport.getDate());
+        time.setText("Time of Report: " + selectedReport.getTime());
+        reportNumber.setText("Report Number: " + selectedReport.getReportNumber());
+        worker.setText("Worker Name: " + selectedReport.getCreator());
+        location.setText("Location: " + selectedReport.getLocation());
+        condition.setText("Water Condition: " + selectedReport.getCondition());
+        virusPpm.setText("Virus PPM: " + selectedReport.getVirusPPM());
+        contaminationPpm.setText("Contamination PPM: " + selectedReport.getCombinationPPM());
 
-
+        //Cancel button returns to Report Activity
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

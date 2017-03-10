@@ -2,7 +2,6 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +16,7 @@ import android.widget.Spinner;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
 
 
 import com.example.olivia.myapplication.model.ReportManager;
@@ -25,6 +25,13 @@ import com.example.olivia.myapplication.model.waterQuality;
 
 import static com.example.olivia.myapplication.controller.R.id.user;
 
+/**
+ * This page allows you to create a new Purity Report.
+ * If you click the create button, it saves the report
+ * to the Report Activity. If you click cancel, the
+ * report is not saved and the app returns to the
+ * Report Activity.
+ */
 public class createReport extends AppCompatActivity {
 
 
@@ -38,7 +45,7 @@ public class createReport extends AppCompatActivity {
 
         //This is the current user passed in
         final User user = (User) getIntent().getSerializableExtra("user");
-
+        //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
         final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
