@@ -20,7 +20,7 @@ import com.example.olivia.myapplication.model.UserManager;
  * @version 1.0
  */
 
-public class Profile_Screen extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
     private EditText name;
     private EditText email;
     private EditText homeAddress;
@@ -63,7 +63,7 @@ public class Profile_Screen extends AppCompatActivity {
             cancelButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(), DummyApp.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
             });

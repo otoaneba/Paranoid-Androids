@@ -9,18 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.app.AlertDialog;
 
-import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.UserManager;
 import com.example.olivia.myapplication.model.userType;
-
-import static com.example.olivia.myapplication.controller.R.styleable.AlertDialog;
-import static com.example.olivia.myapplication.controller.R.styleable.Spinner;
 //import com.example.olivia.myapplication.model.User;
 //import com.example.olivia.myapplication.model.UserManager;
-
 //import static com.example.olivia.myapplication.model.UserManager.*;
 
 /**
@@ -77,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                             .create();
                     myAlert.show();
                 } else {
-                    startActivity(new Intent(getApplicationContext(), WelcomeScreen.class));
+                    startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
                     finish();
                 }
             }
@@ -87,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),WelcomeScreen.class));
+                startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
             }
         });
     }

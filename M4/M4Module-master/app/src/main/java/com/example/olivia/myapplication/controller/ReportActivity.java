@@ -2,11 +2,7 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,7 +10,6 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.example.olivia.myapplication.model.PurityReport;
 import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
@@ -78,12 +73,11 @@ public class ReportActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReportActivity.this, DummyApp.class);
+                Intent intent = new Intent(ReportActivity.this, MainActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
             }
         });
-
     }
 }
