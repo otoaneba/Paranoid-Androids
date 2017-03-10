@@ -87,7 +87,7 @@ public class createReport extends AppCompatActivity {
                 } else {
                     manager.addReport(time, location, virusPPM, combinationPPM, condition,
                             manager.size() + 1, todayDate);
-                    startActivity(new Intent(getApplicationContext(), DummyApp.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
             }
@@ -97,7 +97,7 @@ public class createReport extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),DummyApp.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 

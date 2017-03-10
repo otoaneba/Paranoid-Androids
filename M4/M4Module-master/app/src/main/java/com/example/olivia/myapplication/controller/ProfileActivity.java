@@ -80,7 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
                     user = new User(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
                     manager.addUser(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
                     User.setCurrentUser(user);
-                    startActivity(new Intent(getApplicationContext(), DummyApp.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
             });
