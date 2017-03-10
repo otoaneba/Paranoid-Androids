@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         reportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ReportActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewReportActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();

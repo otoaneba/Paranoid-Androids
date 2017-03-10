@@ -3,16 +3,12 @@ package com.example.olivia.myapplication.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 //import com.example.olivia.myapplication.R;
-import com.example.olivia.myapplication.model.PurityReport;
 import com.example.olivia.myapplication.model.Report;
-
-import org.w3c.dom.Text;
 
 public class ShowReportActivity extends AppCompatActivity {
 
@@ -50,7 +46,7 @@ public class ShowReportActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ShowReportActivity.this, ReportActivity.class));
+                startActivity(new Intent(ShowReportActivity.this, ViewReportActivity.class));
             }
         });
 
