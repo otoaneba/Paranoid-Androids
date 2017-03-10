@@ -4,11 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,8 +19,6 @@ import java.util.GregorianCalendar;
 import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
-
-import static com.example.olivia.myapplication.controller.R.id.user;
 
 public class createReport extends AppCompatActivity {
 
@@ -80,7 +75,7 @@ public class createReport extends AppCompatActivity {
                 } else {
                     manager.addReport(time, location, virusPPM, combinationPPM, condition,
                             manager.size() + 1, todayDate);
-                    startActivity(new Intent(getApplicationContext(), DummyApp.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
             }
@@ -90,7 +85,7 @@ public class createReport extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),DummyApp.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 

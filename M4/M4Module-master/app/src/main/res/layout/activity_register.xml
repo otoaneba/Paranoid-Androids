@@ -11,30 +11,30 @@
     tools:context="com.example.olivia.myapplication.controller.RegisterActivity">
 
     <EditText
+        android:id="@+id/etId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etId"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:hint="userID" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName" />
 
     <EditText
+        android:id="@+id/etUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etUsername"
-        android:hint="Username"
-        android:layout_below="@+id/etId"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etId"
+        android:ems="10"
+        android:hint="Your Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:layout_width="wrap_content"

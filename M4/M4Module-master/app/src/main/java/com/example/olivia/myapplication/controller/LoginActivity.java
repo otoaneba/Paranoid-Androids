@@ -20,7 +20,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,14 +30,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.FileOutputStream;
-import java.io.IOError;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.olivia.myapplication.model.Manager;
 import com.example.olivia.myapplication.model.UserManager;
 import com.example.olivia.myapplication.model.User;
 
@@ -96,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         login_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),WelcomeScreen.class));
+                startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
             }
         });
 
@@ -362,7 +356,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Intent intent = new Intent(LoginActivity.this, DummyApp.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("user", user);
                 User.setCurrentUser(user);
                 startActivity(intent);

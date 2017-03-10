@@ -9,12 +9,12 @@ import com.example.olivia.myapplication.model.User;
 /**
  * Created by Olivia on 2/12/2017.
  *
- * DummyApp is the main page of the water app once the user logs in to his/her profile.
+ * MainActivity is the main page of the water app once the user logs in to his/her profile.
  * As of now, the only functionality is that the user can view the profile and edit it to
  * his/her liking
  */
 
-public class DummyApp extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Button logoutButton;
     private Button profileButton;
@@ -41,7 +41,7 @@ public class DummyApp extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DummyApp.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -50,7 +50,7 @@ public class DummyApp extends AppCompatActivity {
         reportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DummyApp.this, ReportActivity.class);
+                Intent intent = new Intent(MainActivity.this, ReportActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
@@ -60,7 +60,7 @@ public class DummyApp extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DummyApp.this, Profile_Screen.class);
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
 

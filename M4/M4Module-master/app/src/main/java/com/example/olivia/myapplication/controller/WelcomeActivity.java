@@ -15,11 +15,10 @@ import android.widget.Button;
  * @author Naoto Abe
  *
  */
-public class WelcomeScreen extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     Button login;
     Button register;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
