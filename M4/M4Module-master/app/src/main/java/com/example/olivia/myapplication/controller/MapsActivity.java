@@ -13,6 +13,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * Map class that displays the world. used for when a user submits reports
+ *
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     private GoogleMap mMap;
@@ -37,7 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMapLongClickListener(this);
     }
 
-
+    //function that lets user to long press on the map to place a pin on the map
     @Override
     public void onMapLongClick(LatLng point) {
 

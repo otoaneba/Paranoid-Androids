@@ -20,7 +20,6 @@ import static com.example.olivia.myapplication.controller.R.styleable.AlertDialo
 import static com.example.olivia.myapplication.controller.R.styleable.Spinner;
 //import com.example.olivia.myapplication.model.User;
 //import com.example.olivia.myapplication.model.UserManager;
-
 //import static com.example.olivia.myapplication.model.UserManager.*;
 
 /**
