@@ -25,58 +25,35 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etCombinationPPM"
-        android:hint="CombinationPPM"
-        android:layout_below="@+id/etLocation"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etVirusPPM"
-        android:hint="VirusPPM"
-        android:layout_below="@+id/etCombinationPPM"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etConditionSpinner"
         android:spinnerMode="dialog"
-        android:layout_below="@+id/etVirusPPM"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/etContaminatePPM"
+        android:layout_toRightOf="@+id/location_button"
+        android:layout_toEndOf="@+id/location_button"
+        android:layout_marginLeft="97dp"
+        android:layout_marginStart="97dp" />
 
     <TextView
         android:text="Water Quality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/etConditionSpinner"
+        android:id="@+id/etConditionType"
+        android:layout_below="@+id/etContaminatePPM"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/etConditionType" />
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etConditionSpinner"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="66dp"
         android:orientation="horizontal"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/etConditionType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/registerButton"
@@ -110,4 +87,27 @@
         android:text="Location"
         android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/etContaminatePPM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etLocation"
+        android:layout_marginTop="46dp"
+        android:ems="10"
+        android:hint="Contaminate PPM"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/etVirusPPM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etLocation"
+        android:ems="10"
+        android:hint="Virus PPM"
+        android:inputType="numberDecimal" />
 </RelativeLayout>

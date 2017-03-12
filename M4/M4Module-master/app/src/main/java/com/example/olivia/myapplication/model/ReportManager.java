@@ -17,8 +17,9 @@ public class ReportManager {
 
     private static List<Report> reports = new ArrayList<Report>();
 
-    public void addReport(String i, String n, String p, String e, String a, int t, String c) {
-        reports.add(new Report(i,  n,  p, e, a, t, c));
+    public void addReport(String time, String location, double vPPM, double cPPM,
+                          String condiiton, int reportNum, String date) {
+        reports.add(new Report(time, location, vPPM, cPPM, condiiton, reportNum, date));
     }
     public int size() {
         return reports.size();

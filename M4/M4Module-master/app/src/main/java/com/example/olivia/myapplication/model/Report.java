@@ -13,22 +13,23 @@ public class Report implements Serializable {
     private String time;
     private int reportNumber;
     private String location;
-    private String virusPPM;
-    private String combinationPPM;
+    private double virusPPM;
+    private double contaminatePPM;
     private String creator;
     private String date;
     private String condition;
 
 
-    public Report(String i, String n, String p, String e, String c, int t, String d) {
-        time = i;
-        location = n;
-        virusPPM = p;
-        combinationPPM = e;
-        condition = c;
-        reportNumber = t;
+    public Report(String time, String location, double vPPM, double cPPM, String condition,
+                  int reportNum, String date) {
+        this.time = time;
+        this.location = location;
+        virusPPM = vPPM;
+        contaminatePPM = cPPM;
+        this.condition = condition;
+        reportNumber = reportNum;
         creator = User.getCurrentUser().toString();
-        date = d;
+        this.date = date;
 
     }
 
@@ -42,11 +43,11 @@ public class Report implements Serializable {
     public String getLocation() {
         return location;
     }
-    public String getVirusPPM() {
+    public double getVirusPPM() {
         return virusPPM;
     }
-    public String getCombinationPPM() {
-        return combinationPPM;
+    public double getCombinationPPM() {
+        return contaminatePPM;
     }
     public int getReportNumber() {
         return reportNumber;

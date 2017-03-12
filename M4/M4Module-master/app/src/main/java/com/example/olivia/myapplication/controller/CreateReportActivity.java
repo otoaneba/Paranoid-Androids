@@ -50,7 +50,7 @@ public class CreateReportActivity extends AppCompatActivity {
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
         final EditText etLocation = (EditText) findViewById(R.id.etLocation);
         final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
-        final EditText etCombinationPPM = (EditText) findViewById(R.id.etCombinationPPM);
+        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,10 +65,10 @@ public class CreateReportActivity extends AppCompatActivity {
                 final String time = "" + timeFormat.format(c.getTime()).toString();
                 final String location = etLocation.getText().toString();
                 final String virusPPM = etVirusPPM.getText().toString();
-                final String combinationPPM = etCombinationPPM.getText().toString();
+                final String contaminatePPM = etContaminatePPM.getText().toString();
                 final String condition = etSpinner.getSelectedItem().toString();
                 //Checks to see if there is a missing input
-                if (/*time.isEmpty() || */location.isEmpty() ||virusPPM.isEmpty() || combinationPPM.isEmpty() ) {
+                if (/*time.isEmpty() || */location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                     myAlert.setMessage("Time,location,virusPPM and comninationPPM required")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
@@ -80,7 +80,8 @@ public class CreateReportActivity extends AppCompatActivity {
                             .create();
                     myAlert.show();
                 } else {
-                    manager.addReport(time, location, virusPPM, combinationPPM, condition,
+                    manager.addReport(time, location, Double.parseDouble(virusPPM),
+                            Double.parseDouble(contaminatePPM), condition,
                             manager.size() + 1, todayDate);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();

@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, ViewReportActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -63,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
-
-                finish();
             }
         });
 

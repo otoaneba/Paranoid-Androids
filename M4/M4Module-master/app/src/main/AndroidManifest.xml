@@ -78,7 +78,7 @@
         <!-- </activity> -->
 
         <activity
-            android:name=".ReportActivity"
+            android:name=".CreateReportActivity"
             android:label="@string/title_activity_create_report">
 
             <!-- android:theme="@style/AppTheme.NoActionBar"> -->
