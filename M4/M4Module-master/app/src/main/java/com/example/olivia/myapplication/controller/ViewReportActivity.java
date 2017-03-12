@@ -16,9 +16,6 @@ import com.example.olivia.myapplication.model.User;
 
 import java.util.List;
 
-import static com.example.olivia.myapplication.controller.R.id.cancelButton;
-import static com.example.olivia.myapplication.controller.R.id.user;
-
 /**
  * This is the page that shows a list of reports. You
  * Have the option to either create reports or show
@@ -33,7 +30,7 @@ public class ViewReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.report_layout);
+        setContentView(R.layout.view_report_layout);
         //Get current user
         final User user = User.getCurrentUser();
         //Initializes buttons on page
@@ -63,7 +60,7 @@ public class ViewReportActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewReportActivity.this, createReport.class);
+                Intent intent = new Intent(ViewReportActivity.this, CreateReportActivity.class);
                 //intent.putExtra("user", user);
                 startActivity(intent);
                 finish();

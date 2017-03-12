@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 user = (User)getIntent().getSerializableExtra("user"); //Obtaining data
             }
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.dummy_app);
+            setContentView(R.layout.content_main);
         } catch (Exception e) {
             System.out.println(e);
         }

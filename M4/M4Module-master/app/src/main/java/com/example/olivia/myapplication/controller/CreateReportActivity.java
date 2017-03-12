@@ -3,11 +3,8 @@ package com.example.olivia.myapplication.controller;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,8 +20,6 @@ import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
 
-import static com.example.olivia.myapplication.controller.R.id.user;
-
 /**
  * This page allows you to create a new Purity Report.
  * If you click the create button, it saves the report
@@ -32,7 +27,7 @@ import static com.example.olivia.myapplication.controller.R.id.user;
  * report is not saved and the app returns to the
  * Report Activity.
  */
-public class createReport extends AppCompatActivity {
+public class CreateReportActivity extends AppCompatActivity {
 
 
     @Override
@@ -74,7 +69,7 @@ public class createReport extends AppCompatActivity {
                 final String condition = etSpinner.getSelectedItem().toString();
                 //Checks to see if there is a missing input
                 if (/*time.isEmpty() || */location.isEmpty() ||virusPPM.isEmpty() || combinationPPM.isEmpty() ) {
-                    AlertDialog.Builder myAlert = new AlertDialog.Builder(createReport.this);
+                    AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                     myAlert.setMessage("Time,location,virusPPM and comninationPPM required")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
                                 @Override
@@ -104,7 +99,7 @@ public class createReport extends AppCompatActivity {
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(createReport.this, MapsActivity.class);
+                Intent intent = new Intent(CreateReportActivity.this, MapsActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
