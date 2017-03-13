@@ -28,13 +28,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.content_main);
         try {
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
             }
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.content_main);
         } catch (Exception e) {
             Log.d("debug", "something went wrong");
         }
