@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.olivia.myapplication.model.User;
+
 /**
  * Created by Olivia on 2/12/2017.
  *
@@ -18,9 +19,11 @@ import com.example.olivia.myapplication.model.User;
  */
 
 public class MainActivity extends AppCompatActivity {
-    TextView _userInfo;
-    User user;
-    Button _submit, _view, _purityLevel, _viewHistory, _trend, _security, _signOut, _profile;
+
+    private TextView _userInfo;
+    private User user;
+    Button _submit, _view, _purityLevel, _viewHistory,
+            _trend, _security, _signOut, _profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 //    private TextView userInfo;
 //    private Button logoutButton;

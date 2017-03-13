@@ -2,6 +2,7 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Spinner;
 
 import java.util.Calendar;
@@ -32,6 +34,21 @@ public class CreateReportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String address = "Address";
+        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
+        try {
+            Bundle extras = getIntent().getExtras();
+            address= extras.getString("address");
+            Double latitude = extras.getDouble("latitude");
+            Double longitude = extras.getDouble("longitude");
+            reportLatLng = new LatLng(latitude, longitude);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        final String address1 = address;
+        final LatLng reportLatLng1 = reportLatLng;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
@@ -48,7 +65,8 @@ public class CreateReportActivity extends AppCompatActivity {
 
         final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
-      //  final EditText etLocation = (EditText) findViewById(R.id.etLocation);
+        final TextView etLocation = (TextView) findViewById(R.id.addressTV);
+        etLocation.setText(address);
         final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
         final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
@@ -63,7 +81,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
                 //Gets information from textboxes
                 final String time = "" + timeFormat.format(c.getTime()).toString();
-                final String location = "";
+                final String location = "ad";
                 final String virusPPM = etVirusPPM.getText().toString();
                 final String contaminatePPM = etContaminatePPM.getText().toString();
                 final String condition = etSpinner.getSelectedItem().toString();
@@ -80,7 +98,7 @@ public class CreateReportActivity extends AppCompatActivity {
                             .create();
                     myAlert.show();
                 } else {
-                    manager.addReport(time, location, Double.parseDouble(virusPPM),
+                    manager.addReport(time, address1, reportLatLng1, Double.parseDouble(virusPPM),
                             Double.parseDouble(contaminatePPM), condition,
                             manager.size() + 1, todayDate);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));

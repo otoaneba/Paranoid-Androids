@@ -107,6 +107,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ViewPurityReportsLocationActivity"
+            android:label="@string/title_activity_view_purity_reports_location"></activity>
     </application>
 
 </manifest>
