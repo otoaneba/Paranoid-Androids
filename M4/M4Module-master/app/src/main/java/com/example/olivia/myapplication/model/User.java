@@ -52,7 +52,7 @@ public class User implements Serializable {
      * accessor for the user name
      * @return returns user name for this user object
      */
-    public String nameGetter() {
+    public String getName() {
         return name;
     } // Added by Rayna
 
@@ -60,7 +60,7 @@ public class User implements Serializable {
      * accessor for password
      * @return returns a password for this user object
      */
-    public String PasswordGetter() { return password; }
+    public String getPassword() { return password; }
 
     /**
      * accessor for user email
