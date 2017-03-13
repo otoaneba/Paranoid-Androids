@@ -14,13 +14,13 @@
     tools:showIn="@layout/activity_create_report">
 
     <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/etConditionSpinner"
-        android:spinnerMode="dialog"
-        android:layout_below="@+id/etContaminatePPM"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/etContaminatePPM"
+        android:spinnerMode="dialog" />
 
     <TextView
         android:text="Water Quality"

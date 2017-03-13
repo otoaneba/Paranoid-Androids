@@ -22,7 +22,7 @@ import java.util.List;
  * details for individual reports.
  */
 public class ViewReportActivity extends AppCompatActivity {
-    private Button createButton, cancelButton;
+    private Button locationButton, cancelButton;
 
     private ReportManager manager = new ReportManager();
 
@@ -32,9 +32,9 @@ public class ViewReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
         //Get current user
-        final User user = User.getCurrentUser();
+        final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //Initializes buttons on page
-        createButton = (Button) findViewById(R.id.create_report);
+        locationButton = (Button) findViewById(R.id.location);
         cancelButton = (Button) findViewById(R.id.cancel_report);
 
         //The reports need to be added to an array to be shown
@@ -57,11 +57,11 @@ public class ViewReportActivity extends AppCompatActivity {
                 }
         );
         //Create button goes to create report page
-        createButton.setOnClickListener(new View.OnClickListener() {
+        locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewReportActivity.this, CreateReportActivity.class);
-                //intent.putExtra("user", user);
+                Intent intent = new Intent(ViewReportActivity.this, PickPurityReportsLocationActivity.class);
+                intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
             }

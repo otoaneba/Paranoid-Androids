@@ -86,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
             _security.setVisibility(View.GONE);
         }
          //else (admin page), it will show all the functionalities.
-        _submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CreateSourceReport.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        _submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), CreateSourceReport.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
         _signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,14 +102,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        _view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ViewSourceReportAcitivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        _view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), ViewSourceReportAcitivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
         _profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         _viewHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ViewPurityReportsLocationActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewReportActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
             }

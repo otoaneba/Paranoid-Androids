@@ -22,13 +22,13 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/create_report"
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
-        android:text="@string/create_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"
+        android:text="Location" />
 
     <Button
         android:id="@+id/cancel_report"
