@@ -19,17 +19,19 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 /**
- * Map that shows the lets user pick the location for the PURITY REPORTS
+ * Map that lets user pick the location for the PURITY REPORTS
  *
  */
 public class PickPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     private GoogleMap mMap;
     private MarkerOptions myMarker = new MarkerOptions();
+    private ArrayList<LatLng> latlngList = new ArrayList<>(1000);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +70,16 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
+        latlngList.add(Position);
         startActivity(intent);
         finish();
     }
 
+    /**
+     * a public method that parse a LatLng and returns an address of that LatLng
+     * @param latLng a LatLng that a user picks to submit a PURITY REPORT
+     * @return a string representation of address
+     */
     public String getAddressFromLatLng( LatLng latLng ) {
         Geocoder geocoder = new Geocoder(this);
 
@@ -85,6 +93,15 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         }
 
         return address;
+    }
+
+    /**
+     * public getter method for LatLng list
+     * @return this LatLng list
+     */
+
+    public List<LatLng> getLatlng() {
+        return latlngList;
     }
 
 }

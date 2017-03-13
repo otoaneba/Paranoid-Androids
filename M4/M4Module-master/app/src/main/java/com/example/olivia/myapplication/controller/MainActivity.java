@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button logoutButton;
     private Button profileButton;
     private Button reportButton;
+    private Button viewPastReports;
     private User user;
 
     @Override
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         logoutButton = (Button) findViewById(R.id.logout_button);
         profileButton = (Button) findViewById(R.id.profile_button);
         reportButton = (Button) findViewById(R.id.report_button);
+        viewPastReports = (Button) findViewById(R.id._viewPastReportsButton);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,5 +67,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        viewPastReports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ViewPurityReportsLocationActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

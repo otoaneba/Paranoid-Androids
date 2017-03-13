@@ -50,4 +50,6 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
+
+
 }
