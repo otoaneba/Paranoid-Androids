@@ -28,4 +28,5 @@
     <string name="textview">TextView</string>
     <string name="title_activity_create_report">createReport</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_view_purity_reports_location">Map</string>
 </resources>
