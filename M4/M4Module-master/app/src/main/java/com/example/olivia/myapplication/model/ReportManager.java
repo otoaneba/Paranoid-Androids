@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import com.google.android.gms.maps.model.LatLng;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +18,9 @@ public class ReportManager {
 
     private static List<Report> reports = new ArrayList<Report>();
 
-    public void addReport(String time, String location, double vPPM, double cPPM,
+    public void addReport(String time, String location, LatLng reportLatLng, double vPPM, double cPPM,
                           String condiiton, int reportNum, String date) {
-        reports.add(new Report(time, location, vPPM, cPPM, condiiton, reportNum, date));
+        reports.add(new Report(time, location, reportLatLng, vPPM, cPPM, condiiton, reportNum, date));
     }
     public int size() {
         return reports.size();

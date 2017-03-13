@@ -1,6 +1,8 @@
 package com.example.olivia.myapplication.model;
 
 import java.io.Serializable;
+import com.google.android.gms.maps.model.LatLng;
+
 
 import static com.example.olivia.myapplication.controller.R.id.condition;
 
@@ -20,7 +22,7 @@ public class Report implements Serializable {
     private String condition;
 
 
-    public Report(String time, String location, double vPPM, double cPPM, String condition,
+    public Report(String time, String location, LatLng reportLatLng, double vPPM, double cPPM, String condition,
                   int reportNum, String date) {
         this.time = time;
         this.location = location;
