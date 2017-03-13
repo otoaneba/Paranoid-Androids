@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         _submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CreateSourceReport.class);
+                Intent intent = new Intent(getApplicationContext(), CreateSourceReportActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         _view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ViewSourceReportAcitivity.class);
+                Intent intent = new Intent(getApplicationContext(), ViewSourceReportAcitvity.class);
                 startActivity(intent);
                 finish();
             }

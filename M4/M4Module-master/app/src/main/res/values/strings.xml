@@ -31,4 +31,5 @@
     <string name="title_activity_create_source_report">CreateSourceReport</string>
     <string name="title_activity_view_source_report_acitivity">ViewSourceReportAcitivity</string>
     <string name="title_activity_view_purity_reports_location">Map</string>
+    <string name="title_activity_view_source_report_acitvity">ViewSourceReportAcitvity</string>
 </resources>
