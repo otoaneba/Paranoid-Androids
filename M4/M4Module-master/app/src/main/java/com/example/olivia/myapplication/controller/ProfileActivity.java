@@ -33,7 +33,6 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         try {
             super.onCreate(savedInstanceState);
             {
