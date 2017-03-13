@@ -73,6 +73,8 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
+
+        latlngList.add(Position);
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
         startActivity(intent);
