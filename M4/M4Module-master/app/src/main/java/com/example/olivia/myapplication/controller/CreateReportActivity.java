@@ -38,7 +38,11 @@ public class CreateReportActivity extends AppCompatActivity {
         LatLng reportLatLng = new LatLng(-33.852, 151.211);;
         try {
             Bundle extras = getIntent().getExtras();
-            address= extras.getString("address");
+
+            String ifNull= extras.getString("address");
+            if (ifNull.length() != 0) {
+                address = ifNull;
+            }
             Double latitude = extras.getDouble("latitude");
             Double longitude = extras.getDouble("longitude");
             reportLatLng = new LatLng(latitude, longitude);
