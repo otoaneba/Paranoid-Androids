@@ -1,8 +1,12 @@
 package com.example.olivia.myapplication.controller;
 
+import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -13,13 +17,18 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
 /**
- * Map class that displays the world. used for when a user submits reports
+ * Map that shows the lets user pick the location for the PURITY REPORTS
  *
  */
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
+public class ViewPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     private GoogleMap mMap;
+    private MarkerOptions myMarker = new MarkerOptions();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +54,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapLongClick(LatLng point) {
 
-        mMap.addMarker(new MarkerOptions()
+        mMap.addMarker(myMarker
                 .position(point)
                 .title(point.toString())
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng Position = myMarker.getPosition();
+        Log.d("debug", myMarker.getPosition().toString());
+        String address = getAddressFromLatLng(myMarker.getPosition());
+        Log.d("address", address);
+        startActivity(new Intent(getApplicationContext(), CreateReportActivity.class));
+        finish();
+    }
+
+    public String getAddressFromLatLng( LatLng latLng ) {
+        Geocoder geocoder = new Geocoder(this);
+
+        String address = "";
+        try {
+            address = geocoder
+                    .getFromLocation( latLng.latitude, latLng.longitude, 1 )
+                    .get( 0 ).getAddressLine( 0 );
+        } catch (IOException e ) {
+
+        }
+
+        return address;
     }
 
 }
