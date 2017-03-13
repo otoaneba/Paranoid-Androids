@@ -113,6 +113,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        _viewHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ViewPurityReportsLocationActivity.class);
+                intent.putExtra("user",user);
+                startActivity(intent);
+            }
+        });
+
 
     }
 //    private TextView userInfo;

@@ -101,7 +101,12 @@ public class CreateReportActivity extends AppCompatActivity {
                     manager.addReport(time, address1, reportLatLng1, Double.parseDouble(virusPPM),
                             Double.parseDouble(contaminatePPM), condition,
                             manager.size() + 1, todayDate);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
+                    finish();
+                    //startActivity(new Intent(getApplicationContext(), MainActivity.class)); John
+
                     finish();
                 }
             }
