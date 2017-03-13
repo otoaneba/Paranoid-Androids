@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Spinner;
 
 import java.util.Calendar;
@@ -32,6 +33,14 @@ public class CreateReportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String address = "Address";
+        try {
+            Bundle extras = getIntent().getExtras();
+            address= extras.getString("address");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
 
@@ -48,7 +57,8 @@ public class CreateReportActivity extends AppCompatActivity {
 
         final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
-      //  final EditText etLocation = (EditText) findViewById(R.id.etLocation);
+        final TextView etLocation = (TextView) findViewById(R.id.addressTV);
+        etLocation.setText(address);
         final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
         final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
@@ -63,7 +73,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
                 //Gets information from textboxes
                 final String time = "" + timeFormat.format(c.getTime()).toString();
-                final String location = "";
+                final String location = "ad";
                 final String virusPPM = etVirusPPM.getText().toString();
                 final String contaminatePPM = etContaminatePPM.getText().toString();
                 final String condition = etSpinner.getSelectedItem().toString();

@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.olivia.myapplication.model.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -62,7 +63,12 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         Log.d("debug", myMarker.getPosition().toString());
         String address = getAddressFromLatLng(myMarker.getPosition());
         Log.d("address", address);
-        startActivity(new Intent(getApplicationContext(), CreateReportActivity.class));
+
+
+        Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
+        intent.putExtra("address", address);
+        intent.putExtra("Position", Position);
+        startActivity(intent);
         finish();
     }
 
