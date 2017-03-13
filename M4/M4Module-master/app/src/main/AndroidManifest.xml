@@ -83,6 +83,11 @@
 
             <!-- android:theme="@style/AppTheme.NoActionBar"> -->
         </activity>
+        <activity
+            android:name=".CreateSourceReport"
+            android:label="@string/title_activity_create_source_report">
+       </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -94,12 +99,15 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".PickPurityReportsLocationActivity"
+            android:name=".MapsActivity"
             android:label="MapsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -110,6 +118,10 @@
         <activity
             android:name=".ViewPurityReportsLocationActivity"
             android:label="@string/title_activity_view_purity_reports_location"></activity>
+        <activity
+            android:name=".ViewSourceReportAcitivity"
+            android:label="@string/title_activity_view_source_report_acitivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -19,10 +19,8 @@
         android:id="@+id/etConditionSpinner"
         android:spinnerMode="dialog"
         android:layout_below="@+id/etContaminatePPM"
-        android:layout_toRightOf="@+id/location_button"
-        android:layout_toEndOf="@+id/location_button"
-        android:layout_marginLeft="97dp"
-        android:layout_marginStart="97dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="Water Quality"

@@ -86,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
             _security.setVisibility(View.GONE);
         }
          //else (admin page), it will show all the functionalities.
+        _submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateSourceReport.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         _signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +102,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        _view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ViewSourceReportAcitivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         _profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
