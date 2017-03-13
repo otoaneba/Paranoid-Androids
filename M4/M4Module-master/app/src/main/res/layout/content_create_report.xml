@@ -13,18 +13,6 @@
     tools:context="com.example.olivia.myapplication.controller.CreateReportActivity"
     tools:showIn="@layout/activity_create_report">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etLocation"
-        android:hint="Location"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,22 +80,34 @@
         android:id="@+id/etContaminatePPM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etLocation"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="42dp"
         android:ems="10"
         android:hint="Contaminate PPM"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/etVirusPPM"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etVirusPPM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/etLocation"
         android:ems="10"
         android:hint="Virus PPM"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/etVirusPPM"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/etVirusPPM"
+        android:text="Address"
+        android:textSize="25sp" />
 </RelativeLayout>
