@@ -1,8 +1,11 @@
 package com.example.olivia.myapplication.controller;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.example.olivia.myapplication.model.Report;
+import com.example.olivia.myapplication.model.ReportManager;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,6 +23,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class ViewPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private ReportManager rptManager = new ReportManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,5 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
-
 
 }
