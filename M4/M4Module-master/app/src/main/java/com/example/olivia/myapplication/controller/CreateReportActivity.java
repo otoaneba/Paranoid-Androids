@@ -2,6 +2,7 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -34,13 +35,20 @@ public class CreateReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String address = "Address";
+        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
         try {
             Bundle extras = getIntent().getExtras();
             address= extras.getString("address");
+            Double latitude = extras.getDouble("latitude");
+            Double longitude = extras.getDouble("longitude");
+            reportLatLng = new LatLng(latitude, longitude);
 
         } catch (Exception e) {
             System.out.println(e);
         }
+        final String address1 = address;
+        final LatLng reportLatLng1 = reportLatLng;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
 
@@ -90,7 +98,7 @@ public class CreateReportActivity extends AppCompatActivity {
                             .create();
                     myAlert.show();
                 } else {
-                    manager.addReport(time, location, Double.parseDouble(virusPPM),
+                    manager.addReport(time, address1, reportLatLng1, Double.parseDouble(virusPPM),
                             Double.parseDouble(contaminatePPM), condition,
                             manager.size() + 1, todayDate);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
