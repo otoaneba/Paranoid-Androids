@@ -3,6 +3,7 @@ package com.example.olivia.myapplication.controller;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import com.google.android.gms.maps.model.LatLng;
 
 import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.ReportManager;
@@ -12,6 +13,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.List;
 
 /**
  * created by Naoto on 3/12/2017
@@ -24,6 +27,7 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
 
     private GoogleMap mMap;
     private ReportManager rptManager = new ReportManager();
+    private List<Report> reportList = rptManager.getList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +54,15 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+       // LatLng sydney = new LatLng(-34, 151);
+        LatLng LL = new LatLng(-34, 151);
+        for (Report report : reportList) {
+            LL = report.getLatLng();
+           // String ad = report.getLocation();
+            mMap.addMarker(new MarkerOptions().position(LL).title(report.showMap()));
+
+        }
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(LL));
     }
 
 }
