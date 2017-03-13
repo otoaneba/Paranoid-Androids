@@ -35,10 +35,13 @@ public class CreateReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String address = "Address";
-        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
+        LatLng reportLatLng = new LatLng(-33.852, 151.211);
         try {
             Bundle extras = getIntent().getExtras();
-            address= extras.getString("address");
+            String ifAddress = extras.getString("address");
+            if (ifAddress.length() != 0) {
+                address = ifAddress;
+            }
             Double latitude = extras.getDouble("latitude");
             Double longitude = extras.getDouble("longitude");
             reportLatLng = new LatLng(latitude, longitude);
@@ -104,10 +107,10 @@ public class CreateReportActivity extends AppCompatActivity {
                     Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);
-                    finish();
+                   // finish();
                     //startActivity(new Intent(getApplicationContext(), MainActivity.class)); John
 
-                    finish();
+                  //  finish();
                 }
             }
         });

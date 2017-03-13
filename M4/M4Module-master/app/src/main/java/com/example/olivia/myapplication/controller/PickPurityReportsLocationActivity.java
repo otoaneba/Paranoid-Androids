@@ -69,7 +69,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         Log.d("address", address);
 
 
-        Intent putPinsIntent = new Intent(getApplicationContext(), ViewPurityReportsLocationActivity.class);
+      //  Intent putPinsIntent = new Intent(getApplicationContext(), ViewPurityReportsLocationActivity.class);
         Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
@@ -78,7 +78,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
         startActivity(intent);
-        finish();
+       // finish();
     }
 
     /**
