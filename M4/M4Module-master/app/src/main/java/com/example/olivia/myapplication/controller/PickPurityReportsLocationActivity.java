@@ -25,7 +25,7 @@ import java.util.Locale;
  * Map that shows the lets user pick the location for the PURITY REPORTS
  *
  */
-public class ViewPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
+public class PickPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     private GoogleMap mMap;
     private MarkerOptions myMarker = new MarkerOptions();
