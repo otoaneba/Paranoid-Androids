@@ -28,13 +28,13 @@ import com.example.olivia.myapplication.model.waterQuality;
  * Report Activity.
  */
 public class CreateReportActivity extends AppCompatActivity {
-
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
-
+        user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //This is a ReportManager object that will store the new report
         final ReportManager manager = new ReportManager();
 
@@ -93,7 +93,11 @@ public class CreateReportActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+                //startActivity(new Intent(getApplicationContext(),MainActivity.class));  john
             }
         });
 

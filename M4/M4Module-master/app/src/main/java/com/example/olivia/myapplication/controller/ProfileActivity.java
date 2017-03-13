@@ -46,9 +46,9 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
 
-            setContentView(R.layout.activity_profile__screen);
+            setContentView(R.layout.activity_profile_screen);
             name = (EditText) findViewById(R.id.name);
-            name.setText(user.nameGetter(), TextView.BufferType.EDITABLE);
+            name.setText(user.getName(), TextView.BufferType.EDITABLE);
 
             email = (EditText) findViewById(R.id.EmailAddress);
             email.setText(user.getEmail(), TextView.BufferType.EDITABLE);
@@ -57,13 +57,16 @@ public class ProfileActivity extends AppCompatActivity {
             homeAddress.setText(user.getAddress(), TextView.BufferType.EDITABLE);
 
             password = (EditText) findViewById(R.id.password);
-            password.setText(user.PasswordGetter(), TextView.BufferType.EDITABLE);
+            password.setText(user.getPassword(), TextView.BufferType.EDITABLE);
 
             cancelButton = (Button) findViewById(R.id.Cancel);
             cancelButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    intent.putExtra("user",user);
+                    startActivity(intent);
+                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
             });
@@ -80,7 +83,10 @@ public class ProfileActivity extends AppCompatActivity {
                     user = new User(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
                     manager.addUser(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
                     User.setCurrentUser(user);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    intent.putExtra("user",user);
+                    startActivity(intent);
+                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
             });

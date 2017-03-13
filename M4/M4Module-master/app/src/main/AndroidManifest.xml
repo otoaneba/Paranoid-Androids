@@ -67,7 +67,7 @@
 
         <activity
             android:name=".ViewReportActivity"
-            android:label="CS2340 Water App"></activity>
+            android:label="CS2340 Water App" />
         <activity
             android:name=".ShowReportActivity"
             android:label="CS2340 Water App" />
@@ -94,9 +94,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -109,7 +106,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
