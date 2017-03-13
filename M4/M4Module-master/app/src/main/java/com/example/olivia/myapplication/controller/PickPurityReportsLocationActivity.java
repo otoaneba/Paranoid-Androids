@@ -29,7 +29,7 @@ import java.util.Locale;
  *
  */
 public class PickPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
-
+    private User user;
     private GoogleMap mMap;
     private MarkerOptions myMarker = new MarkerOptions();
     private ReportManager rptManager = new ReportManager();
@@ -39,6 +39,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -69,7 +70,6 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         Log.d("address", address);
 
 
-        Intent putPinsIntent = new Intent(getApplicationContext(), ViewPurityReportsLocationActivity.class);
         Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
@@ -77,6 +77,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         latlngList.add(Position);
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
+        intent.putExtra("user",user);
         startActivity(intent);
         finish();
     }

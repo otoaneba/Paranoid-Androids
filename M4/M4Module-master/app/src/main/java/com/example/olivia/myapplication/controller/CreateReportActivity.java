@@ -106,8 +106,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     //startActivity(new Intent(getApplicationContext(), MainActivity.class)); John
-
-                    finish();
+                    //finish();
                 }
             }
         });
