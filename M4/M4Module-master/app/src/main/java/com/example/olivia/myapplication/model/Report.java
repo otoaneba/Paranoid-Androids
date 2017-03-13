@@ -20,6 +20,7 @@ public class Report implements Serializable {
     private String creator;
     private String date;
     private String condition;
+    private LatLng reportLatLng;
 
 
     public Report(String time, String location, LatLng reportLatLng, double vPPM, double cPPM, String condition,
@@ -32,6 +33,7 @@ public class Report implements Serializable {
         reportNumber = reportNum;
         creator = User.getCurrentUser().toString();
         this.date = date;
+        this.reportLatLng = reportLatLng;
 
     }
 
@@ -63,5 +65,6 @@ public class Report implements Serializable {
     public String getCondition() {
         return condition;
     }
+    public LatLng getLatLng() { return reportLatLng;}
 
 }
