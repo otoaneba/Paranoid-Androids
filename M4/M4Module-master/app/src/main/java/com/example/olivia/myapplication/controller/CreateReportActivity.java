@@ -48,7 +48,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
         final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
-        final EditText etLocation = (EditText) findViewById(R.id.etLocation);
+      //  final EditText etLocation = (EditText) findViewById(R.id.etLocation);
         final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
         final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
@@ -63,7 +63,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
                 //Gets information from textboxes
                 final String time = "" + timeFormat.format(c.getTime()).toString();
-                final String location = etLocation.getText().toString();
+                final String location = "";
                 final String virusPPM = etVirusPPM.getText().toString();
                 final String contaminatePPM = etContaminatePPM.getText().toString();
                 final String condition = etSpinner.getSelectedItem().toString();
