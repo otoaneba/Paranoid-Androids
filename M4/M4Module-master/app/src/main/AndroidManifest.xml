@@ -118,6 +118,14 @@
             android:name=".ViewSourceReportAcitivity"
             android:label="@string/title_activity_view_source_report_acitivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewSourceReportAcitvity"
+            android:label="@string/title_activity_view_source_report_acitvity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateSourceReportActivity"
+            android:label="@string/title_activity_create_source_report"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
