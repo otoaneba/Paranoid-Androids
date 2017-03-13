@@ -50,7 +50,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
 
         // Add a marker in Sydney, Australia, and move the camera.
         LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.setOnMapLongClickListener(this);
     }
@@ -96,6 +96,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
                     .get( 0 ).getAddressLine( 0 );
         } catch (IOException e ) {
 
+            System.out.println(e.getMessage());
         }
 
         return address;
