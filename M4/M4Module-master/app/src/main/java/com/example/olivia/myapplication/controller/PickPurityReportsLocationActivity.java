@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -31,6 +32,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
 
     private GoogleMap mMap;
     private MarkerOptions myMarker = new MarkerOptions();
+    private ReportManager rptManager = new ReportManager();
     private ArrayList<LatLng> latlngList = new ArrayList<>(1000);
 
     @Override
@@ -67,15 +69,12 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         Log.d("address", address);
 
 
+        Intent putPinsIntent = new Intent(getApplicationContext(), ViewPurityReportsLocationActivity.class);
         Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
         intent.putExtra("address", address);
-<<<<<<< HEAD
         intent.putExtra("Position", Position);
-        latlngList.add(Position);
-=======
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
->>>>>>> e32cf80a12bd12b7417710c7ce8155d4510ce320
         startActivity(intent);
         finish();
     }
@@ -108,5 +107,4 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
     public List<LatLng> getLatlng() {
         return latlngList;
     }
-
 }
