@@ -67,10 +67,12 @@
 
         <activity
             android:name=".ViewReportActivity"
-            android:label="CS2340 Water App" />
+            android:label="CS2340 Water App"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ShowReportActivity"
-            android:label="CS2340 Water App" />
+            android:label="CS2340 Water App"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
@@ -79,7 +81,8 @@
 
         <activity
             android:name=".CreateReportActivity"
-            android:label="@string/title_activity_create_report">
+            android:label="@string/title_activity_create_report"
+            android:theme="@style/AppTheme.NoActionBar">
 
             <!-- android:theme="@style/AppTheme.NoActionBar"> -->
         </activity>

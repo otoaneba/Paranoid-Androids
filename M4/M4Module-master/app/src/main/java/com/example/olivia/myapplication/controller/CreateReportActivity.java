@@ -71,11 +71,11 @@ public class CreateReportActivity extends AppCompatActivity {
 
         final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
-        final TextView etLocation = (TextView) findViewById(R.id.addressTV_source);
+        final TextView etLocation = (TextView) findViewById(R.id.addressTV);
         etLocation.setText(address);
-        final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM_source);
-        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM_source);
-        final Button registerButton = (Button) findViewById(R.id.createButton_source);
+        final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
+        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
+        final Button registerButton = (Button) findViewById(R.id.createButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

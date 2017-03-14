@@ -29,8 +29,8 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_view_source_report_acitvity);
-        final User user = User.getCurrentUser();
         //Initializes buttons on page
+        final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
 
         cancelButton = (Button) findViewById(R.id.cancel_report_source);
 
@@ -47,7 +47,7 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
                         Intent intent = new Intent(ViewSourceReportAcitvity.this, ShowReportActivity.class);
                         intent.putExtra("selectedReport", (SourceReport) parent.getItemAtPosition(position));
                         SourceReport selectedReport = (SourceReport) reportList.getSelectedItem();
-                        //intent.putExtra("selectedReport", selectedReport);
+                        intent.putExtra("selectedReport", selectedReport);
                         startActivity(intent);
                         finish();
                     }
