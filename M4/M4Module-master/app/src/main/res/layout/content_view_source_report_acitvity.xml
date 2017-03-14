@@ -34,8 +34,8 @@
         android:id="@+id/view_source_report_map_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cancel_report"
-        android:layout_alignLeft="@+id/cancel_report"
-        android:layout_alignStart="@+id/cancel_report"
-        android:text="view map" />
+        android:text="view map"
+        android:layout_above="@+id/cancel_report_source"
+        android:layout_alignRight="@+id/cancel_report_source"
+        android:layout_alignEnd="@+id/cancel_report_source" />
 </RelativeLayout>

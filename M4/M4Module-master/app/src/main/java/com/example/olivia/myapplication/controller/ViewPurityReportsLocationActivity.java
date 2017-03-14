@@ -60,7 +60,6 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
             LL = report.getLatLng();
            // String ad = report.getLocation();
             mMap.addMarker(new MarkerOptions().position(LL).title(report.showMap()));
-
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(LL));
     }

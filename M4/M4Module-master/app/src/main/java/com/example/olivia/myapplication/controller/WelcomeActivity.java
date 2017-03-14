@@ -19,6 +19,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     Button login;
     Button register;
+    Button test;
+    Button test2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +43,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
-
-
     }
 
 }

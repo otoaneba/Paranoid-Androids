@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.olivia.myapplication.model.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,6 +23,7 @@ import static com.example.olivia.myapplication.controller.R.id.user;
 
 public class PickSourceReportLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
+    private User user;
     private GoogleMap mMap;
     private MarkerOptions mySourceMarker = new MarkerOptions();
     private ArrayList<LatLng> sourcelatlngList = new ArrayList<>(1000);
@@ -31,6 +33,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_source_report_location);
+        user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

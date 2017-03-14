@@ -34,6 +34,7 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
         final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
 
         cancelButton = (Button) findViewById(R.id.cancel_report_source);
+        viewMap = (Button) findViewById(R.id.view_source_report_map_button);
 
         //The reports need to be added to an array to be shown
         final List<SourceReport> reports = manager.getList();
@@ -48,13 +49,12 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
                         Intent intent = new Intent(ViewSourceReportAcitvity.this, ShowReportActivity.class);
                         intent.putExtra("selectedReport", (SourceReport) parent.getItemAtPosition(position));
                         SourceReport selectedReport = (SourceReport) reportList.getSelectedItem();
-                        intent.putExtra("selectedReport", selectedReport);
+                        //intent.putExtra("selectedReport", selectedReport);
                         startActivity(intent);
                         finish();
                     }
                 }
         );
-
         //Cancel button returns to Main Screen Activity
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
