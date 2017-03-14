@@ -113,7 +113,13 @@
         <activity
             android:name=".CreateSourceReportActivity"
             android:label="@string/title_activity_create_source_report"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PickSourceReportLocationActivity"
+            android:label="@string/title_activity_pick_source_report_location" />
+        <activity
+            android:name=".ViewSourceReportsLocationActivity"
+            android:label="@string/title_activity_view_source_reports_location"></activity>
     </application>
 
 </manifest>

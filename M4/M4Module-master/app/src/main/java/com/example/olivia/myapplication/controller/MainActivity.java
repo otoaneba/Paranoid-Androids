@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView _userInfo;
     private User user;
     Button _submit, _view, _purityLevel, _viewHistory,
-            _trend, _security, _signOut, _profile;
+            _trend, _security, _signOut, _profile, test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +139,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        test = (Button) findViewById(R.id.test);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CreateSourceReportActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
