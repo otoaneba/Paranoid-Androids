@@ -140,8 +140,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 //    private TextView userInfo;
 //    private Button logoutButton;

@@ -73,4 +73,5 @@ tools:context="com.example.olivia.myapplication.controller.MainActivity">
             android:layout_height="wrap_content"
             android:text="SignOut" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

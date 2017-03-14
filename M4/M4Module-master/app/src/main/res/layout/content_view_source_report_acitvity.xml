@@ -29,4 +29,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp"
         android:text="Cancel" />
+
+    <Button
+        android:id="@+id/view_source_report_map_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cancel_report"
+        android:layout_alignLeft="@+id/cancel_report"
+        android:layout_alignStart="@+id/cancel_report"
+        android:text="view map" />
 </RelativeLayout>

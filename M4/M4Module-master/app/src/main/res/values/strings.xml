@@ -32,4 +32,6 @@
     <string name="title_activity_view_source_report_acitivity">ViewSourceReportAcitivity</string>
     <string name="title_activity_view_purity_reports_location">Map</string>
     <string name="title_activity_view_source_report_acitvity">ViewSourceReportAcitvity</string>
+    <string name="title_activity_pick_source_report_location">Map</string>
+    <string name="title_activity_view_source_reports_location">Map</string>
 </resources>

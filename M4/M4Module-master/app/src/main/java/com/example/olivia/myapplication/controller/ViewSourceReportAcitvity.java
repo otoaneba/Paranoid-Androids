@@ -23,6 +23,7 @@ import java.util.List;
 
 public class ViewSourceReportAcitvity extends AppCompatActivity {
     Button cancelButton;
+    Button viewMap;
     private SourceReportManager manager = new SourceReportManager();
 
     @Override
@@ -59,6 +60,16 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewSourceReportAcitvity.this, MainActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        viewMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewSourceReportAcitvity.this, ViewSourceReportAcitvity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
