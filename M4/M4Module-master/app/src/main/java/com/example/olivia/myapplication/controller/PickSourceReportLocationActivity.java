@@ -50,7 +50,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        mMap.setOnMapLongClickListener(this);
 
     }
     @Override
