@@ -12,13 +12,13 @@
         android:layout_below="@+id/Title_source" />
 
     <TextView
-        android:text="@string/water_report"
+        android:id="@+id/Title_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:id="@+id/Title_source"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="@string/water_source_reports"
         android:textSize="30sp" />
 
     <Button

@@ -74,12 +74,4 @@ tools:context="com.example.olivia.myapplication.controller.MainActivity">
             android:text="SignOut" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/test2Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="view source report locatoin"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="16dp" />
-
 </android.support.constraint.ConstraintLayout>
