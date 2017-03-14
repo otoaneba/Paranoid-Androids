@@ -30,17 +30,17 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_view_source_report_acitvity);
-        final User user = User.getCurrentUser();
         //Initializes buttons on page
+        final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
 
-        cancelButton = (Button) findViewById(R.id.cancel_report);
+        cancelButton = (Button) findViewById(R.id.cancel_report_source);
 
         //The reports need to be added to an array to be shown
         final List<SourceReport> reports = manager.getList();
 
         //Sets up list of reports
         ListAdapter adapter = new ArrayAdapter<SourceReport>(this, android.R.layout.simple_list_item_1, reports);
-        final ListView reportList = (ListView) findViewById(R.id.report_list);
+        final ListView reportList = (ListView) findViewById(R.id.report_list_source);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){
@@ -48,7 +48,7 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
                         Intent intent = new Intent(ViewSourceReportAcitvity.this, ShowReportActivity.class);
                         intent.putExtra("selectedReport", (SourceReport) parent.getItemAtPosition(position));
                         SourceReport selectedReport = (SourceReport) reportList.getSelectedItem();
-                        //intent.putExtra("selectedReport", selectedReport);
+                        intent.putExtra("selectedReport", selectedReport);
                         startActivity(intent);
                         finish();
                     }
@@ -69,7 +69,7 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
         viewMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewSourceReportAcitvity.this, ViewSourceReportAcitvity.class);
+                Intent intent = new Intent(ViewSourceReportAcitvity.this, ViewSourceReportsLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();

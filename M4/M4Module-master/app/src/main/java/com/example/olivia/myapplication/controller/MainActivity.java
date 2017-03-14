@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ViewSourceReportAcitvity.class);
+                intent.putExtra("user",user);
                 startActivity(intent);
                 finish();
             }

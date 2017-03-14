@@ -105,7 +105,7 @@
         android:weightSum="1">
 
         <Button
-            android:id="@+id/registerButton"
+            android:id="@+id/createButton_source"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/etUserType"

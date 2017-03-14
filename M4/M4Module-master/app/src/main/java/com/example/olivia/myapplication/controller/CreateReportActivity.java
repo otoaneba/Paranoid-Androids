@@ -64,7 +64,7 @@ public class CreateReportActivity extends AppCompatActivity {
         //This is the current user passed in
         final User user = (User) getIntent().getSerializableExtra("user");
         //Initializes water conditions spinner
-        final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
+        final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner_source);
         final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
@@ -75,7 +75,7 @@ public class CreateReportActivity extends AppCompatActivity {
         etLocation.setText(address);
         final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
         final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
-        final Button registerButton = (Button) findViewById(R.id.registerButton);
+        final Button registerButton = (Button) findViewById(R.id.createButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
