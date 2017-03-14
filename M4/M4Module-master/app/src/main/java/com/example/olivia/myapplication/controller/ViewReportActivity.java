@@ -60,7 +60,7 @@ public class ViewReportActivity extends AppCompatActivity {
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewReportActivity.this, PickPurityReportsLocationActivity.class);
+                Intent intent = new Intent(ViewReportActivity.this, ViewPurityReportsLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
