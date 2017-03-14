@@ -122,8 +122,12 @@
             android:name=".PickSourceReportLocationActivity"
             android:label="@string/title_activity_pick_source_report_location" />
         <activity
+            android:name=".ViewSourceReportAcitvity"
+            android:label="Source Reports"/>
+        <activity
             android:name=".ViewSourceReportsLocationActivity"
             android:label="@string/title_activity_view_source_reports_location"></activity>
+
     </application>
 
 </manifest>

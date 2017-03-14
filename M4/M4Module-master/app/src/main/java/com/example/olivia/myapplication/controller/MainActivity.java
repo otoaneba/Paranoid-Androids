@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView _userInfo;
     private User user;
     Button _submit, _view, _purityLevel, _viewHistory,
-            _trend, _security, _signOut, _profile, test;
+            _trend, _security, _signOut, _profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,14 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        _signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
         _view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,15 +105,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        _profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                intent.putExtra("user",user);
-                startActivity(intent);
-                finish();
-            }
-        });
         _purityLevel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,13 +124,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        test = (Button) findViewById(R.id.test2Button);
-        test.setOnClickListener(new View.OnClickListener() {
+        _profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ViewSourceReportsLocationActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
+                finish();
+            }
+        });
+        _signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

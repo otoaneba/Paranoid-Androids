@@ -33,10 +33,10 @@ public class SourceReport implements Serializable{
         }
 
         public String toString() {
-            return reportNumber + creator + location +  date;
+            return reportNumber + ", " + creator + ", " + location + ", " + date;
         }
         public String showMap() {
-            return "No." + reportNumber + ", " + condition + ", Watertype " + type;
+            return "No." + reportNumber + ",WaterCondition: " + condition + ", Watertype: " + type;
         }
         public String getTime() {
             return time;

@@ -38,10 +38,10 @@ public class Report implements Serializable {
     }
 
     public String toString() {
-        return reportNumber + creator + location +  date;
+        return reportNumber + ", " + creator + ", " + location + ", " + date;
     }
     public String showMap() {
-        return "No." + reportNumber + ", " + condition + ", Virus " + virusPPM + ", Contamination " + contaminatePPM;
+        return "No." + reportNumber + ", Condition " + condition + ", Virus " + virusPPM + ", Contamination " + contaminatePPM;
     }
     public String getTime() {
         return time;

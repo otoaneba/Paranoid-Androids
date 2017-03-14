@@ -25,14 +25,14 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
     Button cancelButton;
     Button viewMap;
     private SourceReportManager manager = new SourceReportManager();
-
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_view_source_report_acitvity);
         //Initializes buttons on page
-        final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
 
+        user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         cancelButton = (Button) findViewById(R.id.cancel_report_source);
         viewMap = (Button) findViewById(R.id.view_source_report_map_button);
 
