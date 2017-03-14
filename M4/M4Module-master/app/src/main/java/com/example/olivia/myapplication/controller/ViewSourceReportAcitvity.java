@@ -32,14 +32,14 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
         final User user = User.getCurrentUser();
         //Initializes buttons on page
 
-        cancelButton = (Button) findViewById(R.id.cancel_report);
+        cancelButton = (Button) findViewById(R.id.cancel_report_source);
 
         //The reports need to be added to an array to be shown
         final List<SourceReport> reports = manager.getList();
 
         //Sets up list of reports
         ListAdapter adapter = new ArrayAdapter<SourceReport>(this, android.R.layout.simple_list_item_1, reports);
-        final ListView reportList = (ListView) findViewById(R.id.report_list);
+        final ListView reportList = (ListView) findViewById(R.id.report_list_source);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){

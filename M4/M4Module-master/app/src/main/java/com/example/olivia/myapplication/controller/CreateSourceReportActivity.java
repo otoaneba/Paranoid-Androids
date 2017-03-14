@@ -11,11 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-<<<<<<< HEAD
 
-import com.example.olivia.myapplication.model.ReportManager;
-=======
->>>>>>> 1afae2b6f1e96de90542eede9b716a2dea92fb20
 import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
@@ -27,7 +23,6 @@ import java.util.GregorianCalendar;
 
 public class CreateSourceReportActivity extends AppCompatActivity {
     private User user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,26 +49,24 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         //This is a ReportManager object that will store the new report
         final SourceReportManager manager = new SourceReportManager();
 
-        //This is the current user passed in
-        final User user = (User) getIntent().getSerializableExtra("user");
         //Initializes water conditions spinner
-        final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
+        final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner_source);
         final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
-        final Spinner etSpinner2 = (Spinner) findViewById(R.id.etTypeSpinner);
+        final Spinner etSpinner2 = (Spinner) findViewById(R.id.etTypeSpinner_source);
         final ArrayAdapter<String> adapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterType.values());
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        etSpinner.setAdapter(adapter3);
+        etSpinner2.setAdapter(adapter3);
 
-        final Button mapButton = (Button) findViewById(R.id.location_button);
+        final Button mapButton = (Button) findViewById(R.id.location_button_source);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
-        final TextView etLocation = (TextView) findViewById(R.id.addressTV);
+        final TextView etLocation = (TextView) findViewById(R.id.addressTV_source);
         etLocation.setText(address);
-        final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
-        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
-        final Button registerButton = (Button) findViewById(R.id.registerButton);
+        final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM_source);
+        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM_source);
+        final Button registerButton = (Button) findViewById(R.id.createButton_source);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,27 +106,25 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             }
         });
         //cancel button that takes a user back to the welcome screen
-//        final Button cancelButton = (Button) findViewById(R.id.cancelButton);
-//        cancelButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
-//                intent.putExtra("user", user);
-//                startActivity(intent);
-//                finish();
-//                //startActivity(new Intent(getApplicationContext(),MainActivity.class));  john
-//            }
-//        });
+        final Button cancelButton = (Button) findViewById(R.id.cancelButton_source);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-//        mapButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(CreateSourceReportActivity.this, PickPurityReportsLocationActivity.class);
-//                intent.putExtra("user", user);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateSourceReportActivity.this, PickPurityReportsLocationActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
-
 }

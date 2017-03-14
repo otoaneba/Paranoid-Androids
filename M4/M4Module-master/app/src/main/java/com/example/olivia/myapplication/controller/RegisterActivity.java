@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //register button that will, when pressed, create a new user with all the
         //attributes entered in the text field
-        final Button registerButton = (Button) findViewById(R.id.registerButton);
+        final Button registerButton = (Button) findViewById(R.id.createButton_source);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

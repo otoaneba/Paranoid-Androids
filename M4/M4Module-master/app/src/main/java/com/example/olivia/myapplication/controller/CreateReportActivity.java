@@ -64,18 +64,18 @@ public class CreateReportActivity extends AppCompatActivity {
         //This is the current user passed in
         final User user = (User) getIntent().getSerializableExtra("user");
         //Initializes water conditions spinner
-        final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
+        final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner_source);
         final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
         final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
-        final TextView etLocation = (TextView) findViewById(R.id.addressTV);
+        final TextView etLocation = (TextView) findViewById(R.id.addressTV_source);
         etLocation.setText(address);
-        final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM);
-        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM);
-        final Button registerButton = (Button) findViewById(R.id.registerButton);
+        final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM_source);
+        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM_source);
+        final Button registerButton = (Button) findViewById(R.id.createButton_source);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
