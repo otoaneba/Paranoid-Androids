@@ -69,7 +69,7 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
         viewMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewSourceReportAcitvity.this, ViewSourceReportAcitvity.class);
+                Intent intent = new Intent(ViewSourceReportAcitvity.this, ViewSourceReportsLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();

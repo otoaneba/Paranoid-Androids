@@ -66,7 +66,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
         Log.d("address", address);
 
 
-        Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CreateSourceReportActivity.class);
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
         intent.putExtra("user",user);

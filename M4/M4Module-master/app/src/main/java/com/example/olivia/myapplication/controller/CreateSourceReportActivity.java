@@ -120,7 +120,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateSourceReportActivity.this, PickPurityReportsLocationActivity.class);
+                Intent intent = new Intent(CreateSourceReportActivity.this, PickSourceReportLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
