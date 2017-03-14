@@ -23,7 +23,7 @@ import static com.example.olivia.myapplication.controller.R.id.user;
 public class PickSourceReportLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     private GoogleMap mMap;
-    private MarkerOptions myMarker = new MarkerOptions();
+    private MarkerOptions mySourceMarker = new MarkerOptions();
     private ArrayList<LatLng> sourcelatlngList = new ArrayList<>(1000);
 
 
@@ -56,17 +56,17 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
     @Override
     public void onMapLongClick(LatLng point) {
 
-        mMap.addMarker(myMarker
+        mMap.addMarker(mySourceMarker
                 .position(point)
                 .title(point.toString())
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        LatLng Position = myMarker.getPosition();
-        Log.d("debug", myMarker.getPosition().toString());
-        String address = getAddressFromLatLng(myMarker.getPosition());
+        LatLng Position = mySourceMarker.getPosition();
+        Log.d("debug", mySourceMarker.getPosition().toString());
+        String address = getAddressFromLatLng(mySourceMarker.getPosition());
         Log.d("address", address);
 
 
-        Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CreateSourceReportActivity.class);
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
         intent.putExtra("user",user);
