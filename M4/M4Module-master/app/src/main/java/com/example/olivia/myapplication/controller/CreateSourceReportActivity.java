@@ -65,7 +65,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter3);
 
-        final Button mapButton = (Button) findViewById(R.id.location_button);
+        final Button mapButton = (Button) findViewById(R.id.source_location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
         final TextView etLocation = (TextView) findViewById(R.id.addressTV);
         etLocation.setText(address);
@@ -123,15 +123,15 @@ public class CreateSourceReportActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        mapButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(CreateSourceReportActivity.this, PickPurityReportsLocationActivity.class);
-//                intent.putExtra("user", user);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateSourceReportActivity.this, PickSourceReportLocationActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }

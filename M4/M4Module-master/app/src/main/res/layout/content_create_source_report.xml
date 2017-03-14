@@ -79,13 +79,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/location_button"
+        android:id="@+id/source_location_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:text="Location"
         android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="Location" />
 
     <EditText
         android:id="@+id/etContaminatePPM"
