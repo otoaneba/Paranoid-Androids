@@ -47,7 +47,7 @@ tools:context="com.example.olivia.myapplication.controller.MainActivity">
             android:id="@+id/_viewHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Purity Reports Location" />
+            android:text="View Purity Report" />
 
         <Button
             android:id="@+id/_trend"

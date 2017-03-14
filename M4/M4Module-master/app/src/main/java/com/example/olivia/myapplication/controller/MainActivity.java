@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CreateSourceReportActivity.class);
+                intent.putExtra("user",user);
                 startActivity(intent);
                 finish();
             }
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         _viewHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ViewPurityReportsLocationActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewReportActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
             }

@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,9 +32,11 @@ import com.example.olivia.myapplication.model.waterQuality;
  */
 public class CreateReportActivity extends AppCompatActivity {
     private User user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.content_create_report);
+
         String address = "Address";
         LatLng reportLatLng = new LatLng(-33.852, 151.211);;
         try {
@@ -48,13 +51,12 @@ public class CreateReportActivity extends AppCompatActivity {
             reportLatLng = new LatLng(latitude, longitude);
 
         } catch (Exception e) {
-            System.out.println(e);
+           Log.e("error",e.toString());
         }
         final String address1 = address;
         final LatLng reportLatLng1 = reportLatLng;
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_report);
+
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //This is a ReportManager object that will store the new report
         final ReportManager manager = new ReportManager();
@@ -109,8 +111,6 @@ public class CreateReportActivity extends AppCompatActivity {
                     intent.putExtra("user", user);
                     startActivity(intent);
                     finish();
-                    //startActivity(new Intent(getApplicationContext(), MainActivity.class)); John
-                    //finish();
                 }
             }
         });
@@ -123,7 +123,6 @@ public class CreateReportActivity extends AppCompatActivity {
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
-                //startActivity(new Intent(getApplicationContext(),MainActivity.class));  john
             }
         });
 

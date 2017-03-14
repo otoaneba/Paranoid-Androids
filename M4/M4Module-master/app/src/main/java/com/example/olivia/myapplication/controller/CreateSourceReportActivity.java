@@ -3,24 +3,24 @@ package com.example.olivia.myapplication.controller;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+<<<<<<< HEAD
 
 import com.example.olivia.myapplication.model.ReportManager;
+=======
+>>>>>>> 1afae2b6f1e96de90542eede9b716a2dea92fb20
 import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
+import com.example.olivia.myapplication.model.waterType;
 import com.google.android.gms.maps.model.LatLng;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -30,6 +30,9 @@ public class CreateSourceReportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.content_create_source_report);
+        user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         String address = "Address";
         LatLng reportLatLng = new LatLng(-33.852, 151.211);;
         try {
@@ -48,9 +51,6 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         }
         final String address1 = address;
         final LatLng reportLatLng1 = reportLatLng;
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_source_report);
-        user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //This is a ReportManager object that will store the new report
         final SourceReportManager manager = new SourceReportManager();
 
@@ -64,8 +64,8 @@ public class CreateSourceReportActivity extends AppCompatActivity {
 
         final Spinner etSpinner2 = (Spinner) findViewById(R.id.etTypeSpinner);
         final ArrayAdapter<String> adapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterType.values());
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        etSpinner2.setAdapter(adapter2);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        etSpinner.setAdapter(adapter3);
 
         final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
