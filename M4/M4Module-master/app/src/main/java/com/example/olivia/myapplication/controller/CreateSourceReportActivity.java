@@ -11,11 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-<<<<<<< HEAD
 
 import com.example.olivia.myapplication.model.ReportManager;
-=======
->>>>>>> 1afae2b6f1e96de90542eede9b716a2dea92fb20
+
 import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
