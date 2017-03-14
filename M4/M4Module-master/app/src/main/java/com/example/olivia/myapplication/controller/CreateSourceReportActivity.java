@@ -111,27 +111,27 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             }
         });
         //cancel button that takes a user back to the welcome screen
-        final Button cancelButton = (Button) findViewById(R.id.cancelButton);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-                finish();
-                //startActivity(new Intent(getApplicationContext(),MainActivity.class));  john
-            }
-        });
+//        final Button cancelButton = (Button) findViewById(R.id.cancelButton);
+//        cancelButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
+//                intent.putExtra("user", user);
+//                startActivity(intent);
+//                finish();
+//                //startActivity(new Intent(getApplicationContext(),MainActivity.class));  john
+//            }
+//        });
 
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CreateSourceReportActivity.this, PickPurityReportsLocationActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        mapButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(CreateSourceReportActivity.this, PickPurityReportsLocationActivity.class);
+//                intent.putExtra("user", user);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
 }
