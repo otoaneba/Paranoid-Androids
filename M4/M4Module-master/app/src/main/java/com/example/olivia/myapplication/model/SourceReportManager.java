@@ -17,8 +17,8 @@ public class SourceReportManager {
     private static List<SourceReport> reports = new ArrayList<SourceReport>();
 
     public void addReport(String time, String location, LatLng reportLatLng,String type,
-                          String condiiton, int reportNum, String date) {
-        reports.add(new SourceReport(time, location, reportLatLng, type, condiiton, reportNum, date));
+                          String condition, int reportNum, String date) {
+        reports.add(new SourceReport(time, location, reportLatLng, type, condition, reportNum, date));
     }
     public int size() {
         return reports.size();

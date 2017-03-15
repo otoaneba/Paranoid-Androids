@@ -41,20 +41,37 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
         viewMap = (Button) findViewById(R.id.view_source_report_map_button);
 
         //The source reports need to be added to an array to be shown
-        final List<SourceReport> reports = manager.getList();
+        final List<SourceReport> sourceReports = manager.getList();
 
         //Sets up list of source reports
-        ListAdapter adapter = new ArrayAdapter<SourceReport>(this, android.R.layout.simple_list_item_1, reports);
+        ListAdapter adapter = new ArrayAdapter<SourceReport>(this, android.R.layout.simple_list_item_1, sourceReports);
         final ListView reportList = (ListView) findViewById(R.id.report_list_source);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                         Intent intent = new Intent(ViewSourceReportAcitvity.this, ShowSourceReportActivity.class);
-                        intent.putExtra("selectedSourceReport", (SourceReport) parent.getItemAtPosition(position));
-                        //SourceReport selectedReport = (SourceReport) reportList.getSelectedItem();
+
+                        //store selected report's information into local variables
+                        SourceReport report = (SourceReport) parent.getItemAtPosition(position);
+                        String date = report.getDate();
+                        String time = report.getTime();
+                        int repNo = report.getReportNumber();
+                        String WorkerName =report.getCreator();
+                        String loc = report.getLocation();
+                        String condition = report.getCondition();
+                        String type = report.getType();
+
+                        //Pass all the selected report's information to the ShowSourceReportActivity
+                        intent.putExtra("date",date);
+                        intent.putExtra("time",time);
+                        intent.putExtra("repNo",repNo);
+                        intent.putExtra("WorkerName",WorkerName);
+                        intent.putExtra("loc",loc);
+                        intent.putExtra("condition",condition);
+                        intent.putExtra("type",type);
                         intent.putExtra("user",user);
-                        //intent.putExtra("selectedReport", selectedReport);
                         startActivity(intent);
                     }
                 }
@@ -69,7 +86,7 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
                 finish();
             }
         });
-
+        //ViewMap button change display to the map page that views all the pin pointed locations
         viewMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

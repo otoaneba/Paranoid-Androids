@@ -101,7 +101,19 @@ public class CreateReportActivity extends AppCompatActivity {
                             })
                             .create();
                     myAlert.show();
-                } else {
+                }else if (etLocation.getText().toString().equals("Address")) {
+                    AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
+                    myAlert.setMessage("Click LOCATION button and set a location")
+                            .setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create();
+                    myAlert.show();
+                }
+                else {
                     manager.addReport(time, address1, reportLatLng1, Double.parseDouble(virusPPM),
                             Double.parseDouble(contaminatePPM), condition,
                             manager.size() + 1, todayDate);

@@ -48,10 +48,28 @@ public class ViewReportActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener(){
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(ViewReportActivity.this, ShowReportActivity.class);
-                        intent.putExtra("selectedReport", (Report) parent.getItemAtPosition(position));
+
+                        //store selected report's information into local variables
+                        Report report = (Report) parent.getItemAtPosition(position);
+                        String date = report.getDate();
+                        String time = report.getTime();
+                        int repNo = report.getReportNumber();
+                        String WorkerName =report.getCreator();
+                        String loc = report.getLocation();
+                        String condition = report.getCondition();
+                        double virusPPM = report.getVirusPPM();
+                        double contamPPM = report.getCombinationPPM();
+
+                        //Pass all the selected report's information to the ShowReportActivity
+                        intent.putExtra("date",date);
+                        intent.putExtra("time",time);
+                        intent.putExtra("repNo",repNo);
+                        intent.putExtra("WorkerName",WorkerName);
+                        intent.putExtra("loc",loc);
+                        intent.putExtra("condition",condition);
+                        intent.putExtra("virus",virusPPM);
+                        intent.putExtra("contam",contamPPM);
                         intent.putExtra("user",user);
-                        Report selectedReport = (Report) reportList.getSelectedItem();
-                        //intent.putExtra("selectedReport", selectedReport);
                         startActivity(intent);
                         finish();
                     }
@@ -64,7 +82,6 @@ public class ViewReportActivity extends AppCompatActivity {
                 Intent intent = new Intent(ViewReportActivity.this, ViewPurityReportsLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
-                finish();
             }
         });
         //Cancel button returns to Main Screen Activity

@@ -5,6 +5,7 @@ package com.example.olivia.myapplication.model;
  */
 
 public enum waterType {
+    SELECT_AN_ITEM("Select an item"),
     BOTTLED("Bottled"),
     WELL("Well"),
     STREAM("Stream"),

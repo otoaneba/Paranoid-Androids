@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
+import com.example.olivia.myapplication.model.WaterCondition;
 import com.example.olivia.myapplication.model.waterQuality;
 import com.example.olivia.myapplication.model.waterType;
 import com.google.android.gms.maps.model.LatLng;
@@ -58,7 +59,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner_source);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
+        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, WaterCondition.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
@@ -69,11 +70,8 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         etSpinner2.setAdapter(adapter3);
 
         final Button mapButton = (Button) findViewById(R.id.location_button_source);
-        //final EditText etTime = (EditText) findViewById(R.id.etTime);
         final TextView etLocation = (TextView) findViewById(R.id.addressTV_source);
         etLocation.setText(address);
-        final EditText etVirusPPM = (EditText) findViewById(R.id.etVirusPPM_source);
-        final EditText etContaminatePPM = (EditText) findViewById(R.id.etContaminatePPM_source);
         final Button registerButton = (Button) findViewById(R.id.createButton_source);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,9 +88,9 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                 final String type = etSpinner2.getSelectedItem().toString();
                 final String condition = etSpinner.getSelectedItem().toString();
                 //Checks to see if there is a missing input
-                if (/*time.isEmpty() || */location.isEmpty() ) {
+                if (/*time.isEmpty() || */location.isEmpty() || type.contains("SELECT") || condition.contains("SELECT") ) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateSourceReportActivity.this);
-                    myAlert.setMessage("Time,location,virusPPM and comninationPPM required")
+                    myAlert.setMessage("water type and water condition are required")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -101,15 +99,25 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                             })
                             .create();
                     myAlert.show();
-                } else {
+                } else if (etLocation.getText().toString().equals("Address")) {
+                    AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateSourceReportActivity.this);
+                    myAlert.setMessage("Click LOCATION button and set a location")
+                            .setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create();
+                    myAlert.show();
+                }
+                else {
                     manager.addReport(time, address1, reportLatLng1, type, condition,
                             manager.size() + 1, todayDate);
                     Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);
                     finish();
-                    //startActivity(new Intent(getApplicationContext(), MainActivity.class)); John
-                    //finish();
                 }
             }
         });

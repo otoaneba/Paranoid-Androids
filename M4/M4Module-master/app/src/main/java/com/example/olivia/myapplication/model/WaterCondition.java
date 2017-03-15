@@ -5,6 +5,7 @@ package com.example.olivia.myapplication.model;
  */
 
 public enum WaterCondition {
+    SELECT_AN_ITEM("Select an item"),
     WASTE("waste"),
     TREATABLE_CLEAR("Treatable-Clear"),
     TREATABLE_MUDDY("Treatable-Muddy"),

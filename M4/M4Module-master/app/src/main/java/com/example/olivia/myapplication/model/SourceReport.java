@@ -10,7 +10,7 @@ import java.io.Serializable;
  * condition and report geocode
  */
 
-public class SourceReport implements Serializable{
+public class SourceReport implements Serializable {
         private String time;
         private int reportNumber;
         private String location;
@@ -19,7 +19,6 @@ public class SourceReport implements Serializable{
         private String type;
         private String condition;
         private LatLng reportLatLng;
-
 
         public SourceReport(String time, String location, LatLng reportLatLng, String type, String condition,
                       int reportNum, String date) {

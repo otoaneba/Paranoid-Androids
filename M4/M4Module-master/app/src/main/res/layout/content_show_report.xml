@@ -24,13 +24,13 @@
         android:textSize="24sp" />
 
     <TextView
-        android:text="@string/title_activity_report"
+        android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Title"
-        android:textSize="36sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_activity_report"
+        android:textSize="25sp" />
 
     <Button
         android:text="Close"
