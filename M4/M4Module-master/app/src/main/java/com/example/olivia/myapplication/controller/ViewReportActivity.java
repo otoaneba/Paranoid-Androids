@@ -49,6 +49,7 @@ public class ViewReportActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(ViewReportActivity.this, ShowReportActivity.class);
                         intent.putExtra("selectedReport", (Report) parent.getItemAtPosition(position));
+                        intent.putExtra("user",user);
                         Report selectedReport = (Report) reportList.getSelectedItem();
                         //intent.putExtra("selectedReport", selectedReport);
                         startActivity(intent);

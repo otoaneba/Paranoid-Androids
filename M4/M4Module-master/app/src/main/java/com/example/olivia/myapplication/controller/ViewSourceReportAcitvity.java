@@ -46,12 +46,12 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
         reportList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(ViewSourceReportAcitvity.this, ShowReportActivity.class);
-                        intent.putExtra("selectedReport", (SourceReport) parent.getItemAtPosition(position));
-                        SourceReport selectedReport = (SourceReport) reportList.getSelectedItem();
+                        Intent intent = new Intent(ViewSourceReportAcitvity.this, ShowSourceReportActivity.class);
+                        intent.putExtra("selectedSourceReport", (SourceReport) parent.getItemAtPosition(position));
+                        //SourceReport selectedReport = (SourceReport) reportList.getSelectedItem();
+                        intent.putExtra("user",user);
                         //intent.putExtra("selectedReport", selectedReport);
                         startActivity(intent);
-                        finish();
                     }
                 }
         );
@@ -72,7 +72,6 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
                 Intent intent = new Intent(ViewSourceReportAcitvity.this, ViewSourceReportsLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
-                finish();
             }
         });
     }

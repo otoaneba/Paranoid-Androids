@@ -35,4 +35,6 @@
     <string name="title_activity_pick_source_report_location">Map</string>
     <string name="title_activity_view_source_reports_location">Map</string>
     <string name="water_source_reports">Water Source Reports</string>
+    <string name="source_report_activity">Source Report Activity</string>
+    <string name="sourcereportactivity">SourceReportActivity</string>
 </resources>

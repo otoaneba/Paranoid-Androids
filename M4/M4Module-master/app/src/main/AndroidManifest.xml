@@ -68,11 +68,11 @@
         <activity
             android:name=".ViewReportActivity"
             android:label="CS2340 Water App"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ShowReportActivity"
             android:label="CS2340 Water App"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
@@ -113,7 +113,6 @@
         <activity
             android:name=".ViewPurityReportsLocationActivity"
             android:label="@string/title_activity_view_purity_reports_location" />
-
         <activity
             android:name=".CreateSourceReportActivity"
             android:label="@string/title_activity_create_source_report"
@@ -123,10 +122,13 @@
             android:label="@string/title_activity_pick_source_report_location" />
         <activity
             android:name=".ViewSourceReportAcitvity"
-            android:label="Source Reports"/>
+            android:label="Source Reports" />
         <activity
             android:name=".ViewSourceReportsLocationActivity"
-            android:label="@string/title_activity_view_source_reports_location"></activity>
+            android:label="@string/title_activity_view_source_reports_location" />
+        <activity
+            android:name=".ShowSourceReportActivity"
+            android:label="Source Report Activity" />
 
     </application>
 

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 //import com.example.olivia.myapplication.R;
 import com.example.olivia.myapplication.model.Report;
+import com.example.olivia.myapplication.model.User;
 
 import org.w3c.dom.Text;
 
@@ -18,7 +19,7 @@ import org.w3c.dom.Text;
  * cancel button.
  */
 public class ShowReportActivity extends AppCompatActivity {
-
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class ShowReportActivity extends AppCompatActivity {
         Button cancelButton = (Button) findViewById(R.id.cancel_button);
         //Gets report passed in from the Report Activity
         Report selectedReport = (Report) getIntent().getSerializableExtra("selectedReport");
-
+        user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //Initializes widgets from the XML
         TextView title = (TextView) findViewById(R.id.Title);
         TextView time = (TextView) findViewById(R.id.time);
@@ -47,12 +48,14 @@ public class ShowReportActivity extends AppCompatActivity {
         condition.setText("Water Condition: " + selectedReport.getCondition());
         virusPpm.setText("Virus PPM: " + selectedReport.getVirusPPM());
         contaminationPpm.setText("Contamination PPM: " + selectedReport.getCombinationPPM());
-
         //Cancel button returns to Report Activity
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ShowReportActivity.this, ViewReportActivity.class));
+                Intent intent = new Intent(ShowReportActivity.this, ViewReportActivity.class);
+                intent.putExtra("user",user);
+                startActivity(intent);
+                finish();
             }
         });
 
