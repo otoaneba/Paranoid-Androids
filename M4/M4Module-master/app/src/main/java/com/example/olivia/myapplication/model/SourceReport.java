@@ -5,7 +5,9 @@ import com.google.android.gms.maps.model.LatLng;
 import java.io.Serializable;
 
 /**
- * Created by zsp32 on 3/13/2017.
+ * Created by Shuopeng Zhou on 3/13/2017.
+ * This page is to create a Source report store time, reportNumber, local, creator, data, type
+ * condition and report geocode
  */
 
 public class SourceReport implements Serializable{
