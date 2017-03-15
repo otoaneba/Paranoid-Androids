@@ -21,6 +21,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * This page allows you to create a new Source Report.
+ * If you click the create button, it saves the source report
+ * to the ShowSourceReport Activity. If you click cancel, the
+ * report is not saved and the app returns to the
+ * Main page.
+ */
 public class CreateSourceReportActivity extends AppCompatActivity {
     private User user;
     @Override
@@ -46,7 +53,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         }
         final String address1 = address;
         final LatLng reportLatLng1 = reportLatLng;
-        //This is a ReportManager object that will store the new report
+        //This is a SourceReportManager object that will store the new Source report
         final SourceReportManager manager = new SourceReportManager();
 
         //Initializes water conditions spinner
@@ -55,6 +62,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
+        //Initializes water type spinner
         final Spinner etSpinner2 = (Spinner) findViewById(R.id.etTypeSpinner_source);
         final ArrayAdapter<String> adapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterType.values());
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

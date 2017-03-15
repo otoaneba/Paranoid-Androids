@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zsp32 on 3/13/2017.
+ * Created by Shuopeng Zhou on 3/13/2017.
+ * This page is to store all source reports in an arraylist with all sourcereports
+ *
  */
 
 public class SourceReportManager {

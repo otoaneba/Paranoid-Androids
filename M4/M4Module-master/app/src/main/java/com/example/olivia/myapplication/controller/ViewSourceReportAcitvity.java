@@ -20,7 +20,11 @@ import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 
 import java.util.List;
-
+/**
+ * This is the page that shows a list of source reports. You
+ * Have the option to either create source reports or show
+ * details for individual source report.
+ */
 public class ViewSourceReportAcitvity extends AppCompatActivity {
     Button cancelButton;
     Button viewMap;
@@ -36,10 +40,10 @@ public class ViewSourceReportAcitvity extends AppCompatActivity {
         cancelButton = (Button) findViewById(R.id.cancel_report_source);
         viewMap = (Button) findViewById(R.id.view_source_report_map_button);
 
-        //The reports need to be added to an array to be shown
+        //The source reports need to be added to an array to be shown
         final List<SourceReport> reports = manager.getList();
 
-        //Sets up list of reports
+        //Sets up list of source reports
         ListAdapter adapter = new ArrayAdapter<SourceReport>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.report_list_source);
         reportList.setAdapter(adapter);
