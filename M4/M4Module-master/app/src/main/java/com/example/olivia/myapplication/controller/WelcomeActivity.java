@@ -19,8 +19,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     Button login;
     Button register;
-    Button test;
-    Button test2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
