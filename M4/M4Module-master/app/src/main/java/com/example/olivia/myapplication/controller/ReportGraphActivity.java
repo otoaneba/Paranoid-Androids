@@ -23,20 +23,25 @@ public class ReportGraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_graph);
         LineChart chart = (LineChart) findViewById(R.id.chart);
         Double[] ppm = {21.5, 35.4, 14.3, 19.7};
-        Double[] time = {2005.0, 2006.0, 2007.0, 2008.0};
+        Float[] time = {2005f, 2006f, 2007f, 2008f};
         List<Entry> entries = new ArrayList<Entry>();
 
-        for (int i = 0; i < ppm.length; i++) {
+        for (int i = 0; i < ppm.length ; i++) {
             // turn your data into Entry objects
             BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
-            BigDecimal timeDecimal = new BigDecimal(time[i]);
-            entries.add(new Entry(ppmDecimal.floatValue(), timeDecimal.floatValue()));
+            entries.add(new Entry(time[i], ppmDecimal.floatValue()));
         }
         LineDataSet dataSet = new LineDataSet(entries, "Label"); // add entries to dataset
         dataSet.setColor(R.color.seaGreen);
         dataSet.setValueTextColor(R.color.greyPink);
         LineData lineData = new LineData(dataSet);
         chart.setData(lineData);
+        chart.setTouchEnabled(true);
+        chart.setDragEnabled(true);
+        chart.setScaleEnabled(false);
+        chart.setPinchZoom(true);
+        chart.setDoubleTapToZoomEnabled(false);
         chart.invalidate(); // refresh
+
     }
 }
