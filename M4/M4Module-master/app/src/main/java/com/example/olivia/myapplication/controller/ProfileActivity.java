@@ -8,9 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.UserManager;
+import com.kosalgeek.asynctask.AsyncResponse;
+import com.kosalgeek.asynctask.PostResponseAsyncTask;
+
+import java.util.HashMap;
 
 /**
  * Profile Screen which user can access after logged in
@@ -21,6 +26,7 @@ import com.example.olivia.myapplication.model.UserManager;
  */
 
 public class ProfileActivity extends AppCompatActivity {
+    private TextView userid;
     private EditText name;
     private EditText email;
     private EditText homeAddress;
@@ -46,6 +52,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
             setContentView(R.layout.activity_profile_screen);
+            userid = (TextView) findViewById(R.id.username);
+            userid.setText(user.getId());
             name = (EditText) findViewById(R.id.name);
             name.setText(user.getName(), TextView.BufferType.EDITABLE);
 
@@ -74,19 +82,34 @@ public class ProfileActivity extends AppCompatActivity {
             editButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final String username = name.getText().toString();
-                    final String userpassword = password.getText().toString();
-                    final String useremail = email.getText().toString();
-                    final String useraddress = homeAddress.getText().toString();
-                    manager.deleteUser(user.getId());
-                    user = new User(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
-                    manager.addUser(user.getId(), username, userpassword, useremail, useraddress, user.getUserType());
-                    User.setCurrentUser(user);
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    intent.putExtra("user",user);
-                    startActivity(intent);
-                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
+                    final String _userId = userid.getText().toString();
+                    final String _name = name.getText().toString();
+                    final String _userPassword = password.getText().toString();
+                    final String _userEmail = email.getText().toString();
+                    final String _userAddress = homeAddress.getText().toString();
+                    HashMap postData = new HashMap();
+                    postData.put("txtUsername", _userId);
+                    postData.put("txtName", _name);
+                    postData.put("txtEmailAddress", _userEmail);
+                    postData.put("txtPassword", _userPassword);
+                    postData.put("txtAddress", _userAddress);
+
+                    AsyncResponse asyncResponse = new AsyncResponse() {
+                        @Override
+                        public void processFinish(String output) {
+                            if(output.contains("edited")) {
+                                Toast.makeText(ProfileActivity.this, output, Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent (getApplicationContext(), RetrieveDataActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }else {
+                                Toast.makeText(ProfileActivity.this, "please try again", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    };
+                    PostResponseAsyncTask task = new PostResponseAsyncTask(ProfileActivity.this, postData, asyncResponse);
+                    //task.execute("http://192.168.1.192:81/android_connect/editUser.php");
+                    task.execute("http://szhougatech.com/editUser.php");
                 }
             });
 

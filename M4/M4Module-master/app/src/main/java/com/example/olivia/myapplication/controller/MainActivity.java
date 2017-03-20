@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.olivia.myapplication.model.User;
 
 /**
- * Created by Olivia on 2/12/2017.
+ * @author Kyung Jun Lee
  *
  * MainActivity is the main page of the water app once the user logs in to his/her profile.
  * As of now, the only functionality is that the user can view the profile and edit it to
@@ -154,57 +154,4 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-//    private TextView userInfo;
-//    private Button logoutButton;
-//    private Button profileButton;
-//    private Button reportButton;
-//    private User user;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        try {
-//            Bundle extras = getIntent().getExtras();
-//            if (extras != null) {
-//                user = (User)getIntent().getSerializableExtra("user"); //Obtaining data
-//            }
-//            super.onCreate(savedInstanceState);
-//            setContentView(R.layout.content_main);
-//        } catch (Exception e) {
-//            Log.d("debug","something went wrong");
-//        }
-//        //displays the current user's name and userType on the top-left screen.
-//        userInfo = (TextView) findViewById(R.id.userInfo_text);
-//        userInfo.setText(user.getName() + " (" + user.getUserType() + ")");
-//        logoutButton = (Button) findViewById(R.id.logout_button);
-//        profileButton = (Button) findViewById(R.id.profile_button);
-//        reportButton = (Button) findViewById(R.id.report_button);
-//
-//        logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//
-//        reportButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, ViewReportActivity.class);
-//                intent.putExtra("user", user);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        profileButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-//                intent.putExtra("user", user);
-//                startActivity(intent);
-//            }
-//        });
-//
-//    }
 }

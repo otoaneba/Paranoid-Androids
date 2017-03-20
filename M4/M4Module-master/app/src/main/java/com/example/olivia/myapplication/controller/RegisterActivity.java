@@ -25,8 +25,9 @@ import java.util.HashMap;
 /**
  * A register page that lets new users register for a new account with a username and a password
  * Cancel button will take you back to the welcome page.
- * @author Naoto Abe
+ * @author Kyung Jun Lee
  * @version 1.0
+ *
  */
 public class RegisterActivity extends AppCompatActivity {
     private UserManager manager = new UserManager();
@@ -87,7 +88,8 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
                 PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
-                task.execute("http://192.168.2.2:81/android_connect/addUser.php");
+                //task.execute("http://192.168.1.192:81/android_connect/addUser.php");
+                task.execute("http://szhougatech.com/addUser.php");
             }
         });
 

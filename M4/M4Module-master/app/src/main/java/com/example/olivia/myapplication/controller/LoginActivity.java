@@ -16,7 +16,10 @@ import java.util.HashMap;
 import static com.example.olivia.myapplication.controller.RetrieveDataActivity.users;
 
 /**
+ * @author KyungJun Lee
  * A login screen that offers login via username and password
+ *
+ * Modified by Kyung Jun Lee on 3/18/2017
  */
 public class LoginActivity extends AppCompatActivity {
     /**
@@ -71,7 +74,9 @@ public class LoginActivity extends AppCompatActivity {
                 };
                 PostResponseAsyncTask task = new PostResponseAsyncTask(LoginActivity.this, postData, asyncResponse);
                 //need to change my IP occasionally if you want this work (syntax --> new IP address : 81)
-                task.execute("http://192.168.2.2:81/android_connect/login.php");
+                //task.execute("http://107.180.46.167/public_html/www/login.php");
+                //task.execute("http://192.168.1.192:81/android_connect/login.php");
+                task.execute("http://szhougatech.com/login.php");
             }
         });
 
