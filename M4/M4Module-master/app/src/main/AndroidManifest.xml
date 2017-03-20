@@ -58,15 +58,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"
-                android:label="CS2340 Water App"
-                android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ProfileActivity"
-                android:label="CS2340 Water App"
-                android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ReportGraphActivity"
-                android:label="CS2340 Water App"
-                android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="CS2340 Water App"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="CS2340 Water App"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ReportGraphActivity"
+            android:label="CS2340 Water App"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- <activity -->
         <!-- android:name=".FirebaseLoginActivity" -->
@@ -130,15 +133,16 @@
         <activity
             android:name=".ViewSourceReportAcitvity"
             android:label="Source Reports"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewSourceReportsLocationActivity"
             android:label="@string/title_activity_view_source_reports_location" />
         <activity
             android:name=".ShowSourceReportActivity"
             android:label="Source Report Activity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RetriveActivity" />
+        <activity android:name=".RetrieveDataActivity"></activity>
     </application>
 
 </manifest>
