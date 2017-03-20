@@ -19,17 +19,17 @@ public class Report implements Serializable {
     private double contaminatePPM;
     private String creator;
     private String date;
-    private String condition;
+    private String quality;
     private LatLng reportLatLng;
 
 
-    public Report(String time, String location, LatLng reportLatLng, double vPPM, double cPPM, String condition,
+    public Report(String time, String location, LatLng reportLatLng, double vPPM, double cPPM, String quality,
                   int reportNum, String date) {
         this.time = time;
         this.location = location;
         virusPPM = vPPM;
         contaminatePPM = cPPM;
-        this.condition = condition;
+        this.quality = quality;
         reportNumber = reportNum;
         creator = User.getCurrentUser().toString();
         this.date = date;
@@ -65,7 +65,7 @@ public class Report implements Serializable {
         return date;
     }
     public String getCondition() {
-        return condition;
+        return quality;
     }
     public LatLng getLatLng() { return reportLatLng;}
 
