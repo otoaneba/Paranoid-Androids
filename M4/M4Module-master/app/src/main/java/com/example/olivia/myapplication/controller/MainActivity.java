@@ -133,6 +133,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        _trend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ReportGraphActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
         _signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
