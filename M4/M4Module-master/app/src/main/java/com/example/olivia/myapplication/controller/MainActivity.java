@@ -16,6 +16,8 @@ import com.example.olivia.myapplication.model.User;
  * MainActivity is the main page of the water app once the user logs in to his/her profile.
  * As of now, the only functionality is that the user can view the profile and edit it to
  * his/her liking
+ *
+ * Modified by Kyung Jun Lee on 3/8/2017
  */
 
 public class MainActivity extends AppCompatActivity {

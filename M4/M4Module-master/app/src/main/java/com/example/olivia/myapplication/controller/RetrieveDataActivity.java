@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-
 import com.example.olivia.myapplication.model.User;
 
 import org.json.JSONArray;
@@ -21,8 +18,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RetrieveDataActivity extends Activity {
+    public static ArrayList <User> users = new ArrayList<User>();
 
-    String myJSON;
+    private String myJSON;
     private static final String TAG_RESULTS="result";
     private static final String TAG_USERNAME = "username";
     private static final String TAG_NAME ="name";
@@ -30,12 +28,9 @@ public class RetrieveDataActivity extends Activity {
     private static final String TAG_EMAIL ="email";
     private static final String TAG_ADD ="address";
     private static final String TAG_TYPE = "userType";
-
-
-    JSONArray peoples = null;
-    public static ArrayList <User> users = new ArrayList<User>();
-    User user;
-    ArrayList<HashMap<String, String>> personList;
+    private JSONArray people = null;
+    private User user;
+    private ArrayList<HashMap<String, String>> userList;
 
     ListView list;
 
@@ -43,46 +38,45 @@ public class RetrieveDataActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrieve_data);
-        list = (ListView) findViewById(R.id.listView);
-        personList = new ArrayList<HashMap<String,String>>();
-        getData("http://192.168.2.2:81/android_connect/example.php");
+        userList = new ArrayList<HashMap<String,String>>();
+        getData("http://192.168.2.2:81/android_connect/getUsers.php");
     }
 
 
-    protected void showList(){
+    protected void listUsers(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
-            peoples = jsonObj.getJSONArray(TAG_RESULTS);
+            people = jsonObj.getJSONArray(TAG_RESULTS);
 
-            for(int i=0;i<peoples.length();i++){
-                JSONObject c = peoples.getJSONObject(i);
+            if(!userList.isEmpty()) {
+                userList.clear();
+            }
+            if(user != null) {
+                user = null;
+            }
+            if(!users.isEmpty()) {
+                users.clear();
+            }
+            for(int i = 0;i<people.length();i++){
+                JSONObject c = people.getJSONObject(i);
                 String username = c.getString(TAG_USERNAME);
                 String name = c.getString(TAG_NAME);
                 String password = c.getString(TAG_PASS);
                 String email = c.getString(TAG_EMAIL);
                 String address = c.getString(TAG_ADD);
                 String userType = c.getString(TAG_TYPE);
-                HashMap<String,String> persons = new HashMap<String,String>();
+                HashMap<String,String> person = new HashMap<String,String>();
 
-                persons.put(TAG_USERNAME,username);
-                persons.put(TAG_NAME,name);
-                persons.put(TAG_PASS,password);
-                persons.put(TAG_EMAIL,email);
-                persons.put(TAG_ADD,address);
-                persons.put(TAG_TYPE,userType);
-                personList.add(persons);
+                person.put(TAG_USERNAME,username);
+                person.put(TAG_NAME,name);
+                person.put(TAG_PASS,password);
+                person.put(TAG_EMAIL,email);
+                person.put(TAG_ADD,address);
+                person.put(TAG_TYPE,userType);
+                userList.add(person);
                 user = new User(username, name, password, email, address, userType);
                 users.add(user);
             }
-
-            ListAdapter adapter = new SimpleAdapter(
-                    RetrieveDataActivity.this, personList, R.layout.user_list,
-                    new String[]{TAG_USERNAME, TAG_NAME, TAG_EMAIL, TAG_PASS, TAG_ADD, TAG_TYPE},
-                    new int[]{R.id.username_list, R.id.name_list, R.id.email_list,
-                            R.id.password_list,  R.id.address_list, R.id.userType_list}
-            );
-
-            //list.setAdapter(adapter);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -106,7 +100,7 @@ public class RetrieveDataActivity extends Activity {
 
                     bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-                    String json;
+                    String json = null;
                     while((json = bufferedReader.readLine())!= null){
                         sb.append(json+"\n");
                     }
@@ -119,8 +113,8 @@ public class RetrieveDataActivity extends Activity {
             }
             @Override
             protected void onPostExecute(String result){
-                myJSON=result;
-                showList();
+                myJSON = result;
+                listUsers();
             }
         }
         GetDataJSON g = new GetDataJSON();

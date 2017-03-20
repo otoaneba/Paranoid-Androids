@@ -10,9 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.app.AlertDialog;
+import android.widget.Toast;
 
 import com.example.olivia.myapplication.model.UserManager;
 import com.example.olivia.myapplication.model.userType;
+import com.kosalgeek.asynctask.AsyncResponse;
+import com.kosalgeek.asynctask.PostResponseAsyncTask;
+
+import java.util.HashMap;
 //import com.example.olivia.myapplication.model.User;
 //import com.example.olivia.myapplication.model.UserManager;
 //import static com.example.olivia.myapplication.model.UserManager.*;
@@ -53,35 +58,45 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String id = etId.getText().toString();
-                final String username = etUsername.getText().toString();
+                final String name = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
                 final String email = etEmail.getText().toString();
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
-                manager.addUser(id, username, password, email, address, userType);
-                if (id.isEmpty() || password.isEmpty()) {
-                    AlertDialog.Builder myAlert = new AlertDialog.Builder(RegisterActivity.this);
-                    myAlert.setMessage("Id and password are required")
-                            .setPositiveButton("Back", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .create();
-                    myAlert.show();
-                } else {
-                    startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
-                    finish();
-                }
+                HashMap postData = new HashMap();
+                postData.put("txtUsername", id);
+                postData.put("txtName", name);
+                postData.put("txtEmailAddress", email);
+                postData.put("txtPassword", password);
+                postData.put("txtAddress", address);
+                postData.put("txtUserType", userType);
+                manager.addUser(id, name, password, email, address, userType);
+
+
+                AsyncResponse asyncResponse = new AsyncResponse() {
+                    @Override
+                    public void processFinish(String output) {
+                        if(output.contains("success")) {
+                            Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent (getApplicationContext(), RetrieveDataActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else {
+                            Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                };
+                PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
+                task.execute("http://192.168.2.2:81/android_connect/addUser.php");
             }
         });
+
         //cancel button that takes a user back to the welcome screen
         final Button cancelButton = (Button) findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
+                startActivity(new Intent(getApplicationContext(),RetrieveDataActivity.class));
             }
         });
     }

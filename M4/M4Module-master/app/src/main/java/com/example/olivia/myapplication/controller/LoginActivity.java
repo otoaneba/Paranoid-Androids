@@ -20,11 +20,6 @@ import static com.example.olivia.myapplication.controller.RetrieveDataActivity.u
  */
 public class LoginActivity extends AppCompatActivity {
     /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-
-    /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private User currentUser;
@@ -61,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                             for(int i = 0; i < users.size(); i++) {
                                 if (users.get(i).getId().equals(_username.getText().toString())) {
                                     currentUser = users.get(i);
+                                    User.setCurrentUser(currentUser);
                                 }
                             }
                             Toast.makeText(LoginActivity.this, output, Toast.LENGTH_LONG).show();
