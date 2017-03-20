@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import controller.*;
+import model.User;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -97,7 +98,7 @@ public class Main extends Application {
             Scene scene = new Scene(signupview);
             dialogstage.setScene(scene);
             //set the username and passwod into the controller
-            SignupController controller = loader.getController();
+            SignUpController controller = loader.getController();
             controller.setMainapp(this);
             controller.setEditBoolean(signornot);
             controller.setUserInfo(user);
@@ -204,7 +205,7 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
+    public Stage getMainStage() {
+        return this.mainStage;
     }
 }

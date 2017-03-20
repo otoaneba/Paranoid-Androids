@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainOverviewController">
+   <children>
+      <GridPane layoutY="-1.0" prefHeight="306.0" prefWidth="582.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="168.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="414.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="82.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="284.0" minHeight="10.0" prefHeight="284.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lableField" prefHeight="21.0" prefWidth="203.0" text="Hi, Authorization Levels" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </Label>
+            <AnchorPane fx:id="mPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                   <GoogleMapView fx:id="mapview" prefHeight="300.0" prefWidth="400.0" translateY="20" />
+               </children></AnchorPane>
+                
+         </children>
+      </GridPane>
+      <Button layoutX="66.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit profile" translateY="-50.0" />
+      <Button layoutX="179.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleNewReport" text="New Report" />
+      <Button fx:id="rpListButton" layoutX="291.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleRPL" text="Report List" />
+       <Button fx:id="historyButton" layoutX="403.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleHistoryReport" text="History Graph" />
+   </children>
+</AnchorPane>

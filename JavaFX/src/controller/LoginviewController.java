@@ -1,7 +1,6 @@
 package controller;
 
 import app.Main;
-import fxapp.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
