@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 /**
  * Created by naoto on 3/20/2017.
  */
-public class SignUpController {
+public class SignupController {
     @FXML
     private TextField useridField;
     @FXML

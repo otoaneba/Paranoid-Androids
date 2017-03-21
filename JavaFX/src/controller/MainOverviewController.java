@@ -1,14 +1,15 @@
 package controller;
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
+import javafx.fxml.Initializable;
 import com.lynden.gmapsfx.javascript.object.*;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import model.*;
 import app.Main;
-import com.lynden.gmapsfx.*;
 import javafx.collections.ObservableList;
 import javafx.beans.property.StringProperty;
 
@@ -16,11 +17,10 @@ import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-
 /**
  * Created by naoto on 3/20/2017.
  */
-public class MainOverviewController implements Initializable, MapComponentInitializedListener{
+public class MainOverviewController implements Initializable, MapComponentInitializedListener {
     @FXML
     private Label lableField;
     @FXML

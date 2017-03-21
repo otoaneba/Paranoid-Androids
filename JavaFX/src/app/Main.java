@@ -2,7 +2,6 @@ package app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -98,7 +97,7 @@ public class Main extends Application {
             Scene scene = new Scene(signupview);
             dialogstage.setScene(scene);
             //set the username and passwod into the controller
-            SignUpController controller = loader.getController();
+            SignupController controller = loader.getController();
             controller.setMainapp(this);
             controller.setEditBoolean(signornot);
             controller.setUserInfo(user);
