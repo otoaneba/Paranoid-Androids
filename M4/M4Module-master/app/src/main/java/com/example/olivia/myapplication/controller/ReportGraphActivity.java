@@ -1,9 +1,13 @@
 package com.example.olivia.myapplication.controller;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
+import com.github.mikephil.charting.formatter.DefaultValueFormatter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +35,12 @@ public class ReportGraphActivity extends AppCompatActivity {
             BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
             entries.add(new Entry(time[i], ppmDecimal.floatValue()));
         }
+
+        //Sets interval to 1
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setValueFormatter(new DefaultAxisValueFormatter(0));
+        xAxis.setGranularity(1f);
+
         LineDataSet dataSet = new LineDataSet(entries, "Label"); // add entries to dataset
         dataSet.setColor(R.color.seaGreen);
         dataSet.setValueTextColor(R.color.greyPink);
