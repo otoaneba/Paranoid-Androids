@@ -3,6 +3,8 @@ package com.example.olivia.myapplication.controller;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -48,9 +50,14 @@ public class ReportGraphActivity extends AppCompatActivity {
         chart.setData(lineData);
         chart.setTouchEnabled(true);
         chart.setDragEnabled(true);
-        chart.setScaleEnabled(false);
+        chart.setScaleEnabled(true);
         chart.setPinchZoom(true);
         chart.setDoubleTapToZoomEnabled(false);
+        chart.setHighlightPerDragEnabled(false);
+        chart.setHighlightPerTapEnabled(false);
+
+        YAxis leftaxis = chart.getAxisLeft();
+        leftaxis.setDrawLabels(true);
         chart.invalidate(); // refresh
 
     }

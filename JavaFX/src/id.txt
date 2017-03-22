@@ -1,0 +1,11 @@
+linhanli,234567,Worker,none@mail.com
+yunlansun,345678,Manager,none@mail.com
+zichengliu,456789,User,none@mail.com
+tongtongzhao,567891,User,none@mail.com
+bobwaters,678912,Admin,gh@gmaiii.com
+helloliao,123456,Manager,none@mail.com
+hwang630,123456,Manager,test@mail.com
+hello,12345,Worker,none@mail.com
+wells,123,Manager,none@mail.com
+robert,12345,Manager,none@mail.com
+user,pass,Manager,none@mail.com
