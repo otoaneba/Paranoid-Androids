@@ -67,8 +67,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
         Log.d("debug", mySourceMarker.getPosition().toString());
         String address = getAddressFromLatLng(mySourceMarker.getPosition());
         Log.d("address", address);
-
-
+        
         Intent intent = new Intent(getApplicationContext(), CreateSourceReportActivity.class);
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);

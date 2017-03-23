@@ -8,19 +8,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.WaterCondition;
-import com.example.olivia.myapplication.model.waterQuality;
 import com.example.olivia.myapplication.model.waterType;
 import com.google.android.gms.maps.model.LatLng;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 
 /**
  * This page allows you to create a new Source Report.
@@ -114,6 +113,8 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                 else {
                     manager.addReport(time, address1, reportLatLng1, type, condition,
                             manager.size() + 1, todayDate);
+
+
                     Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);

@@ -64,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String email = etEmail.getText().toString();
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
+
                 HashMap postData = new HashMap();
                 postData.put("txtUsername", id);
                 postData.put("txtName", name);
@@ -88,8 +89,8 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
                 PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
-                //task.execute("http://192.168.1.192:81/android_connect/addUser.php");
-                task.execute("http://szhougatech.com/addUser.php");
+                task.execute("http://128.61.3.143:81/android_connect/addUser.php");
+                //task.execute("http://szhougatech.com/addUser.php");
             }
         });
 

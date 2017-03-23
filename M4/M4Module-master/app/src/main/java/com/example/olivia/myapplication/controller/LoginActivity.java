@@ -75,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                 PostResponseAsyncTask task = new PostResponseAsyncTask(LoginActivity.this, postData, asyncResponse);
                 //need to change my IP occasionally if you want this work (syntax --> new IP address : 81)
                 //task.execute("http://107.180.46.167/public_html/www/login.php");
-                //task.execute("http://192.168.1.192:81/android_connect/login.php");
-                task.execute("http://szhougatech.com/login.php");
+                task.execute("http://128.61.3.143:81/android_connect/login.php");
+                //task.execute("http://szhougatech.com/login.php");
             }
         });
 

@@ -14,31 +14,49 @@ import static com.example.olivia.myapplication.controller.R.id.condition;
 public class Report implements Serializable {
     private String time;
     private int reportNumber;
+    private String rptNum;
     private String location;
     private double virusPPM;
+    private String vPPM;
     private double contaminatePPM;
+    private String cPPM;
     private String creator;
     private String date;
-    private String condition;
+    private String quality;
     private LatLng reportLatLng;
 
 
-    public Report(String time, String location, LatLng reportLatLng, double vPPM, double cPPM, String condition,
+
+
+    public Report(String time, String location, LatLng reportLatLng, double vPPM, double cPPM, String quality,
                   int reportNum, String date) {
         this.time = time;
         this.location = location;
         virusPPM = vPPM;
         contaminatePPM = cPPM;
-        this.condition = condition;
+        this.quality = quality;
         reportNumber = reportNum;
         creator = User.getCurrentUser().toString();
         this.date = date;
         this.reportLatLng = reportLatLng;
 
     }
+    public Report(String rptNum,String time, String location, String creator, String vPPM, String cPPM, String quality,
+                  String lat, String longt) {
+        this.rptNum = rptNum;
+        this.time = time;
+        this.location = location;
+        this.creator = creator;
+        this.quality = quality;
+        this.vPPM = vPPM;
+        this.cPPM = cPPM;
+        this.reportLatLng = new LatLng(Double.parseDouble(lat),Double.parseDouble(longt));
+    }
+
+
 
     public String toString() {
-        return reportNumber + ", " + creator + ", " + location + ", " + date;
+        return reportNumber + " | " + creator + " | " + location + " | " + date;
     }
     public String showMap() {
         return "No." + reportNumber + ", Condition " + condition + ", Virus " + virusPPM + ", Contamination " + contaminatePPM;
@@ -65,7 +83,7 @@ public class Report implements Serializable {
         return date;
     }
     public String getCondition() {
-        return condition;
+        return quality;
     }
     public LatLng getLatLng() { return reportLatLng;}
 

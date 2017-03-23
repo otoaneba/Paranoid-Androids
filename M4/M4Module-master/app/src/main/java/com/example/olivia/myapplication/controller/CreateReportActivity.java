@@ -13,15 +13,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 
 
 import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
+import com.kosalgeek.asynctask.AsyncResponse;
+import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
 /**
  * This page allows you to create a new Purity Report.
@@ -85,10 +89,15 @@ public class CreateReportActivity extends AppCompatActivity {
 
                 //Gets information from textboxes
                 final String time = "" + timeFormat.format(c.getTime()).toString();
-                final String location = "ad";
+                final String location = address1;
                 final String virusPPM = etVirusPPM.getText().toString();
                 final String contaminatePPM = etContaminatePPM.getText().toString();
                 final String condition = etSpinner.getSelectedItem().toString();
+                final String lat = String.valueOf(reportLatLng1.latitude);
+                final String longt = String.valueOf(reportLatLng1.longitude);
+
+
+
                 //Checks to see if there is a missing input
                 if (/*time.isEmpty() || */location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
@@ -114,6 +123,25 @@ public class CreateReportActivity extends AppCompatActivity {
                     myAlert.show();
                 }
                 else {
+                    HashMap postData = new HashMap();
+                    postData.put("txtLocation", location);
+                    postData.put("txtCreator", user.getName());
+                    postData.put("txtQuality", condition);
+                    postData.put("txtVirusPPM", virusPPM);
+                    postData.put("txtContaminatePPM", contaminatePPM);
+                    postData.put("txtLat", lat);
+                    postData.put("txtLong", longt);
+
+                    AsyncResponse asyncResponse = new AsyncResponse() {
+                        @Override
+                        public void processFinish(String output) {
+                            if(output.contains("report")) {
+                                Toast.makeText(CreateReportActivity.this, output, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    };
+                    PostResponseAsyncTask task = new PostResponseAsyncTask(CreateReportActivity.this, postData, asyncResponse);
+                    task.execute("http://128.61.3.143:81/android_connect/createPurityReport.php");
                     manager.addReport(time, address1, reportLatLng1, Double.parseDouble(virusPPM),
                             Double.parseDouble(contaminatePPM), condition,
                             manager.size() + 1, todayDate);
@@ -121,6 +149,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     intent.putExtra("user", user);
                     startActivity(intent);
                     finish();
+
                 }
             }
         });

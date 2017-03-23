@@ -40,10 +40,9 @@ public class RetrieveDataActivity extends Activity {
         setContentView(R.layout.activity_retrieve_data);
         userList = new ArrayList<HashMap<String,String>>();
         //getData("http://107.180.46.167/public_html/www/getUsers.php");
-        getData("http://szhougatech.com/getUsers.php");
-        //getData("http://192.168.1.192:81/android_connect/getUsers.php");
+        //getData("http://szhougatech.com/getUsers.php");
+        getData("http://169.258:81/android_connect/getUsers.php");
     }
-
 
     protected void listUsers(){
         try {
