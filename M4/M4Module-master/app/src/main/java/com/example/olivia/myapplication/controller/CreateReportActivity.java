@@ -38,7 +38,7 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.content_create_report);
 
         String address = "Address";
-        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
+        LatLng reportLatLng = new LatLng(-33.852, 151.211);
         try {
             Bundle extras = getIntent().getExtras();
 
@@ -80,7 +80,7 @@ public class CreateReportActivity extends AppCompatActivity {
                 //Gets current time and date
                 Calendar c = new GregorianCalendar();
                 SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
-                SimpleDateFormat todayFormat = new SimpleDateFormat("MMMM dd");
+                SimpleDateFormat todayFormat = new SimpleDateFormat("MM/dd/yyyy");
                 final String todayDate = "" + todayFormat.format(c.getTime()).toString();
 
                 //Gets information from textboxes
