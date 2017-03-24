@@ -1,10 +1,13 @@
-package com.example.olivia.myapplication.controller;
+package com.example.olivia.myapplication.model;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.example.olivia.myapplication.controller.R;
+import com.example.olivia.myapplication.controller.WelcomeActivity;
 import com.example.olivia.myapplication.model.User;
 
 import org.json.JSONArray;
@@ -17,7 +20,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RetrieveDataActivity extends Activity {
+public class RetrieveUserData extends Activity {
     public static ArrayList <User> users = new ArrayList<User>();
 
     private String myJSON;
@@ -41,7 +44,7 @@ public class RetrieveDataActivity extends Activity {
         userList = new ArrayList<HashMap<String,String>>();
         //getData("http://107.180.46.167/public_html/www/getUsers.php");
         //getData("http://szhougatech.com/getUsers.php");
-        getData("http://169.258:81/android_connect/getUsers.php");
+        getData("http://192.168.2.5:81/android_connect/getUsers.php");
     }
 
     protected void listUsers(){

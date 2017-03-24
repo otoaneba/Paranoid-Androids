@@ -18,7 +18,7 @@ public class SourceReportManager {
 
     public void addReport(String time, String location, LatLng reportLatLng,String type,
                           String condition, int reportNum, String date) {
-        reports.add(new SourceReport(time, location, reportLatLng, type, condition, reportNum, date));
+        //reports.add(new SourceReport(time, location, reportLatLng, type, condition, reportNum, date));
     }
     public int size() {
         return reports.size();

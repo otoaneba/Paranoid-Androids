@@ -1,6 +1,5 @@
 package com.example.olivia.myapplication.controller;
 
-import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import com.google.android.gms.maps.model.LatLng;
@@ -11,9 +10,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
+import static com.example.olivia.myapplication.model.RetrievePurityReportData.reports;
 import java.util.List;
 
 /**
@@ -27,7 +25,7 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
 
     private GoogleMap mMap;
     private ReportManager rptManager = new ReportManager();
-    private List<Report> reportList = rptManager.getList();
+    private List<Report> reportList = reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

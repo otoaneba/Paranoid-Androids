@@ -131,7 +131,7 @@
             android:name=".PickSourceReportLocationActivity"
             android:label="@string/title_activity_pick_source_report_location" />
         <activity
-            android:name=".ViewSourceReportAcitvity"
+            android:name=".ViewSourceReportActivity"
             android:label="Source Reports"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -141,8 +141,9 @@
             android:name=".ShowSourceReportActivity"
             android:label="Source Report Activity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RetriveActivity" />
-        <activity android:name=".RetrieveDataActivity"></activity>
+        <activity android:name="com.example.olivia.myapplication.model.RetrievePurityReportData" />
+        <activity android:name="com.example.olivia.myapplication.model.RetrieveSourceReportData" />
+        <activity android:name="com.example.olivia.myapplication.model.RetrieveUserData"></activity>
     </application>
 
 </manifest>

@@ -10,34 +10,33 @@ import java.io.Serializable;
  * condition and report geocode
  */
 
-public class SourceReport implements Serializable {
+    public class SourceReport implements Serializable {
+        private String rptNum;
         private String time;
-        private int reportNumber;
         private String location;
         private String creator;
-        private String date;
         private String type;
         private String condition;
         private LatLng reportLatLng;
 
-        public SourceReport(String time, String location, LatLng reportLatLng, String type, String condition,
-                      int reportNum, String date) {
-            this.time = time;
-            this.location = location;
-            this.condition = condition;
-            this.type = type;
-            reportNumber = reportNum;
-            creator = User.getCurrentUser().toString();
-            this.date = date;
-            this.reportLatLng = reportLatLng;
 
-        }
 
-        public String toString() {
-            return reportNumber + " | " + creator + " | " + location + " | " + date;
-        }
+    public SourceReport(String rptNum,String time, String location, String creator, String condition, String type,
+                  String lat, String longt) {
+        this.rptNum = rptNum;
+        this.time = time;
+        this.location = location;
+        this.creator = creator;
+        this.type = type;
+        this.condition = condition;
+        this.reportLatLng = new LatLng(Double.parseDouble(lat),Double.parseDouble(longt));
+    }
+
+    public String toString() {
+        return rptNum + " | " + creator + " | " + location + " | " + time;
+    }
         public String showMap() {
-            return "No." + reportNumber + ",WaterCondition: " + condition + ", Watertype: " + type;
+            return "No." + rptNum + ",WaterCondition: " + condition + ", Watertype: " + type;
         }
         public String getTime() {
             return time;
@@ -47,13 +46,10 @@ public class SourceReport implements Serializable {
         }
         public String getType() { return type;};
         public int getReportNumber() {
-            return reportNumber;
+            return Integer.parseInt(rptNum);
         }
         public String getCreator() {
             return creator;
-        }
-        public String getDate() {
-            return date;
         }
         public String getCondition() {
             return condition;

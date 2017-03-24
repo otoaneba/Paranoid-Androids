@@ -141,10 +141,7 @@ public class CreateReportActivity extends AppCompatActivity {
                         }
                     };
                     PostResponseAsyncTask task = new PostResponseAsyncTask(CreateReportActivity.this, postData, asyncResponse);
-                    task.execute("http://128.61.3.143:81/android_connect/createPurityReport.php");
-                    manager.addReport(time, address1, reportLatLng1, Double.parseDouble(virusPPM),
-                            Double.parseDouble(contaminatePPM), condition,
-                            manager.size() + 1, todayDate);
+                    task.execute("http://192.168.2.5:81/android_connect/createPurityReport.php");
                     Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);

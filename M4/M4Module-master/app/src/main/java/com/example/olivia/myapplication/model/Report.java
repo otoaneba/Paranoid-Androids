@@ -13,34 +13,15 @@ import static com.example.olivia.myapplication.controller.R.id.condition;
 
 public class Report implements Serializable {
     private String time;
-    private int reportNumber;
     private String rptNum;
     private String location;
-    private double virusPPM;
     private String vPPM;
-    private double contaminatePPM;
     private String cPPM;
     private String creator;
-    private String date;
     private String quality;
     private LatLng reportLatLng;
 
 
-
-
-    public Report(String time, String location, LatLng reportLatLng, double vPPM, double cPPM, String quality,
-                  int reportNum, String date) {
-        this.time = time;
-        this.location = location;
-        virusPPM = vPPM;
-        contaminatePPM = cPPM;
-        this.quality = quality;
-        reportNumber = reportNum;
-        creator = User.getCurrentUser().toString();
-        this.date = date;
-        this.reportLatLng = reportLatLng;
-
-    }
     public Report(String rptNum,String time, String location, String creator, String vPPM, String cPPM, String quality,
                   String lat, String longt) {
         this.rptNum = rptNum;
@@ -56,10 +37,10 @@ public class Report implements Serializable {
 
 
     public String toString() {
-        return reportNumber + " | " + creator + " | " + location + " | " + date;
+        return rptNum + " | " + creator + " | " + location + " | " + time;
     }
     public String showMap() {
-        return "No." + reportNumber + ", Condition " + condition + ", Virus " + virusPPM + ", Contamination " + contaminatePPM;
+        return "No." + rptNum + ", Quality: " + quality + ", Virus: " + getVirusPPM() + ", Contamination: " + getCombinationPPM();
     }
     public String getTime() {
         return time;
@@ -68,19 +49,16 @@ public class Report implements Serializable {
         return location;
     }
     public double getVirusPPM() {
-        return virusPPM;
+        return Double.parseDouble(vPPM);
     }
     public double getCombinationPPM() {
-        return contaminatePPM;
+        return Double.parseDouble(cPPM);
     }
     public int getReportNumber() {
-        return reportNumber;
+        return Integer.parseInt(rptNum);
     }
     public String getCreator() {
         return creator;
-    }
-    public String getDate() {
-        return date;
     }
     public String getCondition() {
         return quality;

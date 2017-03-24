@@ -20,7 +20,7 @@ public class ReportManager {
 
     public void addReport(String time, String location, LatLng reportLatLng, double vPPM, double cPPM,
                           String condiiton, int reportNum, String date) {
-        reports.add(new Report(time, location, reportLatLng, vPPM, cPPM, condiiton, reportNum, date));
+        //reports.add(new Report(time, location, reportLatLng, vPPM, cPPM, condiiton, reportNum, date));
     }
     public int size() {
         return reports.size();

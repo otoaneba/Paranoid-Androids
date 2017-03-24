@@ -8,15 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.olivia.myapplication.model.RetrievePurityReportData;
+import com.example.olivia.myapplication.model.RetrieveSourceReportData;
 import com.example.olivia.myapplication.model.User;
 
 /**
  * @author Kyung Jun Lee
  *
  * MainActivity is the main page of the water app once the user logs in to his/her profile.
- * As of now, the only functionality is that the user can view the profile and edit it to
- * his/her liking
- *
+ * Depends on the current user's user type, the app shows different functionalities.
  * Modified by Kyung Jun Lee on 3/8/2017
  */
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         _view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ViewSourceReportAcitvity.class);
+                Intent intent = new Intent(getApplicationContext(), RetrieveSourceReportData.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
                 finish();
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         _viewHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ViewReportActivity.class);
+                Intent intent = new Intent(MainActivity.this, RetrievePurityReportData.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
             }

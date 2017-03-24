@@ -3,7 +3,6 @@ package com.example.olivia.myapplication.controller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,7 +25,6 @@ public class ShowSourceReportActivity extends AppCompatActivity {
         cancelButton = (Button) findViewById(R.id.cancel_button_sourceReport);
         //Gets report passed in from the Report Activity
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
-        String date_v = (String)getIntent().getSerializableExtra("date");
         String time_v = (String)getIntent().getSerializableExtra("time");
         int repNo_v = (Integer)getIntent().getSerializableExtra("repNo");
         String WorkerName_v = (String)getIntent().getSerializableExtra("WorkerName");
@@ -44,7 +42,7 @@ public class ShowSourceReportActivity extends AppCompatActivity {
            source_type = (TextView) findViewById(R.id.type_sourceReport);
 
         //Sets values from selected report
-        source_title.setText("Source Report: " + date_v);
+        source_title.setText("Source Report");
         source_time.setText("Time of Report: " + time_v);
         source_reportNumber.setText("Report Number: " + repNo_v);
         source_worker.setText("Worker Name: " + WorkerName_v);
@@ -56,7 +54,7 @@ public class ShowSourceReportActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowSourceReportActivity.this, ViewSourceReportAcitvity.class);
+                Intent intent = new Intent(ShowSourceReportActivity.this, ViewSourceReportActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
                 finish();

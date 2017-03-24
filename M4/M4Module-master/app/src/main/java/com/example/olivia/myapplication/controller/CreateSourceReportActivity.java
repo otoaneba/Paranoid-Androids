@@ -10,12 +10,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.WaterCondition;
 import com.example.olivia.myapplication.model.waterType;
 import com.google.android.gms.maps.model.LatLng;
+import com.kosalgeek.asynctask.AsyncResponse;
+import com.kosalgeek.asynctask.PostResponseAsyncTask;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -72,6 +76,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         final TextView etLocation = (TextView) findViewById(R.id.addressTV_source);
         etLocation.setText(address);
         final Button registerButton = (Button) findViewById(R.id.createButton_source);
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,9 +88,12 @@ public class CreateSourceReportActivity extends AppCompatActivity {
 
                 //Gets information from textboxes
                 final String time = "" + timeFormat.format(c.getTime()).toString();
-                final String location = "ad";
-                final String type = etSpinner2.getSelectedItem().toString();
+                final String location = address1;
                 final String condition = etSpinner.getSelectedItem().toString();
+                final String type = etSpinner2.getSelectedItem().toString();
+                final String lat = String.valueOf(reportLatLng1.latitude);
+                final String longt = String.valueOf(reportLatLng1.longitude);
+
                 //Checks to see if there is a missing input
                 if (/*time.isEmpty() || */location.isEmpty() || type.contains("SELECT") || condition.contains("SELECT") ) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateSourceReportActivity.this);
@@ -111,10 +119,24 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                     myAlert.show();
                 }
                 else {
-                    manager.addReport(time, address1, reportLatLng1, type, condition,
-                            manager.size() + 1, todayDate);
+                    HashMap postData = new HashMap();
+                    postData.put("txtLocation", location);
+                    postData.put("txtCreator", user.getName());
+                    postData.put("txtCondition", condition);
+                    postData.put("txtType", type);
+                    postData.put("txtLat", lat);
+                    postData.put("txtLong", longt);
 
-
+                    AsyncResponse asyncResponse = new AsyncResponse() {
+                        @Override
+                        public void processFinish(String output) {
+                            if(output.contains("report")) {
+                                Toast.makeText(CreateSourceReportActivity.this, output, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    };
+                    PostResponseAsyncTask task = new PostResponseAsyncTask(CreateSourceReportActivity.this, postData, asyncResponse);
+                    task.execute("http://192.168.2.5:81/android_connect/createSourceReport.php");
                     Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);

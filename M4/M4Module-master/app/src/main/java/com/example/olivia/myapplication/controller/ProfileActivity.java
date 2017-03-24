@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.olivia.myapplication.model.RetrieveUserData;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.UserManager;
 import com.kosalgeek.asynctask.AsyncResponse;
@@ -99,7 +100,7 @@ public class ProfileActivity extends AppCompatActivity {
                         public void processFinish(String output) {
                             if(output.contains("edited")) {
                                 Toast.makeText(ProfileActivity.this, output, Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent (getApplicationContext(), RetrieveDataActivity.class);
+                                Intent intent = new Intent (getApplicationContext(), RetrieveUserData.class);
                                 startActivity(intent);
                                 finish();
                             }else {
@@ -108,7 +109,7 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     };
                     PostResponseAsyncTask task = new PostResponseAsyncTask(ProfileActivity.this, postData, asyncResponse);
-                    task.execute("http://128.61.3.143:81/android_connect/editUser.php");
+                    task.execute("http://192.168.2.5:81/android_connect/editUser.php");
                     //task.execute("http://szhougatech.com/editUser.php");
                 }
             });

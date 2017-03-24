@@ -14,7 +14,7 @@ import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 
-import java.util.List;
+import static com.example.olivia.myapplication.model.RetrievePurityReportData.reports;
 
 /**
  * This is the page that shows a list of reports. You
@@ -38,7 +38,7 @@ public class ViewReportActivity extends AppCompatActivity {
         cancelButton = (Button) findViewById(R.id.cancel_report);
 
         //The reports need to be added to an array to be shown
-        final List<Report> reports = manager.getList();
+        //final List<Report> reports = manager.getList();
 
         //Sets up list of reports
         ListAdapter adapter = new ArrayAdapter<Report>(this, android.R.layout.simple_list_item_1, reports);
@@ -51,7 +51,6 @@ public class ViewReportActivity extends AppCompatActivity {
 
                         //store selected report's information into local variables
                         Report report = (Report) parent.getItemAtPosition(position);
-                        String date = report.getDate();
                         String time = report.getTime();
                         int repNo = report.getReportNumber();
                         String WorkerName =report.getCreator();
@@ -61,7 +60,6 @@ public class ViewReportActivity extends AppCompatActivity {
                         double contamPPM = report.getCombinationPPM();
 
                         //Pass all the selected report's information to the ShowReportActivity
-                        intent.putExtra("date",date);
                         intent.putExtra("time",time);
                         intent.putExtra("repNo",repNo);
                         intent.putExtra("WorkerName",WorkerName);

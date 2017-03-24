@@ -1,6 +1,5 @@
 package com.example.olivia.myapplication.controller;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.app.AlertDialog;
 import android.widget.Toast;
 
+import com.example.olivia.myapplication.model.RetrieveUserData;
 import com.example.olivia.myapplication.model.UserManager;
 import com.example.olivia.myapplication.model.userType;
 import com.kosalgeek.asynctask.AsyncResponse;
@@ -80,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void processFinish(String output) {
                         if(output.contains("success")) {
                             Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent (getApplicationContext(), RetrieveDataActivity.class);
+                            Intent intent = new Intent (getApplicationContext(), RetrieveUserData.class);
                             startActivity(intent);
                             finish();
                         }else {
@@ -89,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
                 PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
-                task.execute("http://128.61.3.143:81/android_connect/addUser.php");
+                task.execute("http://192.168.2.5:81/android_connect/addUser.php");
                 //task.execute("http://szhougatech.com/addUser.php");
             }
         });
@@ -99,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),RetrieveDataActivity.class));
+                startActivity(new Intent(getApplicationContext(),RetrieveUserData.class));
             }
         });
     }

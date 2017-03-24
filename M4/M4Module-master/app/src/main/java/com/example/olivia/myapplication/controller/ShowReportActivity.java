@@ -29,7 +29,6 @@ public class ShowReportActivity extends AppCompatActivity {
         Button cancelButton = (Button) findViewById(R.id.cancel_button);
 
         //Gets report's values passed from the Report Activity
-        String date_v = (String)getIntent().getSerializableExtra("date");
         String time_v = (String)getIntent().getSerializableExtra("time");
         int repNo_v = (Integer)getIntent().getSerializableExtra("repNo");
         String WorkerName_v = (String)getIntent().getSerializableExtra("WorkerName");
@@ -50,7 +49,7 @@ public class ShowReportActivity extends AppCompatActivity {
         TextView virusPpm = (TextView) findViewById(R.id.PPM);
 
         //Sets values from selected report
-        title.setText("Purity Report: " + date_v);
+        title.setText("Purity Report");
         time.setText("Time of Report: " + time_v);
         reportNumber.setText("Report Number: " + repNo_v);
         worker.setText("Worker Name: " + WorkerName_v);

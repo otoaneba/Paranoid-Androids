@@ -1,29 +1,34 @@
-package com.example.olivia.myapplication.controller;
+package com.example.olivia.myapplication.model;
 
+/**
+ * Created by John on 2017-03-24.
+ */
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.widget.ListView;
+
+import com.example.olivia.myapplication.controller.R;
+import com.example.olivia.myapplication.controller.ViewSourceReportActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 /**
  * Created by John on 2017-03-22.
  */
-        import android.app.Activity;
-        import android.content.Intent;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.widget.ListView;
 
-        import com.example.olivia.myapplication.model.Report;
-        import com.example.olivia.myapplication.model.User;
-
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-        import java.io.BufferedReader;
-        import java.io.InputStreamReader;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
-        import java.util.ArrayList;
-        import java.util.HashMap;
-
-public class RetrieveReportDataActivity extends Activity {
-    public static ArrayList <Report> reports = new ArrayList<Report>();
+public class RetrieveSourceReportData extends Activity {
+    public static ArrayList<SourceReport> reports = new ArrayList<SourceReport>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -31,15 +36,14 @@ public class RetrieveReportDataActivity extends Activity {
     private static final String TAG_TIME ="TIME";
     private static final String TAG_LOCATION = "Location";
     private static final String TAG_CREATOR ="Creator";
-    private static final String TAG_QUALITY ="Quality";
-    private static final String TAG_VIRUSPPM = "VirusPPM";
-    private static final String TAG_CONTAMPPM = "ContaminatePPM";
+    private static final String TAG_CONDITION ="Condition";
+    private static final String TAG_TYPE = "Type";
     private static final String TAG_LAT = "Latitutde";
     private static final String TAG_LONG = "Longtitude";
 
 
     private JSONArray reportInfo = null;
-    private Report _report;
+    private SourceReport _report;
     private ArrayList<HashMap<String, String>> reportList;
 
     ListView list;
@@ -49,7 +53,7 @@ public class RetrieveReportDataActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
         reportList = new ArrayList<HashMap<String,String>>();
-        getData("http://128.61.3.143:81/android_connect/getPurityReport.php");
+        getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
     }
 
     protected void listUsers(){
@@ -68,14 +72,12 @@ public class RetrieveReportDataActivity extends Activity {
             }
             for(int i = 0; i < reportInfo.length();i++){
                 JSONObject c = reportInfo.getJSONObject(i);
-                String result = c.getString(TAG_RESULTS);
                 String rptNum = c.getString(TAG_REPORT_NUMBER);
                 String time = c.getString(TAG_TIME);
                 String loc = c.getString(TAG_LOCATION);
                 String creator = c.getString(TAG_CREATOR);
-                String quality = c.getString(TAG_QUALITY);
-                String virusPPM = c.getString(TAG_VIRUSPPM);
-                String contaminatePPM = c.getString(TAG_CONTAMPPM);
+                String condition = c.getString(TAG_CONDITION);
+                String type = c.getString(TAG_TYPE);
                 String lat = c.getString(TAG_LAT);
                 String longt = c.getString(TAG_LONG);
 
@@ -88,21 +90,23 @@ public class RetrieveReportDataActivity extends Activity {
                 report.put(TAG_TIME,time);
                 report.put(TAG_LOCATION,loc);
                 report.put(TAG_CREATOR,creator);
-                report.put(TAG_QUALITY,quality);
-                report.put(TAG_VIRUSPPM,virusPPM);
-                report.put(TAG_CONTAMPPM,contaminatePPM);
+                report.put(TAG_CONDITION,condition);
+                report.put(TAG_TYPE,type);
                 report.put(TAG_LAT,lat);
                 report.put(TAG_LONG,longt);
-
                 reportList.add(report);
-                _report = new Report(rptNum,time,loc,creator,quality,virusPPM,contaminatePPM,lat,longt);
+                _report = new SourceReport(rptNum,time,loc,creator,condition,type,lat,longt);
                 reports.add(_report);
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        startActivity(new Intent(getApplicationContext(),ViewReportActivity.class));
+        User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
+        Intent intent = new Intent(getApplicationContext(),ViewSourceReportActivity.class);
+        intent.putExtra("user",user);
+        startActivity(intent);
+        finish();
     }
 
     public void getData(String url){
@@ -143,5 +147,6 @@ public class RetrieveReportDataActivity extends Activity {
     }
 
 }
+
 
 

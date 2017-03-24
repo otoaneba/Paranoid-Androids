@@ -16,11 +16,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
+import static com.example.olivia.myapplication.model.RetrieveSourceReportData.reports;
+
 public class ViewSourceReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private SourceReportManager srcRptManager = new SourceReportManager();
-    private List<SourceReport> reportList = srcRptManager.getList();
+    private List<SourceReport> reportList = reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
