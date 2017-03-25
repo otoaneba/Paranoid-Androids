@@ -43,6 +43,8 @@ public class ReportGraphActivity extends AppCompatActivity {
         final Spinner dateSpinner = (Spinner) findViewById(R.id.dateSpinner);
         final ReportManager reports = new ReportManager();
 
+        //// TODO: 3/24/2017 hook up database when complete
+
         reports.addReport("12:23 PM", "123 Some Rd", new LatLng(-33.852, 151.211), 3432.0, 8594.0, "SAFE",
                 20, "07/23/2006");
         reports.addReport("4:55 PM", "123 Some Rd", new LatLng(-33.543, 152.0), 1243.0, 7689.34, "SAFE",
@@ -63,6 +65,9 @@ public class ReportGraphActivity extends AppCompatActivity {
         reports.addReport("11:34 PM", "32 What Dr", new LatLng(-477.343, 354.67), 903.5, 90.5, "SAFE",
                 58, "06/17/2016");
 
+        //// TODO: 3/24/2017 check and make sure there are at least 3 date for each location becore
+        /// giving the manager the option to plot
+
         ArrayList<String> locationList = new ArrayList<>();
         List<Report> reportList = reports.getList();
         for (int i = 0; i < reportList.size(); i++) {
@@ -72,9 +77,14 @@ public class ReportGraphActivity extends AppCompatActivity {
                 Log.d("Location added: ", report.getLocation());
             }
         }
-        ArrayAdapter<String> locationAdapter =new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, locationList);
+        ArrayAdapter<String> locationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, locationList);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
+
+        // TODO: 3/24/2017 Pull the correct dates from the chosen location. make sure the last
+        // start date is at least 3 years behind the end date so we can plot at least 3 points
+
+        //// TODO: 3/24/2017 plot the manager chosen data
 
         LineChart chart = (LineChart) findViewById(R.id.chart);
         Double[] ppm = {21.5, 35.4, 14.3, 19.7};
