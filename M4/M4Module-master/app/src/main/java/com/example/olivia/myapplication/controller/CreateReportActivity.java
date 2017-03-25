@@ -38,43 +38,33 @@ public class CreateReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_create_report);
 
-        String address = "Address";
-        String updateAddress = null;
-        LatLng reportLatLng = new LatLng(-33.852, 151.211);
+        String address = null;
         LatLng updateLatLng = null;
+
         try {
-            Bundle bundle = getIntent().getParcelableExtra("bundle");
-            updateLatLng = bundle.getParcelable("reportLatLng");
-            updateAddress = bundle.getString("address");
+            Bundle updateExtras = getIntent().getExtras();
+            updateLatLng = updateExtras.getParcelable("reportLatLng");
+            address = updateExtras.getString("address");
         } catch (Exception e) {
             Log.e("error", e.toString());
         }
-
-        try {
-            Bundle extras = getIntent().getExtras();
-            String ifNull = extras.getString("address");
-            if (ifNull.length() != 0) {
-                address = ifNull;
-            }
-            Double latitude = extras.getDouble("latitude");
-            Double longitude = extras.getDouble("longitude");
-            reportLatLng = new LatLng(latitude, longitude);
-        } catch (Exception e) {
-            Log.e("error", e.toString());
-        }
-
-        final String address1;
-        if (updateAddress == null) {
-            address1 = address;
-        } else {
-            address1 = updateAddress;
-        }
-        final LatLng reportLatLng1;
         if (updateLatLng == null) {
-            reportLatLng1 = reportLatLng;
-        } else {
-            reportLatLng1 = updateLatLng;
+            try {
+                Bundle extras = getIntent().getExtras();
+                String ifNull = extras.getString("address");
+                if (ifNull.length() != 0) {
+                    address = ifNull;
+                }
+                Double latitude = extras.getDouble("latitude");
+                Double longitude = extras.getDouble("longitude");
+                updateLatLng = new LatLng(latitude, longitude);
+            } catch (Exception e) {
+                Log.e("error", e.toString());
+            }
         }
+
+        final LatLng reportLatLng1 = updateLatLng;
+        final String address1 = address;
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //This is a ReportManager object that will store the new report

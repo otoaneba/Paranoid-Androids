@@ -12,8 +12,6 @@ import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.User;
 import com.google.android.gms.maps.model.LatLng;
 
-import org.w3c.dom.Text;
-
 /**
  * This page shows the details for an individual report.
  * You can return to the list of reports by clicking the
@@ -30,8 +28,8 @@ public class ShowReportActivity extends AppCompatActivity {
         Button cancelButton = (Button) findViewById(R.id.cancel_button);
         Button updateButton = (Button) findViewById(R.id.updateButton);
 
-        Bundle bundle = getIntent().getParcelableExtra("bundle");
-        final LatLng latLng_v = bundle.getParcelable("reportLatLng");
+        //Bundle bundle = getIntent().getParcelableExtra("bundle");
+        final LatLng latLng_v = getIntent().getExtras().getParcelable("latlng");
 
         //Gets report's values passed from the Report Activity
         String date_v = (String) getIntent().getSerializableExtra("date");
@@ -69,11 +67,7 @@ public class ShowReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShowReportActivity.this, ViewReportActivity.class);
-                Bundle args = new Bundle();
-                args.putParcelable("reportLatLng", latLng_v);
-                intent.putExtra("address", loc_v);
                 intent.putExtra("user", user);
-                intent.putExtra("bundle", args);
                 startActivity(intent);
                 finish();
             }
@@ -83,8 +77,9 @@ public class ShowReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShowReportActivity.this, CreateReportActivity.class);
-                intent.putExtra("location", loc_v);
+                intent.putExtra("address", loc_v);
                 intent.putExtra("user", user);
+                intent.putExtra("reportLatLng", latLng_v);
                 startActivity(intent);
                 finish();
             }

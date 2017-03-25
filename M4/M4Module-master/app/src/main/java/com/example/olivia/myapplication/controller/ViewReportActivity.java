@@ -50,7 +50,7 @@ public class ViewReportActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener(){
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(ViewReportActivity.this, ShowReportActivity.class);
-                        Bundle args = new Bundle();
+                        //Bundle args = new Bundle();
 
                         //store selected report's information into local variables
                         Report report = (Report) parent.getItemAtPosition(position);
@@ -64,7 +64,7 @@ public class ViewReportActivity extends AppCompatActivity {
                         double contamPPM = report.getCombinationPPM();
                         LatLng reportLatLng = report.getLatLng();
 
-                        args.putParcelable("reportLatLng", reportLatLng);
+                        //args.putParcelable("reportLatLng", reportLatLng);
 
                         //Pass all the selected report's information to the ShowReportActivity
                         intent.putExtra("date",date);
@@ -76,7 +76,7 @@ public class ViewReportActivity extends AppCompatActivity {
                         intent.putExtra("virus",virusPPM);
                         intent.putExtra("contam",contamPPM);
                         intent.putExtra("user", user);
-                        intent.putExtra("bundle", args);
+                        intent.putExtra("latlng", reportLatLng);
                         startActivity(intent);
                         finish();
                     }
