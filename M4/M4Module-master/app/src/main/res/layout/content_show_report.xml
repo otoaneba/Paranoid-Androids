@@ -106,4 +106,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cancel_button"
+        android:layout_alignLeft="@+id/cancel_button"
+        android:layout_alignStart="@+id/cancel_button"
+        android:layout_marginBottom="9dp"
+        android:text="Update" />
+
 </RelativeLayout>

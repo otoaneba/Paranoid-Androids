@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.ExecutionException;
 
 
 import com.example.olivia.myapplication.model.ReportManager;
@@ -38,24 +39,42 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.content_create_report);
 
         String address = "Address";
+        String updateAddress = null;
         LatLng reportLatLng = new LatLng(-33.852, 151.211);
+        LatLng updateLatLng = null;
+        try {
+            Bundle bundle = getIntent().getParcelableExtra("bundle");
+            updateLatLng = bundle.getParcelable("reportLatLng");
+            updateAddress = bundle.getString("address");
+        } catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+
         try {
             Bundle extras = getIntent().getExtras();
-
-            String ifNull= extras.getString("address");
+            String ifNull = extras.getString("address");
             if (ifNull.length() != 0) {
                 address = ifNull;
             }
             Double latitude = extras.getDouble("latitude");
             Double longitude = extras.getDouble("longitude");
             reportLatLng = new LatLng(latitude, longitude);
-
         } catch (Exception e) {
-           Log.e("error",e.toString());
+            Log.e("error", e.toString());
         }
-        final String address1 = address;
-        final LatLng reportLatLng1 = reportLatLng;
 
+        final String address1;
+        if (updateAddress == null) {
+            address1 = address;
+        } else {
+            address1 = updateAddress;
+        }
+        final LatLng reportLatLng1;
+        if (updateLatLng == null) {
+            reportLatLng1 = reportLatLng;
+        } else {
+            reportLatLng1 = updateLatLng;
+        }
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //This is a ReportManager object that will store the new report
