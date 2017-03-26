@@ -14,12 +14,16 @@ import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.olivia.myapplication.controller.R.id.spinner;
 
 /**
  * Created by Olivia on 3/16/2017.
@@ -30,7 +34,7 @@ public class ReportGraphActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_graph_new);
-        Spinner locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
+        final Spinner locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
         final Spinner dateSpinner = (Spinner) findViewById(R.id.dateSpinner);
         final PurityReportManager reports = new PurityReportManager();
 
@@ -56,7 +60,7 @@ public class ReportGraphActivity extends AppCompatActivity {
         reports.addReport("11:34 PM", "32 What Dr", new LatLng(-477.343, 354.67), 903.5, 90.5, "SAFE",
                 58, "06/17/2016");
 
-        //// TODO: 3/24/2017 check and make sure there are at least 3 date for each location becore
+        //// TODO: 3/24/2017 check and make sure there are at least 3 date for each location before
         /// giving the manager the option to plot
 
         ArrayList<String> locationList = new ArrayList<>();
@@ -74,28 +78,15 @@ public class ReportGraphActivity extends AppCompatActivity {
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
 
+
+
         // TODO: 3/24/2017 Pull the correct dates from the chosen location. make sure the last
         // start date is at least 3 years behind the end date so we can plot at least 3 points
 
-        //// TODO: 3/24/2017 plot the manager chosen data
 
-        LineChart chart = (LineChart) findViewById(R.id.chart);
-        Double[] ppm = {21.5, 35.4, 14.3, 19.7};
-        Float[] time = {2005f, 2006f, 2007f, 2008f};
-        List<Entry> entries = new ArrayList<>();
+        final LineChart chart = (LineChart) findViewById(R.id.chart);
 
-        for (int i = 0; i < ppm.length ; i++) {
-            // turn your data into Entry objects
-            BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
-            entries.add(new Entry(time[i], ppmDecimal.floatValue()));
-        }
-
-        LineDataSet dataSet = new LineDataSet(entries, "Label"); // add entries to dataset
-        dataSet.setColor(R.color.seaGreen);
-        dataSet.setValueTextColor(R.color.greyPink);
-        LineData lineData = new LineData(dataSet);
-        chart.setData(lineData);
-
+        final List<Entry> entries = new ArrayList<>();
         //Sets interval to 1
         XAxis xAxis = chart.getXAxis();
         xAxis.setValueFormatter(new DefaultAxisValueFormatter(0));
@@ -112,7 +103,38 @@ public class ReportGraphActivity extends AppCompatActivity {
 
         YAxis leftaxis = chart.getAxisLeft();
         leftaxis.setDrawLabels(true);
-        chart.invalidate(); // refresh
+
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String location = locationSpinner.getSelectedItem().toString();
+                double[] ppm = reports.getPPM(location);
+                float[] time = reports.getYears(location);
+                entries.clear();
+                for (int i = 0; i < ppm.length ; i++) {
+                    // turn your data into Entry objects
+                    BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
+                    entries.add(new Entry(time[i], ppmDecimal.floatValue()));
+                }
+
+                LineDataSet dataSet = new LineDataSet(entries, "Purity Reports"); // add entries to dataset
+                dataSet.setColor(R.color.seaGreen);
+                dataSet.setValueTextColor(R.color.greyPink);
+                LineData lineData = new LineData(dataSet);
+                chart.setData(lineData);
+
+
+                chart.invalidate(); // refresh
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+
 
     }
 }
