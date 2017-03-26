@@ -59,23 +59,43 @@ public class PurityReportManager {
      * @param loc location of reports
      * @return an array of ppm values
      */
-    public double[] getPPM(String loc) {
+    public Double[] getPPM(String loc) {
         List<Report> chosenReport = getByLocation(loc);
-        double[] ppm = new double[chosenReport.size()];
+        Double[] ppm = new Double[chosenReport.size()];
         for (int i = 0; i < ppm.length; i++) {
-            ppm[i] = chosenReport.get(i).getVirusPPM();
+            ppm[i] = new Double(chosenReport.get(i).getVirusPPM());
         }
         return ppm;
     }
-
-    public float[] getYears(String loc) {
+    /**
+     * Returns the years of the reports that have the given
+     * location
+     * @param loc location of reports
+     * @return an array of years
+     * */
+    public Float[] getYears(String loc) {
         List<Report> chosenReport = getByLocation(loc);
-        float[] years = new float[chosenReport.size()];
+        Float[] years = new Float[chosenReport.size()];
         for (int i = 0; i < years.length; i++) {
             String date = chosenReport.get(i).getDate();
             years[i] = Float.parseFloat(date.substring(6));
         }
         return years;
+    }
+
+    /**
+     * Returns the dates of the reports that have the given
+     * location
+     * @param loc location of reports
+     * @return an array of ppm values
+     */
+    public Double[] getDates(String loc) {
+        List<Report> chosenReport = getByLocation(loc);
+        Double[] ppm = new Double[chosenReport.size()];
+        for (int i = 0; i < ppm.length; i++) {
+            ppm[i] = new Double(chosenReport.get(i).getVirusPPM());
+        }
+        return ppm;
     }
 
 }

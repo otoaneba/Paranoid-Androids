@@ -11,6 +11,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 import com.google.android.gms.maps.model.LatLng;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,12 +19,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.olivia.myapplication.controller.R.id.spinner;
 
 /**
  * Created by Olivia on 3/16/2017.
@@ -37,6 +38,7 @@ public class ReportGraphActivity extends AppCompatActivity {
         final Spinner locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
         final Spinner dateSpinner = (Spinner) findViewById(R.id.dateSpinner);
         final PurityReportManager reports = new PurityReportManager();
+        final TextView endDateText = (TextView) findViewById(R.id.enddate);
 
         //// TODO: 3/24/2017 hook up database when complete
 
@@ -109,10 +111,14 @@ public class ReportGraphActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
                 String location = locationSpinner.getSelectedItem().toString();
+                //Sets End Date text
+                Float[] yearlist = reports.getYears(location);
+                endDateText.setText("" + yearlist[yearlist.length - 1]);
                 //Populates spinner for start date
                 ArrayAdapter<Float> dateAdapter = new ArrayAdapter<Float>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, reports.getYears(location));
                 dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 dateSpinner.setAdapter(dateAdapter);
+                entries.clear();
 
 
             }
@@ -134,21 +140,31 @@ public class ReportGraphActivity extends AppCompatActivity {
                 entries.clear();
                 //Adds entries after selected start date
                 int start = dateSpinner.getSelectedItem() != null ? dateSpinner.getSelectedItemPosition() : 0;
-                for (int i = start; i < ppm.length ; i++) {
-                    // turn your data into Entry objects
-                    BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
-                    entries.add(new Entry(time[i], ppmDecimal.floatValue()));
+                if (Math.abs(start - ppm.length) >= 3) {
+                    for (int i = start; i < ppm.length ; i++) {
+                        // turn your data into Entry objects
+                        BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
+                        entries.add(new Entry(time[i], ppmDecimal.floatValue()));
+                    }
+
+                    //Creates data set for entries of given location
+                    LineDataSet dataSet = new LineDataSet(entries, "Purity Reports"); // add entries to dataset
+                    dataSet.setColor(R.color.seaGreen);
+                    dataSet.setValueTextColor(R.color.greyPink);
+                    LineData lineData = new LineData(dataSet);
+                    chart.setData(lineData);
+
+
+                    chart.invalidate(); // refresh
+                } else {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Must be at least a 3 year interval";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
                 }
 
-                //Creates data set for entries of given location
-                LineDataSet dataSet = new LineDataSet(entries, "Purity Reports"); // add entries to dataset
-                dataSet.setColor(R.color.seaGreen);
-                dataSet.setValueTextColor(R.color.greyPink);
-                LineData lineData = new LineData(dataSet);
-                chart.setData(lineData);
-
-
-                chart.invalidate(); // refresh
             }
 
             @Override
