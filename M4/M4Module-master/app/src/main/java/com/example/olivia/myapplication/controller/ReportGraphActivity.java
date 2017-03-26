@@ -107,16 +107,40 @@ public class ReportGraphActivity extends AppCompatActivity {
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
                 String location = locationSpinner.getSelectedItem().toString();
-                double[] ppm = reports.getPPM(location);
-                float[] time = reports.getYears(location);
+                //Populates spinner for start date
+                ArrayAdapter<Float> dateAdapter = new ArrayAdapter<Float>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, reports.getYears(location));
+                dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                dateSpinner.setAdapter(dateAdapter);
+
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                //does nothing
+            }
+
+
+        });
+
+        dateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                String location = locationSpinner.getSelectedItem().toString();
+                Double[] ppm = reports.getPPM(location);
+                Float[] time = reports.getYears(location);
                 entries.clear();
-                for (int i = 0; i < ppm.length ; i++) {
+                //Adds entries after selected start date
+                int start = dateSpinner.getSelectedItem() != null ? dateSpinner.getSelectedItemPosition() : 0;
+                for (int i = start; i < ppm.length ; i++) {
                     // turn your data into Entry objects
                     BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
                     entries.add(new Entry(time[i], ppmDecimal.floatValue()));
                 }
 
+                //Creates data set for entries of given location
                 LineDataSet dataSet = new LineDataSet(entries, "Purity Reports"); // add entries to dataset
                 dataSet.setColor(R.color.seaGreen);
                 dataSet.setValueTextColor(R.color.greyPink);
@@ -129,7 +153,7 @@ public class ReportGraphActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
+                //does nothing
             }
 
         });
