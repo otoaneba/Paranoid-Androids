@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.ExecutionException;
 
 
 import com.example.olivia.myapplication.model.ReportManager;
@@ -37,25 +38,33 @@ public class CreateReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_create_report);
 
-        String address = "Address";
-        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
+        String address = null;
+        LatLng updateLatLng = null;
+
         try {
-            Bundle extras = getIntent().getExtras();
-
-            String ifNull= extras.getString("address");
-            if (ifNull.length() != 0) {
-                address = ifNull;
-            }
-            Double latitude = extras.getDouble("latitude");
-            Double longitude = extras.getDouble("longitude");
-            reportLatLng = new LatLng(latitude, longitude);
-
+            Bundle updateExtras = getIntent().getExtras();
+            updateLatLng = updateExtras.getParcelable("reportLatLng");
+            address = updateExtras.getString("address");
         } catch (Exception e) {
-           Log.e("error",e.toString());
+            Log.e("error", e.toString());
         }
-        final String address1 = address;
-        final LatLng reportLatLng1 = reportLatLng;
+        if (updateLatLng == null) {
+            try {
+                Bundle extras = getIntent().getExtras();
+                String ifNull = extras.getString("address");
+                if (ifNull.length() != 0) {
+                    address = ifNull;
+                }
+                Double latitude = extras.getDouble("latitude");
+                Double longitude = extras.getDouble("longitude");
+                updateLatLng = new LatLng(latitude, longitude);
+            } catch (Exception e) {
+                Log.e("error", e.toString());
+            }
+        }
 
+        final LatLng reportLatLng1 = updateLatLng;
+        final String address1 = address;
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //This is a ReportManager object that will store the new report
@@ -80,7 +89,7 @@ public class CreateReportActivity extends AppCompatActivity {
                 //Gets current time and date
                 Calendar c = new GregorianCalendar();
                 SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
-                SimpleDateFormat todayFormat = new SimpleDateFormat("MMMM dd");
+                SimpleDateFormat todayFormat = new SimpleDateFormat("MM/dd/yyyy");
                 final String todayDate = "" + todayFormat.format(c.getTime()).toString();
 
                 //Gets information from textboxes

@@ -10,8 +10,7 @@ import android.widget.TextView;
 //import com.example.olivia.myapplication.R;
 import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.User;
-
-import org.w3c.dom.Text;
+import com.google.android.gms.maps.model.LatLng;
 
 /**
  * This page shows the details for an individual report.
@@ -27,16 +26,20 @@ public class ShowReportActivity extends AppCompatActivity {
 
         //Initializes cancel button
         Button cancelButton = (Button) findViewById(R.id.cancel_button);
+        Button updateButton = (Button) findViewById(R.id.updateButton);
+
+        //Bundle bundle = getIntent().getParcelableExtra("bundle");
+        final LatLng latLng_v = getIntent().getExtras().getParcelable("latlng");
 
         //Gets report's values passed from the Report Activity
-        String date_v = (String)getIntent().getSerializableExtra("date");
-        String time_v = (String)getIntent().getSerializableExtra("time");
-        int repNo_v = (Integer)getIntent().getSerializableExtra("repNo");
-        String WorkerName_v = (String)getIntent().getSerializableExtra("WorkerName");
-        String loc_v = (String)getIntent().getSerializableExtra("loc");
-        String condition_v = (String)getIntent().getSerializableExtra("condition");
-        double virus_v = (Double)getIntent().getSerializableExtra("virus");
-        double contam_v = (Double)getIntent().getSerializableExtra("contam");
+        String date_v = (String) getIntent().getSerializableExtra("date");
+        String time_v = (String) getIntent().getSerializableExtra("time");
+        int repNo_v = (Integer) getIntent().getSerializableExtra("repNo");
+        String WorkerName_v = (String) getIntent().getSerializableExtra("WorkerName");
+        final String loc_v = (String) getIntent().getSerializableExtra("loc");
+        String condition_v = (String) getIntent().getSerializableExtra("condition");
+        double virus_v = (Double) getIntent().getSerializableExtra("virus");
+        double contam_v = (Double) getIntent().getSerializableExtra("contam");
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
 
         //Initializes widgets from the XML
@@ -44,7 +47,7 @@ public class ShowReportActivity extends AppCompatActivity {
         TextView time = (TextView) findViewById(R.id.time);
         TextView reportNumber = (TextView) findViewById(R.id.report_number);
         TextView worker = (TextView) findViewById(R.id.worker);
-        TextView location = (TextView) findViewById(R.id.location);
+        final TextView location = (TextView) findViewById(R.id.location);
         TextView condition = (TextView) findViewById(R.id.condition);
         TextView contaminationPpm = (TextView) findViewById(R.id.contamination);
         TextView virusPpm = (TextView) findViewById(R.id.PPM);
@@ -64,7 +67,19 @@ public class ShowReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShowReportActivity.this, ViewReportActivity.class);
-                intent.putExtra("user",user);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowReportActivity.this, CreateReportActivity.class);
+                intent.putExtra("address", loc_v);
+                intent.putExtra("user", user);
+                intent.putExtra("reportLatLng", latLng_v);
                 startActivity(intent);
                 finish();
             }
