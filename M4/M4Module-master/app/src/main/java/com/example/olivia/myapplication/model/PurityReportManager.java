@@ -13,7 +13,7 @@ import java.util.Map;
  * ArrayList that stores user reports
  */
 
-public class ReportManager {
+public class PurityReportManager {
     Report u;// Modified by Shuopeng Zhou to enable accessing the report from ViewReportActivity
 
     private static List<Report> reports = new ArrayList<Report>();

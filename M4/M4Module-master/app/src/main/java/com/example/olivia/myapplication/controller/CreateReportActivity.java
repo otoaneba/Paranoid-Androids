@@ -2,6 +2,8 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import com.example.olivia.myapplication.model.PurityReportManager;
 import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -17,10 +19,8 @@ import android.widget.Spinner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
-import java.util.concurrent.ExecutionException;
 
 
-import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
 
@@ -67,8 +67,8 @@ public class CreateReportActivity extends AppCompatActivity {
         final String address1 = address;
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
-        //This is a ReportManager object that will store the new report
-        final ReportManager manager = new ReportManager();
+        //This is a PurityReportManager object that will store the new report
+        final PurityReportManager manager = new PurityReportManager();
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);

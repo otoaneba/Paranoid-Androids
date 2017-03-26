@@ -11,7 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.olivia.myapplication.model.Report;
-import com.example.olivia.myapplication.model.ReportManager;
+import com.example.olivia.myapplication.model.PurityReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -25,7 +25,7 @@ import java.util.List;
 public class ViewReportActivity extends AppCompatActivity {
     private Button locationButton, cancelButton;
 
-    private ReportManager manager = new ReportManager();
+    private PurityReportManager manager = new PurityReportManager();
 
 
     @Override

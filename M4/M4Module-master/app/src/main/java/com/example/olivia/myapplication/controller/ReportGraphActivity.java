@@ -1,20 +1,14 @@
 package com.example.olivia.myapplication.controller;
 
 import com.example.olivia.myapplication.model.Report;
-import com.example.olivia.myapplication.model.ReportManager;
+import com.example.olivia.myapplication.model.PurityReportManager;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
-import com.github.mikephil.charting.formatter.DefaultValueFormatter;
-import com.example.olivia.myapplication.model.ReportManager;
-import com.example.olivia.myapplication.model.User;
-import com.example.olivia.myapplication.model.waterQuality;
 import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
@@ -24,10 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -41,7 +32,7 @@ public class ReportGraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_graph_new);
         Spinner locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
         final Spinner dateSpinner = (Spinner) findViewById(R.id.dateSpinner);
-        final ReportManager reports = new ReportManager();
+        final PurityReportManager reports = new PurityReportManager();
 
         //// TODO: 3/24/2017 hook up database when complete
 
@@ -77,6 +68,8 @@ public class ReportGraphActivity extends AppCompatActivity {
                 Log.d("Location added: ", report.getLocation());
             }
         }
+
+
         ArrayAdapter<String> locationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, locationList);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
