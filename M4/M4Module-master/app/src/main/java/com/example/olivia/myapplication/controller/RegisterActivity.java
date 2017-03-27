@@ -88,8 +88,8 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
                 PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
-                task.execute("http://192.168.2.5:81/android_connect/addUser.php");
-                //task.execute("http://szhougatech.com/addUser.php");
+                //task.execute("http://192.168.2.5:81/android_connect/addUser.php");
+                task.execute("http://szhougatech.com/addUser.php");
             }
         });
 

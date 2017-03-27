@@ -136,7 +136,8 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                         }
                     };
                     PostResponseAsyncTask task = new PostResponseAsyncTask(CreateSourceReportActivity.this, postData, asyncResponse);
-                    task.execute("http://192.168.2.5:81/android_connect/createSourceReport.php");
+                    task.execute("http://szhougatech.com/createSourceReport.php");
+                    //task.execute("http://192.168.2.5:81/android_connect/createSourceReport.php");
                     Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);

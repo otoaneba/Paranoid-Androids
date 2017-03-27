@@ -143,7 +143,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.olivia.myapplication.model.RetrievePurityReportData" />
         <activity android:name="com.example.olivia.myapplication.model.RetrieveSourceReportData" />
-        <activity android:name="com.example.olivia.myapplication.model.RetrieveUserData"></activity>
+        <activity android:name="com.example.olivia.myapplication.model.RetrieveUserData" />
+        <activity
+            android:name="com.example.olivia.myapplication.model.RetrieveGraphData"
+            android:label="@string/title_activity_retrieve_graph_data"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

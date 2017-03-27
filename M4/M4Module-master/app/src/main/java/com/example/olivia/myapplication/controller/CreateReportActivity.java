@@ -141,7 +141,8 @@ public class CreateReportActivity extends AppCompatActivity {
                         }
                     };
                     PostResponseAsyncTask task = new PostResponseAsyncTask(CreateReportActivity.this, postData, asyncResponse);
-                    task.execute("http://192.168.2.5:81/android_connect/createPurityReport.php");
+                    //task.execute("http://192.168.2.5:81/android_connect/createPurityReport.php");
+                    task.execute("http://szhougatech.com/createPurityReport.php");
                     Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);

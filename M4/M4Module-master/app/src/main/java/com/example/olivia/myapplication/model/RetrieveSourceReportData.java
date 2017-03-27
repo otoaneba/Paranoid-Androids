@@ -53,7 +53,9 @@ public class RetrieveSourceReportData extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
         reportList = new ArrayList<HashMap<String,String>>();
-        getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
+
+        getData("http://szhougatech.com/getSourceReport.php");
+        //getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
     }
 
     protected void listUsers(){

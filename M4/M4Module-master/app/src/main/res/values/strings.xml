@@ -37,4 +37,6 @@
     <string name="water_source_reports">Water Source Reports</string>
     <string name="source_report_activity">Source Report Activity</string>
     <string name="sourcereportactivity">SourceReportActivity</string>
+    <string name="title_activity_graph_information">GraphInformationActivity</string>
+    <string name="title_activity_retrieve_graph_data">RetrieveGraphData</string>
 </resources>

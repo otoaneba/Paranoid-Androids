@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.olivia.myapplication.model.RetrieveGraphData;
 import com.example.olivia.myapplication.model.RetrievePurityReportData;
 import com.example.olivia.myapplication.model.RetrieveSourceReportData;
 import com.example.olivia.myapplication.model.User;
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         _trend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ReportGraphActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RetrieveGraphData.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
             }
