@@ -2,6 +2,8 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import com.example.olivia.myapplication.model.PurityReportManager;
 import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -19,7 +21,6 @@ import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
 
 
-import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
 
@@ -50,16 +51,37 @@ public class CreateReportActivity extends AppCompatActivity {
             Double longitude = extras.getDouble("longitude");
             reportLatLng = new LatLng(latitude, longitude);
 
-        } catch (Exception e) {
-           Log.e("error",e.toString());
-        }
-        final String address1 = address;
-        final LatLng reportLatLng1 = reportLatLng;
+            String address = null;
+            LatLng updateLatLng = null;
 
+        try {
+            Bundle updateExtras = getIntent().getExtras();
+            updateLatLng = updateExtras.getParcelable("reportLatLng");
+            address = updateExtras.getString("address");
+        } catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+        if (updateLatLng == null) {
+            try {
+                Bundle extras = getIntent().getExtras();
+                String ifNull = extras.getString("address");
+                if (ifNull.length() != 0) {
+                    address = ifNull;
+                }
+                Double latitude = extras.getDouble("latitude");
+                Double longitude = extras.getDouble("longitude");
+                updateLatLng = new LatLng(latitude, longitude);
+            } catch (Exception e) {
+                Log.e("error", e.toString());
+            }
+        }
+
+        final LatLng reportLatLng1 = updateLatLng;
+        final String address1 = address;
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
-        //This is a ReportManager object that will store the new report
-        final ReportManager manager = new ReportManager();
+        //This is a PurityReportManager object that will store the new report
+        final PurityReportManager manager = new PurityReportManager();
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
@@ -80,7 +102,7 @@ public class CreateReportActivity extends AppCompatActivity {
                 //Gets current time and date
                 Calendar c = new GregorianCalendar();
                 SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
-                SimpleDateFormat todayFormat = new SimpleDateFormat("MMMM dd");
+                SimpleDateFormat todayFormat = new SimpleDateFormat("MM/dd/yyyy");
                 final String todayDate = "" + todayFormat.format(c.getTime()).toString();
 
                 //Gets information from textboxes

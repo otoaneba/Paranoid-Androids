@@ -11,8 +11,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.olivia.myapplication.model.Report;
-import com.example.olivia.myapplication.model.ReportManager;
+import com.example.olivia.myapplication.model.PurityReportManager;
 import com.example.olivia.myapplication.model.User;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.List;
 
@@ -24,13 +25,14 @@ import java.util.List;
 public class ViewReportActivity extends AppCompatActivity {
     private Button locationButton, cancelButton;
 
-    private ReportManager manager = new ReportManager();
+    private PurityReportManager manager = new PurityReportManager();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
+
         //Get current user
         final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //Initializes buttons on page
@@ -48,6 +50,7 @@ public class ViewReportActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener(){
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(ViewReportActivity.this, ShowReportActivity.class);
+                        //Bundle args = new Bundle();
 
                         //store selected report's information into local variables
                         Report report = (Report) parent.getItemAtPosition(position);
@@ -59,6 +62,9 @@ public class ViewReportActivity extends AppCompatActivity {
                         String condition = report.getCondition();
                         double virusPPM = report.getVirusPPM();
                         double contamPPM = report.getCombinationPPM();
+                        LatLng reportLatLng = report.getLatLng();
+
+                        //args.putParcelable("reportLatLng", reportLatLng);
 
                         //Pass all the selected report's information to the ShowReportActivity
                         intent.putExtra("date",date);
@@ -69,7 +75,8 @@ public class ViewReportActivity extends AppCompatActivity {
                         intent.putExtra("condition",condition);
                         intent.putExtra("virus",virusPPM);
                         intent.putExtra("contam",contamPPM);
-                        intent.putExtra("user",user);
+                        intent.putExtra("user", user);
+                        intent.putExtra("latlng", reportLatLng);
                         startActivity(intent);
                         finish();
                     }

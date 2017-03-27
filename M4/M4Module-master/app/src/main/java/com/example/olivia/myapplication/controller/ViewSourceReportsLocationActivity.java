@@ -3,8 +3,6 @@ package com.example.olivia.myapplication.controller;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-import com.example.olivia.myapplication.model.Report;
-import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.SourceReport;
 import com.example.olivia.myapplication.model.SourceReportManager;
 import com.google.android.gms.maps.CameraUpdateFactory;

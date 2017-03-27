@@ -13,31 +13,13 @@
     tools:context="com.example.olivia.myapplication.controller.CreateReportActivity"
     tools:showIn="@layout/activity_create_report">
 
-    <Spinner
-        android:id="@+id/etConditionSpinner"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/etContaminatePPM"
-        android:spinnerMode="dialog" />
-
-    <TextView
-        android:text="Water Quality"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etConditionType"
-        android:layout_below="@+id/etContaminatePPM"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal"
-        android:id="@+id/linearLayout"
-        android:layout_below="@+id/etConditionType"
+        android:layout_below="@+id/location_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -65,14 +47,34 @@
 
     </LinearLayout>
 
+    <Spinner
+        android:id="@+id/etConditionSpinner"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/etContaminatePPM"
+        android:spinnerMode="dialog" />
+
+    <TextView
+        android:text="Water Quality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etConditionType"
+        android:layout_below="@+id/etContaminatePPM"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <Button
         android:id="@+id/location_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_weight="1"
         android:text="Location"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/etConditionSpinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etContaminatePPM"
