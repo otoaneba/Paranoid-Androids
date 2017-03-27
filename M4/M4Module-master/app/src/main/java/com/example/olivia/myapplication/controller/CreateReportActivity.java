@@ -41,6 +41,8 @@ public class CreateReportActivity extends AppCompatActivity {
         String address = null;
         LatLng updateLatLng = null;
 
+        // checks to see if location info has been passed in from update
+        // if no location info has been passed in address & updateLatLng are null
             try {
                 Bundle updateExtras = getIntent().getExtras();
                 updateLatLng = updateExtras.getParcelable("reportLatLng");
@@ -48,6 +50,7 @@ public class CreateReportActivity extends AppCompatActivity {
             } catch (Exception e) {
                 Log.e("error", e.toString());
             }
+            // if location has been passed in from update then skip prompting user for location
             if (updateLatLng == null) {
                 try {
                     Bundle extras = getIntent().getExtras();
