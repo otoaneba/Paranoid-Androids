@@ -38,7 +38,7 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.content_create_report);
 
         String address = "Address";
-        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
+        LatLng reportLatLng = new LatLng(-33.852, 151.211);
         try {
             Bundle extras = getIntent().getExtras();
 
