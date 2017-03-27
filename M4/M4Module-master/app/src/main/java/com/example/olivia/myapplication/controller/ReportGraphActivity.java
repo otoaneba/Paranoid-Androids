@@ -68,7 +68,6 @@ public class ReportGraphActivity extends AppCompatActivity {
 
         ArrayList<String> locationList = new ArrayList<>();
         locationList.addAll(graphs.keySet());
-        locationList.add("Chamblee");
         //List<Graph> reportList = reports.getList();
 //        for (int i = 0; i < locationList.size(); i++) {
 //            Report report = reportList.get(i);
