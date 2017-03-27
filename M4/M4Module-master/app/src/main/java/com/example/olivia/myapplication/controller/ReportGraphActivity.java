@@ -156,6 +156,8 @@ public class ReportGraphActivity extends AppCompatActivity {
 
                 Float[] time = new Float[result.size()];
                 Double[] ppm = new Double[result.size()];
+
+
                 for (int i = 0; i < result.size(); i++){
                     try {
                         time[i] = result.get(i).getYear();
@@ -164,7 +166,6 @@ public class ReportGraphActivity extends AppCompatActivity {
                     }
                     ppm[i] = result.get(i).getVirusPPM();
                 }
-                Arrays.sort(time);
                 entries.clear();
                 //Adds entries after selected start date
                 int start = dateSpinner.getSelectedItem() != null ? dateSpinner.getSelectedItemPosition() : 0;
