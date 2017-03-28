@@ -203,7 +203,11 @@ public class ReportGraphActivity extends AppCompatActivity {
 
         });
 
-
+        // database uses a timestamp (String), right now, Joe is getting the year value and plotting it
+        // on the x axis. ( he is averaging the PPM value in a year and plotting that avg for one year)
+        // if we wanted to make the data more specific (montly or even daily) there needs to be more
+        //coding to be done
+        //
 
     }
 }

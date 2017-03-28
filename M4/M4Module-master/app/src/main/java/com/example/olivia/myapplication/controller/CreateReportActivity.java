@@ -15,9 +15,6 @@ import android.widget.TextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import com.example.olivia.myapplication.model.User;
