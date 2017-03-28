@@ -109,8 +109,8 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     };
                     PostResponseAsyncTask task = new PostResponseAsyncTask(ProfileActivity.this, postData, asyncResponse);
-                    task.execute("http://192.168.2.5:81/android_connect/editUser.php");
-                    //task.execute("http://szhougatech.com/editUser.php");
+                    //task.execute("http://192.168.2.5:81/android_connect/editUser.php");
+                    task.execute("http://szhougatech.com/editUser.php");
                 }
             });
 

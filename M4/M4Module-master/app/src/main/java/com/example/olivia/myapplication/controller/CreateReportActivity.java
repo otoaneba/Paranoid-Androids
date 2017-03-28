@@ -20,8 +20,6 @@ import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
-
-import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
 import com.kosalgeek.asynctask.AsyncResponse;
@@ -42,7 +40,10 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.content_create_report);
 
         String address = "Address";
-        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
+        LatLng reportLatLng = new LatLng(-33.852, 151.211);
+
+        // checks to see if location info has been passed in from update
+        // if no location info has been passed in address & updateLatLng are null
         try {
             Bundle extras = getIntent().getExtras();
 
@@ -55,15 +56,13 @@ public class CreateReportActivity extends AppCompatActivity {
             reportLatLng = new LatLng(latitude, longitude);
 
         } catch (Exception e) {
-           Log.e("error",e.toString());
+            Log.e("error",e.toString());
         }
         final String address1 = address;
         final LatLng reportLatLng1 = reportLatLng;
 
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
-        //This is a ReportManager object that will store the new report
-        final ReportManager manager = new ReportManager();
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
@@ -81,14 +80,7 @@ public class CreateReportActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Gets current time and date
-                Calendar c = new GregorianCalendar();
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
-                SimpleDateFormat todayFormat = new SimpleDateFormat("MMMM dd");
-                final String todayDate = "" + todayFormat.format(c.getTime()).toString();
-
                 //Gets information from textboxes
-                final String time = "" + timeFormat.format(c.getTime()).toString();
                 final String location = address1;
                 final String virusPPM = etVirusPPM.getText().toString();
                 final String contaminatePPM = etContaminatePPM.getText().toString();
@@ -99,7 +91,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
 
                 //Checks to see if there is a missing input
-                if (/*time.isEmpty() || */location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
+                if (location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                     myAlert.setMessage("Time,location,virusPPM and comninationPPM required")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {

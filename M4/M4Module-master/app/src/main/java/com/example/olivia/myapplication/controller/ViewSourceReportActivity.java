@@ -11,7 +11,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.olivia.myapplication.model.SourceReport;
-import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 
 import java.util.List;
@@ -26,7 +25,6 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
 public class ViewSourceReportActivity extends AppCompatActivity {
     Button cancelButton;
     Button viewMap;
-    private SourceReportManager manager = new SourceReportManager();
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

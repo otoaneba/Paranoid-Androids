@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CreateSourceReportActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
-                finish();
             }
         });
         _view.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), RetrieveSourceReportData.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -114,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -133,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
-                finish();
             }
         });
         _trend.setOnClickListener(new View.OnClickListener() {

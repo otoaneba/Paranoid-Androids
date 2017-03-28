@@ -3,10 +3,7 @@ package com.example.olivia.myapplication.controller;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-import com.example.olivia.myapplication.model.Report;
-import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.SourceReport;
-import com.example.olivia.myapplication.model.SourceReportManager;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,7 +18,6 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
 public class ViewSourceReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private SourceReportManager srcRptManager = new SourceReportManager();
     private List<SourceReport> reportList = reports;
 
     @Override

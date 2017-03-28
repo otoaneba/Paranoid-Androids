@@ -12,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.olivia.myapplication.model.SourceReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.WaterCondition;
 import com.example.olivia.myapplication.model.waterType;
@@ -57,8 +56,6 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         }
         final String address1 = address;
         final LatLng reportLatLng1 = reportLatLng;
-        //This is a SourceReportManager object that will store the new Source report
-        final SourceReportManager manager = new SourceReportManager();
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner_source);
@@ -80,14 +77,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Gets current time and date
-                Calendar c = new GregorianCalendar();
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
-                SimpleDateFormat todayFormat = new SimpleDateFormat("MMMM dd");
-                final String todayDate = "" + todayFormat.format(c.getTime()).toString();
-
                 //Gets information from textboxes
-                final String time = "" + timeFormat.format(c.getTime()).toString();
                 final String location = address1;
                 final String condition = etSpinner.getSelectedItem().toString();
                 final String type = etSpinner2.getSelectedItem().toString();

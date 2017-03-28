@@ -11,7 +11,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.olivia.myapplication.model.Report;
-import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 
 import static com.example.olivia.myapplication.model.RetrievePurityReportData.reports;
@@ -24,7 +23,6 @@ import static com.example.olivia.myapplication.model.RetrievePurityReportData.re
 public class ViewReportActivity extends AppCompatActivity {
     private Button locationButton, cancelButton;
 
-    private ReportManager manager = new ReportManager();
 
 
     @Override

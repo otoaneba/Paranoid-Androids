@@ -1,15 +1,11 @@
 package com.example.olivia.myapplication.controller;
 
 import android.content.Intent;
-import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.olivia.myapplication.model.ReportManager;
 import com.example.olivia.myapplication.model.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,7 +18,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Map that lets user pick the location for the PURITY REPORTS
@@ -32,7 +27,6 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
     private User user;
     private GoogleMap mMap;
     private MarkerOptions myMarker = new MarkerOptions();
-    private ReportManager rptManager = new ReportManager();
     private ArrayList<LatLng> latlngList = new ArrayList<>(1000);
 
     @Override

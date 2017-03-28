@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.google.android.gms.maps.model.LatLng;
 
 import com.example.olivia.myapplication.model.Report;
-import com.example.olivia.myapplication.model.ReportManager;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -24,7 +23,6 @@ import java.util.List;
 public class ViewPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private ReportManager rptManager = new ReportManager();
     private List<Report> reportList = reports;
 
     @Override
@@ -52,11 +50,11 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-       // LatLng sydney = new LatLng(-34, 151);
+        // LatLng sydney = new LatLng(-34, 151);
         LatLng LL = new LatLng(-34, 151);
         for (Report report : reportList) {
             LL = report.getLatLng();
-           // String ad = report.getLocation();
+            // String ad = report.getLocation();
             mMap.addMarker(new MarkerOptions().position(LL).title(report.showMap()));
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(LL));
