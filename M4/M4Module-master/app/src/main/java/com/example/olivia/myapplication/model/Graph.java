@@ -24,16 +24,8 @@ public class Graph implements Serializable{
             this.vPPM = vPPM;
         }
 
-        public String getTime() {
+        public String getMonth() {
             return time;
-        }
-        public Float getYear() throws ParseException {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = sdf.parse(time);
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            Float year = new Float(cal.get(Calendar.YEAR));
-            return year;
         }
         public String getLocation() {
             return location;

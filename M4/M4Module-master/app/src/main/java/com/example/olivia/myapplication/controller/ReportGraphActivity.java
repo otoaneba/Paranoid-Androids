@@ -82,10 +82,7 @@ public class ReportGraphActivity extends AppCompatActivity {
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
 
-
-
         // start date is at least 3 years behind the end date so we can plot at least 3 points
-
 
         final LineChart chart = (LineChart) findViewById(R.id.chart);
 
@@ -116,32 +113,26 @@ public class ReportGraphActivity extends AppCompatActivity {
                 //Result list for specific locations
                 ArrayList<Graph> result = graphs.get(location);
 
-
-                Float[] yearlist = new Float[result.size()];
-
+                String[] yearlist = new String[result.size()];
                 for (int i = 0; i < result.size(); i++){
-                    try {
-                        yearlist[i] = result.get(i).getYear();
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
+                   // try {
+                        yearlist[i] = result.get(i).getMonth();
+                   // } catch (ParseException e) {
+                    //    e.printStackTrace();
+                    //}
                 }
                 Arrays.sort(yearlist);
                 endDateText.setText("" + yearlist[yearlist.length - 1]);
                 //Populates spinner for start date
-                ArrayAdapter<Float> dateAdapter = new ArrayAdapter<Float>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearlist);
+                ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearlist);
                 dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 dateSpinner.setAdapter(dateAdapter);
                 entries.clear();
-
-
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 //does nothing
             }
-
-
         });
 
         dateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -154,26 +145,26 @@ public class ReportGraphActivity extends AppCompatActivity {
                 ArrayList<Graph> result = graphs.get(location);
 
 
-                Float[] time = new Float[result.size()];
+                String[] time = new String[result.size()];
                 Double[] ppm = new Double[result.size()];
 
 
                 for (int i = 0; i < result.size(); i++){
-                    try {
-                        time[i] = result.get(i).getYear();
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
+                    //try {
+                        time[i] = result.get(i).getMonth();
+                    //} catch (ParseException e) {
+                     //   e.printStackTrace();
+                   // }
                     ppm[i] = result.get(i).getVirusPPM();
                 }
                 entries.clear();
                 //Adds entries after selected start date
                 int start = dateSpinner.getSelectedItem() != null ? dateSpinner.getSelectedItemPosition() : 0;
-                if (Math.abs(start - ppm.length) >= 3) {
+                if (Math.abs(start - ppm.length) >= 0) {
                     for (int i = start; i < ppm.length ; i++) {
                         // turn your data into Entry objects
                         BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
-                        entries.add(new Entry(time[i], ppmDecimal.floatValue()));
+                        entries.add(new Entry(Float.valueOf(time[i]), ppmDecimal.floatValue()));
                     }
 
                     //Creates data set for entries of given location
@@ -182,18 +173,8 @@ public class ReportGraphActivity extends AppCompatActivity {
                     dataSet.setValueTextColor(R.color.greyPink);
                     LineData lineData = new LineData(dataSet);
                     chart.setData(lineData);
-
-
                     chart.invalidate(); // refresh
-                } else {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Must be at least a 3 year interval";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
                 }
-
             }
 
             @Override
