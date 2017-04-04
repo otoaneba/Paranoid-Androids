@@ -30,7 +30,6 @@ public class RetrieveGraphData extends Activity {
     private static final String TAG_PPM ="VirusPPM";
     private JSONArray graphInfo = null;
 
-
     private Graph _graph;
     private ArrayList<HashMap<String, String>> graphList;
 
