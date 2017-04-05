@@ -20,7 +20,7 @@ public class Graph implements Serializable{
 
         public Graph(String location,String time, double vPPM) {
             this.time = time;
-            this.location = location;
+            this.location = location;g
             this.vPPM = vPPM;
         }
 
@@ -34,6 +34,15 @@ public class Graph implements Serializable{
             cal.setTime(date);
             Float year = new Float(cal.get(Calendar.YEAR));
             return year;
+        }
+
+        public Float getMonth() throws ParseException {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date = sdf.parse(time);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            Float month = new Float(cal.get(Calendar.MONTH));
+            return month;
         }
         public String getLocation() {
             return location;
