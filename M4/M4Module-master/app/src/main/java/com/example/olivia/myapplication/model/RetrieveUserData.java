@@ -49,6 +49,9 @@ public class RetrieveUserData extends Activity {
         //getData("http://192.168.2.5:81/android_connect/getUsers.php");
     }
 
+    /* Getting the JSON object that has JSON array from web php,
+     * create list of the report while retrieve data from the web.
+     */
     protected void listUsers(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
@@ -90,6 +93,9 @@ public class RetrieveUserData extends Activity {
         startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
     }
 
+    /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
+     * Android version of String variable.
+     */
     public void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
 

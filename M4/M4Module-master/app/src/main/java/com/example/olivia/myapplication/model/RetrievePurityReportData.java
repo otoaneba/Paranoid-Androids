@@ -55,8 +55,10 @@ public class RetrievePurityReportData extends Activity {
         getData("http://szhougatech.com/getPurityReport.php");
         //getData("http://192.168.2.5:81/android_connect/getPurityReport.php");
     }
-
-    protected void listUsers(){
+    /* Getting the JSON object that has JSON array from web php,
+     * create list of the report while retrieve data from the web.
+     */
+    protected void listPurityReport(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
@@ -112,6 +114,9 @@ public class RetrievePurityReportData extends Activity {
         finish();
     }
 
+    /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
+     * and put those data into Android version of the String variable.
+     */
     public void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
@@ -142,7 +147,7 @@ public class RetrievePurityReportData extends Activity {
             @Override
             protected void onPostExecute(String result){
                 myJSON = result;
-                listUsers();
+                listPurityReport();
             }
         }
         GetDataJSON g = new GetDataJSON();

@@ -30,7 +30,6 @@ public class RetrieveGraphData extends Activity {
     private static final String TAG_PPM ="VirusPPM";
     private JSONArray graphInfo = null;
 
-
     private Graph _graph;
     private ArrayList<HashMap<String, String>> graphList;
 
@@ -43,8 +42,10 @@ public class RetrieveGraphData extends Activity {
 
         getData("http://szhougatech.com/getGraphData.php");
     }
-
-    protected void listUsers(){
+    /* Getting the JSON object that has JSON array from web php,
+     * create list of the report while retrieve data from the web.
+     */
+    protected void listGraphInfo(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             graphInfo = jsonObj.getJSONArray(TAG_RESULTS);
@@ -96,6 +97,9 @@ public class RetrieveGraphData extends Activity {
         finish();
     }
 
+    /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
+     * and put those data into Android version of the String variable.
+     */
     public void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
@@ -126,7 +130,7 @@ public class RetrieveGraphData extends Activity {
             @Override
             protected void onPostExecute(String result){
                 myJSON = result;
-                listUsers();
+                listGraphInfo();
             }
         }
         GetDataJSON g = new GetDataJSON();

@@ -57,22 +57,24 @@ public class RetrieveSourceReportData extends Activity {
         getData("http://szhougatech.com/getSourceReport.php");
         //getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
     }
-
-    protected void listUsers(){
+    /* Getting the JSON object that has JSON array from web php,
+     * create list of the report while retrieve data from the web.
+     */
+    protected void listSourceReport(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
 
-            if(!reportList.isEmpty()) {
+            if (!reportList.isEmpty()) {
                 reportList.clear();
             }
-            if(_report != null) {
+            if (_report != null) {
                 _report = null;
             }
-            if(!reports.isEmpty()) {
+            if (!reports.isEmpty()) {
                 reports.clear();
             }
-            for(int i = 0; i < reportInfo.length();i++){
+            for (int i = 0; i < reportInfo.length(); i++){
                 JSONObject c = reportInfo.getJSONObject(i);
                 String rptNum = c.getString(TAG_REPORT_NUMBER);
                 String time = c.getString(TAG_TIME);
@@ -110,7 +112,9 @@ public class RetrieveSourceReportData extends Activity {
         startActivity(intent);
         finish();
     }
-
+    /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
+     * and put those data into Android version of the String variable.
+     */
     public void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
@@ -138,10 +142,12 @@ public class RetrieveSourceReportData extends Activity {
                     return null;
                 }
             }
+
+            // Execute the listSource method.
             @Override
             protected void onPostExecute(String result){
                 myJSON = result;
-                listUsers();
+                listSourceReport();
             }
         }
         GetDataJSON g = new GetDataJSON();
