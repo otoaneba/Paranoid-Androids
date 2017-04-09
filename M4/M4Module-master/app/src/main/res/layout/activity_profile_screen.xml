@@ -11,7 +11,7 @@
     tools:context="com.example.olivia.myapplication.controller.ProfileActivity">
 
     <TextView
-        android:text="Your Profile"
+        android:text="@string/your_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="14dp"
@@ -28,7 +28,8 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/name"
-        android:layout_alignTop="@+id/textView4"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -36,18 +37,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:id="@+id/linearLayout3"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="62dp"
-        android:id="@+id/linearLayout3">
+        android:layout_marginBottom="33dp">
 
         <Button
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="EDIT" />
+            android:text="@string/edit" />
 
         <Button
             android:id="@+id/Cancel"
@@ -57,25 +58,26 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="61dp"
             android:layout_weight="1"
-            android:text="CANCEL" />
+            android:text="@string/cancel" />
     </LinearLayout>
 
     <TextView
-        android:text="Name:"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:text="@string/name"
+        android:layout_below="@+id/username"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp" />
 
     <TextView
-        android:text="Password"
+        android:text="@string/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView7"
-        android:layout_alignTop="@+id/password"
+        android:layout_alignBaseline="@+id/password"
+        android:layout_alignBottom="@+id/password"
         android:layout_alignLeft="@+id/textView5"
         android:layout_alignStart="@+id/textView5" />
 
@@ -91,14 +93,16 @@
         android:layout_marginBottom="34dp" />
 
     <EditText
+        android:id="@+id/EmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/EmailAddress"
-        android:inputType="textEmailAddress"
-        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -106,48 +110,49 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/HomeAddress"
-        android:layout_above="@+id/linearLayout3"
+        android:layout_alignBaseline="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="13dp" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Home Address:"
+        android:text="@string/home_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"
-        android:layout_alignTop="@+id/HomeAddress"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_above="@+id/linearLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp" />
 
     <TextView
-        android:text="Email Address:"
+        android:text="@string/email_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
-        android:layout_alignTop="@+id/EmailAddress"
-        android:layout_alignLeft="@+id/Title_source"
-        android:layout_alignStart="@+id/Title_source" />
+        android:layout_centerVertical="true"
+         />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Title_source"
-        android:layout_alignStart="@+id/Title_source"
+        android:text="@string/user_id"
         android:layout_below="@+id/Title_source"
-        android:layout_marginTop="19dp"
-        android:text="User id:" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp" />
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="40dp"
+        android:text="@string/user"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
         android:layout_alignLeft="@+id/name"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignStart="@+id/name"
-        android:layout_alignTop="@+id/textView"
-        android:text="user" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

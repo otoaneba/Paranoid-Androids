@@ -13,7 +13,7 @@
     tools:context="com.example.olivia.myapplication.controller.WelcomeActivity"
     tools:showIn="@layout/welcome_screen">
     <Button
-        android:text="Register"
+        android:text="@string/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/_Register"
@@ -23,7 +23,7 @@
         android:layout_marginBottom="95dp" />
 
     <Button
-        android:text="Login"
+        android:text="@string/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/_Login"

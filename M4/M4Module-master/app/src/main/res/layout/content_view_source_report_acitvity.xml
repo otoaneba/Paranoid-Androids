@@ -29,13 +29,13 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 
     <Button
         android:id="@+id/view_source_report_map_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="view map"
+        android:text="@string/view_map"
         android:layout_above="@+id/cancel_report_source"
         android:layout_alignRight="@+id/cancel_report_source"
         android:layout_alignEnd="@+id/cancel_report_source" />

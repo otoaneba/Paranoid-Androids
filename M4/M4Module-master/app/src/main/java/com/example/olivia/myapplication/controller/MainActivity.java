@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             - Sign out
         */
 
-        if (user.getUserType().equals(" user")) {
+        if (user.getUserType().contains("user")) {
             _purityLevel.setVisibility(View.GONE);
             _viewHistory.setVisibility(View.GONE);
             _trend.setVisibility(View.GONE);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                - My Profile (Edit)
                - Sign out
              */
-        } else if (user.getUserType().equals(" worker")) {
+        } else if (user.getUserType().contains("worker")) {
             _viewHistory.setVisibility(View.GONE);
             _trend.setVisibility(View.GONE);
             _security.setVisibility(View.GONE);
@@ -88,14 +88,13 @@ public class MainActivity extends AppCompatActivity {
                - My Profile (Edit)
                - Sign out
              */
-        } else if (user.getUserType().equals(" manager")) {
+        } else if (user.getUserType().contains("manager")) {
             _security.setVisibility(View.GONE);
-        } else if (user.getUserType().equals(" admin")) {
+        } else if (user.getUserType().contains("admin")) {
             _purityLevel.setVisibility(View.GONE);
             _viewHistory.setVisibility(View.GONE);
             _trend.setVisibility(View.GONE);
         }
-         //else (admin page), it will show all the functionalities.
         _submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

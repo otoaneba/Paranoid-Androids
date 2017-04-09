@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Location"
+        android:text="@string/location"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp" />
 
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.96"
-        android:text="TextView" />
+        android:text="@string/textView" />
 
     <Spinner
         android:id="@+id/spinner"

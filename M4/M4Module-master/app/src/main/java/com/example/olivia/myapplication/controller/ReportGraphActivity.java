@@ -122,7 +122,7 @@ public class ReportGraphActivity extends AppCompatActivity {
                     //}
                 }
                 Arrays.sort(yearlist);
-                endDateText.setText("" + yearlist[yearlist.length - 1]);
+                endDateText.setText(yearlist[yearlist.length - 1].toString());
                 //Populates spinner for start date
                 ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearlist);
                 dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -159,7 +159,7 @@ public class ReportGraphActivity extends AppCompatActivity {
                 }
                 entries.clear();
                 //Adds entries after selected start date
-                int start = dateSpinner.getSelectedItem() != null ? dateSpinner.getSelectedItemPosition() : 0;
+                int start =  dateSpinner.getSelectedItem() != null ? dateSpinner.getSelectedItemPosition() : 0;
                 if (Math.abs(start - ppm.length) >= 0) {
                     for (int i = start; i < ppm.length ; i++) {
                         // turn your data into Entry objects

@@ -42,13 +42,27 @@ public class ShowSourceReportActivity extends AppCompatActivity {
            source_type = (TextView) findViewById(R.id.type_sourceReport);
 
         //Sets values from selected report
-        source_title.setText("Source Report");
-        source_time.setText("Time of Report: " + time_v);
-        source_reportNumber.setText("Report Number: " + repNo_v);
-        source_worker.setText("Worker Name: " + WorkerName_v);
-        source_location.setText("Location: " + loc_v);
-        source_type.setText("Type: " + type_v);
-        source_condition.setText("Water Condition: " + condition_v);
+
+        String stringSourceTitle = "Source Report";
+        source_title.setText(stringSourceTitle);
+
+        String stringSourceTime = "Time of Report: " + time_v;
+        source_time.setText(stringSourceTime);
+
+        String stringSourceReportNumber = "Report Number: " + repNo_v;
+        source_reportNumber.setText(stringSourceReportNumber);
+
+        String stringSourceWorker = "Worker Name: " + WorkerName_v;
+        source_worker.setText(stringSourceWorker);
+
+        String stringSourceLocation = "Location: " + loc_v;
+        source_location.setText(stringSourceLocation);
+
+        String stringSourceType = "Type: " + type_v;
+        source_type.setText(stringSourceType);
+
+        String stringSourceCondition = "Water Condition: " + condition_v;
+        source_condition.setText(stringSourceCondition);
 
         //Cancel button returns to Report Activity
         cancelButton.setOnClickListener(new View.OnClickListener() {

@@ -45,7 +45,7 @@
                 android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:imeActionId="@+id/login"
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
@@ -58,12 +58,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Login"
+                android:text="@string/login"
                 android:textStyle="bold"
                 android:layout_weight="3.75" />
 
             <Button
-                android:text="Cancel"
+                android:text="@string/cancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 

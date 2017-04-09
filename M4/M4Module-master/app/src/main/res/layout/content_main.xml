@@ -29,49 +29,49 @@ tools:context="com.example.olivia.myapplication.controller.MainActivity">
             android:id="@+id/_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit a report on water availability" />
+            android:text="@string/submit_main" />
 
         <Button
             android:id="@+id/_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View available water source" />
+            android:text="@string/view_source_main" />
 
         <Button
             android:id="@+id/_purityLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Report on water purity levels" />
+            android:text="@string/report_purity_main" />
 
         <Button
             android:id="@+id/_viewHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Purity Report" />
+            android:text="@string/view_purity_main" />
 
         <Button
             android:id="@+id/_trend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trends of water purity" />
+            android:text="@string/trend_purity_main" />
 
         <Button
             android:id="@+id/_security"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Security log" />
+            android:text="@string/security_main" />
 
         <Button
             android:id="@+id/_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="My Profile" />
+            android:text="@string/my_profile_main" />
 
         <Button
             android:id="@+id/_signOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SignOut" />
+            android:text="@string/sign_out_main" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

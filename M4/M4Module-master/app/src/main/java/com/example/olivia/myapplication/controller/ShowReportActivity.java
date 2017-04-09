@@ -50,14 +50,29 @@ public class ShowReportActivity extends AppCompatActivity {
         TextView virusPpm = (TextView) findViewById(R.id.PPM);
 
         //Sets values from selected report
-        title.setText("Purity Report");
-        time.setText("Time of Report: " + time_v);
-        reportNumber.setText("Report Number: " + repNo_v);
-        worker.setText("Worker Name: " + WorkerName_v);
-        location.setText("Location: " + loc_v);
-        condition.setText("Water Condition: " + condition_v);
-        virusPpm.setText("Virus PPM: " + virus_v);
-        contaminationPpm.setText("Contamination PPM: " + contam_v);
+        String stringTitle = "Purity Report";
+        title.setText(stringTitle);
+
+        String stringTime = "Time of Report: " + time_v;
+        time.setText(stringTime);
+
+        String stringReportNumber = "Report Number: " + repNo_v;
+        reportNumber.setText(stringReportNumber);
+
+        String stringWorker = "Worker Name: " + WorkerName_v;
+        worker.setText(stringWorker);
+
+        String stringLocation = "Location " + loc_v;
+        location.setText(stringLocation);
+
+        String stringWaterCondition = "Water Condition: " + condition_v;
+        condition.setText(stringWaterCondition);
+
+        String stringVirusPPM = "Virus PPM: " + virus_v;
+        virusPpm.setText(stringVirusPPM);
+
+        String stringContaminationPPM = "Contamination PPM: " + contam_v;
+        contaminationPpm.setText(stringContaminationPPM);
 
         //Cancel button returns to Report Activity
         cancelButton.setOnClickListener(new View.OnClickListener() {

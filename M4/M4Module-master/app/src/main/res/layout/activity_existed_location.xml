@@ -29,7 +29,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
-        android:text="Location" />
+        android:text="@string/location" />
 
     <Button
         android:id="@+id/cancel_existed_report"
@@ -38,5 +38,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 </RelativeLayout>
