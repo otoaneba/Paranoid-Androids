@@ -69,6 +69,7 @@ public class RetrievePurityReportData extends Activity {
             if(!reports.isEmpty()) {
                 reports.clear();
             }
+
             for(int i = 0; i < reportInfo.length(); i++){
                 JSONObject c = reportInfo.getJSONObject(i);
                 String rptNum = c.getString(TAG_REPORT_NUMBER);
@@ -80,9 +81,6 @@ public class RetrievePurityReportData extends Activity {
                 String contaminatePPM = c.getString(TAG_CONTAMPPM);
                 String lat = c.getString(TAG_LAT);
                 String longitude = c.getString(TAG_LONG);
-
-
-
 
                 HashMap<String,String> report = new HashMap<String,String>();
 

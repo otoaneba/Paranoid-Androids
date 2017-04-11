@@ -65,9 +65,6 @@ public class RetrieveGraphData extends Activity {
                 String time = c.getString(TAG_TIME);
                 String ppm = c.getString(TAG_PPM);
 
-
-
-
                 HashMap<String,String> graph = new HashMap<String,String>();
                 graph.put(TAG_LOCATION,loc);
                 graph.put(TAG_TIME,time);
