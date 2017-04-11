@@ -11,13 +11,13 @@ import java.io.Serializable;
  */
 
     public class SourceReport implements Serializable {
-        private String rptNum;
-        private String time;
-        private String location;
-        private String creator;
-        private String type;
-        private String condition;
-        private LatLng reportLatLng;
+        final private String rptNum;
+        final private String time;
+        final private String location;
+        final private String creator;
+        final private String type;
+        final private String condition;
+        final private LatLng reportLatLng;
 
 
 

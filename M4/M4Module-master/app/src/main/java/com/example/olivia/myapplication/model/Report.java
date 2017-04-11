@@ -12,14 +12,14 @@ import static com.example.olivia.myapplication.controller.R.id.condition;
  */
 
 public class Report implements Serializable {
-    private String time;
-    private String rptNum;
-    private String location;
-    private String vPPM;
-    private String cPPM;
-    private String creator;
-    private String quality;
-    private LatLng reportLatLng;
+    final private String rptNum;
+    final private String vPPM;
+    final private String creator;
+    final private String time;
+    final private String quality;
+    final private String cPPM;
+    final private LatLng reportLatLng;
+    final private String location;
 
 
     public Report(String rptNum,String time, String location, String creator, String vPPM, String cPPM, String quality,

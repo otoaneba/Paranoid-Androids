@@ -6,6 +6,6 @@ package com.example.olivia.myapplication.model;
  * an interface that lets .. not sure what this is for. Olivia, can you add the javadoc here?
  */
 
-public interface AuthenticationFacade {
+interface AuthenticationFacade {
     boolean handleLoginRequest(String name, String password);
 }

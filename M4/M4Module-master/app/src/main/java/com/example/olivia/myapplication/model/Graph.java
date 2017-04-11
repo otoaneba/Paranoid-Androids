@@ -14,8 +14,8 @@ import java.util.Date;
  */
 
 public class Graph implements Serializable{
-        private String time;
-    private double vPPM;
+    final private String time;
+    final private double vPPM;
 
         public Graph(String location,String time, double vPPM) {
             this.time = time;

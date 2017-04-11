@@ -24,7 +24,7 @@ import com.example.olivia.myapplication.model.User;
 public class MainActivity extends AppCompatActivity {
 
     private User user;
-    Button _submit, _view, _purityLevel, _viewHistory,
+    private Button _submit, _view, _purityLevel, _viewHistory,
             _trend, _security, _signOut, _profile;
 
     @Override

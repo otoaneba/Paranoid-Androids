@@ -24,7 +24,7 @@ import java.util.HashMap;
  *
  */
 public class RegisterActivity extends AppCompatActivity {
-    private UserManager manager = new UserManager();
+    final private UserManager manager = new UserManager();
 
 
     @Override
@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
 
-                HashMap<String, String> postData = new HashMap<String, String>();
+                HashMap<String, String> postData = new HashMap<>();
                 postData.put("txtUsername", id);
                 postData.put("txtName", name);
                 postData.put("txtEmailAddress", email);

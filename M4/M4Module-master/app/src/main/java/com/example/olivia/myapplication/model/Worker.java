@@ -7,7 +7,7 @@ package com.example.olivia.myapplication.model;
  *
  */
 
-public class Worker extends User {
+class Worker extends User {
 
     /**
      *constructor for worker class. Creates a new worker class when initialized
@@ -18,7 +18,7 @@ public class Worker extends User {
      * @param address stands for address for user address
      * @param userType stands for userType
      */
-    public Worker(String id, String name, String password, String email, String address, String userType) {
+    Worker(String id, String name, String password, String email, String address, String userType) {
         super(id, name, password, email, address, userType);
     }
 

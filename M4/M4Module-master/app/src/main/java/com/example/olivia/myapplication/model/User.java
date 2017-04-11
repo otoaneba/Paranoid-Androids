@@ -11,12 +11,12 @@ import java.io.Serializable;
  */
 
 public class User implements Serializable {
-    private String id;
-    private String name;
-    private String password;
-    private String email;
-    private String address;
-    private String userType;
+    final private String id;
+    final private String name;
+    final private String password;
+    final private String email;
+    final private String address;
+    final private String userType;
     private static User currentUser;
 
     /**

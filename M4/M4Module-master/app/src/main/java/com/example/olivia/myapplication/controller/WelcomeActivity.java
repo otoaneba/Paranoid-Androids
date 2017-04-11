@@ -17,8 +17,8 @@ import android.widget.Button;
  */
 public class WelcomeActivity extends AppCompatActivity {
 
-    Button login;
-    Button register;
+    private Button login;
+    private Button register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

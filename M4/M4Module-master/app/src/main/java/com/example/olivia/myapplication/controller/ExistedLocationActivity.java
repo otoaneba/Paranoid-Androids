@@ -15,14 +15,14 @@ import com.example.olivia.myapplication.model.User;
 import static com.example.olivia.myapplication.model.RetrievePurityReportData.reports;
 
 public class ExistedLocationActivity extends AppCompatActivity {
-    User user;
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_existed_location);
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
-        ListAdapter adapter = new ArrayAdapter<Report>(this, android.R.layout.simple_list_item_1, reports);
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.existed_report_list);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(

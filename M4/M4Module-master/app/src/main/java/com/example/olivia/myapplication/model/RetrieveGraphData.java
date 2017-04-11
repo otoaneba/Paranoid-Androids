@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class RetrieveGraphData extends Activity {
     //Graphs using location as key and a list of graphs to store information
-    public static HashMap<String, ArrayList<Graph>> graphs = new HashMap<String, ArrayList<Graph>>();
+    final public static HashMap<String, ArrayList<Graph>> graphs = new HashMap<>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -37,14 +37,14 @@ public class RetrieveGraphData extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_history_graph_new);
-        graphList = new ArrayList<HashMap<String,String>>();
+        graphList = new ArrayList<>();
 
         getData("http://szhougatech.com/getGraphData.php");
     }
     /* Getting the JSON object that has JSON array from web php,
      * create list of the report while retrieve data from the web.
      */
-    protected void listGraphInfo(){
+    private void listGraphInfo(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             JSONArray graphInfo = jsonObj.getJSONArray(TAG_RESULTS);
@@ -65,7 +65,7 @@ public class RetrieveGraphData extends Activity {
                 String time = c.getString(TAG_TIME);
                 String ppm = c.getString(TAG_PPM);
 
-                HashMap<String,String> graph = new HashMap<String,String>();
+                HashMap<String,String> graph = new HashMap<>();
                 graph.put(TAG_LOCATION,loc);
                 graph.put(TAG_TIME,time);
                 graph.put(TAG_PPM,ppm);
@@ -77,7 +77,7 @@ public class RetrieveGraphData extends Activity {
                 if (graphs.containsKey(loc)){
                     graphs.get(loc).add(_graph);
                 } else {
-                    ArrayList<Graph> temp = new ArrayList<Graph>();
+                    ArrayList<Graph> temp = new ArrayList<>();
                     temp.add(_graph);
                     graphs.put(loc, temp);
                 }
@@ -96,7 +96,7 @@ public class RetrieveGraphData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * and put those data into Android version of the String variable.
      */
-    public void getData(String url){
+    private void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
             @Override

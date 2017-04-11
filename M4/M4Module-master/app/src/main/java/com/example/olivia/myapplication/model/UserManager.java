@@ -14,9 +14,9 @@ import java.util.Map;
 
 
 public class UserManager implements AuthenticationFacade, UserManagementFacade {
-    User u;// Modified by Rayna to enable accessing the user from LoginActivity
+    private User u;// Modified by Rayna to enable accessing the user from LoginActivity
 
-    private static Map<String, User> users = new HashMap<>();
+    final private static Map<String, User> users = new HashMap<>();
 
     /**
      * a public method that finds user by userID. used to display profile information in profile
@@ -41,8 +41,11 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
      */
     public boolean addUser(String id, String name, String pass, String email, String address, String userType) {
         User userObject = new User(id, name, pass, email, address, userType);
-        users.put(id, userObject);
-        return true;
+        if (users.put(id, userObject) == null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -50,8 +53,7 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
      * @param id takes in the userId that gets searched to be removed
      */
     public boolean deleteUser(String id) {
-        users.remove(id);
-        return true;
+        return users.remove(id) != null;
     }
 //    public void deleteUser(String id) {
 //        users.remove(id);

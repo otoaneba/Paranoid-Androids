@@ -8,13 +8,13 @@ import android.os.Parcelable;
  */
 
 public class PurityReport implements Parcelable {
-    private String date;
-    private String time;
-    private int reportNumber;
-    private String workerName;
-    private String location;
-    private String condition;
-    private int virusPPM;
+    final private String date;
+    final private String time;
+    final private int reportNumber;
+    final private String workerName;
+    final private String location;
+    final private String condition;
+    final private int virusPPM;
     //private String contamination;
 
 

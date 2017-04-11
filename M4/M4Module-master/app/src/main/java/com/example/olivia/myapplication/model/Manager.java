@@ -9,7 +9,7 @@ package com.example.olivia.myapplication.model;
 // * report for analysis
 // */
 //
-public class Manager extends Worker {
+class Manager extends Worker {
     /**
      *constructor for Manager class. Creates a new manager class when initialized
      * @param id is the user id

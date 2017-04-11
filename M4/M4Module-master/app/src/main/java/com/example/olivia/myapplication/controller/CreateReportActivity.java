@@ -114,7 +114,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     myAlert.show();
                 }
                 else {
-                    HashMap<String, String> postData = new HashMap<String, String>();
+                    HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtLocation", location);
                     postData.put("txtCreator", user.getName());
                     postData.put("txtQuality", condition);

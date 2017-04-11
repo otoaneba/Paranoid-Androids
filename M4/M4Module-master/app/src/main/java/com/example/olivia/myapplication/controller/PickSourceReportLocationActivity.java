@@ -21,7 +21,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
 
     private User user;
     private GoogleMap mMap;
-    private MarkerOptions mySourceMarker = new MarkerOptions();
+    final private MarkerOptions mySourceMarker = new MarkerOptions();
     //private ArrayList<LatLng> sourceLatLngList = new ArrayList<>(1000);
 
 
@@ -80,7 +80,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
      * @param latLng a LatLng that a user picks to submit a PURITY REPORT
      * @return a string representation of address
      */
-    public String getAddressFromLatLng( LatLng latLng ) {
+    private String getAddressFromLatLng( LatLng latLng ) {
         Geocoder geocoder = new Geocoder(this);
 
         String address = "";
