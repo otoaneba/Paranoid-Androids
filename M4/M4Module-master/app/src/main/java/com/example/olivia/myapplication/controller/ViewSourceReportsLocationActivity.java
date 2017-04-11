@@ -17,7 +17,6 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
 
 public class ViewSourceReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     private List<SourceReport> reportList = reports;
 
     @Override
@@ -42,7 +41,7 @@ public class ViewSourceReportsLocationActivity extends FragmentActivity implemen
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
         // Add a marker in Sydney and move the camera
         LatLng LL = new LatLng(-34, 151);
         for (SourceReport report : reportList) {

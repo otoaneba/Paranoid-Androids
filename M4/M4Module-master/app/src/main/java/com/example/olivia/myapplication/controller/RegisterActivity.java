@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //a spinner that lists the user types in the user type enum
         final Spinner etSpinner = (Spinner) findViewById(R.id.userTypeSpinner);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, userType.values());
+        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, userType.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
 
-                HashMap postData = new HashMap();
+                HashMap<String, String> postData = new HashMap<String, String>();
                 postData.put("txtUsername", id);
                 postData.put("txtName", name);
                 postData.put("txtEmailAddress", email);

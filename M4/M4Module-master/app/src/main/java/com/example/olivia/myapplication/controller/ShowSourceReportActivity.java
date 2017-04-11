@@ -1,28 +1,25 @@
 package com.example.olivia.myapplication.controller;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.olivia.myapplication.model.SourceReport;
 import com.example.olivia.myapplication.model.User;
 
 public class ShowSourceReportActivity extends AppCompatActivity {
     private User user;
-    private TextView source_title, source_time, source_reportNumber,
-            source_worker, source_location, source_condition, source_type;
-    private SourceReport selectedSourceReport;
-    private Button cancelButton;
+ //   private SourceReport selectedSourceReport;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_show_source_report);
         //Initializes cancel button
 
-        cancelButton = (Button) findViewById(R.id.cancel_button_sourceReport);
+        Button cancelButton = (Button) findViewById(R.id.cancel_button_sourceReport);
         //Gets report passed in from the Report Activity
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         String time_v = (String)getIntent().getSerializableExtra("time");
@@ -33,13 +30,13 @@ public class ShowSourceReportActivity extends AppCompatActivity {
         String type_v = (String)getIntent().getSerializableExtra("type");
 
            //Initializes widgets from the XML
-           source_title = (TextView) findViewById(R.id.Title_sourceReport);
-           source_time = (TextView) findViewById(R.id.time_sourceReport);
-           source_reportNumber = (TextView) findViewById(R.id.report_number_sourceReport);
-           source_worker = (TextView) findViewById(R.id.worker_sourceReport);
-           source_location = (TextView) findViewById(R.id.location_sourceReport);
-           source_condition = (TextView) findViewById(R.id.condition_sourceReport);
-           source_type = (TextView) findViewById(R.id.type_sourceReport);
+        TextView source_title = (TextView) findViewById(R.id.Title_sourceReport);
+        TextView source_time = (TextView) findViewById(R.id.time_sourceReport);
+        TextView source_reportNumber = (TextView) findViewById(R.id.report_number_sourceReport);
+        TextView source_worker = (TextView) findViewById(R.id.worker_sourceReport);
+        TextView source_location = (TextView) findViewById(R.id.location_sourceReport);
+        TextView source_condition = (TextView) findViewById(R.id.condition_sourceReport);
+        TextView source_type = (TextView) findViewById(R.id.type_sourceReport);
 
         //Sets values from selected report
 

@@ -23,7 +23,6 @@ import com.example.olivia.myapplication.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView _userInfo;
     private User user;
     Button _submit, _view, _purityLevel, _viewHistory,
             _trend, _security, _signOut, _profile;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("debug", "something went wrong");
         }
         //shows the current user's name and type of the user.
-        _userInfo = (TextView) findViewById(R.id._userInfo);
+        TextView _userInfo = (TextView) findViewById(R.id._userInfo);
         _userInfo.setText("Hello, " + user.getName() + "(" + user.getUserType() + ")");
 
         _submit = (Button) findViewById(R.id._submit);

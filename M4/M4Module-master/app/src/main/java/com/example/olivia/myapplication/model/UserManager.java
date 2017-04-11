@@ -1,7 +1,5 @@
 package com.example.olivia.myapplication.model;
 
-import android.widget.EditText;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,9 +45,9 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
      * method that lets the UserManager class delete a specific user by id
      * @param id takes in the userId that gets searched to be removed
      */
-    public void deleteUser(String id) {
-        users.remove(id);
-    }
+//    public void deleteUser(String id) {
+//        users.remove(id);
+//    }
 
 
     /**

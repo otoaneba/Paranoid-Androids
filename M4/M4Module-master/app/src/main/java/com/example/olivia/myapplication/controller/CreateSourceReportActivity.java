@@ -19,9 +19,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 /**
@@ -109,7 +106,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                     myAlert.show();
                 }
                 else {
-                    HashMap postData = new HashMap();
+                    HashMap<String, String> postData= new HashMap<String, String>();
                     postData.put("txtLocation", location);
                     postData.put("txtCreator", user.getName());
                     postData.put("txtCondition", condition);

@@ -10,13 +10,11 @@ public enum waterQuality {
     TREATABLE("TREATABLE"),
     UNTREATABLE("UNTREATABLE");
 
-    private String waterQuality;
-
     /**
      *  returns the waterQuality of A REPORT
      * @param waterQuality an enum waterQuality that
      */
      waterQuality(String waterQuality) {
-        this.waterQuality = waterQuality;
+         String waterQuality1 = waterQuality;
     }
 }
