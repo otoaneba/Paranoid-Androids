@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.google.android.gms.maps.model.LatLng;
 
 
-import static com.example.olivia.myapplication.controller.R.id.condition;
+//import static com.example.olivia.myapplication.controller.R.id.condition;
 
 /**
  * Created by Shuopeng Zhou on 3/1/2017.
