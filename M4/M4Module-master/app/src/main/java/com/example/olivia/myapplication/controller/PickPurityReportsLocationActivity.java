@@ -26,7 +26,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
     private User user;
     private GoogleMap mMap;
     private MarkerOptions myMarker = new MarkerOptions();
-    private ArrayList<LatLng> latLngList = new ArrayList<>(1000);
+    //private ArrayList<LatLng> latLngList = new ArrayList<>(1000);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
         intent.putExtra("user",user);
-        latLngList.add(Position);
+        //latLngList.add(Position);
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
         startActivity(intent);

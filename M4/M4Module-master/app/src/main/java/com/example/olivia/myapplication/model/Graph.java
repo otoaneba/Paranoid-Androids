@@ -19,7 +19,6 @@ public class Graph implements Serializable{
 
         public Graph(String location,String time, double vPPM) {
             this.time = time;
-            String location1 = location;
             this.vPPM = vPPM;
         }
 
