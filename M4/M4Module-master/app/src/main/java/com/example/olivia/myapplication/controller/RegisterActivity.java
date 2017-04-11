@@ -9,17 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.example.olivia.myapplication.model.RetrieveUserData;
 import com.example.olivia.myapplication.model.UserManager;
 import com.example.olivia.myapplication.model.userType;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
-
 import java.util.HashMap;
-//import com.example.olivia.myapplication.model.User;
-//import com.example.olivia.myapplication.model.UserManager;
-//import static com.example.olivia.myapplication.model.UserManager.*;
 
 /**
  * A register page that lets new users register for a new account with a username and a password

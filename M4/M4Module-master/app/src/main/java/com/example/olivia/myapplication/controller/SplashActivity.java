@@ -8,7 +8,7 @@ import com.example.olivia.myapplication.model.RetrieveUserData;
 
 /**
  * A welcome screen that displays while the app initially loads.
- * @author Olivia
+ * @author Olivia 1/25/2017
  */
 
 public class SplashActivity extends AppCompatActivity {

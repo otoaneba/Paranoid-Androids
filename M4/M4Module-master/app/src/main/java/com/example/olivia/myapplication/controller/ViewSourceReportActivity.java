@@ -9,10 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
 import com.example.olivia.myapplication.model.SourceReport;
 import com.example.olivia.myapplication.model.User;
-
 import java.util.List;
 
 import static com.example.olivia.myapplication.model.RetrieveSourceReportData.reports;

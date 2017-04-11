@@ -41,6 +41,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
 
             String ifNull= extras.getString("address");
+            assert ifNull != null;
             if (ifNull.length() != 0) {
                 address = ifNull;
             }
