@@ -38,8 +38,8 @@ public class RetrieveSourceReportData extends Activity {
     private static final String TAG_CREATOR ="Creator";
     private static final String TAG_CONDITION ="Condition";
     private static final String TAG_TYPE = "Type";
-    private static final String TAG_LAT = "Latitutde";
-    private static final String TAG_LONG = "Longtitude";
+    private static final String TAG_LAT = "Latitude";
+    private static final String TAG_LONG = "Longitude";
 
 
     private JSONArray reportInfo = null;
@@ -83,7 +83,7 @@ public class RetrieveSourceReportData extends Activity {
                 String condition = c.getString(TAG_CONDITION);
                 String type = c.getString(TAG_TYPE);
                 String lat = c.getString(TAG_LAT);
-                String longt = c.getString(TAG_LONG);
+                String longitude = c.getString(TAG_LONG);
 
 
 
@@ -97,9 +97,9 @@ public class RetrieveSourceReportData extends Activity {
                 report.put(TAG_CONDITION,condition);
                 report.put(TAG_TYPE,type);
                 report.put(TAG_LAT,lat);
-                report.put(TAG_LONG,longt);
+                report.put(TAG_LONG,longitude);
                 reportList.add(report);
-                _report = new SourceReport(rptNum,time,loc,creator,condition,type,lat,longt);
+                _report = new SourceReport(rptNum,time,loc,creator,condition,type,lat,longitude);
                 reports.add(_report);
             }
 

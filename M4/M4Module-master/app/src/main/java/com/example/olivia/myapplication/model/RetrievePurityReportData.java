@@ -37,8 +37,8 @@ public class RetrievePurityReportData extends Activity {
     private static final String TAG_QUALITY ="Quality";
     private static final String TAG_VIRUSPPM = "VirusPPM";
     private static final String TAG_CONTAMPPM = "ContaminatePPM";
-    private static final String TAG_LAT = "Latitutde";
-    private static final String TAG_LONG = "Longtitude";
+    private static final String TAG_LAT = "Latitude";
+    private static final String TAG_LONG = "Longitude";
 
 
     private JSONArray reportInfo = null;
@@ -82,7 +82,7 @@ public class RetrievePurityReportData extends Activity {
                 String virusPPM = c.getString(TAG_VIRUSPPM);
                 String contaminatePPM = c.getString(TAG_CONTAMPPM);
                 String lat = c.getString(TAG_LAT);
-                String longt = c.getString(TAG_LONG);
+                String longitude = c.getString(TAG_LONG);
 
 
 
@@ -97,10 +97,10 @@ public class RetrievePurityReportData extends Activity {
                 report.put(TAG_VIRUSPPM,virusPPM);
                 report.put(TAG_CONTAMPPM,contaminatePPM);
                 report.put(TAG_LAT,lat);
-                report.put(TAG_LONG,longt);
+                report.put(TAG_LONG,longitude);
                 Log.d("checking",rptNum + " " + time + " " + loc + " " + creator + " " +  quality);
                 reportList.add(report);
-                _report = new Report(rptNum,time,loc,creator,virusPPM,contaminatePPM,quality,lat,longt);
+                _report = new Report(rptNum,time,loc,creator,virusPPM,contaminatePPM,quality,lat,longitude);
                 reports.add(_report);
             }
 

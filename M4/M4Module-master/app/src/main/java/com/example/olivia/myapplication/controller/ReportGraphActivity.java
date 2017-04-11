@@ -1,15 +1,12 @@
 package com.example.olivia.myapplication.controller;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.olivia.myapplication.model.Graph;
 import com.github.mikephil.charting.charts.LineChart;
@@ -24,10 +21,8 @@ import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -41,7 +36,7 @@ public class ReportGraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_graph_new);
         final Spinner locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
         final Spinner dateSpinner = (Spinner) findViewById(R.id.dateSpinner);
-        final TextView endDateText = (TextView) findViewById(R.id.enddate);
+        final TextView endDateText = (TextView) findViewById(R.id.endDate);
 
 //
 //        reports.addReport("12:23 PM", "123 Some Rd", new LatLng(-33.852, 151.211), 3432.0, 8594.0, "SAFE",
@@ -101,8 +96,8 @@ public class ReportGraphActivity extends AppCompatActivity {
         chart.setHighlightPerDragEnabled(false);
         chart.setHighlightPerTapEnabled(false);
 
-        YAxis leftaxis = chart.getAxisLeft();
-        leftaxis.setDrawLabels(true);
+        YAxis leftAxis = chart.getAxisLeft();
+        leftAxis.setDrawLabels(true);
 
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -113,18 +108,18 @@ public class ReportGraphActivity extends AppCompatActivity {
                 //Result list for specific locations
                 ArrayList<Graph> result = graphs.get(location);
 
-                String[] yearlist = new String[result.size()];
+                String[] yearList = new String[result.size()];
                 for (int i = 0; i < result.size(); i++){
                    // try {
-                        yearlist[i] = result.get(i).getMonth();
+                        yearList[i] = result.get(i).getMonth();
                    // } catch (ParseException e) {
                     //    e.printStackTrace();
                     //}
                 }
-                Arrays.sort(yearlist);
-                endDateText.setText(yearlist[yearlist.length - 1].toString());
+                Arrays.sort(yearList);
+                endDateText.setText(yearList[yearList.length - 1].toString());
                 //Populates spinner for start date
-                ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearlist);
+                ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearList);
                 dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 dateSpinner.setAdapter(dateAdapter);
                 entries.clear();
@@ -168,7 +163,7 @@ public class ReportGraphActivity extends AppCompatActivity {
                     }
 
                     //Creates data set for entries of given location
-                    LineDataSet dataSet = new LineDataSet(entries, "Purity Reports"); // add entries to dataset
+                    LineDataSet dataSet = new LineDataSet(entries, "Purity Reports"); // add entries to data set
                     dataSet.setColor(R.color.seaGreen);
                     dataSet.setValueTextColor(R.color.greyPink);
                     LineData lineData = new LineData(dataSet);
@@ -186,7 +181,7 @@ public class ReportGraphActivity extends AppCompatActivity {
 
         // database uses a timestamp (String), right now, Joe is getting the year value and plotting it
         // on the x axis. ( he is averaging the PPM value in a year and plotting that avg for one year)
-        // if we wanted to make the data more specific (montly or even daily) there needs to be more
+        // if we wanted to make the data more specific (monthly or even daily) there needs to be more
         //coding to be done
         //
 

@@ -77,12 +77,12 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Gets information from textboxes
+                //Gets information from text boxes
                 final String location = address1;
                 final String condition = etSpinner.getSelectedItem().toString();
                 final String type = etSpinner2.getSelectedItem().toString();
                 final String lat = String.valueOf(reportLatLng1.latitude);
-                final String longt = String.valueOf(reportLatLng1.longitude);
+                final String longitude = String.valueOf(reportLatLng1.longitude);
 
                 //Checks to see if there is a missing input
                 if (/*time.isEmpty() || */location.isEmpty() || type.contains("SELECT") || condition.contains("SELECT") ) {
@@ -115,7 +115,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                     postData.put("txtCondition", condition);
                     postData.put("txtType", type);
                     postData.put("txtLat", lat);
-                    postData.put("txtLong", longt);
+                    postData.put("txtLong", longitude);
 
                     AsyncResponse asyncResponse = new AsyncResponse() {
                         @Override

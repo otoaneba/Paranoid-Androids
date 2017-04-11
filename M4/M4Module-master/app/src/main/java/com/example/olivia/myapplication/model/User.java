@@ -79,15 +79,15 @@ public class User implements Serializable {
     }
 
     /**
-     * accessor for usertype
-     * @return returns a usertype (user, worker, manager, or admin) of this user object
+     * accessor for user type
+     * @return returns a userType (user, worker, manager, or admin) of this user object
      */
     public String getUserType() {
         return userType;
     }
 
     /**
-     * Mutator for user email. Used when a user decides to edit his/her profile
+     * Setter for user email. Used when a user decides to edit his/her profile
      * @param newEmail String parameter that takes in the new email address and sets it to
      *                 the users email address
      */
@@ -96,7 +96,7 @@ public class User implements Serializable {
     }
 
     /**
-     * mutator for the user address. Used when the user edits his/her profile
+     * Setter for the user address. Used when the user edits his/her profile
      *
      * @param newAddress takes in a new String newAddress that sets it as the new address of the
      *                   users' address

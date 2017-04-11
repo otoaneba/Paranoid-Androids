@@ -78,20 +78,20 @@ public class CreateReportActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Gets information from textboxes
+                //Gets information from text boxes
                 final String location = address1;
                 final String virusPPM = etVirusPPM.getText().toString();
                 final String contaminatePPM = etContaminatePPM.getText().toString();
                 final String condition = etSpinner.getSelectedItem().toString();
                 final String lat = String.valueOf(reportLatLng1.latitude);
-                final String longt = String.valueOf(reportLatLng1.longitude);
+                final String longitude = String.valueOf(reportLatLng1.longitude);
 
 
 
                 //Checks to see if there is a missing input
                 if (location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
-                    myAlert.setMessage("Time,location,virusPPM and comninationPPM required")
+                    myAlert.setMessage("Time,location,virusPPM and contaminationPPM required")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -120,7 +120,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     postData.put("txtVirusPPM", virusPPM);
                     postData.put("txtContaminatePPM", contaminatePPM);
                     postData.put("txtLat", lat);
-                    postData.put("txtLong", longt);
+                    postData.put("txtLong", longitude);
 
                     AsyncResponse asyncResponse = new AsyncResponse() {
                         @Override

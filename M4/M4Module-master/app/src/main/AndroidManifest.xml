@@ -72,8 +72,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- <activity -->
-        <!-- android:name=".FirebaseLoginActivity" -->
-        <!-- android:label="@string/title_activity_firebase_login"></activity> -->
 
         <activity
             android:name=".ViewReportActivity"

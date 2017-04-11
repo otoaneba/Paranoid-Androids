@@ -77,7 +77,7 @@ public class RetrieveGraphData extends Activity {
 
                 double vPPM = c.getDouble(TAG_PPM);
                 _graph = new Graph(loc,time,vPPM);
-                //Maintain a hashmap with location as key, Arraylist of graphs as values
+                //Maintain a hash map with location as key, ArrayList of graphs as values
                 if (graphs.containsKey(loc)){
                     graphs.get(loc).add(_graph);
                 } else {

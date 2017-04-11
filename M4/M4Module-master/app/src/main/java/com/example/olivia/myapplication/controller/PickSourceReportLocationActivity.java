@@ -26,7 +26,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
     private User user;
     private GoogleMap mMap;
     private MarkerOptions mySourceMarker = new MarkerOptions();
-    private ArrayList<LatLng> sourcelatlngList = new ArrayList<>(1000);
+    private ArrayList<LatLng> sourceLatLngList = new ArrayList<>(1000);
 
 
     @Override
@@ -72,7 +72,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
         intent.putExtra("user",user);
-        sourcelatlngList.add(Position);
+        sourceLatLngList.add(Position);
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
         startActivity(intent);
@@ -105,7 +105,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
      * @return this LatLng list
      */
 
-    public List<LatLng> getSourceLatlng() {
-        return sourcelatlngList;
+    public List<LatLng> getSourceLatLng() {
+        return sourceLatLngList;
     }
 }

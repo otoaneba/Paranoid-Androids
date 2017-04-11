@@ -55,7 +55,7 @@ public class ViewReportActivity extends AppCompatActivity {
                         String loc = report.getLocation();
                         String condition = report.getCondition();
                         double virusPPM = report.getVirusPPM();
-                        double contamPPM = report.getCombinationPPM();
+                        double contaminantPPM = report.getCombinationPPM();
 
                         //Pass all the selected report's information to the ShowReportActivity
                         intent.putExtra("time",time);
@@ -64,7 +64,7 @@ public class ViewReportActivity extends AppCompatActivity {
                         intent.putExtra("loc",loc);
                         intent.putExtra("condition",condition);
                         intent.putExtra("virus",virusPPM);
-                        intent.putExtra("contam",contamPPM);
+                        intent.putExtra("contam",contaminantPPM);
                         intent.putExtra("user",user);
                         startActivity(intent);
                         finish();

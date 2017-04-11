@@ -27,7 +27,7 @@ import java.util.HashMap;
  */
 
 public class ProfileActivity extends AppCompatActivity {
-    private TextView userid;
+    private TextView userId;
     private EditText name;
     private EditText email;
     private EditText homeAddress;
@@ -53,8 +53,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
             setContentView(R.layout.activity_profile_screen);
-            userid = (TextView) findViewById(R.id.username);
-            userid.setText(user.getId());
+            userId = (TextView) findViewById(R.id.username);
+            userId.setText(user.getId());
             name = (EditText) findViewById(R.id.name);
             name.setText(user.getName(), TextView.BufferType.EDITABLE);
 
@@ -83,7 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
             editButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final String _userId = userid.getText().toString();
+                    final String _userId = userId.getText().toString();
                     final String _name = name.getText().toString();
                     final String _userPassword = password.getText().toString();
                     final String _userEmail = email.getText().toString();

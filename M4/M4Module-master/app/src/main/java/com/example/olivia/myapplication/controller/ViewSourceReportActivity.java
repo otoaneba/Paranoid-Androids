@@ -29,7 +29,7 @@ public class ViewSourceReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_view_source_report_acitvity);
+        setContentView(R.layout.content_view_source_report_activity);
         //Initializes buttons on page
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data

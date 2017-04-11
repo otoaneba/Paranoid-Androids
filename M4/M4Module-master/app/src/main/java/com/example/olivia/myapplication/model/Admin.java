@@ -1,7 +1,7 @@
 package com.example.olivia.myapplication.model;
 
 /**
- * Created by naoto on 2/18/2017.
+ *  Created by Naoto on 2/18/2017.
  *  a sub class of user. takes in a name and a password
  *
  */
@@ -9,7 +9,7 @@ package com.example.olivia.myapplication.model;
 public class Admin extends Manager {
 
     /**
-     *contructor for Admin class. Creates a new admin class when initialized
+     *constructor for Admin class. Creates a new admin class when initialized
      * @param id is the user id
      * @param name stands for name for user name
      * @param password stands for password for user password

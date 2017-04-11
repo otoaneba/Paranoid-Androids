@@ -36,7 +36,7 @@ public class ShowReportActivity extends AppCompatActivity {
         String loc_v = (String)getIntent().getSerializableExtra("loc");
         String condition_v = (String)getIntent().getSerializableExtra("condition");
         double virus_v = (Double)getIntent().getSerializableExtra("virus");
-        double contam_v = (Double)getIntent().getSerializableExtra("contam");
+        double contaminant_v = (Double)getIntent().getSerializableExtra("contam");
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
 
         //Initializes widgets from the XML
@@ -71,7 +71,7 @@ public class ShowReportActivity extends AppCompatActivity {
         String stringVirusPPM = "Virus PPM: " + virus_v;
         virusPpm.setText(stringVirusPPM);
 
-        String stringContaminationPPM = "Contamination PPM: " + contam_v;
+        String stringContaminationPPM = "Contamination PPM: " + contaminant_v;
         contaminationPpm.setText(stringContaminationPPM);
 
         //Cancel button returns to Report Activity

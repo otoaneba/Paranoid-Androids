@@ -22,21 +22,21 @@ import java.io.Serializable;
 
 
     public SourceReport(String rptNum,String time, String location, String creator, String condition, String type,
-                  String lat, String longt) {
+                  String lat, String longitude) {
         this.rptNum = rptNum;
         this.time = time;
         this.location = location;
         this.creator = creator;
         this.type = type;
         this.condition = condition;
-        this.reportLatLng = new LatLng(Double.parseDouble(lat),Double.parseDouble(longt));
+        this.reportLatLng = new LatLng(Double.parseDouble(lat),Double.parseDouble(longitude));
     }
 
     public String toString() {
         return rptNum + " | " + creator + " | " + location + " | " + time;
     }
         public String showMap() {
-            return "No." + rptNum + ",WaterCondition: " + condition + ", Watertype: " + type;
+            return "No." + rptNum + ",WaterCondition: " + condition + ", WaterType: " + type;
         }
         public String getTime() {
             return time;

@@ -47,8 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/locationText"
-            android:layout_toLeftOf="@+id/enddate"
-            android:layout_toStartOf="@+id/enddate" />
+            android:layout_toLeftOf="@+id/endDate"
+            android:layout_toStartOf="@+id/endDate" />
 
         <view
             android:id="@+id/chart"
@@ -70,7 +70,7 @@
             android:layout_below="@+id/dateSpinner" />
 
         <TextView
-            android:id="@+id/enddate"
+            android:id="@+id/endDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/dateSpinner"

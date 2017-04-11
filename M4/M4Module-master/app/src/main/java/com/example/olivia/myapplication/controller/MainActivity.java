@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         _profile = (Button) findViewById(R.id._profile);
         _signOut = (Button) findViewById(R.id._signOut);
 
-        /*if the user logs in, screen displays following functionalities:
+        /*if the user logs in, screen displays following functionality:
             - Submit a report on water availability
             - View available water sources
             - My Profile (Edit)
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             _security.setVisibility(View.GONE);
             Log.d("error", "if was here");
 
-            /*if the worker logs in, screen displays following functionalities:
+            /*if the worker logs in, screen displays following functionality:
                - Submit a report on water availability
                - View available water sources
                - Report on water purity levels
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             _trend.setVisibility(View.GONE);
             _security.setVisibility(View.GONE);
 
-            /*if the worker logs in, screen displays following functionalities:
+            /*if the worker logs in, screen displays following functionality:
                - Submit a report on water availability
                - View available water sources
                - Report on water purity levels

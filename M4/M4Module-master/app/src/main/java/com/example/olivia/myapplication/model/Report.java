@@ -23,7 +23,7 @@ public class Report implements Serializable {
 
 
     public Report(String rptNum,String time, String location, String creator, String vPPM, String cPPM, String quality,
-                  String lat, String longt) {
+                  String lat, String longitude) {
         this.rptNum = rptNum;
         this.time = time;
         this.location = location;
@@ -31,7 +31,7 @@ public class Report implements Serializable {
         this.quality = quality;
         this.vPPM = vPPM;
         this.cPPM = cPPM;
-        this.reportLatLng = new LatLng(Double.parseDouble(lat),Double.parseDouble(longt));
+        this.reportLatLng = new LatLng(Double.parseDouble(lat),Double.parseDouble(longitude));
     }
 
 

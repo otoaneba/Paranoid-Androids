@@ -1,7 +1,7 @@
 package com.example.olivia.myapplication.model;
 
 /**
- * Created by naoto on 2/18/2017.
+ * Created by Naoto on 2/18/2017.
  *  a sub class of user. Can do everything that a user can do plus an added method
  *  ReportWaterPurity that that lets Workers view water purity
  *
@@ -10,7 +10,7 @@ package com.example.olivia.myapplication.model;
 public class Worker extends User {
 
     /**
-     *contructor for worker class. Creates a new worker class when initialized
+     *constructor for worker class. Creates a new worker class when initialized
      * @param id is the user id
      * @param name stands for name for user name
      * @param password stands for password for user password

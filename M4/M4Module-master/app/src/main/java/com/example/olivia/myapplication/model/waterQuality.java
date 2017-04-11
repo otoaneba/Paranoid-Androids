@@ -2,7 +2,7 @@ package com.example.olivia.myapplication.model;
 
 /**
  * Created by Shuopeng Zhou on 3/1/2017.
- * Enums for Waterquality
+ * Enums for Water quality
  */
 
 public enum waterQuality {
