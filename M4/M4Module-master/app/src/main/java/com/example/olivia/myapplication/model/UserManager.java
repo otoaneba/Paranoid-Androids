@@ -1,5 +1,6 @@
 package com.example.olivia.myapplication.model;
 
+import android.util.Log;
 import android.widget.EditText;
 
 import java.util.HashMap;
@@ -38,17 +39,19 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
      * @param userType user type that he/she must choose from a spinner
      *
      */
-    public void addUser(String id, String name, String pass, String email, String address, String userType) {
+    public boolean addUser(String id, String name, String pass, String email, String address, String userType) {
         User userObject = new User(id, name, pass, email, address, userType);
         users.put(id, userObject);
+        return true;
     }
 
     /**
      * method that lets the UserManager class delete a specific user by id
      * @param id takes in the userId that gets searched to be removed
      */
-    public void deleteUser(String id) {
+    public boolean deleteUser(String id) {
         users.remove(id);
+        return true;
     }
 
 
