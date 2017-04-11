@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ListView;
 
 import com.example.olivia.myapplication.controller.R;
 import com.example.olivia.myapplication.controller.WelcomeActivity;
-import com.example.olivia.myapplication.model.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -32,11 +31,10 @@ public class RetrieveUserData extends Activity {
     private static final String TAG_EMAIL ="email";
     private static final String TAG_ADD ="address";
     private static final String TAG_TYPE = "userType";
-    private JSONArray people = null;
     private User user;
     private ArrayList<HashMap<String, String>> userList;
 
-    ListView list;
+   // ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +53,7 @@ public class RetrieveUserData extends Activity {
     protected void listUsers(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
-            people = jsonObj.getJSONArray(TAG_RESULTS);
+            JSONArray people = jsonObj.getJSONArray(TAG_RESULTS);
 
             if(!userList.isEmpty()) {
                 userList.clear();
@@ -66,7 +64,7 @@ public class RetrieveUserData extends Activity {
             if(!users.isEmpty()) {
                 users.clear();
             }
-            for(int i = 0;i<people.length();i++){
+            for(int i = 0; i< people.length(); i++){
                 JSONObject c = people.getJSONObject(i);
                 String username = c.getString(TAG_USERNAME);
                 String name = c.getString(TAG_NAME);

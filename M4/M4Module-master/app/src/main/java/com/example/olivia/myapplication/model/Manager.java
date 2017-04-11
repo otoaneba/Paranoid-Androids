@@ -1,13 +1,14 @@
 package com.example.olivia.myapplication.model;
 
-/**
- * Created by Naoto on 2/18/2017.
- *
- * a sub class of Worker class. takes in a name and a password. A manger can do everything that
- * a worker can do. Managers also have a viewWaterReport method that lets them view past water
- * report for analysis
- */
-
+// --Commented out by Inspection START (4/10/17, 10:53 PM):
+///**
+// * Created by Naoto on 2/18/2017.
+// *
+// * a sub class of Worker class. takes in a name and a password. A manger can do everything that
+// * a worker can do. Managers also have a viewWaterReport method that lets them view past water
+// * report for analysis
+// */
+//
 public class Manager extends Worker {
     /**
      *constructor for Manager class. Creates a new manager class when initialized
@@ -30,3 +31,4 @@ public class Manager extends Worker {
         System.out.println("viewed water report");
     }
 }
+

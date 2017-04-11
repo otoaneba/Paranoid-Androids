@@ -2,7 +2,6 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,16 +10,17 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.HashMap;
 
 import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.waterQuality;
+import com.google.android.gms.maps.model.LatLng;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
+
+import java.util.HashMap;
 
 /**
  * This page allows you to create a new Purity Report.
@@ -113,7 +113,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     myAlert.show();
                 }
                 else {
-                    HashMap postData = new HashMap();
+                    HashMap<String, String> postData = new HashMap<String, String>();
                     postData.put("txtLocation", location);
                     postData.put("txtCreator", user.getName());
                     postData.put("txtQuality", condition);

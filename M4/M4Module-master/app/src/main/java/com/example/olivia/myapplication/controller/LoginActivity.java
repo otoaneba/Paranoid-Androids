@@ -28,8 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private User currentUser;
     // UI references.
     private EditText _username, _password;
-    private Button _signOn, _cancel;
-
 
 
     @Override
@@ -40,15 +38,15 @@ public class LoginActivity extends AppCompatActivity {
 
         _username = (EditText) findViewById(R.id.user);
         _password = (EditText) findViewById(R.id.login_password);
-        _signOn = (Button) findViewById(R.id.sign_in_button);
-        _cancel = (Button) findViewById(R.id.login_cancel_button);
+        Button _signOn = (Button) findViewById(R.id.sign_in_button);
+        Button _cancel = (Button) findViewById(R.id.login_cancel_button);
 
 
         _signOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                HashMap postData = new HashMap();
+                HashMap<String, String> postData= new HashMap<String, String>();
                 postData.put("txtUsername", _username.getText().toString());
                 postData.put("txtPassword", _password.getText().toString());
 
@@ -100,12 +98,12 @@ public class LoginActivity extends AppCompatActivity {
 //        String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
 //        return password.matches(regexp);
     }
-            private boolean isPasswordValid(String password) {
+  //          private boolean isPasswordValid(String password) {
 
 
-                String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
-                return password.matches(regexp);
-            }
+    //            String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
+        //        return password.matches(regexp);
+      //      }
             /**
              * Shows the progress UI and hides the login form.
              */

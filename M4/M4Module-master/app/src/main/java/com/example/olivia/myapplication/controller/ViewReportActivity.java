@@ -21,8 +21,6 @@ import static com.example.olivia.myapplication.model.RetrievePurityReportData.re
  * details for individual reports.
  */
 public class ViewReportActivity extends AppCompatActivity {
-    private Button locationButton, cancelButton;
-
 
 
     @Override
@@ -32,8 +30,8 @@ public class ViewReportActivity extends AppCompatActivity {
         //Get current user
         final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //Initializes buttons on page
-        locationButton = (Button) findViewById(R.id.location);
-        cancelButton = (Button) findViewById(R.id.cancel_report);
+        Button locationButton = (Button) findViewById(R.id.location);
+        Button cancelButton = (Button) findViewById(R.id.cancel_report);
 
         //The reports need to be added to an array to be shown
         //final List<Report> reports = manager.getList();

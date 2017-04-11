@@ -1,9 +1,8 @@
 package com.example.olivia.myapplication.controller;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.olivia.myapplication.model.RetrieveUserData;
 import com.example.olivia.myapplication.model.User;
-import com.example.olivia.myapplication.model.UserManager;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
@@ -33,8 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText homeAddress;
     private EditText password;
     private static User user;
-    private Button cancelButton;
-    private UserManager manager = new UserManager();
+  //  private UserManager manager = new UserManager();
 
 
     @Override
@@ -67,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
             password = (EditText) findViewById(R.id.password);
             password.setText(user.getPassword(), TextView.BufferType.EDITABLE);
 
-            cancelButton = (Button) findViewById(R.id.Cancel);
+            Button cancelButton = (Button) findViewById(R.id.Cancel);
             cancelButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -88,7 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
                     final String _userPassword = password.getText().toString();
                     final String _userEmail = email.getText().toString();
                     final String _userAddress = homeAddress.getText().toString();
-                    HashMap postData = new HashMap();
+                    HashMap<String, String> postData = new HashMap<String, String>();
                     postData.put("txtUsername", _userId);
                     postData.put("txtName", _name);
                     postData.put("txtEmailAddress", _userEmail);

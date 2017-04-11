@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ListView;
 
 import com.example.olivia.myapplication.controller.R;
 import com.example.olivia.myapplication.controller.ViewSourceReportActivity;
@@ -42,11 +41,10 @@ public class RetrieveSourceReportData extends Activity {
     private static final String TAG_LONG = "Longitude";
 
 
-    private JSONArray reportInfo = null;
     private SourceReport _report;
     private ArrayList<HashMap<String, String>> reportList;
 
-    ListView list;
+   // ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +61,7 @@ public class RetrieveSourceReportData extends Activity {
     protected void listSourceReport(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
-            reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
+            JSONArray reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
 
             if (!reportList.isEmpty()) {
                 reportList.clear();

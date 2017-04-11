@@ -4,26 +4,24 @@ package com.example.olivia.myapplication.model;
  * Created by John on 2017-03-22.
  */
         import android.app.Activity;
-        import android.content.Intent;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.widget.ListView;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
 
-        import com.example.olivia.myapplication.controller.R;
-        import com.example.olivia.myapplication.controller.ViewReportActivity;
-        import com.example.olivia.myapplication.model.Report;
-        import com.example.olivia.myapplication.model.User;
+import com.example.olivia.myapplication.controller.R;
+import com.example.olivia.myapplication.controller.ViewReportActivity;
 
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-        import java.io.BufferedReader;
-        import java.io.InputStreamReader;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
-        import java.util.ArrayList;
-        import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RetrievePurityReportData extends Activity {
     public static ArrayList <Report> reports = new ArrayList<Report>();
@@ -41,11 +39,10 @@ public class RetrievePurityReportData extends Activity {
     private static final String TAG_LONG = "Longitude";
 
 
-    private JSONArray reportInfo = null;
     private Report _report;
     private ArrayList<HashMap<String, String>> reportList;
 
-    ListView list;
+//    ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +58,7 @@ public class RetrievePurityReportData extends Activity {
     protected void listPurityReport(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
-            reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
+            JSONArray reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
 
             if(!reportList.isEmpty()) {
                 reportList.clear();
@@ -72,7 +69,7 @@ public class RetrievePurityReportData extends Activity {
             if(!reports.isEmpty()) {
                 reports.clear();
             }
-            for(int i = 0; i < reportInfo.length();i++){
+            for(int i = 0; i < reportInfo.length(); i++){
                 JSONObject c = reportInfo.getJSONObject(i);
                 String rptNum = c.getString(TAG_REPORT_NUMBER);
                 String time = c.getString(TAG_TIME);

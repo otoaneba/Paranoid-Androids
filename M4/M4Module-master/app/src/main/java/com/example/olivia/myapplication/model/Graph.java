@@ -15,12 +15,11 @@ import java.util.Date;
 
 public class Graph implements Serializable{
         private String time;
-        private String location;
-        private double vPPM;
+    private double vPPM;
 
         public Graph(String location,String time, double vPPM) {
             this.time = time;
-            this.location = location;
+            String location1 = location;
             this.vPPM = vPPM;
         }
 
@@ -50,9 +49,9 @@ public class Graph implements Serializable{
      * public method that returns the location of the graph
      * @return returns the specific address for the report
      */
-    public String getLocation() {
-            return location;
-        }
+  //  public String getLocation() {
+    //        return location;
+      //  }
 
     /**
      * public method that returns a vPPM of the purity report

@@ -18,8 +18,6 @@ public class User implements Serializable {
     private String address;
     private String userType;
 
-    private static User currentUser;
-
     /**
      * constructor for the user that takes in 6 String parameters and creates a new User object
      * when initialized
@@ -91,9 +89,9 @@ public class User implements Serializable {
      * @param newEmail String parameter that takes in the new email address and sets it to
      *                 the users email address
      */
-    public void setEmail(String newEmail) {
-        email = newEmail;
-    }
+//    public void setEmail(String newEmail) {
+//        email = newEmail;
+//    }
 
     /**
      * Setter for the user address. Used when the user edits his/her profile
@@ -101,9 +99,9 @@ public class User implements Serializable {
      * @param newAddress takes in a new String newAddress that sets it as the new address of the
      *                   users' address
      */
-    public void setAddress(String newAddress) {
-        address = newAddress;
-    }
+//    public void setAddress(String newAddress) {
+//        address = newAddress;
+//    }
 
     /**
      * a method that checks if the password that the user typed matches the actual user password
@@ -119,11 +117,11 @@ public class User implements Serializable {
     }
 
     public static void setCurrentUser(User u) {
-        currentUser = u;
+        User currentUser = u;
     }
 
-    public static User getCurrentUser() {
-        return currentUser;
-    }
+//    public static User getCurrentUser() {
+//        return currentUser;
+//    }
 
 }

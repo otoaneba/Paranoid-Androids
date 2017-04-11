@@ -28,7 +28,6 @@ public class RetrieveGraphData extends Activity {
     private static final String TAG_LOCATION = "Location";
     private static final String TAG_TIME ="TIME";
     private static final String TAG_PPM ="VirusPPM";
-    private JSONArray graphInfo = null;
 
     private Graph _graph;
     private ArrayList<HashMap<String, String>> graphList;
@@ -48,7 +47,7 @@ public class RetrieveGraphData extends Activity {
     protected void listGraphInfo(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
-            graphInfo = jsonObj.getJSONArray(TAG_RESULTS);
+            JSONArray graphInfo = jsonObj.getJSONArray(TAG_RESULTS);
 
             if(!graphList.isEmpty()) {
                 graphList.clear();
@@ -59,7 +58,7 @@ public class RetrieveGraphData extends Activity {
             if(!graphs.isEmpty()) {
                 graphs.clear();
             }
-            for(int i = 0; i < graphInfo.length();i++){
+            for(int i = 0; i < graphInfo.length(); i++){
                 JSONObject c = graphInfo.getJSONObject(i);
 
                 String loc = c.getString(TAG_LOCATION);

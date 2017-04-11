@@ -53,6 +53,9 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
         users.remove(id);
         return true;
     }
+//    public void deleteUser(String id) {
+//        users.remove(id);
+//    }
 
 
     /**

@@ -1,17 +1,19 @@
 package com.example.olivia.myapplication.controller;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import com.google.android.gms.maps.model.LatLng;
+import android.support.v4.app.FragmentActivity;
 
 import com.example.olivia.myapplication.model.Report;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import static com.example.olivia.myapplication.model.RetrievePurityReportData.reports;
+
 import java.util.List;
+
+import static com.example.olivia.myapplication.model.RetrievePurityReportData.reports;
 
 /**
  * created by Naoto on 3/12/2017
@@ -22,7 +24,6 @@ import java.util.List;
  */
 public class ViewPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     private List<Report> reportList = reports;
 
     @Override
@@ -47,7 +48,7 @@ public class ViewPurityReportsLocationActivity extends FragmentActivity implemen
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
         // LatLng sydney = new LatLng(-34, 151);
