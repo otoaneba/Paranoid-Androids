@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.olivia.myapplication.model.User;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
-
 import java.util.HashMap;
 
 import static com.example.olivia.myapplication.model.RetrieveUserData.users;
@@ -84,19 +82,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-//    /**
-//     * Written by Rayna
-//     * Check if the password is valid: The password has to
-//     * 1, length is from 8 to 14 characters
-//     * 2, at least 1 digit
-//     * 3, at least 1 Uppercase Letter
-//     * 4, at least 1 Lowercase Letter
-//     * @param password the password String that we wanna check
-//     * @return boolean boolean value of if the password is valid
-//     */
-//    private boolean isPasswordValid(String password) {
-//        String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
-//        return password.matches(regexp);
     }
   //          private boolean isPasswordValid(String password) {
 
