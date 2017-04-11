@@ -17,6 +17,7 @@ public class User implements Serializable {
     private String email;
     private String address;
     private String userType;
+    private static User currentUser;
 
     /**
      * constructor for the user that takes in 6 String parameters and creates a new User object
@@ -117,7 +118,7 @@ public class User implements Serializable {
     }
 
     public static void setCurrentUser(User u) {
-        User currentUser = u;
+        currentUser = u;
     }
 
 //    public static User getCurrentUser() {

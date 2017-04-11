@@ -121,7 +121,7 @@ public class RetrieveSourceReportData extends Activity {
 
                 String uri = params[0];
 
-                BufferedReader bufferedReader = null;
+                BufferedReader bufferedReader;
                 try {
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -129,7 +129,7 @@ public class RetrieveSourceReportData extends Activity {
 
                     bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-                    String json = null;
+                    String json;
                     while((json = bufferedReader.readLine())!= null){
                         sb.append(json+"\n");
                     }
