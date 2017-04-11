@@ -1,8 +1,5 @@
 package com.example.olivia.myapplication.model;
 
-import android.util.Log;
-import android.widget.EditText;
-
 import java.util.HashMap;
 import java.util.Map;
 

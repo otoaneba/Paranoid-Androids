@@ -79,7 +79,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
      * @param latLng a LatLng that a user picks to submit a PURITY REPORT
      * @return a string representation of address
      */
-    public String getAddressFromLatLng( LatLng latLng ) {
+    public String getAddressFromLatLng(LatLng latLng) {
         Geocoder geocoder = new Geocoder(this);
 
         String address = "";

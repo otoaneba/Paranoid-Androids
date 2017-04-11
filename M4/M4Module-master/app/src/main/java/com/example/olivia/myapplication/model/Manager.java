@@ -20,6 +20,7 @@ public class Manager extends Worker {
      * @param userType stands for userType
      */
 
+    @SuppressWarnings("unused")
     public Manager(String id, String name, String password, String email, String address, String userType) {
         super(id, name, password, email, address, userType);
     }

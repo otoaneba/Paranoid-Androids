@@ -7,5 +7,5 @@ package com.example.olivia.myapplication.model;
  */
 
 public interface AuthenticationFacade {
-    boolean handleLoginRequest(String name, String password);
+    // --Commented out by Inspection (4/11/17, 1:08 PM):boolean handleLoginRequest(String name, String password);
 }
