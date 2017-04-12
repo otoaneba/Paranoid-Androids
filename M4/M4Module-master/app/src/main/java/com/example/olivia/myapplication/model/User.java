@@ -97,21 +97,23 @@ public class User implements Serializable {
     /**
      * Setter for the user address. Used when the user edits his/her profile
      *
-     * @param newAddress takes in a new String newAddress that sets it as the new address of the
+ //    * @param newAddress takes in a new String newAddress that sets it as the new address of the
      *                   users' address
      */
 //    public void setAddress(String newAddress) {
 //        address = newAddress;
 //    }
 
-    /**
-     * a method that checks if the password that the user typed matches the actual user password
-     * @param pass passes in the String pass that was typed in the textEdit field
-     * @return returns true if the password matched, false otherwise
-     */
-    public boolean checkPassword(String pass) {
-        return password.equals(pass);
-    }
+// --Commented out by Inspection START (4/11/17, 10:31 PM):
+//    /**
+//     * a method that checks if the password that the user typed matches the actual user password
+//     * @param pass passes in the String pass that was typed in the textEdit field
+//     * @return returns true if the password matched, false otherwise
+//     */
+//    public boolean checkPassword(String pass) {
+//        return password.equals(pass);
+//    }
+// --Commented out by Inspection STOP (4/11/17, 10:31 PM)
 
     public String toString() {
         return name;

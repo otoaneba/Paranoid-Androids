@@ -18,10 +18,10 @@ public class Graph implements Serializable{
     final private String time;
     final private double vPPM;
 
-        public Graph(String location,String time, double vPPM) {
-            this.time = time;
-            this.vPPM = vPPM;
-        }
+    public Graph(String location, String time, double vPPM) {
+        this.time = time;
+        this.vPPM = vPPM;
+    }
 
     /**
      * returns a year for a specific DateTime stamp
