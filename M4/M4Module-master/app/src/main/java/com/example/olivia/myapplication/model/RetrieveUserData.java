@@ -96,12 +96,9 @@ public class RetrieveUserData extends Activity {
      */
     public void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
-
             @Override
             protected String doInBackground(String... params) {
-
                 String uri = params[0];
-
                 BufferedReader bufferedReader;
                 try {
                     URL url = new URL(uri);
@@ -114,9 +111,7 @@ public class RetrieveUserData extends Activity {
                     while((json = bufferedReader.readLine())!= null){
                         sb.append(json+"\n");
                     }
-
                     return sb.toString().trim();
-
                 }catch(Exception e){
                     return null;
                 }

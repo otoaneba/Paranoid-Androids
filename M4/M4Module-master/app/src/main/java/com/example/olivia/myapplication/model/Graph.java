@@ -14,7 +14,7 @@ import java.util.Date;
  */
 
 public class Graph implements Serializable{
-        private String time;
+    private String time;
     private double vPPM;
 
         public Graph(String location,String time, double vPPM) {
@@ -34,7 +34,7 @@ public class Graph implements Serializable{
             cal.setTime(date);
             Float year = new Float(cal.get(Calendar.YEAR));
             return year;
-        }
+    }
 
     /**
      * public method that returns a month for a specific DateTime stamp

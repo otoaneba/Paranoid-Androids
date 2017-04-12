@@ -11,12 +11,11 @@ public enum WaterCondition {
     TREATABLE_MUDDY("Treatable-Muddy"),
     PORTABLE("Portable");
 
-    private String waterCondition1;
     /**
      *  returns the waterQuality of A REPORT
      * @param waterCondition an enum waterQuality that
      */
     WaterCondition(String waterCondition) {
-        waterCondition1 = waterCondition;
+        String waterCondition1 = waterCondition;
     }
 }

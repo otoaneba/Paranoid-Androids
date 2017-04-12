@@ -37,6 +37,9 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
      *
      */
     public boolean addUser(String id, String name, String pass, String email, String address, String userType) {
+        if (id == null || pass == null) {
+            return false;
+        }
         User userObject = new User(id, name, pass, email, address, userType);
         users.put(id, userObject);
         return true;
@@ -55,26 +58,30 @@ public class UserManager implements AuthenticationFacade, UserManagementFacade {
 //    }
 
 
-    /**
-     * method that checks if the user typed in a valid userId and password, or if anything
-     * at all
-     * @param id takes in a String id that should correspond to userId
-     * @param pass takes in a String password that will get checked against the userID
-     * @return true if the login is successful with the valid credentials, false otherwise
-     */
+// --Commented out by Inspection START (4/11/17, 8:47 PM):
+//    /**
+//     * method that checks if the user typed in a valid userId and password, or if anything
+//     * at all
+//     * @param id takes in a String id that should correspond to userId
+//     * @param pass takes in a String password that will get checked against the userID
+//     * @return true if the login is successful with the valid credentials, false otherwise
+//     */
+//
+//    public boolean handleLoginRequest(String id, String pass) {
+//        u = findUserById(id);//Modified by Rayna
+//        return u!=null && u.checkPassword(pass);
+//        //return true;
+//    }
+// --Commented out by Inspection STOP (4/11/17, 8:47 PM)
 
-    public boolean handleLoginRequest(String id, String pass) {
-        u = findUserById(id);//Modified by Rayna
-        return u!=null && u.checkPassword(pass);
-        //return true;
-    }
-
-    /**
-     * public accessor that lets other classes access a user object inside the Map
-     * @return returns the user object
-     */
-    public User getUser(){ // Added by Rayna
-        return u;
-    } // Added by Rayna
+// --Commented out by Inspection START (4/11/17, 8:47 PM):
+//    /**
+//     * public accessor that lets other classes access a user object inside the Map
+//     * @return returns the user object
+//     */
+//    public User getUser(){ // Added by Rayna
+//        return u;
+//    } // Added by Rayna
+// --Commented out by Inspection STOP (4/11/17, 8:47 PM)
 
 }

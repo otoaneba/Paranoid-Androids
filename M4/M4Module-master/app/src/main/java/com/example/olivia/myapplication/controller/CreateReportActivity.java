@@ -64,7 +64,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
+        @SuppressWarnings("unchecked") final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 

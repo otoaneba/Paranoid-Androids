@@ -25,11 +25,13 @@ public class Manager extends Worker {
         super(id, name, password, email, address, userType);
     }
 
-    /**
-     * a method that lets Managers view past water reports for analysis
-     */
-    public void viewWaterReport() {
-        System.out.println("viewed water report");
-    }
+// --Commented out by Inspection START (4/11/17, 8:47 PM):
+//    /**
+//     * a method that lets Managers view past water reports for analysis
+//     */
+//    public void viewWaterReport() {
+//        System.out.println("viewed water report");
+//    }
+// --Commented out by Inspection STOP (4/11/17, 8:47 PM)
 }
 

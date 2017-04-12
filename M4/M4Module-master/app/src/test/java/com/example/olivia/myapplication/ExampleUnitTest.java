@@ -1,6 +1,5 @@
 package com.example.olivia.myapplication;
 
-import com.example.olivia.myapplication.model.User;
 import com.example.olivia.myapplication.model.UserManager;
 
 import org.junit.Assert;
@@ -16,8 +15,8 @@ import static org.junit.Assert.assertEquals;
  */
 public class ExampleUnitTest {
 
-    public User newUser;
-    public UserManager manager;
+   // public User newUser;
+   // public UserManager manager;
 
 
     @Test

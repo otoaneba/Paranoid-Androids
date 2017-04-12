@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //a spinner that lists the user types in the user type enum
         final Spinner etSpinner = (Spinner) findViewById(R.id.userTypeSpinner);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, userType.values());
+        @SuppressWarnings("unchecked") final ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, userType.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 

@@ -57,13 +57,13 @@ public class CreateSourceReportActivity extends AppCompatActivity {
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner_source);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, WaterCondition.values());
+        @SuppressWarnings("unchecked") final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, WaterCondition.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
         //Initializes water type spinner
         final Spinner etSpinner2 = (Spinner) findViewById(R.id.etTypeSpinner_source);
-        final ArrayAdapter<String> adapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterType.values());
+        @SuppressWarnings("unchecked") final ArrayAdapter<String> adapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterType.values());
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner2.setAdapter(adapter3);
 

@@ -40,7 +40,6 @@ public class RetrieveSourceReportData extends Activity {
     private static final String TAG_LAT = "Latitude";
     private static final String TAG_LONG = "Longitude";
 
-
     private SourceReport _report;
     private ArrayList<HashMap<String, String>> reportList;
 

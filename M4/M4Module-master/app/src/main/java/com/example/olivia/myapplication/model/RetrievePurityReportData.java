@@ -3,7 +3,7 @@ package com.example.olivia.myapplication.model;
 /**
  * Created by John on 2017-03-22.
  */
-        import android.app.Activity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;

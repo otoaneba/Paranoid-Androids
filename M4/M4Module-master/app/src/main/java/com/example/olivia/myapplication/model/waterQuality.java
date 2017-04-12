@@ -9,12 +9,12 @@ public enum waterQuality {
     SAFE("SAFE"),
     TREATABLE("TREATABLE"),
     UNTREATABLE("UNTREATABLE");
-    private String waterQuality1;
+
     /**
      *  returns the waterQuality of A REPORT
      * @param waterQuality an enum waterQuality that
      */
      waterQuality(String waterQuality) {
-         waterQuality1 = waterQuality;
+         String waterQuality1 = waterQuality;
     }
 }
