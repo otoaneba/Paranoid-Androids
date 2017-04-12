@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by John on 2017-04-11.
+ * @author Kyung Jun Lee
+ * Check email validation on registration page whether format is correct
  */
 
 public class IsEmailValidTest {

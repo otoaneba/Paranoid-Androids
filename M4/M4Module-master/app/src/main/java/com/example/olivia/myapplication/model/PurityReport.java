@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Julian on 2/26/2017.
+ * @author Julian
  */
 
 public class PurityReport implements Parcelable {

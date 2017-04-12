@@ -1,7 +1,7 @@
 package com.example.olivia.myapplication.model;
 
 /**
- * Created by John on 2017-03-13.
+ * @author Kyung Jun Lee
  */
 
 public enum waterType {

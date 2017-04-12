@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 /**
- * Created by John on 2017-03-22.
+ * @author Kyung Jun Lee
  */
 
 public class RetrievePurityReportData extends Activity {

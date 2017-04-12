@@ -70,6 +70,12 @@ public class RegisterActivity extends AppCompatActivity {
         String regexp = "^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$";
         return id.matches(regexp);
     }
+
+    public boolean isHomeAddressValid(String address) {
+        String regexp = "^([0-9]+)(\\s)([a-zA-Z]+)";
+        return Pattern.matches(regexp, address);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,14 +116,17 @@ public class RegisterActivity extends AppCompatActivity {
                             , Toast.LENGTH_LONG).show();
                 }
                 else if (!isEmailValid(email)) {
-                    Toast.makeText(RegisterActivity.this, "Make sure your email meet the requirement"
+                    Toast.makeText(RegisterActivity.this, "Make sure your email meets the requirement"
                             , Toast.LENGTH_LONG).show();
                 }
                 else if (!isPasswordValid(password)) {
-                    Toast.makeText(RegisterActivity.this, "Make sure your password meet the requirement"
+                    Toast.makeText(RegisterActivity.this, "Make sure your password meets the requirement"
                             , Toast.LENGTH_LONG).show();
                 } else if (!isUserIdValid(id)) {
                     Toast.makeText(RegisterActivity.this, "Make sure your user ID meets the requirement"
+                            , Toast.LENGTH_LONG).show();
+                } else if (!isHomeAddressValid(address)) {
+                    Toast.makeText(RegisterActivity.this, "Make sure you typed in your Address correctly."
                             , Toast.LENGTH_LONG).show();
                 }
                 else {

@@ -1,9 +1,8 @@
 package com.example.olivia.myapplication.model;
 
 /**
- * Created by John on 2017-03-14.
+ * @author Kyung Jun Lee
  */
-
 public enum WaterCondition {
     SELECT_AN_ITEM("Select an item"),
     WASTE("waste"),
