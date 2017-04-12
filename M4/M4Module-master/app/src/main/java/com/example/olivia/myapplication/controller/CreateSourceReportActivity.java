@@ -158,6 +158,15 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * This method checks the longitude value and latitude value being passed
+     * into a new Source Report. Valid latitude values range from 0 to (-/+) 90.
+     * Valid longitude values range from 0 to (-/+) 180.
+     * @param latitude latitude value to be chekced
+     * @param longitude longitude value to be checked
+     * @return true if valid inputs, false if invalid inputs
+     */
     public boolean isValidLatLong(Double latitude, Double longitude) {
         if (Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
             return false;
