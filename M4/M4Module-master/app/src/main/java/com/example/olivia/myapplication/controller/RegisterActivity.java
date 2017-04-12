@@ -24,9 +24,23 @@ import java.util.HashMap;
  */
 public class RegisterActivity extends AppCompatActivity {
 
+    /**
+     //     * Written by Rayna
+     //     * Check if the password is valid: The password has to
+     //     * 1, length is from 8 to 14 characters
+     //     * 2, at least 1 digit
+     //     * 3, at least 1 Uppercase Letter
+     //     * 4, at least 1 Lowercase Letter
+     //     * @param password the password String that we wanna check
+     //     * @return boolean boolean value of if the password is valid
+     //     */
+    public boolean isPasswordValid(String password) {
+        String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
+        return password.matches(regexp);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -59,8 +73,11 @@ public class RegisterActivity extends AppCompatActivity {
                 if (etId.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty()
                         || etPassword.getText().toString().isEmpty() ||
                         etEmail.getText().toString().isEmpty() ||
-                        etAddress.getText().toString().isEmpty() || etSpinner.getSelectedItem().toString().isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "please enter all blanked fields", Toast.LENGTH_LONG).show();
+                        etAddress.getText().toString().isEmpty() ||
+                        etSpinner.getSelectedItem().toString().isEmpty()||
+                        isPasswordValid(etPassword.getText().toString())
+                        ) {
+                    Toast.makeText(RegisterActivity.this, "please enter all blanked fields and make sure your password meet the requirement", Toast.LENGTH_LONG).show();
                 } else {
                     HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtUsername", id);

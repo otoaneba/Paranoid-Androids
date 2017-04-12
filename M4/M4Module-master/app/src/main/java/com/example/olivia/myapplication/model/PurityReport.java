@@ -65,17 +65,4 @@ public class PurityReport implements Parcelable {
             }
         };
 
-//    public String getDate() {
-//        return date;
-//    }
-//    public String getLocation() {
-//        return location;
-//    }
-//    public String getCondition() {
-//        return condition;
-//    }
-//    public String toString() {
-//        return date + " " + location + " " + workerName;
-//    }
-
 }
