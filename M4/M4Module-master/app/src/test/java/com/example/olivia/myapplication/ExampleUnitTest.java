@@ -1,12 +1,15 @@
 package com.example.olivia.myapplication;
 
-import android.util.Log;
+import android.content.Intent;
 
 import org.junit.Assert;
 import org.junit.Test;
-import java.util.regex.Pattern;
 import static org.junit.Assert.*;
+
 import com.example.olivia.myapplication.model.*;
+import com.google.android.gms.maps.model.LatLng;
+import com.example.olivia.myapplication.controller.*;
+
 
 
 /**
@@ -47,4 +50,11 @@ public class ExampleUnitTest {
             Assert.fail("should not have this exception");
         }
     }
+
+//    @Test
+//    public void testGetAddressFromLtLg() throws Exception {
+//        try {
+//            LatLng ln = new LatLng(-34, 151);
+//        }
+//    }
 }
