@@ -11,19 +11,30 @@ tools:context="com.example.olivia.myapplication.controller.MainActivity">
     android:id="@+id/_userInfo"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:layout_editor_absoluteX="8dp"
-    tools:layout_editor_absoluteY="7dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp" />
 
     <LinearLayout
         android:id="@+id/_layout"
         android:layout_width="358dp"
-        android:layout_height="380dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="66dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_userInfo"
         app:layout_constraintVertical_bias="0.414"
-        tools:layout_editor_absoluteX="13dp">
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="58dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/_userInfo"
+        android:layout_marginLeft="13dp">
 
         <Button
             android:id="@+id/_submit"

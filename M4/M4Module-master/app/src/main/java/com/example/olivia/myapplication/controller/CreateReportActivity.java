@@ -2,6 +2,7 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -90,55 +91,57 @@ public class CreateReportActivity extends AppCompatActivity {
 
 
                 //Checks to see if there is a missing input
-                if (location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
-                    AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
-                    myAlert.setMessage("Time,location,virusPPM and contaminationPPM required")
-                            .setPositiveButton("Back", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .create();
-                    myAlert.show();
-                }else if (etLocation.getText().toString().equals("Address")) {
-                    AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
-                    myAlert.setMessage("Click LOCATION button and set a location")
-                            .setPositiveButton("Back", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .create();
-                    myAlert.show();
-                }
-                else {
-                    HashMap<String, String> postData = new HashMap<String, String>();
-                    postData.put("txtLocation", location);
-                    postData.put("txtCreator", user.getName());
-                    postData.put("txtQuality", condition);
-                    postData.put("txtVirusPPM", virusPPM);
-                    postData.put("txtContaminatePPM", contaminatePPM);
-                    postData.put("txtLat", lat);
-                    postData.put("txtLong", longitude);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+                    if (location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
+                        AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
+                        myAlert.setMessage("Time,location,virusPPM and contaminationPPM required")
+                                .setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .create();
+                        myAlert.show();
+                    }else if (etLocation.getText().toString().equals("Address")) {
+                        AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
+                        myAlert.setMessage("Click LOCATION button and set a location")
+                                .setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .create();
+                        myAlert.show();
+                    }
+                    else {
+                        HashMap<String, String> postData = new HashMap<String, String>();
+                        postData.put("txtLocation", location);
+                        postData.put("txtCreator", user.getName());
+                        postData.put("txtQuality", condition);
+                        postData.put("txtVirusPPM", virusPPM);
+                        postData.put("txtContaminatePPM", contaminatePPM);
+                        postData.put("txtLat", lat);
+                        postData.put("txtLong", longitude);
 
-                    AsyncResponse asyncResponse = new AsyncResponse() {
-                        @Override
-                        public void processFinish(String output) {
-                            if(output.contains("report")) {
-                                Toast.makeText(CreateReportActivity.this, output, Toast.LENGTH_LONG).show();
+                        AsyncResponse asyncResponse = new AsyncResponse() {
+                            @Override
+                            public void processFinish(String output) {
+                                if(output.contains("report")) {
+                                    Toast.makeText(CreateReportActivity.this, output, Toast.LENGTH_LONG).show();
+                                }
                             }
-                        }
-                    };
-                    PostResponseAsyncTask task = new PostResponseAsyncTask(CreateReportActivity.this, postData, asyncResponse);
-                    //task.execute("http://192.168.2.5:81/android_connect/createPurityReport.php");
-                    task.execute("http://szhougatech.com/createPurityReport.php");
-                    Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
-                    intent.putExtra("user", user);
-                    startActivity(intent);
-                    finish();
+                        };
+                        PostResponseAsyncTask task = new PostResponseAsyncTask(CreateReportActivity.this, postData, asyncResponse);
+                        //task.execute("http://192.168.2.5:81/android_connect/createPurityReport.php");
+                        task.execute("http://szhougatech.com/createPurityReport.php");
+                        Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
+                        intent.putExtra("user", user);
+                        startActivity(intent);
+                        finish();
 
+                    }
                 }
             }
         });

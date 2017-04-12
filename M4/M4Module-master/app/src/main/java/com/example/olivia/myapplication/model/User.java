@@ -11,12 +11,12 @@ import java.io.Serializable;
  */
 
 public class User implements Serializable {
-    private String id;
-    private String name;
-    private String password;
-    private String email;
-    private String address;
-    private String userType;
+    final private String id;
+    final private String name;
+    final private String password;
+    final private String email;
+    final private String address;
+    final private String userType;
     private static User currentUser;
 
     /**
@@ -85,24 +85,6 @@ public class User implements Serializable {
         return userType;
     }
 
-    /**
-     * Setter for user email. Used when a user decides to edit his/her profile
-     * @param newEmail String parameter that takes in the new email address and sets it to
-     *                 the users email address
-     */
-//    public void setEmail(String newEmail) {
-//        email = newEmail;
-//    }
-
-    /**
-     * Setter for the user address. Used when the user edits his/her profile
-     *
-     * @param newAddress takes in a new String newAddress that sets it as the new address of the
-     *                   users' address
-     */
-//    public void setAddress(String newAddress) {
-//        address = newAddress;
-//    }
 
     /**
      * a method that checks if the password that the user typed matches the actual user password

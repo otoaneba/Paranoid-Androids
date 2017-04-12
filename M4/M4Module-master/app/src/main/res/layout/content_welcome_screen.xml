@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:contentDescription="A picture of the ocean"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/skyview" />
 

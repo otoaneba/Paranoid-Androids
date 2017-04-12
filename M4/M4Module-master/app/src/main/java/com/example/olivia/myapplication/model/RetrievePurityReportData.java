@@ -1,11 +1,9 @@
 package com.example.olivia.myapplication.model;
-
-/**
- * Created by John on 2017-03-22.
- */
-        import android.app.Activity;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -22,9 +20,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+/**
+ * Created by John on 2017-03-22.
+ */
 
 public class RetrievePurityReportData extends Activity {
-    public static ArrayList <Report> reports = new ArrayList<Report>();
+    final public static ArrayList <Report> reports = new ArrayList<>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -113,6 +114,7 @@ public class RetrievePurityReportData extends Activity {
      * and put those data into Android version of the String variable.
      */
     public void getData(String url){
+        @TargetApi(Build.VERSION_CODES.CUPCAKE)
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
             @Override

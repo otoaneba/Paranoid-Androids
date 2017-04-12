@@ -25,8 +25,7 @@ import java.util.ArrayList;
 public class PickPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
     private User user;
     private GoogleMap mMap;
-    private MarkerOptions myMarker = new MarkerOptions();
-    //private ArrayList<LatLng> latLngList = new ArrayList<>(1000);
+    final private MarkerOptions myMarker = new MarkerOptions();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,12 +94,4 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         return address;
     }
 
-    /**
-     * public getter method for LatLng list
-     * @return this LatLng list
-     */
-
- //   public List<LatLng> getLatLng() {
- //       return latLngList;
- //   }
 }

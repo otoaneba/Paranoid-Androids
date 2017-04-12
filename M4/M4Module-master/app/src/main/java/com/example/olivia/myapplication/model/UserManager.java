@@ -11,9 +11,9 @@ import java.util.Map;
 
 
 public class UserManager implements AuthenticationFacade, UserManagementFacade {
-    User u;// Modified by Rayna to enable accessing the user from LoginActivity
+    private User u;// Modified by Rayna to enable accessing the user from LoginActivity
 
-    private static Map<String, User> users = new HashMap<>();
+    final private static Map<String, User> users = new HashMap<>();
 
     /**
      * a public method that finds user by userID. used to display profile information in profile

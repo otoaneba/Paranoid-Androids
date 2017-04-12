@@ -97,37 +97,38 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/userTypeSpinner"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="52dp"
         android:orientation="horizontal"
-        android:weightSum="1">
-
-        <Button
-            android:id="@+id/createButton_source"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/etUserType"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:layout_toEndOf="@+id/etUserType"
-            android:layout_toRightOf="@+id/etUserType"
-            android:layout_weight="0.38"
-            android:onClick="showAlert"
-            android:text="@string/register"
-            android:textAllCaps="false" />
+        android:weightSum="1"
+        android:layout_below="@+id/userTypeSpinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/cancelButton"
-            android:layout_width="150dp"
+            style="@android:style/Widget.Button"
+            android:layout_width="128dp"
             android:layout_height="50dp"
             android:layout_alignEnd="@+id/linearLayout2"
             android:layout_alignRight="@+id/linearLayout2"
             android:layout_alignTop="@+id/linearLayout2"
             android:layout_margin="@dimen/activity_vertical_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"
+            android:layout_weight="0.87" />
+
+        <Button
+            android:id="@+id/createButton_source"
+            style="@android:style/Widget.Button"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etUserType"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@+id/etUserType"
+            android:layout_toRightOf="@+id/etUserType"
+            android:text="@string/register"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 

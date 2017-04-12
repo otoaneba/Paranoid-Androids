@@ -21,8 +21,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
 
     private User user;
     private GoogleMap mMap;
-    private MarkerOptions mySourceMarker = new MarkerOptions();
-    //private ArrayList<LatLng> sourceLatLngList = new ArrayList<>(1000);
+    final private MarkerOptions mySourceMarker = new MarkerOptions();
 
 
     @Override
@@ -95,13 +94,4 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
 
         return address;
     }
-
-    /**
-     * public getter method for LatLng list
-     * @return this LatLng list
-     */
-
- //   public List<LatLng> getSourceLatLng() {
- //       return sourceLatLngList;
- //   }
 }

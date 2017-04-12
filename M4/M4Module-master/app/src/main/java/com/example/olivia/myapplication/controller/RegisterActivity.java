@@ -1,6 +1,7 @@
 package com.example.olivia.myapplication.controller;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,7 @@ import java.util.HashMap;
  *
  */
 public class RegisterActivity extends AppCompatActivity {
-    private UserManager manager = new UserManager();
+    final private UserManager manager = new UserManager();
 
 
     @Override
@@ -84,7 +85,9 @@ public class RegisterActivity extends AppCompatActivity {
                 };
                 PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
                 //task.execute("http://192.168.2.5:81/android_connect/addUser.php");
-                task.execute("http://szhougatech.com/addUser.php");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                    task.execute("http://szhougatech.com/addUser.php");
+                }
             }
         });
 

@@ -1,8 +1,10 @@
 package com.example.olivia.myapplication.model;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.example.olivia.myapplication.controller.R;
@@ -21,7 +23,7 @@ import java.util.HashMap;
 
 public class RetrieveGraphData extends Activity {
     //Graphs using location as key and a list of graphs to store information
-    public static HashMap<String, ArrayList<Graph>> graphs = new HashMap<String, ArrayList<Graph>>();
+    final public static HashMap<String, ArrayList<Graph>> graphs = new HashMap<String, ArrayList<Graph>>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -97,6 +99,7 @@ public class RetrieveGraphData extends Activity {
      * and put those data into Android version of the String variable.
      */
     public void getData(String url){
+        @TargetApi(Build.VERSION_CODES.CUPCAKE)
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
             @Override

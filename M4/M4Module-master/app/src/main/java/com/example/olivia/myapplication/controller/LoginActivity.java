@@ -83,15 +83,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-  //          private boolean isPasswordValid(String password) {
 
-
-    //            String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
-        //        return password.matches(regexp);
-      //      }
-            /**
-             * Shows the progress UI and hides the login form.
-             */
-
-        }
+}
 

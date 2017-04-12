@@ -14,18 +14,18 @@ import java.util.Date;
  */
 
 public class Graph implements Serializable{
-        private String time;
-    private double vPPM;
+    final private String time;
+    final private double vPPM;
 
-        public Graph(String location,String time, double vPPM) {
-            this.time = time;
-            this.vPPM = vPPM;
-        }
+    public Graph(String location,String time, double vPPM) {
+        this.time = time;
+        this.vPPM = vPPM;
+    }
 
     /**
      * returns a year for a specific DateTime stamp
      * @return a float value of the year
-     * @throws ParseException
+     * @throws ParseException if it cannot parse time
      */
     public Float getYear() throws ParseException {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -43,14 +43,6 @@ public class Graph implements Serializable{
     public String getMonth() {
             return time;
         }
-
-    /**
-     * public method that returns the location of the graph
-     * @return returns the specific address for the report
-     */
-  //  public String getLocation() {
-    //        return location;
-      //  }
 
     /**
      * public method that returns a vPPM of the purity report

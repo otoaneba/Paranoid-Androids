@@ -24,7 +24,7 @@ import static com.example.olivia.myapplication.model.RetrievePurityReportData.re
  */
 public class ViewPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private List<Report> reportList = reports;
+    final private List<Report> reportList = reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
