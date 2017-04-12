@@ -1,4 +1,4 @@
-package com.example.olivia.myapplication.test;
+package com.example.olivia.myapplication;
 import com.example.olivia.myapplication.model.RetrieveUserData;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 
 public class IsExistedUserTest {
-    RetrieveUserData userData = new RetrieveUserData();
+    private final RetrieveUserData userData = new RetrieveUserData();
     @Test
     public void isExistUserTest() throws Exception {
         String check = "user";

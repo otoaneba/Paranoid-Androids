@@ -107,11 +107,8 @@
         <Button
             android:id="@+id/cancelButton"
             style="@android:style/Widget.Button"
-            android:layout_width="128dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_alignEnd="@+id/linearLayout2"
-            android:layout_alignRight="@+id/linearLayout2"
-            android:layout_alignTop="@+id/linearLayout2"
             android:layout_margin="@dimen/activity_vertical_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:text="@string/cancel"
@@ -122,11 +119,8 @@
             style="@android:style/Widget.Button"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etUserType"
             android:layout_margin="@dimen/activity_vertical_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:layout_toEndOf="@+id/etUserType"
-            android:layout_toRightOf="@+id/etUserType"
             android:text="@string/register"
             android:textAllCaps="false" />
 

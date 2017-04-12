@@ -65,18 +65,6 @@ public class PurityReport implements Parcelable {
             }
         };
 
-//    public String getWorkerName() {
-//        return workerName;
-//    }
-   // public int getVirusPPM() {
-   //     return virusPPM;
-   // }
-//    public int getReportNumber() {
-//        return reportNumber;
-//    }
-    public String getTime() {
-        return time;
-    }
 //    public String getDate() {
 //        return date;
 //    }

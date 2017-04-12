@@ -12,7 +12,7 @@ public class PickPurityReportsLocationActivityTest {
     public void getAddressFromLatLng() throws Exception {
 
            LatLng ln = new LatLng(-34, 151);
-            getAddressFromLatLng();
+           getAddressFromLatLng();
            // assertEquals("Sydney", PickPurityReportsLocationActivity.getAddressFromLatLng(ln));
 
     }

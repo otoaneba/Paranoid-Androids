@@ -13,13 +13,10 @@ public enum waterType {
     SPRING("Spring"),
     OTHER("Other");
 
-    private String waterType;
-
     /**
      *  returns the waterQuality of A REPORT
      * @param waterQuality an enum waterQuality that
      */
     waterType(String waterQuality) {
-        this.waterType = waterType;
     }
 }

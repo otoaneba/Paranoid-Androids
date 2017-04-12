@@ -1,7 +1,6 @@
 package com.example.olivia.myapplication.controller;
 
 import android.content.Intent;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +23,6 @@ import java.util.HashMap;
  *
  */
 public class RegisterActivity extends AppCompatActivity {
-    final private UserManager manager = new UserManager();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
 
-                if(etId.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty()
+                if (etId.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty()
                         || etPassword.getText().toString().isEmpty() ||
                         etEmail.getText().toString().isEmpty() ||
                         etAddress.getText().toString().isEmpty() || etSpinner.getSelectedItem().toString().isEmpty()) {
@@ -73,22 +70,21 @@ public class RegisterActivity extends AppCompatActivity {
                     postData.put("txtAddress", address);
                     postData.put("txtUserType", userType);
 
-                AsyncResponse asyncResponse = new AsyncResponse() {
-                    @Override
-                    public void processFinish(String output) {
-                        if(output.contains("success")) {
-                            Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent (getApplicationContext(), RetrieveUserData.class);
-                            startActivity(intent);
-                            finish();
-                        }else {
-                            Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                    AsyncResponse asyncResponse = new AsyncResponse() {
+                        @Override
+                        public void processFinish(String output) {
+                            if (output.contains("success")) {
+                                Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getApplicationContext(), RetrieveUserData.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                };
-                PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
-                //task.execute("http://192.168.2.5:81/android_connect/addUser.php");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                    };
+                    PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
+                    //task.execute("http://192.168.2.5:81/android_connect/addUser.php");
                     task.execute("http://szhougatech.com/addUser.php");
                 }
             }

@@ -17,7 +17,6 @@ public class User implements Serializable {
     final private String email;
     final private String address;
     final private String userType;
-    private static User currentUser;
 
     /**
      * constructor for the user that takes in 6 String parameters and creates a new User object
@@ -86,25 +85,8 @@ public class User implements Serializable {
     }
 
 
-    /**
-     * a method that checks if the password that the user typed matches the actual user password
-     * @param pass passes in the String pass that was typed in the textEdit field
-     * @return returns true if the password matched, false otherwise
-     */
-    public boolean checkPassword(String pass) {
-        return password.equals(pass);
-    }
-
     public String toString() {
         return name;
     }
-
-    public static void setCurrentUser(User u) {
-        currentUser = u;
-    }
-
-//    public static User getCurrentUser() {
-//        return currentUser;
-//    }
 
 }

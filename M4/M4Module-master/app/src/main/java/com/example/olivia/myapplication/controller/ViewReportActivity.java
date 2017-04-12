@@ -15,7 +15,7 @@ import static com.example.olivia.myapplication.model.RetrievePurityReportData.re
 
 /**
  * This is the page that shows a list of reports. You
- * Have the option to either create reports or show
+ * Have the option to either view report locations or show
  * details for individual reports.
  */
 public class ViewReportActivity extends AppCompatActivity {
@@ -63,11 +63,10 @@ public class ViewReportActivity extends AppCompatActivity {
                         intent.putExtra("contam",contaminantPPM);
                         intent.putExtra("user",user);
                         startActivity(intent);
-                        finish();
                     }
                 }
         );
-        //Create button goes to create report page
+        //Location button goes to create report page
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

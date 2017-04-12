@@ -78,7 +78,7 @@ public class ReportGraphActivity extends AppCompatActivity {
                         yearList[i] = result.get(i).getMonth();
                 }
                 Arrays.sort(yearList);
-                endDateText.setText(yearList[yearList.length - 1].toString());
+                endDateText.setText(yearList[yearList.length - 1]);
                 //Populates spinner for start date
                 ArrayAdapter<String> dateAdapter = new ArrayAdapter<>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearList);
                 dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

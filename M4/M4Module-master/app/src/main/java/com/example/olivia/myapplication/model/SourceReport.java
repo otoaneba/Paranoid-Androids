@@ -44,8 +44,9 @@ import java.io.Serializable;
         public String getLocation() {
             return location;
         }
-        public String getType() { return type;};
-        public int getReportNumber() {
+        public String getType() { return type;}
+
+    public int getReportNumber() {
             return Integer.parseInt(rptNum);
         }
         public String getCreator() {

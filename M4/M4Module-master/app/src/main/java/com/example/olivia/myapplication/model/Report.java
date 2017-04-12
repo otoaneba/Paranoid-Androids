@@ -3,9 +3,6 @@ package com.example.olivia.myapplication.model;
 import java.io.Serializable;
 import com.google.android.gms.maps.model.LatLng;
 
-
-import static com.example.olivia.myapplication.controller.R.id.condition;
-
 /**
  * Created by Shuopeng Zhou on 3/1/2017.
  * Create a new report contains time, reportNumber,location, virusPPM and combinationPPM

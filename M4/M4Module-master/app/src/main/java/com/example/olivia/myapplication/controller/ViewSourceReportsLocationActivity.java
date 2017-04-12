@@ -41,14 +41,13 @@ public class ViewSourceReportsLocationActivity extends FragmentActivity implemen
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
         // Add a marker in Sydney and move the camera
         LatLng LL = new LatLng(-34, 151);
         for (SourceReport report : reportList) {
             LL = report.getLatLng();
             // String ad = report.getLocation();
-            mMap.addMarker(new MarkerOptions().position(LL).title(report.showMap()));
+            googleMap.addMarker(new MarkerOptions().position(LL).title(report.showMap()));
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(LL));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(LL));
     }
 }

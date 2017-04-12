@@ -2,7 +2,6 @@ package com.example.olivia.myapplication.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -92,9 +91,8 @@ public class CreateReportActivity extends AppCompatActivity {
                 final String longitude = String.valueOf(reportLatLng1.longitude);
 
 
-
                 //Checks to see if there is a missing input
-                if (location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
+                if (location.isEmpty() || virusPPM.isEmpty() || contaminatePPM.isEmpty()) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                     myAlert.setMessage("Time,location,virusPPM and contaminationPPM required")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
@@ -105,7 +103,7 @@ public class CreateReportActivity extends AppCompatActivity {
                             })
                             .create();
                     myAlert.show();
-                }else if (etLocation.getText().toString().equals("Address")) {
+                } else if (etLocation.getText().toString().equals("Address")) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                     myAlert.setMessage("Click LOCATION button and set a location")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
@@ -116,8 +114,7 @@ public class CreateReportActivity extends AppCompatActivity {
                             })
                             .create();
                     myAlert.show();
-                }
-                else {
+                } else {
                     HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtLocation", location);
                     postData.put("txtCreator", user.getName());
@@ -126,8 +123,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     postData.put("txtContaminatePPM", contaminatePPM);
                     postData.put("txtLat", lat);
                     postData.put("txtLong", longitude);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-                    if (location.isEmpty() ||virusPPM.isEmpty() || contaminatePPM.isEmpty() ) {
+                    if (location.isEmpty() || virusPPM.isEmpty() || contaminatePPM.isEmpty()) {
                         AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                         myAlert.setMessage("Time,location,virusPPM and contaminationPPM required")
                                 .setPositiveButton("Back", new DialogInterface.OnClickListener() {
@@ -138,7 +134,7 @@ public class CreateReportActivity extends AppCompatActivity {
                                 })
                                 .create();
                         myAlert.show();
-                    }else if (etLocation.getText().toString().equals("Address")) {
+                    } else if (etLocation.getText().toString().equals("Address")) {
                         AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                         myAlert.setMessage("Click LOCATION button and set a location")
                                 .setPositiveButton("Back", new DialogInterface.OnClickListener() {
@@ -149,9 +145,7 @@ public class CreateReportActivity extends AppCompatActivity {
                                 })
                                 .create();
                         myAlert.show();
-                    }
-                    else {
-                        HashMap<String, String> postData = new HashMap<String, String>();
+                    } else {
                         postData.put("txtLocation", location);
                         postData.put("txtCreator", user.getName());
                         postData.put("txtQuality", condition);
@@ -163,11 +157,12 @@ public class CreateReportActivity extends AppCompatActivity {
                         AsyncResponse asyncResponse = new AsyncResponse() {
                             @Override
                             public void processFinish(String output) {
-                                if(output.contains("report")) {
+                                if (output.contains("report")) {
                                     Toast.makeText(CreateReportActivity.this, output, Toast.LENGTH_LONG).show();
                                 }
                             }
                         };
+
                         PostResponseAsyncTask task = new PostResponseAsyncTask(CreateReportActivity.this, postData, asyncResponse);
                         //task.execute("http://192.168.2.5:81/android_connect/createPurityReport.php");
                         task.execute("http://szhougatech.com/createPurityReport.php");
@@ -175,7 +170,6 @@ public class CreateReportActivity extends AppCompatActivity {
                         intent.putExtra("user", user);
                         startActivity(intent);
                         finish();
-
                     }
                 }
             }
@@ -203,12 +197,12 @@ public class CreateReportActivity extends AppCompatActivity {
         });
         existedLocation.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CreateReportActivity.this, ExistedLocationActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-                finish();
-            }
+            public void onClick(View v){
+                    Intent intent = new Intent(CreateReportActivity.this, ExistedLocationActivity.class);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
+                    finish();
+                }
         });
     }
 }

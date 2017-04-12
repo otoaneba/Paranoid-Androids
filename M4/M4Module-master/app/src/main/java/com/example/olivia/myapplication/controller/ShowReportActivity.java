@@ -11,8 +11,6 @@ import android.widget.TextView;
 //import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.User;
 
-import org.w3c.dom.Text;
-
 
 /**
  * This page shows the details for an individual report.

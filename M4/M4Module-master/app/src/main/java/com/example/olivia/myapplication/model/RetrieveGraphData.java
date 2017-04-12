@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 public class RetrieveGraphData extends Activity {
     //Graphs using location as key and a list of graphs to store information
-    final public static HashMap<String, ArrayList<Graph>> graphs = new HashMap<String, ArrayList<Graph>>();
+    final public static HashMap<String, ArrayList<Graph>> graphs = new HashMap<>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -41,7 +41,7 @@ public class RetrieveGraphData extends Activity {
         setContentView(R.layout.activity_history_graph_new);
         graphList = new ArrayList<>();
 
-        getData("http://szhougatech.com/getGraphData.php");
+        getData();
     }
     /* Getting the JSON object that has JSON array from web php,
      * create list of the report while retrieve data from the web.
@@ -74,7 +74,7 @@ public class RetrieveGraphData extends Activity {
                 graphList.add(graph);
 
                 double vPPM = c.getDouble(TAG_PPM);
-                _graph = new Graph(loc,time,vPPM);
+                _graph = new Graph(time,vPPM);
                 //Maintain a hash map with location as key, ArrayList of graphs as values
                 if (graphs.containsKey(loc)){
                     graphs.get(loc).add(_graph);
@@ -98,7 +98,7 @@ public class RetrieveGraphData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * and put those data into Android version of the String variable.
      */
-    private void getData(String url){
+    private void getData(){
         @TargetApi(Build.VERSION_CODES.CUPCAKE)
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
@@ -117,7 +117,7 @@ public class RetrieveGraphData extends Activity {
 
                     String json;
                     while((json = bufferedReader.readLine())!= null){
-                        sb.append(json+"\n");
+                        sb.append(json).append("\n");
                     }
 
                     return sb.toString().trim();
@@ -133,7 +133,7 @@ public class RetrieveGraphData extends Activity {
             }
         }
         GetDataJSON g = new GetDataJSON();
-        g.execute(url);
+        g.execute("http://szhougatech.com/getGraphData.php");
     }
 
 }

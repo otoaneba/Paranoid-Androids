@@ -11,7 +11,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.example.olivia.myapplication.model.SourceReport;
 import com.example.olivia.myapplication.model.User;
-import java.util.List;
 
 import static com.example.olivia.myapplication.model.RetrieveSourceReportData.reports;
 
@@ -21,8 +20,6 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
  * details for individual source report.
  */
 public class ViewSourceReportActivity extends AppCompatActivity {
-    private Button cancelButton;
-    private Button viewMap;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +28,13 @@ public class ViewSourceReportActivity extends AppCompatActivity {
         //Initializes buttons on page
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
-        cancelButton = (Button) findViewById(R.id.cancel_report_source);
-        viewMap = (Button) findViewById(R.id.view_source_report_map_button);
+        Button cancelButton = (Button) findViewById(R.id.cancel_report_source);
+        Button viewMap = (Button) findViewById(R.id.view_source_report_map_button);
 
         //The source reports need to be added to an array to be shown
-        final List<SourceReport> sourceReports = reports;
 
         //Sets up list of source reports
-        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sourceReports);
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.report_list_source);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(

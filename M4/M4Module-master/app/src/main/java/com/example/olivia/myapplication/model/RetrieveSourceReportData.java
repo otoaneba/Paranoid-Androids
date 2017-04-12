@@ -49,7 +49,7 @@ public class RetrieveSourceReportData extends Activity {
         setContentView(R.layout.view_report_layout);
         reportList = new ArrayList<>();
 
-        getData("http://szhougatech.com/getSourceReport.php");
+        getData();
         //getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
     }
     /* Getting the JSON object that has JSON array from web php,
@@ -110,7 +110,7 @@ public class RetrieveSourceReportData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * and put those data into Android version of the String variable.
      */
-    private void getData(String url){
+    private void getData(){
         @TargetApi(Build.VERSION_CODES.CUPCAKE)
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
@@ -129,7 +129,7 @@ public class RetrieveSourceReportData extends Activity {
 
                     String json;
                     while((json = bufferedReader.readLine())!= null){
-                        sb.append(json+"\n");
+                        sb.append(json).append("\n");
                     }
 
                     return sb.toString().trim();
@@ -147,7 +147,7 @@ public class RetrieveSourceReportData extends Activity {
             }
         }
         GetDataJSON g = new GetDataJSON();
-        g.execute(url);
+        g.execute("http://szhougatech.com/getSourceReport.php");
     }
 
 }

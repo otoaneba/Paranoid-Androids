@@ -48,8 +48,6 @@
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="61dp"
             android:layout_weight="1"
             android:text="@string/cancel" />

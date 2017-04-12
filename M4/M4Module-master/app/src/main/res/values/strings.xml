@@ -1,41 +1,20 @@
 <resources>
-    <string name="app_name">My Application</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+
     <string name="username">Username</string>
     <string name="close">Close</string>
-    <string name="water_app">Water App</string>
-    <string name="logout">logout</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
-    <string name="title_activity_register">Sign up</string>
     <string name="title_activity_report">ReportActivity</string>
     <string name="water_report">Water Purity Reports</string>
-    <string name="create_button">Create New Report</string>
-    <string name="title_activity_show_report">ShowReportActivity</string>
-    <string name="report_date">Date of Report</string>
-    <string name="textView">TextView</string>
     <string name="title_activity_create_report">createReport</string>
-    <string name="title_activity_maps">Map</string>
     <string name="title_activity_create_source_report">CreateSourceReport</string>
-    <string name="title_activity_view_source_report_activity">ViewSourceReportActivity</string>
     <string name="title_activity_view_purity_reports_location">Map</string>
-     <string name="title_activity_pick_source_report_location">Map</string>
+    <string name="title_activity_pick_source_report_location">Map</string>
     <string name="title_activity_view_source_reports_location">Map</string>
     <string name="water_source_reports">Water Source Reports</string>
     <string name="source_report_activity">Source Report Activity</string>
-    <string name="sourceReportActivity">SourceReportActivity</string>
-    <string name="title_activity_graph_information">GraphInformationActivity</string>
     <string name="title_activity_retrieve_graph_data">RetrieveGraphData</string>
     <string name="location">Location</string>
     <string name="cancel">Cancel</string>
