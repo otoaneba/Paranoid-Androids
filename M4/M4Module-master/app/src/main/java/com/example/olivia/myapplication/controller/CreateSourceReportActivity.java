@@ -47,6 +47,9 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             }
             Double latitude = extras.getDouble("latitude");
             Double longitude = extras.getDouble("longitude");
+            if (!isValidLatLong(latitude, longitude)) {
+                throw new Exception("These coordinates are not correct.");
+            }
             reportLatLng = new LatLng(latitude, longitude);
 
         } catch (Exception e) {
@@ -154,5 +157,11 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public boolean isValidLatLong(Double latitude, Double longitude) {
+        if (Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
+            return false;
+        }
+        return true;
     }
 }
