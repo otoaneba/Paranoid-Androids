@@ -20,6 +20,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -32,7 +35,22 @@ import java.util.HashMap;
 public class CreateReportActivity extends AppCompatActivity {
     private User user;
     public boolean isTimeValid(String time) {
-        return time.matches("(?:[0-1][1-9]|2[0-4]):[0-5]\\d");
+        Date date = null;
+        try {
+            String format = "MM/dd/yyyy";
+            SimpleDateFormat sdf = new SimpleDateFormat(format);
+            date = sdf.parse(time);
+            if (!time.equals(sdf.format(date))) {
+                date = null;
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        if (date == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,8 +14,8 @@ public class isTimeValidTest {
     @Test
     public void isUserIdValidTest() throws Exception {
         try {
-            String falseCheck = "30229978";
-            String trueCheck = "20170322";
+            String falseCheck = "30/22/9978";
+            String trueCheck = "03/22/2017";
             Assert.assertEquals(false, reportTest.isTimeValid((falseCheck)));
             Assert.assertEquals(true, reportTest.isTimeValid(trueCheck));
         } catch (Exception e){
