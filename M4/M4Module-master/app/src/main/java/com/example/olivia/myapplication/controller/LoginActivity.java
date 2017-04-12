@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                             for(int i = 0; i < users.size(); i++) {
                                 if (users.get(i).getId().equals(_username.getText().toString())) {
                                     currentUser = users.get(i);
-                                    User.setCurrentUser();
+                                    User.setCurrentUser(currentUser);
                                 }
                             }
                             Toast.makeText(LoginActivity.this, output, Toast.LENGTH_LONG).show();
@@ -83,6 +83,5 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
 }
 

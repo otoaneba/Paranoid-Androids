@@ -10,7 +10,7 @@ import org.junit.Test;
 public class IsPasswordValidTest {
     RegisterActivity ra = new RegisterActivity();
     @Test
-    public void isExistUserTest() throws Exception {
+    public void isPasswordValidTest() throws Exception {
         String falseCheck = "user";
         String trueCheck = "uU1asdfghjk1";
         Assert.assertEquals(false, ra.isPasswordValid(falseCheck));

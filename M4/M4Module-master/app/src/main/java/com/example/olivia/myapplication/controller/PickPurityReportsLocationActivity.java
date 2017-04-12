@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+//import java.util.ArrayList;
 
 /**
  * Map that lets user pick the location for the PURITY REPORTS
@@ -25,6 +26,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
     private User user;
     private GoogleMap mMap;
     final private MarkerOptions myMarker = new MarkerOptions();
+    //private ArrayList<LatLng> latLngList = new ArrayList<>(1000);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,5 +94,4 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
 
         return address;
     }
-
 }

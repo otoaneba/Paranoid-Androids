@@ -14,6 +14,8 @@ import com.example.olivia.myapplication.model.userType;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A register page that lets new users register for a new account with a username and a password
@@ -25,20 +27,52 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
 
     /**
-     //     * Written by Rayna
-     //     * Check if the password is valid: The password has to
-     //     * 1, length is from 8 to 14 characters
-     //     * 2, at least 1 digit
-     //     * 3, at least 1 Uppercase Letter
-     //     * 4, at least 1 Lowercase Letter
-     //     * @param password the password String that we wanna check
-     //     * @return boolean boolean value of if the password is valid
-     //     */
+     * Written by Rayna
+     * Check if the password is valid: The password has to
+     * 1, length is from 8 to 14 characters
+     * 2, at least 1 digit
+     * 3, at least 1 Uppercase Letter
+     * 4, at least 1 Lowercase Letter
+     * @param password the password String that we wanna check
+     * @return boolean boolean value of if the password is valid
+     */
     public boolean isPasswordValid(String password) {
         String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
-        return password.matches(regexp);
+        boolean match = Pattern.matches(regexp,password);
+        return match;
+    }
+    /**
+     * Written by John Lee
+     * Check if the password is valid: The password has to
+     * 1, at least 1 any number, lower letter, or uppercase letter before @
+     * 2, must contain @
+     * 3, at least 1 any number, lower letter, or uppercase letter before .(dot)
+     * 4, must contain . (dot)
+     * 5, after . (dot) length of the string should be from 2 to 4 characters
+     * @param email the email String that we wanna check
+     * @return boolean boolean value of if the email is valid
+     */
+    public boolean isEmailValid (String email) {
+        String regexp = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
+        boolean match = Pattern.matches(regexp, email);
+        return match;
     }
 
+    /**
+     * Written by Naoto Abe
+     * checks for validity for user ID. Conditions to meet are:
+     *  1: ID is 8-20 characters long
+     *  2: no _ or . at the beginning
+     *  3: no __ or _. or ._ or .. inside
+     *  4: allowed characters are [A-Za-z0-9]
+     *  5: no _ or . at the end
+     * @param id instance of user ID
+     * @return returns boolean value if the user name checks out
+     */
+    public boolean isUserIdValid(String id) {
+        String regexp = "^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$";
+        return id.matches(regexp);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,11 +108,22 @@ public class RegisterActivity extends AppCompatActivity {
                         || etPassword.getText().toString().isEmpty() ||
                         etEmail.getText().toString().isEmpty() ||
                         etAddress.getText().toString().isEmpty() ||
-                        etSpinner.getSelectedItem().toString().isEmpty()||
-                        isPasswordValid(etPassword.getText().toString())
-                        ) {
-                    Toast.makeText(RegisterActivity.this, "please enter all blanked fields and make sure your password meet the requirement", Toast.LENGTH_LONG).show();
-                } else {
+                        etSpinner.getSelectedItem().toString().isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Please enter all blanked fields."
+                            , Toast.LENGTH_LONG).show();
+                }
+                else if (!isEmailValid(email)) {
+                    Toast.makeText(RegisterActivity.this, "Make sure your email meet the requirement"
+                            , Toast.LENGTH_LONG).show();
+                }
+                else if (!isPasswordValid(password)) {
+                    Toast.makeText(RegisterActivity.this, "Make sure your password meet the requirement"
+                            , Toast.LENGTH_LONG).show();
+                } else if (!isUserIdValid(id)) {
+                    Toast.makeText(RegisterActivity.this, "Make sure your user ID meets the requirement"
+                            , Toast.LENGTH_LONG).show();
+                }
+                else {
                     HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtUsername", id);
                     postData.put("txtName", name);
