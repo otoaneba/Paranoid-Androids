@@ -9,7 +9,6 @@ package com.example.olivia.myapplication.model;
 public enum userType {
     /**
      *  returns the userType of this user
-     * @param userType an enum userType that
      */
 
     USER {

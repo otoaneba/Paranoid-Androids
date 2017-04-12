@@ -3,8 +3,10 @@ import com.example.olivia.myapplication.controller.RegisterActivity;
 import org.junit.Assert;
 import org.junit.Test;
 
+
 /**
- * Created by Rayna on 2017-04-11.
+ * @author Rayna
+ * Check password validation on registration page whether format is correct
  */
 
 public class IsPasswordValidTest {

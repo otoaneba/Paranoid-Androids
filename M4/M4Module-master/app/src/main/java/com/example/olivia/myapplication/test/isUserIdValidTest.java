@@ -13,7 +13,7 @@ import org.junit.Test;
 public class isUserIdValidTest {
     private final RegisterActivity registerTest = new RegisterActivity();
     @Test
-    public void isUserIdValidTest() throws Exception {
+    public void isUserIdValidTest1() throws Exception {
         try {
             String falseCheck = ".false";
             String trueCheck = "iIlahelIOOO9";
