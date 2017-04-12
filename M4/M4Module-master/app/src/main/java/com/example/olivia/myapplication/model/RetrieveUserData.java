@@ -51,7 +51,7 @@ public class RetrieveUserData extends Activity {
     /* Getting the JSON object that has JSON array from web php,
      * create list of the report while retrieve data from the web.
      */
-    protected void listUsers(){
+    private void listUsers(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             JSONArray people = jsonObj.getJSONArray(TAG_RESULTS);
@@ -73,7 +73,7 @@ public class RetrieveUserData extends Activity {
                 String email = c.getString(TAG_EMAIL);
                 String address = c.getString(TAG_ADD);
                 String userType = c.getString(TAG_TYPE);
-                HashMap<String,String> person = new HashMap<String,String>();
+                HashMap<String,String> person = new HashMap<>();
 
                 person.put(TAG_USERNAME,username);
                 person.put(TAG_NAME,name);
@@ -95,15 +95,12 @@ public class RetrieveUserData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * Android version of String variable.
      */
-    public void getData(String url){
+    protected void getData(String url){
         @TargetApi(Build.VERSION_CODES.CUPCAKE)
         class GetDataJSON extends AsyncTask<String, Void, String> {
-
             @Override
             protected String doInBackground(String... params) {
-
                 String uri = params[0];
-
                 BufferedReader bufferedReader;
                 try {
                     URL url = new URL(uri);
@@ -116,9 +113,7 @@ public class RetrieveUserData extends Activity {
                     while((json = bufferedReader.readLine())!= null){
                         sb.append(json+"\n");
                     }
-
                     return sb.toString().trim();
-
                 }catch(Exception e){
                     return null;
                 }
@@ -131,6 +126,16 @@ public class RetrieveUserData extends Activity {
         }
         GetDataJSON g = new GetDataJSON();
         g.execute(url);
+    }
+
+    public boolean isExistedUser(String userIdTest) {
+        for (int i = 0; i  < users.size(); i++) {
+                String userId = users.get(i).getId();
+                if (userId.matches(userIdTest)) {
+                    return true;
+                }
+            }
+            return false;
     }
 
 }

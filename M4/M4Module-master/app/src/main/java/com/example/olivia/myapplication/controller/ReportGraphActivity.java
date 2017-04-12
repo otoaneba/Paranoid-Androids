@@ -17,13 +17,12 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 
-
-import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
 
 /**
  * Created by Olivia on 3/16/2017.
@@ -81,7 +80,7 @@ public class ReportGraphActivity extends AppCompatActivity {
                 Arrays.sort(yearList);
                 endDateText.setText(yearList[yearList.length - 1].toString());
                 //Populates spinner for start date
-                ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearList);
+                ArrayAdapter<String> dateAdapter = new ArrayAdapter<>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearList);
                 dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 dateSpinner.setAdapter(dateAdapter);
                 entries.clear();

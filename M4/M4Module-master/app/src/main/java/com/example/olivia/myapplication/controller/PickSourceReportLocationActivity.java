@@ -23,7 +23,6 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
     private GoogleMap mMap;
     final private MarkerOptions mySourceMarker = new MarkerOptions();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +78,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
      * @param latLng a LatLng that a user picks to submit a PURITY REPORT
      * @return a string representation of address
      */
-    public String getAddressFromLatLng( LatLng latLng ) {
+    private String getAddressFromLatLng( LatLng latLng ) {
         Geocoder geocoder = new Geocoder(this);
 
         String address = "";

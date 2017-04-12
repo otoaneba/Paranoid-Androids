@@ -23,6 +23,7 @@ import java.util.HashMap;
 /**
  * Created by John on 2017-03-22.
  */
+
 public class RetrieveSourceReportData extends Activity {
     final public static ArrayList<SourceReport> reports = new ArrayList<>();
 
@@ -37,7 +38,6 @@ public class RetrieveSourceReportData extends Activity {
     private static final String TAG_LAT = "Latitude";
     private static final String TAG_LONG = "Longitude";
 
-
     private SourceReport _report;
     private ArrayList<HashMap<String, String>> reportList;
 
@@ -47,7 +47,7 @@ public class RetrieveSourceReportData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
-        reportList = new ArrayList<HashMap<String,String>>();
+        reportList = new ArrayList<>();
 
         getData("http://szhougatech.com/getSourceReport.php");
         //getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
@@ -55,7 +55,7 @@ public class RetrieveSourceReportData extends Activity {
     /* Getting the JSON object that has JSON array from web php,
      * create list of the report while retrieve data from the web.
      */
-    protected void listSourceReport(){
+    private void listSourceReport(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             JSONArray reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
@@ -83,7 +83,7 @@ public class RetrieveSourceReportData extends Activity {
 
 
 
-                HashMap<String,String> report = new HashMap<String,String>();
+                HashMap<String,String> report = new HashMap<>();
 
                 report.put(TAG_REPORT_NUMBER,rptNum);
                 report.put(TAG_TIME,time);
@@ -110,7 +110,7 @@ public class RetrieveSourceReportData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * and put those data into Android version of the String variable.
      */
-    public void getData(String url){
+    private void getData(String url){
         @TargetApi(Build.VERSION_CODES.CUPCAKE)
         class GetDataJSON extends AsyncTask<String, Void, String> {
 

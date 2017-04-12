@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                HashMap<String, String> postData= new HashMap<String, String>();
+                HashMap<String, String> postData= new HashMap<>();
                 postData.put("txtUsername", _username.getText().toString());
                 postData.put("txtPassword", _password.getText().toString());
 

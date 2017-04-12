@@ -1,6 +1,7 @@
 package com.example.olivia.myapplication.model;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,7 +29,7 @@ public class Graph implements Serializable{
      * @throws ParseException if it cannot parse time
      */
     public Float getYear() throws ParseException {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat sdf = (SimpleDateFormat) DateFormat.getDateInstance();
             Date date = sdf.parse(time);
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);

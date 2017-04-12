@@ -36,7 +36,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         setContentView(R.layout.content_create_source_report);
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         String address = "Address";
-        LatLng reportLatLng = new LatLng(-33.852, 151.211);;
+        LatLng reportLatLng = new LatLng(-33.852, 151.211);
         try {
             Bundle extras = getIntent().getExtras();
 
@@ -50,20 +50,20 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             reportLatLng = new LatLng(latitude, longitude);
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
-        final String address1 = address;
+        final String location = address;
         final LatLng reportLatLng1 = reportLatLng;
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner_source);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, WaterCondition.values());
+        final ArrayAdapter<WaterCondition> adapter2 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, WaterCondition.values());
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
 
         //Initializes water type spinner
         final Spinner etSpinner2 = (Spinner) findViewById(R.id.etTypeSpinner_source);
-        final ArrayAdapter<String> adapter3 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterType.values());
+        final ArrayAdapter<waterType> adapter3 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, waterType.values());
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner2.setAdapter(adapter3);
 
@@ -76,7 +76,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Gets information from text boxes
-                final String location = address1;
+                //final String location = address1;
                 final String condition = etSpinner.getSelectedItem().toString();
                 final String type = etSpinner2.getSelectedItem().toString();
                 final String lat = String.valueOf(reportLatLng1.latitude);
@@ -107,7 +107,7 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                     myAlert.show();
                 }
                 else {
-                    HashMap<String, String> postData= new HashMap<String, String>();
+                    HashMap<String, String> postData= new HashMap<>();
                     postData.put("txtLocation", location);
                     postData.put("txtCreator", user.getName());
                     postData.put("txtCondition", condition);
