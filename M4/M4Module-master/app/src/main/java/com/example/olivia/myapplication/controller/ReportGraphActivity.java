@@ -17,13 +17,12 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 
-
-import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
 
 /**
  * Created by Olivia on 3/16/2017.
