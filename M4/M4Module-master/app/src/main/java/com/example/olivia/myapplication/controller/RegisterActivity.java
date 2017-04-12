@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.olivia.myapplication.model.RetrieveUserData;
-import com.example.olivia.myapplication.model.UserManager;
 import com.example.olivia.myapplication.model.userType;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
@@ -24,8 +23,6 @@ import java.util.HashMap;
  *
  */
 public class RegisterActivity extends AppCompatActivity {
-    final private UserManager manager = new UserManager();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,32 +56,38 @@ public class RegisterActivity extends AppCompatActivity {
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
 
-                HashMap<String, String> postData = new HashMap<>();
-                postData.put("txtUsername", id);
-                postData.put("txtName", name);
-                postData.put("txtEmailAddress", email);
-                postData.put("txtPassword", password);
-                postData.put("txtAddress", address);
-                postData.put("txtUserType", userType);
-                manager.addUser(id, name, password, email, address, userType);
+                if(etId.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty()
+                        || etPassword.getText().toString().isEmpty() ||
+                        etEmail.getText().toString().isEmpty() ||
+                        etAddress.getText().toString().isEmpty() || etSpinner.getSelectedItem().toString().isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "please enter all blanked fields", Toast.LENGTH_LONG).show();
+                } else {
+                    HashMap<String, String> postData = new HashMap<>();
+                    postData.put("txtUsername", id);
+                    postData.put("txtName", name);
+                    postData.put("txtEmailAddress", email);
+                    postData.put("txtPassword", password);
+                    postData.put("txtAddress", address);
+                    postData.put("txtUserType", userType);
 
-
-                AsyncResponse asyncResponse = new AsyncResponse() {
-                    @Override
-                    public void processFinish(String output) {
-                        if(output.contains("success")) {
-                            Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent (getApplicationContext(), RetrieveUserData.class);
-                            startActivity(intent);
-                            finish();
-                        }else {
-                            Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                    AsyncResponse asyncResponse = new AsyncResponse() {
+                        @Override
+                        public void processFinish(String output) {
+                            if (output.contains("success")) {
+                                Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getApplicationContext(), RetrieveUserData.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, output, Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                };
-                PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
-                //task.execute("http://192.168.2.5:81/android_connect/addUser.php");
-                task.execute("http://szhougatech.com/addUser.php");
+                    };
+
+                    PostResponseAsyncTask task = new PostResponseAsyncTask(RegisterActivity.this, postData, asyncResponse);
+                    //task.execute("http://192.168.2.5:81/android_connect/addUser.php");
+                    task.execute("http://szhougatech.com/addUser.php");
+                }
             }
         });
 

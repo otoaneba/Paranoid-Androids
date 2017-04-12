@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText homeAddress;
     private EditText password;
     private static User user;
-  //  private UserManager manager = new UserManager();
+
 
 
     @Override
