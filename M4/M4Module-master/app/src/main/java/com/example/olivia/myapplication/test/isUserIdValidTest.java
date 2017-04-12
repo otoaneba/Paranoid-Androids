@@ -13,11 +13,15 @@ import org.junit.Test;
 public class isUserIdValidTest {
     RegisterActivity registerTest = new RegisterActivity();
     @Test
-    public void isPasswordValidTest() throws Exception {
-        String falseCheck = ".false";
-        String trueCheck = "iIlahelIOOO9";
-        Assert.assertEquals(false, registerTest.isPasswordValid(falseCheck));
-        Assert.assertEquals(true, registerTest.isPasswordValid(trueCheck));
+    public void isUserIdValidTest() throws Exception {
+        try {
+            String falseCheck = ".false";
+            String trueCheck = "iIlahelIOOO9";
+            Assert.assertEquals(false, registerTest.isUserIdValid((falseCheck)));
+            Assert.assertEquals(true, registerTest.isUserIdValid(trueCheck));
+        } catch (Exception e){
+            e.printStackTrace();
+            Assert.fail("not supposed to get this exception!");
+        }
     }
-
 }
