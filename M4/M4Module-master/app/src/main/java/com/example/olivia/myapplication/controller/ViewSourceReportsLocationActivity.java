@@ -17,7 +17,7 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
 
 public class ViewSourceReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private List<SourceReport> reportList = reports;
+    final private List<SourceReport> reportList = reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

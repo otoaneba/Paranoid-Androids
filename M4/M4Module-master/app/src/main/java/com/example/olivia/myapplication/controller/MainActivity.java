@@ -24,8 +24,6 @@ import com.example.olivia.myapplication.model.User;
 public class MainActivity extends AppCompatActivity {
 
     private User user;
-    Button _submit, _view, _purityLevel, _viewHistory,
-            _trend, _security, _signOut, _profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +41,14 @@ public class MainActivity extends AppCompatActivity {
         TextView _userInfo = (TextView) findViewById(R.id._userInfo);
         _userInfo.setText("Hello, " + user.getName() + "(" + user.getUserType() + ")");
 
-        _submit = (Button) findViewById(R.id._submit);
-        _view = (Button) findViewById(R.id._view);
-        _purityLevel = (Button) findViewById(R.id._purityLevel);
-        _viewHistory = (Button) findViewById(R.id._viewHistory);
-        _trend = (Button) findViewById(R.id._trend);
-        _security = (Button) findViewById(R.id._security);
-        _profile = (Button) findViewById(R.id._profile);
-        _signOut = (Button) findViewById(R.id._signOut);
+        Button _submit = (Button) findViewById(R.id._submit);
+        Button _view = (Button) findViewById(R.id._view);
+        Button _purityLevel = (Button) findViewById(R.id._purityLevel);
+        Button _viewHistory = (Button) findViewById(R.id._viewHistory);
+        Button _trend = (Button) findViewById(R.id._trend);
+        Button _security = (Button) findViewById(R.id._security);
+        Button _profile = (Button) findViewById(R.id._profile);
+        Button _signOut = (Button) findViewById(R.id._signOut);
 
         /*if the user logs in, screen displays following functionality:
             - Submit a report on water availability

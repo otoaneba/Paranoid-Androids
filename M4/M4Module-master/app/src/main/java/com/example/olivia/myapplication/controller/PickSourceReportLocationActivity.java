@@ -15,14 +15,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class PickSourceReportLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     private User user;
     private GoogleMap mMap;
-    private MarkerOptions mySourceMarker = new MarkerOptions();
-    private ArrayList<LatLng> sourceLatLngList = new ArrayList<>(1000);
+    final private MarkerOptions mySourceMarker = new MarkerOptions();
+    //private ArrayList<LatLng> sourceLatLngList = new ArrayList<>(1000);
 
 
     @Override
@@ -68,7 +68,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
         intent.putExtra("user",user);
-        sourceLatLngList.add(Position);
+        //sourceLatLngList.add(Position);
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
         startActivity(intent);
@@ -80,7 +80,7 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
      * @param latLng a LatLng that a user picks to submit a PURITY REPORT
      * @return a string representation of address
      */
-    public String getAddressFromLatLng( LatLng latLng ) {
+    private String getAddressFromLatLng( LatLng latLng ) {
         Geocoder geocoder = new Geocoder(this);
 
         String address = "";

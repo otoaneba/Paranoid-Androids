@@ -1,4 +1,5 @@
+#ignore gen folder
+/gen
+
+#ignore .idea folder
 .idea/
-*.iml
-.gradle/
-build/

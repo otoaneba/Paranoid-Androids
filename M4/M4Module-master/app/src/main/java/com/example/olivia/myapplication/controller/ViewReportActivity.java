@@ -9,10 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
 import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.User;
-
 import static com.example.olivia.myapplication.model.RetrievePurityReportData.reports;
 
 /**
@@ -37,7 +35,7 @@ public class ViewReportActivity extends AppCompatActivity {
         //final List<Report> reports = manager.getList();
 
         //Sets up list of reports
-        ListAdapter adapter = new ArrayAdapter<Report>(this, android.R.layout.simple_list_item_1, reports);
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.report_list);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(

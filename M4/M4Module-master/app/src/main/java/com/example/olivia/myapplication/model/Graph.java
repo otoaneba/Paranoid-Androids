@@ -1,6 +1,7 @@
 package com.example.olivia.myapplication.model;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,14 +15,13 @@ import java.util.Date;
  */
 
 public class Graph implements Serializable{
-        private String time;
-    private double vPPM;
+    final private String time;
+    final private double vPPM;
 
-        public Graph(String location,String time, double vPPM) {
-            this.time = time;
-            String location1 = location;
-            this.vPPM = vPPM;
-        }
+    public Graph(String location, String time, double vPPM) {
+        this.time = time;
+        this.vPPM = vPPM;
+    }
 
     /**
      * returns a year for a specific DateTime stamp
@@ -29,7 +29,7 @@ public class Graph implements Serializable{
      * @throws ParseException
      */
     public Float getYear() throws ParseException {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat sdf = (SimpleDateFormat) DateFormat.getDateInstance();
             Date date = sdf.parse(time);
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);

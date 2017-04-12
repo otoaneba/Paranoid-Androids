@@ -27,7 +27,7 @@ import java.util.HashMap;
  */
 
 public class RetrieveSourceReportData extends Activity {
-    public static ArrayList<SourceReport> reports = new ArrayList<SourceReport>();
+    final public static ArrayList<SourceReport> reports = new ArrayList<>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -40,7 +40,6 @@ public class RetrieveSourceReportData extends Activity {
     private static final String TAG_LAT = "Latitude";
     private static final String TAG_LONG = "Longitude";
 
-
     private SourceReport _report;
     private ArrayList<HashMap<String, String>> reportList;
 
@@ -50,7 +49,7 @@ public class RetrieveSourceReportData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
-        reportList = new ArrayList<HashMap<String,String>>();
+        reportList = new ArrayList<>();
 
         getData("http://szhougatech.com/getSourceReport.php");
         //getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
@@ -58,7 +57,7 @@ public class RetrieveSourceReportData extends Activity {
     /* Getting the JSON object that has JSON array from web php,
      * create list of the report while retrieve data from the web.
      */
-    protected void listSourceReport(){
+    private void listSourceReport(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             JSONArray reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
@@ -86,7 +85,7 @@ public class RetrieveSourceReportData extends Activity {
 
 
 
-                HashMap<String,String> report = new HashMap<String,String>();
+                HashMap<String,String> report = new HashMap<>();
 
                 report.put(TAG_REPORT_NUMBER,rptNum);
                 report.put(TAG_TIME,time);
@@ -113,7 +112,7 @@ public class RetrieveSourceReportData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * and put those data into Android version of the String variable.
      */
-    public void getData(String url){
+    private void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
             @Override
@@ -121,7 +120,7 @@ public class RetrieveSourceReportData extends Activity {
 
                 String uri = params[0];
 
-                BufferedReader bufferedReader = null;
+                BufferedReader bufferedReader;
                 try {
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -129,7 +128,7 @@ public class RetrieveSourceReportData extends Activity {
 
                     bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-                    String json = null;
+                    String json;
                     while((json = bufferedReader.readLine())!= null){
                         sb.append(json+"\n");
                     }

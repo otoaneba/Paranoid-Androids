@@ -8,13 +8,13 @@ import android.os.Parcelable;
  */
 
 public class PurityReport implements Parcelable {
-    private String date;
-    private String time;
-    private int reportNumber;
-    private String workerName;
-    private String location;
-    private String condition;
-    private int virusPPM;
+    final private String date;
+    final private String time;
+    final private int reportNumber;
+    final private String workerName;
+    final private String location;
+    final private String condition;
+    final private int virusPPM;
     //private String contamination;
 
 
@@ -65,18 +65,20 @@ public class PurityReport implements Parcelable {
             }
         };
 
-//    public String getWorkerName() {
-//        return workerName;
+// --Commented out by Inspection START (4/11/17, 10:31 PM):
+////    public String getWorkerName() {
+////        return workerName;
+////    }
+//   // public int getVirusPPM() {
+//   //     return virusPPM;
+//   // }
+////    public int getReportNumber() {
+////        return reportNumber;
+////    }
+//    public String getTime() {
+//        return time;
 //    }
-   // public int getVirusPPM() {
-   //     return virusPPM;
-   // }
-//    public int getReportNumber() {
-//        return reportNumber;
-//    }
-    public String getTime() {
-        return time;
-    }
+// --Commented out by Inspection STOP (4/11/17, 10:31 PM)
 //    public String getDate() {
 //        return date;
 //    }

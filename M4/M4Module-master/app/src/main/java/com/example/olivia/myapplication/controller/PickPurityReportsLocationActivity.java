@@ -16,7 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 /**
  * Map that lets user pick the location for the PURITY REPORTS
@@ -25,8 +25,8 @@ import java.util.ArrayList;
 public class PickPurityReportsLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
     private User user;
     private GoogleMap mMap;
-    private MarkerOptions myMarker = new MarkerOptions();
-    private ArrayList<LatLng> latLngList = new ArrayList<>(1000);
+    final private MarkerOptions myMarker = new MarkerOptions();
+    //private ArrayList<LatLng> latLngList = new ArrayList<>(1000);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
         intent.putExtra("address", address);
         intent.putExtra("Position", Position);
         intent.putExtra("user",user);
-        latLngList.add(Position);
+        //latLngList.add(Position);
         intent.putExtra("latitude", Position.latitude);
         intent.putExtra("longitude", Position.longitude);
         startActivity(intent);
@@ -79,7 +79,7 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
      * @param latLng a LatLng that a user picks to submit a PURITY REPORT
      * @return a string representation of address
      */
-    public String getAddressFromLatLng( LatLng latLng ) {
+    private String getAddressFromLatLng( LatLng latLng ) {
         Geocoder geocoder = new Geocoder(this);
 
         String address = "";
