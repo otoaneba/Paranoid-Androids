@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
      * @param id instance of user ID
      * @return returns boolean value if the user name checks out
      */
-    private boolean isUserIdValid(String id) {
+    public boolean isUserIdValid(String id) {
         String regexp = "^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$";
         return id.matches(regexp);
     }

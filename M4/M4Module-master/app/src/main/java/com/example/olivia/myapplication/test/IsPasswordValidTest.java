@@ -1,4 +1,4 @@
-package com.example.olivia.myapplication;
+package com.example.olivia.myapplication.test;
 import com.example.olivia.myapplication.controller.RegisterActivity;
 import org.junit.Assert;
 import org.junit.Test;
