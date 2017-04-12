@@ -94,7 +94,7 @@ public class RetrieveUserData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * Android version of String variable.
      */
-    protected void getData(String url){
+    private void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
             @Override
             protected String doInBackground(String... params) {
@@ -125,16 +125,5 @@ public class RetrieveUserData extends Activity {
         GetDataJSON g = new GetDataJSON();
         g.execute(url);
     }
-
-    public boolean isExistedUser(String userIdTest) {
-        for (int i = 0; i  < users.size(); i++) {
-                String userId = users.get(i).getId();
-                if (userId.matches(userIdTest)) {
-                    return true;
-                }
-            }
-            return false;
-    }
-
 }
 
