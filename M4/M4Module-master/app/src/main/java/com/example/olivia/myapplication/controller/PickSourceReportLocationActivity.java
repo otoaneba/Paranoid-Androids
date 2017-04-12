@@ -95,13 +95,4 @@ public class PickSourceReportLocationActivity extends FragmentActivity implement
 
         return address;
     }
-
-    /**
-     * public getter method for LatLng list
-     * @return this LatLng list
-     */
-
- //   public List<LatLng> getSourceLatLng() {
- //       return sourceLatLngList;
- //   }
 }

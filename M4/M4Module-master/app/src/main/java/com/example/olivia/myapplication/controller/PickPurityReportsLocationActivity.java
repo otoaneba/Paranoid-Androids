@@ -94,13 +94,4 @@ public class PickPurityReportsLocationActivity extends FragmentActivity implemen
 
         return address;
     }
-
-    /**
-     * public getter method for LatLng list
-     * @return this LatLng list
-     */
-
- //   public List<LatLng> getLatLng() {
- //       return latLngList;
- //   }
 }
