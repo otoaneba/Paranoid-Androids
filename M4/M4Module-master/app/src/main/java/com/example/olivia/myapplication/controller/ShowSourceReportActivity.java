@@ -9,6 +9,12 @@ import android.widget.TextView;
 
 import com.example.olivia.myapplication.model.User;
 
+/*Shuopeng Zhou
+/*This activity is intend to show source report when you click the option, it provides functionality of passing data between
+/*two activities
+ */
+
+
 public class ShowSourceReportActivity extends AppCompatActivity {
     private User user;
  //   private SourceReport selectedSourceReport;

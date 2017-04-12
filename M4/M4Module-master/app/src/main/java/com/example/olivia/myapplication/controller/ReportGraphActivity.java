@@ -26,6 +26,7 @@ import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
 
 /**
  * Created by Olivia on 3/16/2017.
+ * Modified and add database on 03/22/2017 by Shuopeng Zhou
  * Allows the Manager to pick a location and a range of months and generates a plot
  * The manager can use the back button to go back to the main screen.
  */

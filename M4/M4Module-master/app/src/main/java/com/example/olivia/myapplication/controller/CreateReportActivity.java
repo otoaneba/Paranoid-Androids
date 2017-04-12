@@ -31,6 +31,12 @@ import java.util.HashMap;
  */
 public class CreateReportActivity extends AppCompatActivity {
     private User user;
+    public boolean isTimeValid(String time) {
+        if(! time.matches("(?:[0-1][1-9]|2[0-4]):[0-5]\\d")){
+            return false;
+        }
+        return true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
