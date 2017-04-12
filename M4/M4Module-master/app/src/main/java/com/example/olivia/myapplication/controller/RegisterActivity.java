@@ -25,20 +25,34 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
 
     /**
-     //     * Written by Rayna
-     //     * Check if the password is valid: The password has to
-     //     * 1, length is from 8 to 14 characters
-     //     * 2, at least 1 digit
-     //     * 3, at least 1 Uppercase Letter
-     //     * 4, at least 1 Lowercase Letter
-     //     * @param password the password String that we wanna check
-     //     * @return boolean boolean value of if the password is valid
-     //     */
+     * Written by Rayna
+     * Check if the password is valid: The password has to
+     * 1, length is from 8 to 14 characters
+     * 2, at least 1 digit
+     * 3, at least 1 Uppercase Letter
+     * 4, at least 1 Lowercase Letter
+     * @param password the password String that we wanna check
+     * @return boolean boolean value of if the password is valid
+     */
     public boolean isPasswordValid(String password) {
         String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
         return password.matches(regexp);
     }
-
+    /**
+     * Written by John Lee
+     * Check if the password is valid: The password has to
+     * 1, at least 1 any number, lower letter, or uppercase letter before @
+     * 2, must contain @
+     * 3, at least 1 any number, lower letter, or uppercase letter before .(dot)
+     * 4, must contain . (dot)
+     * 5, after . (dot) length of the string should be from 2 to 4 characters
+     * @param email the email String that we wanna check
+     * @return boolean boolean value of if the email is valid
+     */
+    public boolean isEmailValid (String email) {
+        String regexp = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
+        return email.matches(regexp);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,15 +84,23 @@ public class RegisterActivity extends AppCompatActivity {
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
 
-                if(etId.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty()
+                if (etId.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty()
                         || etPassword.getText().toString().isEmpty() ||
                         etEmail.getText().toString().isEmpty() ||
                         etAddress.getText().toString().isEmpty() ||
-                        etSpinner.getSelectedItem().toString().isEmpty()||
-                        isPasswordValid(etPassword.getText().toString())
-                        ) {
-                    Toast.makeText(RegisterActivity.this, "please enter all blanked fields and make sure your password meet the requirement", Toast.LENGTH_LONG).show();
-                } else {
+                        etSpinner.getSelectedItem().toString().isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Please enter all blanked fields."
+                            , Toast.LENGTH_LONG).show();
+                }
+                else if (isEmailValid(email)) {
+                    Toast.makeText(RegisterActivity.this, "Make sure your email meet the requirement"
+                            , Toast.LENGTH_LONG).show();
+                }
+                else if (isPasswordValid(password)) {
+                    Toast.makeText(RegisterActivity.this, "Make sure your password meet the requirement"
+                            , Toast.LENGTH_LONG).show();
+                }
+                else {
                     HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtUsername", id);
                     postData.put("txtName", name);
