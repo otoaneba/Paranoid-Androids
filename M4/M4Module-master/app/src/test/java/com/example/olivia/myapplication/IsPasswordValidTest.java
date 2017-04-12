@@ -1,4 +1,4 @@
-package com.example.olivia.myapplication.test;
+package com.example.olivia.myapplication;
 import com.example.olivia.myapplication.controller.RegisterActivity;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 
 public class IsPasswordValidTest {
-    RegisterActivity ra = new RegisterActivity();
+    private final RegisterActivity ra = new RegisterActivity();
     @Test
     public void isPasswordValidTest() throws Exception {
         String falseCheck = "user";

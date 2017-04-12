@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import com.example.olivia.myapplication.controller.R;
 import com.example.olivia.myapplication.controller.WelcomeActivity;
 
 import org.json.JSONArray;
@@ -39,10 +38,9 @@ public class RetrieveUserData extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrieve_data);
         userList = new ArrayList<>();
         //getData("http://107.180.46.167/public_html/www/getUsers.php");
-        getData("http://szhougatech.com/getUsers.php");
+        getData();
 
         //getData("http://192.168.2.5:81/android_connect/getUsers.php");
     }
@@ -94,7 +92,7 @@ public class RetrieveUserData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * Android version of String variable.
      */
-    private void getData(String url){
+    private void getData(){
         class GetDataJSON extends AsyncTask<String, Void, String> {
             @Override
             protected String doInBackground(String... params) {
@@ -109,7 +107,7 @@ public class RetrieveUserData extends Activity {
 
                     String json;
                     while((json = bufferedReader.readLine())!= null){
-                        sb.append(json+"\n");
+                        sb.append(json).append("\n");
                     }
                     return sb.toString().trim();
                 }catch(Exception e){
@@ -123,7 +121,7 @@ public class RetrieveUserData extends Activity {
             }
         }
         GetDataJSON g = new GetDataJSON();
-        g.execute(url);
+        g.execute("http://szhougatech.com/getUsers.php");
     }
 }
 

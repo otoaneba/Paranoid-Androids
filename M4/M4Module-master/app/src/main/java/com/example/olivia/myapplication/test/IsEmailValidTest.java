@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 
 public class IsEmailValidTest {
-    RegisterActivity test = new RegisterActivity();
+    private final RegisterActivity test = new RegisterActivity();
     @Test
     public void isEmailValidFalseTest() throws Exception {
         String falseCheck = "hello";

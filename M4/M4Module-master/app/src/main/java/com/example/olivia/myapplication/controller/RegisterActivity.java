@@ -14,7 +14,6 @@ import com.example.olivia.myapplication.model.userType;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 import java.util.HashMap;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -38,8 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
      */
     public boolean isPasswordValid(String password) {
         String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
-        boolean match = Pattern.matches(regexp,password);
-        return match;
+        return Pattern.matches(regexp,password);
     }
     /**
      * Written by John Lee
@@ -54,8 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
      */
     public boolean isEmailValid (String email) {
         String regexp = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
-        boolean match = Pattern.matches(regexp, email);
-        return match;
+        return Pattern.matches(regexp, email);
     }
 
     /**
@@ -69,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
      * @param id instance of user ID
      * @return returns boolean value if the user name checks out
      */
-    public boolean isUserIdValid(String id) {
+    private boolean isUserIdValid(String id) {
         String regexp = "^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$";
         return id.matches(regexp);
     }

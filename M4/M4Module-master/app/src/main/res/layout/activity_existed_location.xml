@@ -32,7 +32,6 @@
         android:text="@string/location" />
 
     <Button
-        android:id="@+id/cancel_existed_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

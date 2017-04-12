@@ -11,7 +11,7 @@ import org.junit.Test;
  */
 
 public class isUserIdValidTest {
-    RegisterActivity registerTest = new RegisterActivity();
+    private final RegisterActivity registerTest = new RegisterActivity();
     @Test
     public void isPasswordValidTest() throws Exception {
         String falseCheck = ".false";
