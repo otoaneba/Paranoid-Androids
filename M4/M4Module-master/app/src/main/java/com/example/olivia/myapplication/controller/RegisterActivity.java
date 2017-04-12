@@ -14,6 +14,8 @@ import com.example.olivia.myapplication.model.userType;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A register page that lets new users register for a new account with a username and a password
@@ -36,7 +38,8 @@ public class RegisterActivity extends AppCompatActivity {
      */
     public boolean isPasswordValid(String password) {
         String regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,14}$";
-        return password.matches(regexp);
+        boolean match = Pattern.matches(regexp,password);
+        return match;
     }
     /**
      * Written by John Lee
@@ -51,7 +54,8 @@ public class RegisterActivity extends AppCompatActivity {
      */
     public boolean isEmailValid (String email) {
         String regexp = "^[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,4}$";
-        return email.matches(regexp);
+        boolean match = Pattern.matches(regexp, email);
+        return match;
     }
 
     /**
@@ -108,14 +112,14 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Please enter all blanked fields."
                             , Toast.LENGTH_LONG).show();
                 }
-                else if (isEmailValid(email)) {
+                else if (!isEmailValid(email)) {
                     Toast.makeText(RegisterActivity.this, "Make sure your email meet the requirement"
                             , Toast.LENGTH_LONG).show();
                 }
-                else if (isPasswordValid(password)) {
+                else if (!isPasswordValid(password)) {
                     Toast.makeText(RegisterActivity.this, "Make sure your password meet the requirement"
                             , Toast.LENGTH_LONG).show();
-                } else if (isUserIdValid(id)) {
+                } else if (!isUserIdValid(id)) {
                     Toast.makeText(RegisterActivity.this, "Make sure your user ID meets the requirement"
                             , Toast.LENGTH_LONG).show();
                 }
