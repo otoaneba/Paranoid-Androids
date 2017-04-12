@@ -21,8 +21,6 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
  * details for individual source report.
  */
 public class ViewSourceReportActivity extends AppCompatActivity {
-    private Button cancelButton;
-    private Button viewMap;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +29,8 @@ public class ViewSourceReportActivity extends AppCompatActivity {
         //Initializes buttons on page
 
         user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
-        cancelButton = (Button) findViewById(R.id.cancel_report_source);
-        viewMap = (Button) findViewById(R.id.view_source_report_map_button);
+        Button cancelButton = (Button) findViewById(R.id.cancel_report_source);
+        Button viewMap = (Button) findViewById(R.id.view_source_report_map_button);
 
         //The source reports need to be added to an array to be shown
         final List<SourceReport> sourceReports = reports;
