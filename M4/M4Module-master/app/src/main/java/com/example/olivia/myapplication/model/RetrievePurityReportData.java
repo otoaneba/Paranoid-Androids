@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RetrievePurityReportData extends Activity {
-    public static ArrayList <Report> reports = new ArrayList<Report>();
+    final public static ArrayList <Report> reports = new ArrayList<>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -48,14 +48,14 @@ public class RetrievePurityReportData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
-        reportList = new ArrayList<HashMap<String,String>>();
+        reportList = new ArrayList<>();
         getData("http://szhougatech.com/getPurityReport.php");
         //getData("http://192.168.2.5:81/android_connect/getPurityReport.php");
     }
     /* Getting the JSON object that has JSON array from web php,
      * create list of the report while retrieve data from the web.
      */
-    protected void listPurityReport(){
+    private void listPurityReport(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             JSONArray reportInfo = jsonObj.getJSONArray(TAG_RESULTS);
@@ -82,7 +82,7 @@ public class RetrievePurityReportData extends Activity {
                 String lat = c.getString(TAG_LAT);
                 String longitude = c.getString(TAG_LONG);
 
-                HashMap<String,String> report = new HashMap<String,String>();
+                HashMap<String,String> report = new HashMap<>();
 
                 report.put(TAG_REPORT_NUMBER,rptNum);
                 report.put(TAG_TIME,time);
@@ -112,7 +112,7 @@ public class RetrievePurityReportData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * and put those data into Android version of the String variable.
      */
-    public void getData(String url){
+    private void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
             @Override

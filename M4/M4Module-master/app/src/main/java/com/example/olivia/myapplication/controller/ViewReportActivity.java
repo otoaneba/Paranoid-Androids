@@ -35,7 +35,7 @@ public class ViewReportActivity extends AppCompatActivity {
         //final List<Report> reports = manager.getList();
 
         //Sets up list of reports
-        ListAdapter adapter = new ArrayAdapter<Report>(this, android.R.layout.simple_list_item_1, reports);
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reports);
         final ListView reportList = (ListView) findViewById(R.id.report_list);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(

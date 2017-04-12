@@ -6,17 +6,18 @@ import java.io.Serializable;
  * Created by Olivia and Naoto on 2/12/2017.
  *
  * Super class of all users. This class takes in an id, name, password, email, address, and
- * the userType (user,Worker,Manager,Admin) when registered. Has the appropriate getters and
+ * the userType () when registered. Has the appropriate getters and
  * setters.
  */
 
 public class User implements Serializable {
-    private String id;
-    private String name;
-    private String password;
-    private String email;
-    private String address;
-    private String userType;
+    final private String id;
+    final private String name;
+    final private String password;
+    final private String email;
+    final private String address;
+    final private String userType;
+    private static User currentUser;
 
     /**
      * constructor for the user that takes in 6 String parameters and creates a new User object
@@ -117,7 +118,7 @@ public class User implements Serializable {
     }
 
     public static void setCurrentUser(User u) {
-        User currentUser = u;
+        currentUser = u;
     }
 
 //    public static User getCurrentUser() {

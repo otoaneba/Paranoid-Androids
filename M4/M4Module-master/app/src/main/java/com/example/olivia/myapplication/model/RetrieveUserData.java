@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 
 public class RetrieveUserData extends Activity {
-    public static ArrayList <User> users = new ArrayList<User>();
+    final public static ArrayList <User> users = new ArrayList<>();
 
     private String myJSON;
     private static final String TAG_RESULTS="result";
@@ -40,7 +40,7 @@ public class RetrieveUserData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrieve_data);
-        userList = new ArrayList<HashMap<String,String>>();
+        userList = new ArrayList<>();
         //getData("http://107.180.46.167/public_html/www/getUsers.php");
         getData("http://szhougatech.com/getUsers.php");
 
@@ -50,7 +50,7 @@ public class RetrieveUserData extends Activity {
     /* Getting the JSON object that has JSON array from web php,
      * create list of the report while retrieve data from the web.
      */
-    protected void listUsers(){
+    private void listUsers(){
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             JSONArray people = jsonObj.getJSONArray(TAG_RESULTS);
@@ -72,7 +72,7 @@ public class RetrieveUserData extends Activity {
                 String email = c.getString(TAG_EMAIL);
                 String address = c.getString(TAG_ADD);
                 String userType = c.getString(TAG_TYPE);
-                HashMap<String,String> person = new HashMap<String,String>();
+                HashMap<String,String> person = new HashMap<>();
 
                 person.put(TAG_USERNAME,username);
                 person.put(TAG_NAME,name);
@@ -94,7 +94,7 @@ public class RetrieveUserData extends Activity {
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * Android version of String variable.
      */
-    public void getData(String url){
+    protected void getData(String url){
         class GetDataJSON extends AsyncTask<String, Void, String> {
             @Override
             protected String doInBackground(String... params) {
@@ -124,6 +124,16 @@ public class RetrieveUserData extends Activity {
         }
         GetDataJSON g = new GetDataJSON();
         g.execute(url);
+    }
+
+    public boolean isExistedUser(String userIdTest) {
+        for (int i = 0; i  < users.size(); i++) {
+                String userId = users.get(i).getId();
+                if (userId.matches(userIdTest)) {
+                    return true;
+                }
+            }
+            return false;
     }
 
 }

@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 //import com.example.olivia.myapplication.R;
-import com.example.olivia.myapplication.model.Report;
+//import com.example.olivia.myapplication.model.Report;
 import com.example.olivia.myapplication.model.User;
 
 import org.w3c.dom.Text;

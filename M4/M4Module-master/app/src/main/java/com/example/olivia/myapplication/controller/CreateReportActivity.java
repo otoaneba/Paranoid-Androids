@@ -56,7 +56,7 @@ public class CreateReportActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("error",e.toString());
         }
-        final String address1 = address;
+        final String location = address;
         final LatLng reportLatLng1 = reportLatLng;
 
 
@@ -64,9 +64,12 @@ public class CreateReportActivity extends AppCompatActivity {
 
         //Initializes water conditions spinner
         final Spinner etSpinner = (Spinner) findViewById(R.id.etConditionSpinner);
-        @SuppressWarnings("unchecked") final ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, waterQuality.values());
+
+        final ArrayAdapter<waterQuality> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, waterQuality.values());
+
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner.setAdapter(adapter2);
+
 
         final Button mapButton = (Button) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
@@ -80,7 +83,7 @@ public class CreateReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Gets information from text boxes
-                final String location = address1;
+//                final String location = address1;
                 final String virusPPM = etVirusPPM.getText().toString();
                 final String contaminatePPM = etContaminatePPM.getText().toString();
                 final String condition = etSpinner.getSelectedItem().toString();
@@ -114,7 +117,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     myAlert.show();
                 }
                 else {
-                    HashMap<String, String> postData = new HashMap<String, String>();
+                    HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtLocation", location);
                     postData.put("txtCreator", user.getName());
                     postData.put("txtQuality", condition);

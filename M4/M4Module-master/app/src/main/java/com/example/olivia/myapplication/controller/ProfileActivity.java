@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText homeAddress;
     private EditText password;
     private static User user;
-  //  private UserManager manager = new UserManager();
+
 
 
     @Override
@@ -85,7 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
                     final String _userPassword = password.getText().toString();
                     final String _userEmail = email.getText().toString();
                     final String _userAddress = homeAddress.getText().toString();
-                    HashMap<String, String> postData = new HashMap<String, String>();
+                    HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtUsername", _userId);
                     postData.put("txtName", _name);
                     postData.put("txtEmailAddress", _userEmail);

@@ -21,8 +21,8 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
  * details for individual source report.
  */
 public class ViewSourceReportActivity extends AppCompatActivity {
-    Button cancelButton;
-    Button viewMap;
+    private Button cancelButton;
+    private Button viewMap;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class ViewSourceReportActivity extends AppCompatActivity {
         final List<SourceReport> sourceReports = reports;
 
         //Sets up list of source reports
-        ListAdapter adapter = new ArrayAdapter<SourceReport>(this, android.R.layout.simple_list_item_1, sourceReports);
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sourceReports);
         final ListView reportList = (ListView) findViewById(R.id.report_list_source);
         reportList.setAdapter(adapter);
         reportList.setOnItemClickListener(
