@@ -31,13 +31,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_new);
         // Set up the login form.
 
-        _username = (EditText) findViewById(R.id.user);
-        _password = (EditText) findViewById(R.id.login_password);
-        Button _signOn = (Button) findViewById(R.id.sign_in_button);
-        Button _cancel = (Button) findViewById(R.id.login_cancel_button);
+        _username = (EditText) findViewById(R.id.username);
+        _password = (EditText) findViewById(R.id.password);
+        Button _signOn = (Button) findViewById(R.id.loginButton);
+        //Button _cancel = (Button) findViewById(R.id.login_cancel_button);
 
 
         _signOn.setOnClickListener(new View.OnClickListener() {
@@ -72,14 +72,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        _cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),WelcomeActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        _cancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(),WelcomeActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
     }
 }

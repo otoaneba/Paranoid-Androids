@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="lightBlue">#83e2ea</color>
-    <color name="primaryBlue">#35bad6</color>
-    <color name="seaGreen">#4cc7c4</color>
-    <color name="babyPink">#f0b0dd</color>
-    <color name="greyPink">#e1a5c0</color>
+    <color name="colorPrimaryDark">#FF3D7F</color>
+    <color name="colorPrimary">#3fb8af</color>
+    <color name="colorAccent">#DAD8A7</color>
+    <color name="colorAccentGreen">#7fc7af</color>
+    <color name="colorAccentPink">#ff9e9d</color>
+    <color name="colorAccentDark">#005b96</color>
+    <color name="transparentBlack">#33000000</color>
 </resources>

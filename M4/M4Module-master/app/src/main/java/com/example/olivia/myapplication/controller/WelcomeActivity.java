@@ -20,24 +20,24 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_screen);
+        setContentView(R.layout.activity_login_new);
         //login button
-        Button login = (Button) findViewById(R.id._Login);
+        Button login = (Button) findViewById(R.id.loginButton);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             }
         });
-        //register button
-        Button register = (Button) findViewById(R.id._Register);
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("button clicked");
-                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
-            }
-        });
+//        //register button
+//        Button register = (Button) findViewById(R.id._Register);
+//        register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                System.out.println("button clicked");
+//                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+//            }
+//        });
     }
 
 }

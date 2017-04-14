@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static android.R.color.black;
 import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
 
 /**
@@ -122,8 +123,8 @@ public class ReportGraphActivity extends AppCompatActivity {
 
                     //Creates data set for entries of given location
                     LineDataSet dataSet = new LineDataSet(entries, "Purity Reports"); // add entries to data set
-                    dataSet.setColor(R.color.seaGreen);
-                    dataSet.setValueTextColor(R.color.greyPink);
+                    dataSet.setColor(R.color.colorAccentGreen);
+                    dataSet.setValueTextColor(black);
                     LineData lineData = new LineData(dataSet);
                     chart.setData(lineData);
                     chart.invalidate(); // refresh

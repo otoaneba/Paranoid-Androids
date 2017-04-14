@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.example.olivia.myapplication.controller.LoginActivity;
 import com.example.olivia.myapplication.controller.WelcomeActivity;
 
 import org.json.JSONArray;
@@ -86,7 +87,7 @@ public class RetrieveUserData extends Activity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
+        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
     }
 
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,

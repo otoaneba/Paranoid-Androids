@@ -50,4 +50,6 @@
     <string name="sign_out_main">Sign Out</string>
     <string name="view_map">view map</string>
     <string name="a_picture_of_the_ocean">A picture of the ocean</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="_username">_Username</string>
 </resources>
