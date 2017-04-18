@@ -21,6 +21,7 @@ import org.apache.tools.ant.util.regexp.Regexp;
 
 import java.util.HashMap;
 
+import static android.graphics.Color.WHITE;
 import static com.example.olivia.myapplication.model.RetrieveUserData.users;
 
 /**
@@ -89,10 +90,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View textView) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
+
             @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setUnderlineText(false);
+            public void updateDrawState(final TextPaint textPaint) {
+                textPaint.setColor(WHITE);
+                textPaint.setUnderlineText(true);
             }
         };
         ss.setSpan(clickableSpan, 0, ss.length() - 1, 0);

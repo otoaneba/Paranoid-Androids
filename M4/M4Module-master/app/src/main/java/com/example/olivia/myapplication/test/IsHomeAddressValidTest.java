@@ -16,9 +16,11 @@ public class IsHomeAddressValidTest {
         String wrongAdd2 = "123";
         String wrongAdd3 = ".3#h";
         String goodAdd = "123 Home";
+        String goodAdd2 = "123 home add 30907";
         Assert.assertEquals(true, test.isHomeAddressValid(goodAdd));
         Assert.assertEquals(false, test.isHomeAddressValid(wrongAdd));
         Assert.assertEquals(false, test.isHomeAddressValid(wrongAdd2));
         Assert.assertEquals(false, test.isHomeAddressValid(wrongAdd3));
+        Assert.assertEquals(true, test.isHomeAddressValid(goodAdd2));
     }
 }

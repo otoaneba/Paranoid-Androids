@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public boolean isHomeAddressValid(String address) {
-        String regexp = "^([0-9]+)(\\s)([a-zA-Z]+)";
+        String regexp = "^([0-9]+)(\\s)([a-zA-Z]+)(.*)";
         return Pattern.matches(regexp, address);
     }
 
