@@ -1,14 +1,24 @@
 package com.example.olivia.myapplication.controller;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.olivia.myapplication.model.User;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
+
+import org.apache.tools.ant.util.regexp.Regexp;
+
 import java.util.HashMap;
 
 import static com.example.olivia.myapplication.model.RetrieveUserData.users;
@@ -71,6 +81,23 @@ public class LoginActivity extends AppCompatActivity {
                 task.execute("http://szhougatech.com/login.php");
             }
         });
+
+        SpannableString ss = new SpannableString("Don't Have an Account? Click Here to Create One.");
+        TextView textView = (TextView) findViewById(R.id.registerText);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View textView) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+        ss.setSpan(clickableSpan, 0, ss.length() - 1, 0);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        textView.setText(ss);
 
 //        _cancel.setOnClickListener(new View.OnClickListener() {
 //            @Override

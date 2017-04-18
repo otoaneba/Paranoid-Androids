@@ -7,7 +7,7 @@
 <item>
     <bitmap
         android:gravity="center"
-        android:src="@mipmap/waterdrop"/>
+        android:src="@mipmap/dropsmall"/>
 </item>
 
 </layer-list>
