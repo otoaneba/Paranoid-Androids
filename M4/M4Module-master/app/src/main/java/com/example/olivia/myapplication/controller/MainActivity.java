@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.olivia.myapplication.model.RetrieveGraphData;
 import com.example.olivia.myapplication.model.RetrievePurityReportData;
 import com.example.olivia.myapplication.model.RetrieveSourceReportData;
+import com.example.olivia.myapplication.model.RetrieveUserData;
 import com.example.olivia.myapplication.model.User;
 
 /**
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         _signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RetrieveUserData.class);
                 startActivity(intent);
                 finish();
             }

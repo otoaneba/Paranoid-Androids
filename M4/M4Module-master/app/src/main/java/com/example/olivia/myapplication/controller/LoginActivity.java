@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View textView) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                finish();
             }
 
             @Override
