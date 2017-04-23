@@ -71,6 +71,10 @@
             android:name=".ReportGraphActivity"
             android:label="CS2340 Water App"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BarGraphActivity"
+            android:label="CS2340 Water App"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- <activity -->
 

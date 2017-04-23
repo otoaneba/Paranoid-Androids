@@ -10,12 +10,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.olivia.myapplication.model.Graph;
-import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 
 import java.math.BigDecimal;
@@ -27,17 +27,17 @@ import static android.R.color.black;
 import static com.example.olivia.myapplication.model.RetrieveGraphData.graphs;
 
 /**
- * Created by Olivia on 3/16/2017.
+ * Created by Julian on 4/23/2017.
  * Modified and add database on 03/22/2017 by Shuopeng Zhou
- * Allows the Manager to pick a location and a range of months and generates a plot
- * The manager can use the back button to go back to the main screen.
+ * Has the same functionality as the ReportGraphActivity but
+ * has a bar graph instead of a line graph.
  */
 
-public class ReportGraphActivity extends AppCompatActivity {
+public class BarGraphActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history_graph_new);
+        setContentView(R.layout.activity_bar_graph_new);
         final Spinner locationSpinner = (Spinner) findViewById(R.id.locationSpinner);
         final Spinner dateSpinner = (Spinner) findViewById(R.id.dateSpinner);
         final TextView endDateText = (TextView) findViewById(R.id.endDate);
@@ -49,14 +49,14 @@ public class ReportGraphActivity extends AppCompatActivity {
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
         //Populates different graph types
-        ArrayList<String> graphTypeList = new ArrayList<>(Arrays.asList("Line Graph","Bar Graph","Other Graph"));
+        ArrayList<String> graphTypeList = new ArrayList<>(Arrays.asList("Bar Graph","Line Graph","Other Graph"));
         ArrayAdapter<String> graphTypeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, graphTypeList);
         graphTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         graphTypeSpinner.setAdapter(graphTypeAdapter);
 
 
-        final LineChart chart = (LineChart) findViewById(R.id.chart);
-        final List<Entry> entries = new ArrayList<>();
+        final BarChart chart = (BarChart) findViewById(R.id.chart);
+        final List<BarEntry> entries = new ArrayList<>();
         //Sets interval to 1
         XAxis xAxis = chart.getXAxis();
         xAxis.setValueFormatter(new DefaultAxisValueFormatter(0));
@@ -76,7 +76,7 @@ public class ReportGraphActivity extends AppCompatActivity {
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                //If switched from Bar Graph gets previously selected location
+                //If switched from Line Graph gets previously selected location
                 String location = locationSpinner.getSelectedItem().toString();
                 getIntent().removeExtra("location");
 
@@ -86,12 +86,12 @@ public class ReportGraphActivity extends AppCompatActivity {
 
                 String[] yearList = new String[result.size()];
                 for (int i = 0; i < result.size(); i++){
-                        yearList[i] = result.get(i).getMonth();
+                    yearList[i] = result.get(i).getMonth();
                 }
                 Arrays.sort(yearList);
                 endDateText.setText(yearList[yearList.length - 1]);
                 //Populates spinner for start date
-                ArrayAdapter<String> dateAdapter = new ArrayAdapter<>(ReportGraphActivity.this, android.R.layout.simple_spinner_item, yearList);
+                ArrayAdapter<String> dateAdapter = new ArrayAdapter<>(BarGraphActivity.this, android.R.layout.simple_spinner_item, yearList);
                 dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 dateSpinner.setAdapter(dateAdapter);
                 entries.clear();
@@ -107,7 +107,6 @@ public class ReportGraphActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 //If switched from Line Graph gets previously selected location
                 String location = locationSpinner.getSelectedItem().toString();
-                getIntent().removeExtra("location");
 
                 ArrayList<Graph> result = graphs.get(location);
 
@@ -126,16 +125,16 @@ public class ReportGraphActivity extends AppCompatActivity {
                     for (int i = start; i < ppm.length ; i++) {
                         // turn your data into Entry objects
                         BigDecimal ppmDecimal = new BigDecimal(ppm[i]);
-                        entries.add(new Entry(Float.valueOf(time[i]), ppmDecimal.floatValue()));
+                        entries.add(new BarEntry(Float.valueOf(time[i]), ppmDecimal.floatValue()));
                     }
-                    LineDataSet dataset;
+                    BarDataSet dataset;
                     //Creates data set for entries of given location
 
-                    dataset = new LineDataSet(entries, "Purity Reports"); // add entries to data set
+                    dataset = new BarDataSet(entries, "Purity Reports"); // add entries to data set
                     dataset.setColor(R.color.colorAccentGreen);
                     dataset.setValueTextColor(black);
-                    LineData lineData = new LineData(dataset);
-                    chart.setData(lineData);
+                    BarData barData = new BarData(dataset);
+                    chart.setData(barData);
                     chart.invalidate(); // refresh
                 }
             }
@@ -150,10 +149,9 @@ public class ReportGraphActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if (position == 1) {
-                    Intent intent = new Intent(ReportGraphActivity.this, BarGraphActivity.class);
+                    Intent intent = new Intent(BarGraphActivity.this, ReportGraphActivity.class);
                     intent.putExtra("location", locationSpinner.getSelectedItemPosition());
                     startActivity(intent);
-                    finish();
                 }
             }
 
@@ -163,6 +161,7 @@ public class ReportGraphActivity extends AppCompatActivity {
             }
 
         });
+
 
         // database uses a timestamp (String), right now, Joe is getting the year value and plotting it
         // on the x axis. ( he is averaging the PPM value in a year and plotting that avg for one year)

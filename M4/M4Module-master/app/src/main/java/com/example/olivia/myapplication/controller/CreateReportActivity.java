@@ -64,7 +64,6 @@ public class CreateReportActivity extends AppCompatActivity {
         // if no location info has been passed in address & updateLatLng are null
         try {
             Bundle extras = getIntent().getExtras();
-
             String ifNull= extras.getString("address");
             assert ifNull != null;
             if (ifNull.length() != 0) {
@@ -73,7 +72,6 @@ public class CreateReportActivity extends AppCompatActivity {
             Double latitude = extras.getDouble("latitude");
             Double longitude = extras.getDouble("longitude");
             reportLatLng = new LatLng(latitude, longitude);
-
         } catch (Exception e) {
             Log.e("error",e.toString());
         }
