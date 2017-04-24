@@ -5,7 +5,8 @@
     <string name="username">Username</string>
     <string name="close">Close</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
-    <string name="title_activity_report">ReportActivity</string>
+    <string name="title_activity_report">Purity Report</string>
+    <string name="title_source_report">Source Report</string>
     <string name="water_report">Water Purity Reports</string>
     <string name="title_activity_create_report">Create A Purity Report</string>
     <string name="title_activity_create_source_report">Create A Source Report</string>
@@ -21,7 +22,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="your_profile">Your Profile</string>
-    <string name="edit">EDIT</string>
+    <string name="edit">Edit</string>
     <string name="name">Name:</string>
     <string name="email_address">Email Address:</string>
     <string name="home_address">Home Address:</string>
@@ -36,7 +37,7 @@
     <string name="water_quality">Water Quality</string>
     <string name="contaminate_ppm">Contaminate PPM</string>
     <string name="virus_ppm">Virus PPM</string>
-    <string name="existed_location">Existed Location</string>
+    <string name="existed_location">Existing Location</string>
     <string name="water_condition">Water Condition</string>
     <string name="water_type">Water Type</string>
     <string name="submit_main">Submit a report on water availability</string>
@@ -58,6 +59,8 @@
     <string name="load">Loading...</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+    <string name="instructions">Click on the map button to set report location or choose from an existing location.</string>
+    <string name="source_instructions">Click on the map button to set report location.</string>
     <string-array name="menu_array">
         <item>Profile</item>
         <item>Logout</item>

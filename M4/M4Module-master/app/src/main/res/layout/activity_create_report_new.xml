@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#dddddd"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/addressTV"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/address"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/location_button"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@mipmap/map_icon"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/addressTV" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/instructions"
+        app:layout_constraintLeft_toRightOf="@+id/location_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="146dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="62dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/cancel"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/createButton"
+        android:layout_width="146dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="62dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/create"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:text="@string/water_quality"
+        android:textSize="18sp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+    <Spinner
+        android:id="@+id/etConditionSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/textView8"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.96"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+    <Button
+        android:id="@+id/_existedPurity"
+        android:layout_width="165dp"
+        android:layout_height="57dp"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/existed_location"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelButton" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="7dp"
+        app:hintTextAppearance="@style/TextAppearence"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/textInputLayout2"
+        android:layout_marginStart="8dp">
+
+        <EditText
+            android:id="@+id/etContaminatePPM"
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/contaminate_ppm"
+            android:inputType="numberDecimal"
+            android:visibility="visible" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="33dp"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:visibility="visible"
+        app:hintTextAppearance="@style/TextAppearence"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <EditText
+            android:id="@+id/etVirusPPM"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/virus_ppm"
+            android:inputType="numberDecimal"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark" />
+
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
+
+</android.support.constraint.ConstraintLayout>

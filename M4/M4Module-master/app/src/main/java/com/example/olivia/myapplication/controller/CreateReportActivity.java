@@ -3,6 +3,7 @@ package com.example.olivia.myapplication.controller;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -51,7 +52,7 @@ public class CreateReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_create_report);
+        setContentView(R.layout.activity_create_report_new);
 
         String address = "Address";
         LatLng reportLatLng = new LatLng(-33.852, 151.211);
@@ -86,7 +87,7 @@ public class CreateReportActivity extends AppCompatActivity {
         etSpinner.setAdapter(adapter2);
 
 
-        final Button mapButton = (Button) findViewById(R.id.location_button);
+        final FloatingActionButton mapButton = (FloatingActionButton) findViewById(R.id.location_button);
         //final EditText etTime = (EditText) findViewById(R.id.etTime);
         final TextView etLocation = (TextView) findViewById(R.id.addressTV);
         etLocation.setText(address);
@@ -107,18 +108,8 @@ public class CreateReportActivity extends AppCompatActivity {
 
 
                 //Checks to see if there is a missing input
-                if (location.isEmpty() || virusPPM.isEmpty() || contaminatePPM.isEmpty()) {
-                    AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
-                    myAlert.setMessage("Time,location,virusPPM and contaminationPPM required")
-                            .setPositiveButton("Back", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .create();
-                    myAlert.show();
-                } else if (etLocation.getText().toString().equals("Address")) {
+
+                if (etLocation.getText().toString().equals("Address")) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateReportActivity.this);
                     myAlert.setMessage("Click LOCATION button and set a location")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
@@ -129,6 +120,13 @@ public class CreateReportActivity extends AppCompatActivity {
                             })
                             .create();
                     myAlert.show();
+                } else if (virusPPM.isEmpty() || contaminatePPM.isEmpty()) {
+                    if (virusPPM.isEmpty()) {
+                        etVirusPPM.setError("Virus PPM cannot be empty");
+                    }
+                    if (contaminatePPM.isEmpty()) {
+                        etContaminatePPM.setError("Contaminate PPM cannot be empty");
+                    }
                 } else {
                     HashMap<String, String> postData = new HashMap<>();
                     postData.put("txtLocation", location);
@@ -194,9 +192,6 @@ public class CreateReportActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateReportActivity.this, MainActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
                 finish();
             }
         });
@@ -207,7 +202,6 @@ public class CreateReportActivity extends AppCompatActivity {
                 Intent intent = new Intent(CreateReportActivity.this, PickPurityReportsLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
-                finish();
             }
         });
         existedLocation.setOnClickListener(new View.OnClickListener() {
@@ -216,7 +210,6 @@ public class CreateReportActivity extends AppCompatActivity {
                     Intent intent = new Intent(CreateReportActivity.this, ExistedLocationActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);
-                    finish();
                 }
         });
     }

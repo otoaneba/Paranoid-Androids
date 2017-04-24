@@ -68,9 +68,6 @@ public class ProfileActivity extends AppCompatActivity {
             cancelButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    intent.putExtra("user",user);
-                    startActivity(intent);
                     //startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
