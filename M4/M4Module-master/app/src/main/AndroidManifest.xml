@@ -143,6 +143,7 @@
             android:label="@string/title_activity_retrieve_graph_data"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ExistedLocationActivity" />
+        <activity android:name=".ViewSourceReportActivityRecycler"/>
     </application>
 
 </manifest>

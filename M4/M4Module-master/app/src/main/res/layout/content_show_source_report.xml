@@ -23,12 +23,13 @@
         android:textSize="24sp" />
 
     <Button
-        android:text="@string/close"
+        android:id="@+id/cancel_button_sourceReport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cancel_button_sourceReport"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/menu_buttons"
+        android:text="@string/close" />
 
     <TextView
         android:id="@+id/worker_sourceReport"
@@ -85,6 +86,14 @@
         android:text="@string/source_report_activity"
         android:textSize="24sp" />
 
+    <TextView
+        android:id="@+id/title_source_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="@string/title_source_report"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

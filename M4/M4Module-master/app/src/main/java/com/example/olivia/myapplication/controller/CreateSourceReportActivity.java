@@ -3,6 +3,7 @@ package com.example.olivia.myapplication.controller;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -70,10 +71,10 @@ public class CreateSourceReportActivity extends AppCompatActivity {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etSpinner2.setAdapter(adapter3);
 
-        final Button mapButton = (Button) findViewById(R.id.location_button_source);
-        final TextView etLocation = (TextView) findViewById(R.id.addressTV_source);
+        final FloatingActionButton mapButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        final TextView etLocation = (TextView) findViewById(R.id.address_source);
         etLocation.setText(address);
-        final Button registerButton = (Button) findViewById(R.id.createButton_source);
+        final Button registerButton = (Button) findViewById(R.id.createButton);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +87,9 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                 final String longitude = String.valueOf(reportLatLng1.longitude);
 
                 //Checks to see if there is a missing input
-                if (/*time.isEmpty() || */location.isEmpty() || type.contains("SELECT") || condition.contains("SELECT") ) {
+                if (etLocation.getText().toString().equals("Address")) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateSourceReportActivity.this);
-                    myAlert.setMessage("water type and water condition are required")
+                    myAlert.setMessage("Click LOCATION button and set a location")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -97,9 +98,9 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                             })
                             .create();
                     myAlert.show();
-                } else if (etLocation.getText().toString().equals("Address")) {
+                } else if (/*time.isEmpty() || */location.isEmpty() || type.contains("SELECT") || condition.contains("SELECT") ) {
                     AlertDialog.Builder myAlert = new AlertDialog.Builder(CreateSourceReportActivity.this);
-                    myAlert.setMessage("Click LOCATION button and set a location")
+                    myAlert.setMessage("water type and water condition are required")
                             .setPositiveButton("Back", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -137,13 +138,10 @@ public class CreateSourceReportActivity extends AppCompatActivity {
             }
         });
         //cancel button that takes a user back to the welcome screen
-        final Button cancelButton = (Button) findViewById(R.id.cancelButton_source);
+        final Button cancelButton = (Button) findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateSourceReportActivity.this, MainActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
                 finish();
             }
         });
@@ -154,7 +152,6 @@ public class CreateSourceReportActivity extends AppCompatActivity {
                 Intent intent = new Intent(CreateSourceReportActivity.this, PickSourceReportLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
-                finish();
             }
         });
     }

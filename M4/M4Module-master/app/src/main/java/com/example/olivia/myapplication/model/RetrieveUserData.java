@@ -87,6 +87,7 @@ public class RetrieveUserData extends Activity {
             e.printStackTrace();
         }
         startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+        finish();
     }
 
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,

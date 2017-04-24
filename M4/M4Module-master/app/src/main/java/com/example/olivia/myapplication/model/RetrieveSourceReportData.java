@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.olivia.myapplication.controller.R;
 import com.example.olivia.myapplication.controller.ViewSourceReportActivity;
+import com.example.olivia.myapplication.controller.ViewSourceReportActivityRecycler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,12 +50,6 @@ public class RetrieveSourceReportData extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
         reportList = new ArrayList<>();
-//        mRecyclerView = (RecyclerView) findViewById(R.id.source_recycler_view);
-//
-//        mRecyclerView.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mAdapter = new MyAdapter()
         getData();
         //getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
     }
@@ -113,6 +108,7 @@ public class RetrieveSourceReportData extends Activity {
         startActivity(intent);
         finish();
     }
+
     /* Getting the data from web php, http://szhougatech.com/getSourceReport.php,
      * and put those data into Android version of the String variable.
      */

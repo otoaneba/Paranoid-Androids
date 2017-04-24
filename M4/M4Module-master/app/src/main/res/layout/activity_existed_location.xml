@@ -9,33 +9,25 @@
         android:layout_below="@+id/existed_Title"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/existed_report_list"
-        android:layout_above="@+id/existedLocation" />
+        android:id="@+id/existed_report_list" />
 
     <TextView
         android:text="@string/water_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="16dp"
         android:id="@+id/existed_Title"
+        android:textSize="30sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="30sp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/existedLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp"
-        android:text="@string/location" />
-
-    <Button
+        android:id="@+id/cancel_button_existing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp"
+        android:background="@drawable/menu_buttons"
         android:text="@string/cancel" />
 </RelativeLayout>

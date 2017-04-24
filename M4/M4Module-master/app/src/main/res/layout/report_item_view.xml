@@ -1,26 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView3"
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="5dp">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="53dp">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-</LinearLayout>
+            <TextView
+                android:id="@+id/reportNum_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="TextView"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintLeft_toLeftOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                android:id="@+id/creater_TextView"
+                android:layout_width="124dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@+id/location_TextView"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/location_TextView"
+                android:text="TextView"
+                card_view:layout_constraintLeft_toRightOf="@+id/reportNum_TextView"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/time_TextView"
+                android:layout_width="82dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="301dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <TextView
+                android:id="@+id/location_TextView"
+                android:layout_width="124dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reportNum_TextView"
+                android:layout_marginLeft="19dp"
+                android:layout_marginStart="19dp"
+                android:layout_toEndOf="@+id/reportNum_TextView"
+                android:layout_toRightOf="@+id/reportNum_TextView"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="90dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

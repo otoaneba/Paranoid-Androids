@@ -76,9 +76,6 @@ public class ShowReportActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowReportActivity.this, ViewReportActivity.class);
-                intent.putExtra("user",user);
-                startActivity(intent);
                 finish();
             }
         });
