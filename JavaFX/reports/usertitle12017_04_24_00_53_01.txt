@@ -1,0 +1,7 @@
+Report ID:00077
+UserName:user
+Title:title1
+Date:2017_04_24_00_53_01
+Location:Seattle
+Type:Spring
+Condition:Waste
