@@ -72,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
                     intent.putExtra("user",user);
                     startActivity(intent);
                     //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
+                    //finish();
                 }
             });
 

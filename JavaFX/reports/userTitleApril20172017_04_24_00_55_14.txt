@@ -1,0 +1,7 @@
+Report ID:00078
+UserName:user
+Title:TitleApril2017
+Date:2017_04_24_00_55_14
+Location:Atlanta
+Type:Well
+Condition:Treatable-Clear
