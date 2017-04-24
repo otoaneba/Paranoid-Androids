@@ -49,7 +49,7 @@ public class ReportGraphActivity extends AppCompatActivity {
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
         //Populates different graph types
-        ArrayList<String> graphTypeList = new ArrayList<>(Arrays.asList("Line Graph","Bar Graph","Other Graph"));
+        ArrayList<String> graphTypeList = new ArrayList<>(Arrays.asList("Line Graph","Bar Graph"));
         ArrayAdapter<String> graphTypeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, graphTypeList);
         graphTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         graphTypeSpinner.setAdapter(graphTypeAdapter);

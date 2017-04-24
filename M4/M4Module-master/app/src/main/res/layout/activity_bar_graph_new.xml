@@ -25,19 +25,6 @@
             android:layout_toEndOf="@+id/locationText"
             android:layout_toRightOf="@+id/locationText" />
 
-        <!--<TextView-->
-        <!--android:id="@+id/textView9"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignBottom="@+id/dateSpinner"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_below="@+id/locationText"-->
-        <!--android:layout_toStartOf="@+id/locationSpinner"-->
-        <!--android:fontFamily="serif"-->
-        <!--android:text="Start Date"-->
-        <!--android:textColor="@color/colorPrimaryDark"-->
-        <!--android:textSize="14sp" />-->
 
         <Spinner
             android:id="@+id/dateSpinner"

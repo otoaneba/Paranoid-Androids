@@ -14,6 +14,8 @@ import com.example.olivia.myapplication.model.User;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 
 /**
@@ -54,6 +56,9 @@ public class ProfileActivity extends AppCompatActivity {
             userId.setText(user.getId());
             name = (EditText) findViewById(R.id.name);
             name.setText(user.getName(), TextView.BufferType.EDITABLE);
+
+            TextView userType = (TextView) findViewById(R.id.user_type);
+            userType.setText(user.getUserType());
 
             email = (EditText) findViewById(R.id.EmailAddress);
             email.setText(user.getEmail(), TextView.BufferType.EDITABLE);

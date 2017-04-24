@@ -10,16 +10,14 @@
     tools:context="com.example.olivia.myapplication.controller.ProfileActivity">
 
     <TextView
-        android:text="@string/your_profile"
+        android:id="@+id/Title_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="18dp"
-        android:id="@+id/Title_source"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/your_profile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,8 +25,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/name"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
+        android:layout_below="@+id/_username"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -37,10 +34,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/linearLayout3"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="33dp">
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/Cancel"
@@ -69,17 +66,15 @@
         android:text="@string/name"
         android:layout_below="@+id/_username"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="@string/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/_password"
-        android:layout_alignBottom="@+id/_password"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
+        android:layout_alignTop="@+id/_password"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -90,19 +85,18 @@
         android:layout_above="@+id/textView5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="34dp" />
+        android:layout_marginBottom="11dp" />
 
     <EditText
         android:id="@+id/EmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -110,8 +104,7 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/HomeAddress"
-        android:layout_alignBaseline="@+id/textView6"
-        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignTop="@+id/textView6"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -120,10 +113,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"
-        android:layout_above="@+id/linearLayout3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="40dp" />
+        android:layout_below="@+id/EmailAddress"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_marginTop="13dp" />
 
     <TextView
         android:text="@string/email_address"
@@ -138,21 +131,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/user_id"
-        android:layout_below="@+id/Title_source"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/user_type"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/_username"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:text="@string/user"
-        android:layout_alignBaseline="@+id/textView"
-        android:layout_alignBottom="@+id/textView"
+        android:layout_alignTop="@+id/textView"
         android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name"
+        android:layout_alignStart="@+id/name" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_type"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/user_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/Title_source"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11" />
 
 </RelativeLayout>
