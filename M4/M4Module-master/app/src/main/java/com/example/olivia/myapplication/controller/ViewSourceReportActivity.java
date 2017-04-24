@@ -23,7 +23,7 @@ import static com.example.olivia.myapplication.model.RetrieveSourceReportData.re
  * details for individual source report.
  */
 public class ViewSourceReportActivity extends AppCompatActivity {
-
+    private User user;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -37,6 +37,7 @@ public class ViewSourceReportActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.profile_action:
                 Intent intent = new Intent(ViewSourceReportActivity.this, ProfileActivity.class);
+                intent.putExtra("user",user);
                 startActivity(intent);
                 return true;
             case R.id.logout_action:
@@ -47,8 +48,6 @@ public class ViewSourceReportActivity extends AppCompatActivity {
         }
         return false;
     }
-
-    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +96,7 @@ public class ViewSourceReportActivity extends AppCompatActivity {
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewSourceReportActivity.this, ViewPurityReportsLocationActivity.class);
+                Intent intent = new Intent(ViewSourceReportActivity.this, ViewSourceReportsLocationActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
             }

@@ -22,7 +22,7 @@ import static com.example.olivia.myapplication.model.RetrievePurityReportData.re
  * details for individual reports.
  */
 public class ViewReportActivity extends AppCompatActivity {
-
+    private User user;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -36,6 +36,7 @@ public class ViewReportActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.profile_action:
                 Intent intent = new Intent(ViewReportActivity.this, ProfileActivity.class);
+                intent.putExtra("user",user);
                 startActivity(intent);
                 return true;
             case R.id.logout_action:
@@ -52,7 +53,7 @@ public class ViewReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
         //Get current user
-        final User user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
+            user = (User) getIntent().getSerializableExtra("user"); //Obtaining data
         //Initializes buttons on page
 //        Button locationButton = (Button) findViewById(R.id.location);
 //        Button cancelButton = (Button) findViewById(R.id.cancel_report);
