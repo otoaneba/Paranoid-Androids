@@ -5,6 +5,8 @@ import org.junit.Test;
 
 /**
  * Created by Olivia on 4/12/2017.
+ *
+ * Tests to see if isHomeAddressValid performs as expected
  */
 
 public class IsHomeAddressValidTest {

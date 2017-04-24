@@ -50,7 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
             setContentView(R.layout.activity_profile_screen);
-            userId = (TextView) findViewById(R.id.username);
+            userId = (TextView) findViewById(R.id._username);
             userId.setText(user.getId());
             name = (EditText) findViewById(R.id.name);
             name.setText(user.getName(), TextView.BufferType.EDITABLE);
@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
             homeAddress = (EditText) findViewById(R.id.HomeAddress);
             homeAddress.setText(user.getAddress(), TextView.BufferType.EDITABLE);
 
-            password = (EditText) findViewById(R.id.password);
+            password = (EditText) findViewById(R.id._password);
             password.setText(user.getPassword(), TextView.BufferType.EDITABLE);
 
             Button cancelButton = (Button) findViewById(R.id.Cancel);

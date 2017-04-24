@@ -36,7 +36,7 @@ public class ShowSourceReportActivity extends AppCompatActivity {
         String type_v = (String)getIntent().getSerializableExtra("type");
 
            //Initializes widgets from the XML
-        TextView source_title = (TextView) findViewById(R.id.Title_sourceReport);
+//        TextView source_title = (TextView) findViewById(R.id.Title_sourceReport);
         TextView source_time = (TextView) findViewById(R.id.time_sourceReport);
         TextView source_reportNumber = (TextView) findViewById(R.id.report_number_sourceReport);
         TextView source_worker = (TextView) findViewById(R.id.worker_sourceReport);
@@ -46,8 +46,8 @@ public class ShowSourceReportActivity extends AppCompatActivity {
 
         //Sets values from selected report
 
-        String stringSourceTitle = "Source Report";
-        source_title.setText(stringSourceTitle);
+        ///String stringSourceTitle = "Source Report";
+//        source_title.setText(stringSourceTitle);
 
         String stringSourceTime = "Time of Report: " + time_v;
         source_time.setText(stringSourceTime);

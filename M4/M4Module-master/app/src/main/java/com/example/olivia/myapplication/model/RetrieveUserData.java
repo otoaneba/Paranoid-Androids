@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.example.olivia.myapplication.controller.LoginActivity;
-import com.example.olivia.myapplication.controller.WelcomeActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

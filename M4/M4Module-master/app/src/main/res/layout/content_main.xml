@@ -5,83 +5,121 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:layout_alignParentBottom="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    app:contentInsetLeft="120dp"
+    android:background="#dddddd"
+    app:contentInsetStart="120dp"
 tools:context="com.example.olivia.myapplication.controller.MainActivity">
 
     <TextView
-    android:id="@+id/_userInfo"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        tools:layout_constraintTop_creator="1"
+        android:id="@+id/_userInfo"
+        android:layout_width="334dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="7dp"
-        tools:layout_constraintLeft_creator="1"
+        android:layout_marginTop="0dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp" />
+        app:layout_constraintVertical_bias="0.5"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteX="17dp" />
 
-    <LinearLayout
-        android:layout_width="358dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="66dp"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="343dp"
+        android:layout_height="408dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.414"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="58dp"
         tools:layout_constraintLeft_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="26dp"
+        android:layout_marginRight="12dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="12dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/_userInfo"
-        android:layout_marginLeft="13dp">
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintHorizontal_bias="0.428"
+        android:id="@+id/constraintLayout">
 
         <Button
-            android:id="@+id/_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/submit_main" />
+            android:id="@+id/view_source"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="300dp"
+            android:layout_height="52dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/menu_buttons"
+            android:text="@string/view_source_main"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_editor_absoluteX="-76dp" />
 
         <Button
-            android:id="@+id/_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/view_source_main" />
+            android:id="@+id/view_purity"
+            android:layout_width="300dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/menu_buttons"
+            android:text="@string/view_purity_main"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/view_source"
+            app:layout_constraintRight_toRightOf="@+id/view_source"
+            app:layout_constraintTop_toBottomOf="@+id/view_source"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
         <Button
-            android:id="@+id/_purityLevel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/report_purity_main" />
-
-        <Button
-            android:id="@+id/_viewHistory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/view_purity_main" />
-
-        <Button
-            android:id="@+id/_trend"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/trend_purity_main" />
+            android:id="@+id/history_graph"
+            android:layout_width="300dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/menu_buttons"
+            android:text="@string/trend_purity_main"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="@+id/view_purity"
+            app:layout_constraintRight_toRightOf="@+id/view_purity"
+            app:layout_constraintTop_toBottomOf="@+id/view_purity"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
         <Button
             android:id="@+id/_security"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/security_main" />
+            android:layout_width="300dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/menu_buttons"
+            android:text="@string/security_main"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/history_graph"
+            app:layout_constraintRight_toRightOf="@+id/history_graph"
+            app:layout_constraintTop_toBottomOf="@+id/history_graph"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-        <Button
-            android:id="@+id/_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/my_profile_main" />
-
-        <Button
-            android:id="@+id/_signOut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_out_main" />
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

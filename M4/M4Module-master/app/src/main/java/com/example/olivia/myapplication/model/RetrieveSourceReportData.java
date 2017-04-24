@@ -41,14 +41,20 @@ public class RetrieveSourceReportData extends Activity {
     private SourceReport _report;
     private ArrayList<HashMap<String, String>> reportList;
 
-   // ListView list;
+//    private RecyclerView mRecyclerView;
+//    private RecyclerView.Adapter mAdapter;
+//    private RecyclerView.LayoutManager mLayoutManager;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_report_layout);
         reportList = new ArrayList<>();
-
+//        mRecyclerView = (RecyclerView) findViewById(R.id.source_recycler_view);
+//
+//        mRecyclerView.setHasFixedSize(true);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mAdapter = new MyAdapter()
         getData();
         //getData("http://192.168.2.5:81/android_connect/getSourceReport.php");
     }

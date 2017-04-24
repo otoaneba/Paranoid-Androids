@@ -2,19 +2,18 @@
 
     <!-- Strings related to login -->
     <string name="action_sign_in_short">Sign in</string>
-
     <string name="username">Username</string>
     <string name="close">Close</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
     <string name="title_activity_report">ReportActivity</string>
     <string name="water_report">Water Purity Reports</string>
-    <string name="title_activity_create_report">createReport</string>
-    <string name="title_activity_create_source_report">CreateSourceReport</string>
+    <string name="title_activity_create_report">Create A Purity Report</string>
+    <string name="title_activity_create_source_report">Create A Source Report</string>
     <string name="title_activity_view_purity_reports_location">Map</string>
     <string name="title_activity_pick_source_report_location">Map</string>
     <string name="title_activity_view_source_reports_location">Map</string>
     <string name="water_source_reports">Water Source Reports</string>
-    <string name="source_report_activity">Source Report Activity</string>
+    <string name="source_report_activity">Source Reports</string>
     <string name="title_activity_retrieve_graph_data">RetrieveGraphData</string>
     <string name="location">Location</string>
     <string name="cancel">Cancel</string>
@@ -30,20 +29,20 @@
     <string name="user">user</string>
     <string name="your_name">Your Name</string>
     <string name="email">Email</string>
-    <string name="address">address</string>
+    <string name="address">Address</string>
     <string name="user_type">User Type</string>
     <string name="register">Register</string>
     <string name="create">Create</string>
     <string name="water_quality">Water Quality</string>
     <string name="contaminate_ppm">Contaminate PPM</string>
     <string name="virus_ppm">Virus PPM</string>
-    <string name="existed_location">Existing Locations</string>
+    <string name="existed_location">Existed Location</string>
     <string name="water_condition">Water Condition</string>
     <string name="water_type">Water Type</string>
     <string name="submit_main">Submit a report on water availability</string>
     <string name="view_source_main">View Water Source Reports</string>
-    <string name="report_purity_main">Create a Report on Water Purity Levels</string>
-    <string name="view_purity_main">View Purity Reports</string>
+    <string name="report_purity_main">Report on water purity levels</string>
+    <string name="view_purity_main">View Water Purity Reports</string>
     <string name="graph_type">Graph Type</string>
     <string name="trend_purity_main">Trends of water purity</string>
     <string name="security_main">Security log</string>
@@ -53,4 +52,14 @@
     <string name="a_picture_of_the_ocean">A picture of the ocean</string>
     <string name="sign_in">SIGN IN</string>
     <string name="_username">_Username</string>
+    <string name="image_disc">Image of water and water drops</string>
+    <string name="main_title">CS 2340 Water App</string>
+    <string name="settings">Settings</string>
+    <string name="load">Loading...</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string-array name="menu_array">
+        <item>Profile</item>
+        <item>Logout</item>
+    </string-array>
 </resources>

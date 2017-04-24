@@ -79,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_new);
 
         //a spinner that lists the user types in the user type enum
         final Spinner etSpinner = (Spinner) findViewById(R.id.userTypeSpinner);
@@ -107,27 +107,42 @@ public class RegisterActivity extends AppCompatActivity {
                 final String address = etAddress.getText().toString();
                 final String userType = etSpinner.getSelectedItem().toString();
 
-                if (etId.getText().toString().isEmpty() || etUsername.getText().toString().isEmpty()
-                        || etPassword.getText().toString().isEmpty() ||
-                        etEmail.getText().toString().isEmpty() ||
-                        etAddress.getText().toString().isEmpty() ||
-                        etSpinner.getSelectedItem().toString().isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Please enter all blanked fields."
-                            , Toast.LENGTH_LONG).show();
+                if (id.isEmpty() || name.isEmpty() || password.isEmpty() || email.isEmpty() ||
+                        address.isEmpty()) {
+                    if (id.isEmpty()) {
+                        etId.setError("This field cannot be blank.");
+                    }
+                    if (name.isEmpty()) {
+                        etUsername.setError("This field cannot be blank");
+                    }
+                    if (password.isEmpty()) {
+                        etPassword.setError("This field cannot be blank");
+                    }
+                    if (email.isEmpty()) {
+                        etEmail.setError("This field cannot be blank");
+                    }
+                    if (address.isEmpty()) {
+                        etAddress.setError("This field cannot be blank");
+                    }
                 }
-                else if (!isEmailValid(email)) {
-                    Toast.makeText(RegisterActivity.this, "Make sure your email meets the requirement"
-                            , Toast.LENGTH_LONG).show();
-                }
-                else if (!isPasswordValid(password)) {
-                    Toast.makeText(RegisterActivity.this, "Make sure your password meets the requirement"
-                            , Toast.LENGTH_LONG).show();
-                } else if (!isUserIdValid(id)) {
-                    Toast.makeText(RegisterActivity.this, "Make sure your user ID meets the requirement"
-                            , Toast.LENGTH_LONG).show();
-                } else if (!isHomeAddressValid(address)) {
-                    Toast.makeText(RegisterActivity.this, "Make sure you typed in your Address correctly."
-                            , Toast.LENGTH_LONG).show();
+                else if (!isUserIdValid(id) || !isPasswordValid(password) || !isEmailValid(email)
+                        || !(isHomeAddressValid(address))){
+                    if (!isEmailValid(email)) {
+                        etEmail.setError("Please enter a valid email");
+                    }
+                    if (!isPasswordValid(password)) {
+                        etPassword.setError("Your password must be between 8 & 14 characters and contain \n" +
+                                "     * at least 1 digit\n" +
+                                "     * at least 1 Uppercase Letter\n" +
+                                "     * at least 1 Lowercase Letter");
+                    }
+                    if (!isUserIdValid(id)) {
+                        etId.setError("Your ID must be between 8-20 characters long\n" +
+                                "     * May contain no _ or .\n");
+                    }
+                    if (!isHomeAddressValid(address)) {
+                        etAddress.setError("Make sure you typed in your Address correctly.");
+                    }
                 }
                 else {
                     HashMap<String, String> postData = new HashMap<>();

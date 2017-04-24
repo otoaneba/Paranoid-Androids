@@ -42,17 +42,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="CS2340 Water App">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".WelcomeActivity"
-            android:label="@string/title_activity_welcome_screen"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme"
+            android:label="Main Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -80,12 +71,12 @@
 
         <activity
             android:name=".ViewReportActivity"
-            android:label="CS2340 Water App"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Water Purity Reports"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ShowReportActivity"
-            android:label="CS2340 Water App"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Purity Report"
+            android:theme="@style/AppTheme" />
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
@@ -95,7 +86,7 @@
         <activity
             android:name=".CreateReportActivity"
             android:label="@string/title_activity_create_report"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
 
             <!-- android:theme="@style/AppTheme.NoActionBar"> -->
         </activity>
@@ -129,21 +120,21 @@
         <activity
             android:name=".CreateSourceReportActivity"
             android:label="@string/title_activity_create_source_report"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".PickSourceReportLocationActivity"
             android:label="@string/title_activity_pick_source_report_location" />
         <activity
             android:name=".ViewSourceReportActivity"
-            android:label="Source Reports"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Water Source Reports"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ViewSourceReportsLocationActivity"
             android:label="@string/title_activity_view_source_reports_location" />
         <activity
             android:name=".ShowSourceReportActivity"
-            android:label="Source Report Activity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Source Report"
+            android:theme="@style/AppTheme" />
         <activity android:name="com.example.olivia.myapplication.model.RetrievePurityReportData" />
         <activity android:name="com.example.olivia.myapplication.model.RetrieveSourceReportData" />
         <activity android:name="com.example.olivia.myapplication.model.RetrieveUserData" />

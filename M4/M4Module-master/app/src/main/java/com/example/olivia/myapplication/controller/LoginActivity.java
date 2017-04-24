@@ -1,10 +1,8 @@
 package com.example.olivia.myapplication.controller;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -16,8 +14,6 @@ import android.widget.Toast;
 import com.example.olivia.myapplication.model.User;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
-
-import org.apache.tools.ant.util.regexp.Regexp;
 
 import java.util.HashMap;
 
@@ -42,11 +38,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_new);
+        setContentView(R.layout.activity_login);
         // Set up the login form.
 
-        _username = (EditText) findViewById(R.id.username);
-        _password = (EditText) findViewById(R.id.password);
+        _username = (EditText) findViewById(R.id._username);
+        _password = (EditText) findViewById(R.id._password);
         Button _signOn = (Button) findViewById(R.id.loginButton);
         //Button _cancel = (Button) findViewById(R.id.login_cancel_button);
 
@@ -74,7 +70,9 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, output, Toast.LENGTH_LONG).show();
+//                            Toast.makeText(LoginActivity.this, output, Toast.LENGTH_LONG).show();
+                            _username.setError(output);
+                            _password.setError(output);
                         }
                     }
                 };
@@ -101,16 +99,6 @@ public class LoginActivity extends AppCompatActivity {
         ss.setSpan(clickableSpan, 0, ss.length() - 1, 0);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         textView.setText(ss);
-
-//        _cancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(),WelcomeActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-
     }
 }
 

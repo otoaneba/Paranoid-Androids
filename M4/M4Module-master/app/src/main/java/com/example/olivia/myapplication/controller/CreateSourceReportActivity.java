@@ -168,9 +168,6 @@ public class CreateSourceReportActivity extends AppCompatActivity {
      * @return true if valid inputs, false if invalid inputs
      */
     public boolean isValidLatLong(Double latitude, Double longitude) {
-        if (Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
-            return false;
-        }
-        return true;
+        return !(Math.abs(latitude) > 90 || Math.abs(longitude) > 180);
     }
 }

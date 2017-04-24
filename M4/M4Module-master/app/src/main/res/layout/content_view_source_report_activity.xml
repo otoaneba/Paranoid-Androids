@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/locationButton"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@mipmap/map_icon"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/addReport"
+        android:layout_marginRight="28dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="28dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addReport"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_marginRight="28dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/plus_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="28dp" />
+
     <ListView
-        android:id="@+id/report_list_source"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/Title_source"
-        android:layout_above="@+id/view_source_report_map_button" />
+        android:id="@+id/report_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
-    <TextView
-        android:id="@+id/Title_source"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:text="@string/water_source_reports"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/cancel_report_source"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp"
-        android:text="@string/cancel" />
-
-    <Button
-        android:id="@+id/view_source_report_map_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/view_map"
-        android:layout_above="@+id/cancel_report_source"
-        android:layout_alignRight="@+id/cancel_report_source"
-        android:layout_alignEnd="@+id/cancel_report_source" />
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

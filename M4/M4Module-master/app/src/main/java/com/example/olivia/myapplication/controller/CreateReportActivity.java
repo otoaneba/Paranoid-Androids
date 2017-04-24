@@ -46,11 +46,7 @@ public class CreateReportActivity extends AppCompatActivity {
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
-        if (date == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return date != null;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
