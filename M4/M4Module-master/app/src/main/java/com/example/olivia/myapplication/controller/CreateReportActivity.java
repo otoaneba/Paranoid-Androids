@@ -210,6 +210,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     Intent intent = new Intent(CreateReportActivity.this, ExistedLocationActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);
+                    finish();
                 }
         });
     }

@@ -47,6 +47,9 @@ public class ExistedLocationActivity extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ExistedLocationActivity.this, CreateReportActivity.class);
+                intent.putExtra("user",user);
+                startActivity(intent);
                 finish();
             }
         });
